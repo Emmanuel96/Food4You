@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121124308-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-121124308-1');
+        </script>
+
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -328,28 +340,6 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" style = "background-color: #fff; ">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Who We Are</h2>
-                    <h3 class="section-subheading text-muted"></h3>
-                </div>
-			</div>
-		<div class="row">
-			<div style="color:black; text-align:center;" class="col-sm-12">
-				<p>
-					Food4You is a student founded and managed company that aims to solve one problem: how to connect all of the great food available in Buckingham, with members of the community, in a way that is intuitive and simple. </p>
-                    <p>For the Buckingham community, Food4You provides a convenient way to view menus, order food, and make payments from a single online platform.</p>
-<p>For vendors, Food4You enables you to easily upload dishes, manage your menu, receive orders via free text or email alert, receive payments withhout hassle, and get monthly analytics updates so you can monitor your success through the platform!</p>
-			</div>
-		</div>
-            </div>
-			
-        </div>
-    </section>
-
   
 	 <section id="services" style = "background-color: #fff">
         <div class="container">
@@ -365,24 +355,24 @@
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">About Food4You</h4>
-                    <p class="text-muted">Food4You is a student founded and managed company that aims to solve one problem: how to connect all of the great food available in Buckingham, with members of the community, in a way that is intuitive and simple.</p>
+                    <h4 class="service-heading">Online Order</h4>
+                    <p class="text-muted">Find your favorite restaurant on Foo4You and place an order with our automated ordering platform.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Secure Online Payment</h4>
+                    <p class="text-muted">No need to leave your house. Stay at home, <b>make payemnt via your credit card online securely.</b> And just sit back, you will be served in time.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-truck fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Order From Your Favorite Restaurant     </h4>
-                    <p class="text-muted">We allow you to find a variety of restaurants availabe and we also allow you make your payments online without with either your Pc's or mobile device and the food will be delivered to you at the allocated time.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-cutlery fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Food variety</h4>
-                    <p class="text-muted">With our variety of restaurants, you are allowed the chance to select from a variety of food choice, ranging from Nigerian to British</p>
+                    <h4 class="service-heading">Delivery</h4>
+                    <p class="text-muted">You don't have to worry about leaving your house or office. We will delivery it directly to you within a specified time space.</p>
                 </div>
             </div>
         </div>
