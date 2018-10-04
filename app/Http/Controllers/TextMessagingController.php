@@ -28,7 +28,6 @@ class TextMessagingController extends Controller
 
     public function SendMessages()
     {
-
        $notificationTest = notificationTest::all(); 
 
        foreach($notificationTest as $user)
