@@ -17,10 +17,12 @@ use Illuminate\Support\Facades\Auth;
 use Stripe\Stripe;
 use Illuminate\Support\Facades\Mail;
 use Paystack; 
+use Illuminate\Support\Facades\Log;
 
 class CheckoutController extends Controller
 {
     public function displayCheckout(){
+        Log::info('I got here');
         if(!Session::has('cart'))
         {
             return view('cartViews.cart');
