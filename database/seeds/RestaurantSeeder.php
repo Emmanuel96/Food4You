@@ -92,6 +92,26 @@ class RestaurantSeeder extends Seeder
                  'restaurant_phone_number' => '+2347037699184'
             ]);
 
+            DB::table('user')->insert([
+                'user_name' => 'Vernacular',
+                'email' => '',
+                'password' => app('hash')->make('vernacular'), 
+                'user_role' => 3, 
+                'user_address' => 'No 8b Amodu Ojikutu St VI', 
+                'user_phone_number' => '+2348029255138'
+            ]);
+
+            DB::table('restaurants')->insert([
+                'restaurant_name' => 'Vernacular',
+                'restaurant_id' => 7, 
+                'restaurant_status' => 1,
+                'restaurant_image' => 'eat_is_greek_logo.jpg', 
+                'restaurant_opening_times' => '8:00', 
+                'restaurant_minimum_order' => '₦100', 
+                'restaurant_delivery_fee' => 'DELIVERY ONLY',
+                 'restaurant_phone_number' => '+2348029255138'
+            ]);
+
        //  DB::table('user')->insert([
        //      'user_name' => 'Taco Food Van 3',
        //      'email' => 'Taco@gmail.com',

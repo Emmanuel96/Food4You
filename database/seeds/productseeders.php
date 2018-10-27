@@ -133,6 +133,7 @@ class productseeders extends Seeder
                                     'product_has_extra' => 0
                                     //sdfad
                                     ]);
+
               DB::table('menu')->insert([
                                     'product_name'=> 'English Tea',
                                     'product_description' => 'English Tea', 
@@ -825,4 +826,266 @@ class productseeders extends Seeder
             'restaurant_id' => 6
    
    ]);
+                //Product seeder for vernacular
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'White Yam with Egg Sauce (2 Pcs of Yam)',
+                  'product_description' => '', 
+                  'product_price' => 300,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'yam_with_egg.jpg', 
+                  'restaurant_id' => 7
+    ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Egg Sauce',
+                  'product_description' => '', 
+                  'product_price' => 100,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'veg.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Boiled Plantain (3 Pcs)',
+                  'product_description' => '', 
+                  'product_price' => 300,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'boiled_plantain_1.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'White Beans',
+                  'product_description' => '', 
+                  'product_price' => 150,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'download.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Porridge Beans',
+                  'product_description' => '', 
+                  'product_price' => 200,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'images.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Boiled Egg',
+                  'product_description' => '', 
+                  'product_price' => 100,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'boiledegg.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Jollof Rice',
+                  'product_description' => '', 
+                  'product_price' => 150,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'jollofrice.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Fried Rice',
+                  'product_description' => '', 
+                  'product_price' => 150,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'jollofrice.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Coleslaw',
+                  'product_description' => '', 
+                  'product_price' => 100,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'coleslaw111.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Spaghetti',
+                  'product_description' => '', 
+                  'product_price' => 150,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'spaghetti.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Vegetable Soup',
+                  'product_description' => '', 
+                  'product_price' => 200,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'maxresdefault.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Okra Soup',
+                  'product_description' => '', 
+                  'product_price' => 200,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'okra.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Egusi Soup',
+                  'product_description' => '', 
+                  'product_price' => 200,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'egusi_soup.jpg', 
+                  'restaurant_id' => 7
+]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Afang Soup',
+                  'product_description' => '', 
+                  'product_price' => 200,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'afang.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Edikaikong',
+                  'product_description' => '', 
+                  'product_price' => 200,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'edikaikong-soup.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Semo (1 wrap)',
+                  'product_description' => '', 
+                  'product_price' => 150,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'semo.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Eba (1 wrap)',
+                  'product_description' => '', 
+                  'product_price' => 150,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'eba.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Chicken (Big)',
+                  'product_description' => '', 
+                  'product_price' => 500,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'chicken12.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Chicken (small)',
+                  'product_description' => '', 
+                  'product_price' => 300,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'chicken.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Beef',
+                  'product_description' => '', 
+                  'product_price' => 100,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'beef.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Kpomo',
+                  'product_description' => '', 
+                  'product_price' => 100,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'kpomo.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Gizzard',
+                  'product_description' => '', 
+                  'product_price' => 200,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'beef.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Assorted',
+                  'product_description' => '', 
+                  'product_price' => 100,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'Assorted.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Fried Fish',
+                  'product_description' => '', 
+                  'product_price' => 200,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'fish.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Boiled Fish',
+                  'product_description' => '', 
+                  'product_price' => 200,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'fish.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Coconut Rice',
+                  'product_description' => '', 
+                  'product_price' => 200,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'Coconut-Rice.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Moi Moi',
+                  'product_description' => '', 
+                  'product_price' => 150,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'moimoi.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Porridge Potatoes',
+                  'product_description' => '', 
+                  'product_price' => 300,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'images.jpg', 
+                  'restaurant_id' => 7
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name'=> 'Porridge Yam',
+                  'product_description' => '', 
+                  'product_price' => 300,
+                  'product_has_extra' => 0, 
+                  'product_image' => 'images.jpg', 
+                  'restaurant_id' => 7
+                ]);
           }}   
