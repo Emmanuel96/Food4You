@@ -35,7 +35,7 @@
 								@if($restaurant_status == 1)<a  class ="btn btn-primary" href="#" onclick = "openModalAndStoreId({{$m->product_id}})" >ADD TO CART <i class="fa fa-cart-plus"></i></a>@endif
 							</div>
 							<div class="w3-section">
-								<h3>Price: £{{$m->product_price}}</h3>
+								<h3>Price: ₦{{$m->product_price}}</h3>
 							</div>
 						</div>
 					</div>

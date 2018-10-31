@@ -30,7 +30,7 @@
 								<option>3</option>
 								<option>4</option>
 							</select>
-							<h3>Price: £43</h3>
+							<h3>Price: ₦43</h3>
 						</div>
 					</div>
 
@@ -56,7 +56,7 @@
 								<option>3</option>
 								<option>4</option>
 							</select>
-							<h3>Price: £43</h3>
+							<h3>Price: ₦43</h3>
 						</div>
 					</div>
 
@@ -82,7 +82,7 @@
 								<option>3</option>
 								<option>4</option>
 							</select>
-							<h3>Price: £43</h3>
+							<h3>Price: ₦43</h3>
 						</div>
 					</div>
 
@@ -110,7 +110,7 @@
 								<option>3</option>
 								<option>4</option>
 							</select>
-							<h3>Price: £43</h3>
+							<h3>Price: ₦43</h3>
 						</div>
 					</div>
 
@@ -136,7 +136,7 @@
 								<option>3</option>
 								<option>4</option>
 							</select>
-							<h3>Price: £43</h3>
+							<h3>Price: ₦43</h3>
 						</div>
 					</div>
 
@@ -162,7 +162,7 @@
 								<option>3</option>
 								<option>4</option>
 							</select>
-							<h3>Price: £43</h3>
+							<h3>Price: ₦43</h3>
 						</div>
 					</div>
 

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Food4You</title>
+    <title>Naija Bites</title>
 
     <link href="{{URL::asset('css/Chendu.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -36,7 +36,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{url('restaurants')}}" class="site_title"><i class="fa fa-paw"></i> <span>Food4You</span></a>
+              <a href="{{url('restaurants')}}" class="site_title"><i class="fa fa-paw"></i> <span>Naija Bites</span></a>
             </div>
 
             <div class="clearfix"></div>

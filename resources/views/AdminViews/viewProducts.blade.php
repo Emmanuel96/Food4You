@@ -44,7 +44,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="/restaurants" class="site_title"><i class="fa fa-paw"></i> <span>Food4You</span></a>
+              <a href="/restaurants" class="site_title"><i class="fa fa-paw"></i> <span>Naija Bites</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -221,7 +221,7 @@
                               <td><img class="responsive-img mx-auto" width ="30px" height="30px" src = "/storage/images/{{$product->product_image}}"/></td>
                               <td>{{$product->product_name}}</td>
                               <td>{{$product->product_description}}</td>
-                              <td>£{{$product->product_price}}</td>
+                              <td>₦{{$product->product_price}}</td>
                               <td ><a id = "inOutStockLink{{$product->product_id}}" onclick = "inOutOfStock( {{$product->product_id}})"  @if($product->inStock != 0) class = "btn btn-primary">In Stock</a> @else class = "btn btn-danger"> Out Of Stock </a> @endif </td>
                             </tr>
                           @endforeach

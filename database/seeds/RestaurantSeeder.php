@@ -55,7 +55,7 @@ class RestaurantSeeder extends Seeder
             DB::table('restaurants')->insert([
                 'restaurant_name' => 'Simply Delicious',
                 'restaurant_id' => 5, 
-                'restaurant_status' => 1,
+                'restaurant_status' => 0,
                 'restaurant_image' => 'eat_is_greek_logo.jpg', 
                 'restaurant_opening_times' => '9:40', 
                 'restaurant_minimum_order' => '₦500', 
@@ -84,7 +84,7 @@ class RestaurantSeeder extends Seeder
             DB::table('restaurants')->insert([
                 'restaurant_name' => 'KTM',
                 'restaurant_id' => 6, 
-                'restaurant_status' => 1,
+                'restaurant_status' => 0,
                 'restaurant_image' => 'eat_is_greek_logo.jpg', 
                 'restaurant_opening_times' => '9:40', 
                 'restaurant_minimum_order' => '₦500', 
@@ -104,7 +104,7 @@ class RestaurantSeeder extends Seeder
             DB::table('restaurants')->insert([
                 'restaurant_name' => 'Vernacular',
                 'restaurant_id' => 7, 
-                'restaurant_status' => 1,
+                'restaurant_status' => 0,
                 'restaurant_image' => 'eat_is_greek_logo.jpg', 
                 'restaurant_opening_times' => '8:00', 
                 'restaurant_minimum_order' => '₦100', 

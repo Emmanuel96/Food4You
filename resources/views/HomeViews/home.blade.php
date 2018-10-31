@@ -20,7 +20,7 @@
         <meta name="author" content="">
 
 
-        <title>Food4You</title>
+        <title>Naija Bites</title>
 
 
 
@@ -286,7 +286,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> LOGIN <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Food4You</a>
+                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Naija Bites</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -333,7 +333,7 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Food4You</div>
+                <div class="intro-lead-in">Welcome To Naija Bites</div>
                 <div class="intro-heading">We Want To Feed You</div>
                 <a href="/restaurants" class="btn btn-xl" style="margin-bottom: 30px; ">VIEW RESTAURANTS</a>
             </div>
@@ -427,7 +427,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; TheFood4You 2017</span>
+                    <span class="copyright">Copyright &copy; Naija Bites 2017</span>
                 </div>
                 <div class="col-md-3">
                     <ul class="list-inline social-buttons">

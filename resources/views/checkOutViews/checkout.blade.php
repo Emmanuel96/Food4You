@@ -18,7 +18,7 @@
         <meta name="author" content="">
 
 
-        <title>Food4You</title>
+        <title>Naija Bites</title>
 
 
 
@@ -337,7 +337,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> LOGIN <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Food4You</a>
+                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Naija Bites</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -548,7 +548,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <i class="copyright">Copyright &copy; TheFood4You 2017</i>
+                    <i class="copyright">Copyright &copy; Naija Bites 2017</i>
                 </div>
                 <div class="col-md-3">
                     <ul class="list-inline social-buttons">
