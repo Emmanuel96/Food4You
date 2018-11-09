@@ -18,7 +18,7 @@ class RestaurantSeeder extends Seeder
             'password' => app('hash')->make('taco'), 
             'user_role' => 3, 
             'user_address' => '128 Bateman House', 
-            'user_phone_number' => '+447598654343'
+            'user_phone_number' => '+447598654342'
         ]);
 
        DB::table('restaurants')->insert([
