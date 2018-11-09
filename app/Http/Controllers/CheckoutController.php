@@ -84,7 +84,6 @@ class CheckoutController extends Controller
             }
         } 
         return Paystack::getAuthorizationUrl()->redirectNow();
-
     }
 
 
