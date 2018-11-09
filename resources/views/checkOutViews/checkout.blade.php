@@ -411,7 +411,7 @@
                            {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name"  placeholder="Emmanuel Audu " required="true">
+                                <input type="text" class="form-control" id="name" name="name"  placeholder="Emmanuel Adakole Audu " required="true">
                             </div>
 
                             <div class="form-group">
