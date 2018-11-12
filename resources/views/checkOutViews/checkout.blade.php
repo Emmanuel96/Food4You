@@ -408,36 +408,36 @@
                     <div class= "panel-body">
                          <form style = "background-color:#fff; height: auto;   padding: 40px; padding-top: 20px;"  action=" {{route('pay')}}" method="post">
                          
-                           {{ csrf_field() }}
-                            <div class="form-group">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name"  placeholder="Emmanuel Adakole Audu " required="true">
-                            </div>
+                            {{ csrf_field() }}
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name"  placeholder="Emmanuel Adakole Audu " required="true">
+                                </div>
 
-                            <div class="form-group">
-                              <label for="email" class="form-label">Email</label>
-                              <input type="email" class="form-control" id="email" name="email" placeholder="adu@gmail.com" required="true">         
-                            </div>
+                                <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="adu@gmail.com" required="true">         
+                                </div>
 
-                            <div class="form-group">
-                              <label for="phone_number" class="form-label">Phone No</label>
-                              <input type="text" class="form-control" id="phone-number" name="phone" placeholder="07037699184" required="true">
-                            </div>
-                            <div class="form-group">
-                              <label for="address" class="form-label">Address #1</label>
-                              <input type = "Address Line #1" class="form-control" id="address" required="true" rows="5" name="address"></textarea>
-                            </div>   
-                            <div class="form-group text-center">
-                              <button type = "submit" class = "btn btn-primary" >
-                                PAYMENT  <i class = "fa fa-lock"> </i>
-                              </button>
-                            </div>   
-                              <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
-                              <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}"> {{-- required --}}
-                                {{ csrf_field() }} {{-- works only when using laravel 5.1, 5.2 --}}
+                                <div class="form-group">
+                                <label for="phone_number" class="form-label">Phone No</label>
+                                <input type="text" class="form-control" id="phone-number" name="phone" placeholder="07037699184" required="true">
+                                </div>
+                                <div class="form-group">
+                                <label for="address" class="form-label">Address #1</label>
+                                <input type = "Address Line #1" class="form-control" id="address" required="true" rows="5" name="address"></textarea>
+                                </div>   
+                                <div class="form-group text-center">
+                                <button type = "submit" class = "btn btn-primary" >
+                                    PAYMENT  <i class = "fa fa-lock"> </i>
+                                </button>
+                                </div>   
+                                <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
+                                <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}"> {{-- required --}}
+                                    {{ csrf_field() }} 
 
-                              <input type="hidden" name="_token" value="{{ csrf_token() }}"> {{-- employ this in place of csrf_field only in laravel 5.0 --}}
-                              <input type = "hidden" name = "amount" value = "{{$totalPrice}}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}"> {{-- employ this in place of csrf_field only in laravel 5.0 --}}
+                                <input type = "hidden" name = "amount" value = "{{$totalPrice * 100}}">
                         </form>
                     </div>
                 </div>
