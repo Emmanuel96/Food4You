@@ -27,7 +27,7 @@ class RestaurantSeeder extends Seeder
                 'restaurant_id' => 3, 
                 'restaurant_image' => 'taco_van_logo.jpg', 
                 'restaurant_opening_times' => '9:40', 
-                'restaurant_minimum_order' => '£5', 
+                'restaurant_minimum_order' => '£5',     
                 'restaurant_delivery_fee' => 'COLLECTION ONLY',
                  'restaurant_phone_number' => '+447903065903'
             ]);

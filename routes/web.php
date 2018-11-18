@@ -45,6 +45,12 @@ Route::get('/admin/viewOrders/{slug?}', 'AdminController@viewOrderProducts')->na
 Route::post('/admin/InOutOfStock', 'AdminController@InOutOfStock')->name('admin.inOutOfStock');
 Route::post('/admin/notifyCustomerOfOrder', 'AdminController@notifyCustomers')->name('admin.notifyCustomerOfOrder');  
 
+Route::get('/product_image/{filename}',[
+	'uses' => 'AdminController@upload',
+	'as' => 'product.image'
+]);
+
+//Route::match(['get','post'],'/admin/add-category','categoryController@addCategory');
 
 Auth::routes();
 
