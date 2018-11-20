@@ -16,7 +16,10 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category_name');
-            $table->string('restaurant_id');
+            $table->integer('restaurant_id')->default(0);
+
+            //$table->foreign('restaurant_id')->references('restaurant_id')->on('restaurants');
+
             $table->timestamps();
         });
     }

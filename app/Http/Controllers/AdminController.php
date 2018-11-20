@@ -8,6 +8,7 @@ use App\Cart;
 use DB; 
 use App\order; 
 use App\Restaurants; 
+use App\Category;
 use Illuminate\Notifications\Notification;
 use Session; 
 use Illuminate\Support\Facades\Input;
@@ -42,28 +43,25 @@ class AdminController extends Controller
 		//FIRSTLY, WE CREATE THE PRODUCT AND STORE IT IN THE MENU TABLE 
 		$menu = menu::create([
 			'product_name'=> $request->product_name, 
-			'product_description' => $request->product_description, 
+			'product_description' => $request->input('product_description'), 
 			'product_price' => $request->product_price,
+			'category' => $request->categoy,
 			'product_image'=> $request->product_image->getClientOriginalName(),
-			
 			'restaurant_id' => $user->id
 			]);
+
+			//$category = Category::create(['category_name' => $request->input('category_name')]);
 
 		//STORING THE IMAGE 
 
 		//$imageName = $request->product_image->getClientOriginalName();
 		//$file = $request->file('product_image')->storeAs('images',$imageName);
 	
-		//$post = new Post;
-		//if($request->hasFile('product_image'))
-		//{
-			//$post->img = $fileNameToStore;
-		//}
-		//$post->save();
 
 		return view('AdminViews.addProduct');
 
 		}	
+
 
 		public function Upload(Request $request)
     	{

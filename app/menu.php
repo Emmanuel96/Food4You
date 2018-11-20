@@ -18,4 +18,10 @@ class menu extends Model
     {
     	return $this->belongsTo('App\Restaurants', 'restaurant_id', 'restaurant_id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo('App\category');
+    }
+
 }
