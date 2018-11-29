@@ -65,8 +65,7 @@
                     <ul class="nav child_menu">
                      <li><a href = "viewOrders">View Orders</a></li>
                     </ul>
-                  </li>
-       
+                  </li>   
                 </ul>
               </div>
             </div>
@@ -117,13 +116,6 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
                     <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
@@ -213,6 +205,7 @@
                           <th>Product Description</th>
                           <th>Product Price</th>
                           <th>Category</th>
+                          <th>Edit</th>
                           <th>Stock</th>
                         </tr>
                       </thead>
@@ -223,7 +216,8 @@
                               <td>{{$product->product_name}}</td>
                               <td>{{$product->product_description}}</td>
                               <td>₦{{$product->product_price}}</td>
-                              <td>{{$product->Category}}</td>
+                              <td>{{$product->category}}</td>
+                              <td><a href="{{ url('admin/editProduct')}}/{{ $product->product_id }}" class ="btn btn-primary">Edit</a></td>
                               <td ><a id = "inOutStockLink{{$product->product_id}}" onclick = "inOutOfStock( {{$product->product_id}})"  @if($product->inStock != 0) class = "btn btn-primary">In Stock</a> @else class = "btn btn-danger"> Out Of Stock </a> @endif </td>
                             </tr>
                           @endforeach
@@ -235,18 +229,12 @@
                  {{ $products->links() }}
               </div>
 
-                  </div>
-                </div
-            </div>
-
-          </div>
-        </div>
         <!-- /page content -->
 
         <!-- footer content -->
         <<footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          <div class="">
+          <a href="#"></a>
           </div>
           <div class="clearfix"></div>
         </footer>

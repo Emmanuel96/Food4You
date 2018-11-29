@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.header')
 
 @section('content')
 
-<div class="container">
+<div class="container" style="margin-top:100px; margin-bottom:100px;">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 mx-auto">
             <div class="card card-default">
@@ -102,5 +102,32 @@
             </div>
         </div>
     </div>
+   
 </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="copyright">Copyright &copy; Naija Bites 2017</span>
+            </div>
+            <div class="col-md-3">
+                <ul class="list-inline social-buttons">
+                    <li><a href="#"><i class="fa fa-wechat"></i></a>
+                    </li>
+                    <li><a href="https://login.yahoo.com/?.src=ym&.intl=us&.lang=en-US&.done=https%3a//mail.yahoo.com"><i class="fa fa-weibo"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                    <li><a href="#">Privacy Policy</a>
+                    </li>
+                    <li><a href="#">Terms of Use</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 @endsection
+
