@@ -15,7 +15,7 @@ class Restaurants extends Migration
     {
         Schema::create('restaurants', function(BluePrint $table)
         {
-            $table->integer('restaurant_id'); 
+            $table->integer('restaurant_id')->default(0); 
             $table->primary('restaurant_id');
             $table->string('restaurant_name'); 
             $table->string('restaurant_image'); 

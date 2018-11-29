@@ -18,6 +18,7 @@ class productseeders extends Seeder
         	'product_price' => 5,
         	'product_image' => 'taco.jpg',
           'restaurant_id' => 3
+          
         	]);
         DB::table('menu')->insert([
             'product_name'=> 'Nanchos With Cheese',
@@ -191,7 +192,7 @@ class productseeders extends Seeder
                                     'product_has_extra' => 0
                                     ]);
 
- DB::table('menu')->insert([
+              DB::table('menu')->insert([
                                     'product_name'=> 'Loux Orange',
                                     'product_description' => 'Fizzy Drinks', 
                                     'product_price' => 1,
@@ -199,7 +200,7 @@ class productseeders extends Seeder
                                     'restaurant_id' => 5,
                                     'product_has_extra' => 0
                                     ]);
- DB::table('menu')->insert([
+        DB::table('menu')->insert([
             'product_name'=> 'Jollof rice',
             'product_description' => '', 
             'product_price' => 45,

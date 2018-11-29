@@ -430,6 +430,7 @@ class ComposerStaticInit1c7e3ddeb1ed062559a3b779e75ca0f8
 
     public static $classMap = array (
         'App\\Cart' => __DIR__ . '/../..' . '/app/cart.php',
+        'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
@@ -474,6 +475,7 @@ class ComposerStaticInit1c7e3ddeb1ed062559a3b779e75ca0f8
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'CategoryMenu' => __DIR__ . '/../..' . '/database/migrations/2017_10_25_162751_category_menu.php',
+        'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2018_11_16_120015_create_categories_table.php',
         'CreateContentsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_17_040921_create_contents_table.php',
         'CreateExtrasItemTable' => __DIR__ . '/../..' . '/database/migrations/2018_06_11_203840_create_extras_item_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',

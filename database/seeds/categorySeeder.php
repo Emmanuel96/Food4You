@@ -12,5 +12,10 @@ class categorySeeder extends Seeder
     public function run()
     {
         //
+        
+        DB::table('categories')->insert([
+           'category_name' => 'drinks',
+            'restaurant_id' => 3
+        ]);
     }
 }
