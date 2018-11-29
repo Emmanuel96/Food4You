@@ -214,14 +214,14 @@
                             <td class="text-center"><a href= "viewOrders/{{$order->order_slug}}" class="btn btn-primary" >View Products</a>
                           </tr>
                         @endforeach
-                        <tr>
+                        <!-- <tr>
                           <td>Emmanuel Audu</td>
                           <td>07023085960</td>
                           <td class="text-center">128 Bateman House Verney Park</td>
                           <td class = "text-center"><a href= "#"> <b> 17/09/2017 </b> </a></td>
                           <td class="text-center"><a href="#" class= "label label-primary">Delivered</a></td>
                           <td class="text-center"><a href= "viewOrders/slug" class="btn btn-primary" >View Products</a>
-                        </tr>
+                        </tr> -->
                       </thead>
                       <tbody>
                     

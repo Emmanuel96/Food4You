@@ -165,7 +165,7 @@ class AdminController extends Controller
 		$orderID = $request->id; 
 		$order = order::where('order_id','=', $orderID)->first();
 		 
-		//change the status of the order to ready 
+		//change the status of the order to re==ady 
 		$order->delivery_status = 1; 
 
 		//save changes to the order DB

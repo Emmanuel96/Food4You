@@ -29,6 +29,7 @@ class CheckoutController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
+        // return $cart->totalPrice; 
         return view('checkOutViews.checkout',['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
@@ -58,11 +59,14 @@ class CheckoutController extends Controller
         //find the order from the order table 
         $orders = order::where('order_slug','=', $orders->order_slug)->first(); 
 
+        //save order slug on session 
+        session(['order_slug'=> $orders->order_slug]);
+
         //store all the products in the order in the order products table
         //firstly get all the products fromt the cart
         $cart =  Session::has('cart')? Session::get('cart'):null;
 
-        //if a cart exists 
+        // if a cart exists 
         if($cart)
         {
 
@@ -84,6 +88,7 @@ class CheckoutController extends Controller
             }
         } 
         return Paystack::getAuthorizationUrl()->redirectNow();
+
     }
 
 
@@ -91,7 +96,9 @@ class CheckoutController extends Controller
     {
         $paymentDetails = Paystack::getPaymentData();
 
-        // dd($paymentDetails);
+        // echo $paymentDetails['status']; 
+
+        // dd($paymentDetails); return;
 
 
         // Now you have the payment details,
@@ -108,8 +115,24 @@ class CheckoutController extends Controller
        // Mail::to('emmanuel.audu1@aun.edu.ng')->send(new OrderConfirmation()); 
 
         //send text message to user confirming order 
-        $orders->notify(new OrderConfirmed($orders->payment_ref));
+        // $orders->notify(new OrderConfirmed($orders->payment_ref));
 
+        // echo session::get('order_slug'); 
+
+        //get order with this order slug 
+        $orders = order::where('order_slug','=', session::get('order_slug'))->first(); 
+        
+        //if payment was successful then order status = 1
+        if($paymentDetails['status'] ==1)
+        {
+            $orders->order_status = 1; 
+        }
+        else{
+            $orders->order_status = -1; 
+        }
+
+
+        //else order status = -1
 
         //SEND A TEXT MESSAGE TO ME WHEN IT'S READY 
         $user = User::where('email','admin@gmail.com')->first(); 
