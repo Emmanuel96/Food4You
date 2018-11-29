@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Cart' => $baseDir . '/app/cart.php',
+    'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
@@ -51,6 +52,7 @@ return array(
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
     'Carbon\\Translator' => $vendorDir . '/nesbot/carbon/src/Carbon/Translator.php',
     'CategoryMenu' => $baseDir . '/database/migrations/2017_10_25_162751_category_menu.php',
+    'CreateCategoriesTable' => $baseDir . '/database/migrations/2018_11_16_120015_create_categories_table.php',
     'CreateContentsTable' => $baseDir . '/database/migrations/2017_06_17_040921_create_contents_table.php',
     'CreateExtrasItemTable' => $baseDir . '/database/migrations/2018_06_11_203840_create_extras_item_table.php',
     'Cron\\AbstractField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',

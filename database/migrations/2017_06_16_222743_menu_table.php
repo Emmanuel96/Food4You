@@ -16,11 +16,12 @@ class MenuTable extends Migration
         Schema::create('menu', function (Blueprint $table) {
             $table->increments('product_id');
             $table->string('product_name');
-            $table->string('product_description', 10000);
+            $table->text('product_description', 10000);
             $table->boolean('product_has_extra')->default(1);
             $table->float('product_price');
             $table->string('product_image');
             $table->integer('restaurant_id');
+            $table->string('category')->nullable();
             $table->boolean('inStock')->default(1); 
             $table->timestamps();
         });

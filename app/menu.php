@@ -11,11 +11,17 @@ class menu extends Model
     protected $primaryKey = 'product_id';
 
     protected $fillable = [
-        'product_name', 'product_description', 'product_price','product_image','inStock','restaurant_id'
+        'product_name', 'product_description', 'product_price','product_image','inStock','restaurant_id', 'category'
     ];
 
     public function restaurants()
     {
     	return $this->belongsTo('App\Restaurants', 'restaurant_id', 'restaurant_id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo('App\category');
+    }
+
 }

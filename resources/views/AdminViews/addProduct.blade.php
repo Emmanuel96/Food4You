@@ -175,10 +175,10 @@
                   <div class="x_title">
                     <h2></h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      <li><a class="collapse-link"><i class="#"></i></a>
                       </li>
                       <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="#"></i></a>
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="#">Settings 1</a>
                           </li>
@@ -202,21 +202,26 @@
                           <input type="text" id="first-name" name="product_name" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="last-name">Product Description<span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="product-description"  name="product_description" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
+                   
                       <div class="form-group">
                         <label for="price" required="required" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text">
                         </div>
-                      </div>
-
+                      </div>  
                       <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">Category <span class="required">*</span></label>
+                          <div class="col-md-6 col-sm-6 col-xs-12"> 
+                            <select name="category" id="inlineFormCustomSelect" class="form-control col-md-7 col-xs-12">
+                                <option selected>Select Category...</option>
+                                <option value="1">New Category</option>
+                                <option value="2">Drinks</option>
+                                
+                            </select>
+                          </div>
+                         </div>
+
+                      {{-- <div class="form-group">
                         <label for="price" required="required" class="control-label col-md-3 col-sm-3 col-xs-12">Has Extra<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class = "form-control" onchange = "hasExtra()">
@@ -236,7 +241,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> --}}
 
                       <div class="form-group">
                         <label for="middle-name" required="required" class="control-label col-md-3 col-sm-3 col-xs-12">Image<span class="required">*</span></label>
@@ -244,6 +249,13 @@
                           <input id="product-image" class="form-control col-md-7 col-xs-12" type="file" name="product_image">
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="last-name">Product Description<span class="required">*</span></label>
+                          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-0">
+                            <textarea name="product_description" id="product-description" cols="30" rows="10"></textarea>
+                        </div>
+                      </div>
+                      
 					  <div class="form-group">
                       </div>
                       <div class="ln_solid"></div>

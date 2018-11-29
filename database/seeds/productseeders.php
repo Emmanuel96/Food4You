@@ -18,6 +18,7 @@ class productseeders extends Seeder
         	'product_price' => 5,
         	'product_image' => 'taco.jpg',
           'restaurant_id' => 3
+          
         	]);
         DB::table('menu')->insert([
             'product_name'=> 'Nanchos With Cheese',
