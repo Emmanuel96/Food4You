@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121124308-1"></script>
         <script>
@@ -11,7 +10,6 @@
 
             gtag('config', 'UA-121124308-1');
         </script>
-
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,11 +76,15 @@
                 color: rgb(111, 111, 111);
                 padding: 20px 30px;
             }
-
+ 			.restaurantCards
+            {
+                width: 60%; 
+                margin-bottom: 40px;
+            }
            
             body
             {
-                background-color: #eee;
+                background-color: #fff;
                 margin:0; 
                 padding: 0; 
             }
@@ -111,7 +113,10 @@
             }
             .restaurantCards
             {
-                width: 60%; 
+            	background-color: white; 
+                width: 100%; 
+                height: auto; 
+                padding: 0px; 
                 margin-bottom: 40px;
             }
 
@@ -129,7 +134,6 @@
 
             @media screen and (max-width: 414px)
             {
-
                 #restaurant_info
                 {
                     width: 100% !important;
@@ -169,12 +173,12 @@
                     margin-left: auto !important;
                     margin-right: auto !important;
                 }
-                #category_nav.affix
-                  {
-                    top: 51px;
-                    width: 100%;
-                    z-index: 1; 
-                  }
+                #category_nav_restaurants.affix
+              {
+                top: 51px;
+                width: 100%;
+                z-index: 1; 
+              }
 
                 .nav
                 {
@@ -207,6 +211,11 @@
 
             @media screen and (max-width: 768px)
             {
+				.nav>li>a {
+					position: relative;
+					display: block;
+					padding-left: 1000px;
+				}
                 .navbar-toggle
                 {
                     margin-right: 30px; 
@@ -279,12 +288,12 @@
    <body id="page-top" class="index">
 
     <!-- Navigation -->
-    <nav style="background-color:#fff;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <nav style="background-color:00000;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> LOGIN <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Naija Bites</a>
             </div>
@@ -296,14 +305,14 @@
                             <li class = "nav-item"> <a class="nav-link btn btn-primary disabled" href="/login" style="color: black; text-transform: none; ">Sign in</a></li>
                             <li class = "nav-item"> <a class="nav-link btn btn-primary disabled" href="/register" style="border-color:#fed136; background-color: transparent; margin-left: 10px; color: black; text-transform: none; ">Register</a></li>
                         @else
-                            <li style = "color:black;" class=" nav-item dropdown">
+                            <li class=" nav-item dropdown" style = "color:black;">
                                 <a style = "color:black;" href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->user_name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li style = "color:black;" class="nav-item">
-                                        <a style = "color:black;" class="nav-link" href="{{ route('logout') }}"
+                                    <li class="nav-item">
+                                        <a style="color:black;" class="nav-link" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
@@ -317,145 +326,25 @@
                                         <li class = "nav-item">
                                             <a style = "color:black;" class="nav-link" href="{{route('admin.viewProducts')}}">
                                                 Dashboard
-                                            </a>
-
+                                        </a>
                                     @endif
                                 </ul>
                             </li>
                         @endif
                 </ul>
             </div>
+
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
+        <!-- /.container-fluid -->							
     </nav>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Naija Bites</div>
-                <div class="intro-heading">We Want To Feed You</div>
-                <a href="/restaurants" class="btn btn-xl" style="margin-bottom: 30px; ">VIEW RESTAURANTS</a>
-            </div>
-        </div>
-    </header>
 
-  
-	 <section id="services" style = "background-color: #fff">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">WHAT WE DO</h2>
-                    <h3 class="section-subheading text-muted">We are here to provide the following services just for you</h3>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Online Order</h4>
-                    <p class="text-muted">Find your favorite restaurant on Naija Bites and place an order with our automated ordering platform.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Secure Online Payment</h4>
-                    <p class="text-muted">No need to leave your house. Stay at home, <b>make payemnt via your credit card online securely.</b> And just sit back, you will be served in time.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-truck fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Delivery</h4>
-                    <p class="text-muted">You don't have to worry about leaving your house or office. We will delivery it directly to you within a specified time space.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-	
-    <!-- Contact Section -->
-    <section id=contact>
-        <div class=container>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Send us an enquiry and we will get back to you</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name*" id="name" required data-validation-required-message="Please enter your name.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email*" id="email" required data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone*" id="phone" required data-validation-required-message="Please enter your phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message*" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">SEND</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div>
+        @yield('content')
+    </div>
+    </div>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Naija Bites 2017</span>
-                </div>
-                <div class="col-md-3">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-wechat"></i></a>
-                        </li>
-						<li><a href="https://login.yahoo.com/?.src=ym&.intl=us&.lang=en-US&.done=https%3a//mail.yahoo.com"><i class="fa fa-weibo"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Portfolio Modals -->
-    <!-- Use the modals below to showcase details about your portfolio projects! -->
-    <script src="{{URL::asset('js/jquery.js')}}"></script>
-    <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-    <script src ="{{URL::asset('js/agency.js')}}" ></script>
-    <script src ="{{URL::asset('js/contact_me.js')}}" ></script>
-    <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
-
 </html>

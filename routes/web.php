@@ -45,11 +45,8 @@ Route::get('/admin/viewOrders/{slug?}', 'AdminController@viewOrderProducts')->na
 Route::post('/admin/InOutOfStock', 'AdminController@InOutOfStock')->name('admin.inOutOfStock');
 Route::post('/admin/notifyCustomerOfOrder', 'AdminController@notifyCustomers')->name('admin.notifyCustomerOfOrder');  
 
-Route::get('/product_image/{filename}',[
-	'uses' => 'AdminController@upload',
-	'as' => 'product.image'
-]);
-
+Route::get('/admin/editProduct/{id}', 'AdminController@editProduct')->name('admin.editProduct');
+Route::post('/admin/updateProduct/{id}', 'AdminController@updateProduct');
 //Route::match(['get','post'],'/admin/add-category','categoryController@addCategory');
 
 Auth::routes();
@@ -75,3 +72,4 @@ Route::get('/api/restaurants/menu/{id}', 'apiController@fetchRestMenu');
 Route::post('/pay', 'CheckoutController@createOrder')->name('pay'); 
 
 Route::get('/payment_complete', 'CheckoutController@handleGatewayCallback');
+
