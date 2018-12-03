@@ -22,15 +22,35 @@ class RestaurantSeeder extends Seeder
         ]);
 
        DB::table('restaurants')->insert([
-                'restaurant_name' => 'Baja Cantina'   ,
-                'restaurant_status' => 0,
-                'restaurant_id' => 3, 
-                'restaurant_image' => 'taco_van_logo.jpg', 
-                'restaurant_opening_times' => '9:40', 
-                'restaurant_minimum_order' => '£5',     
-                'restaurant_delivery_fee' => 'COLLECTION ONLY',
-                 'restaurant_phone_number' => '+447903065903'
+            'restaurant_name' => 'Baja Cantina'   ,
+            'restaurant_status' => 0,
+            'restaurant_id' => 3, 
+            'restaurant_image' => 'eat_is_greek_logo.jpg', 
+            'restaurant_opening_times' => '9:40', 
+            'restaurant_minimum_order' => '£5',     
+            'restaurant_delivery_fee' => 'COLLECTION ONLY',
+                'restaurant_phone_number' => '+447903065903'
             ]);
+
+       DB::table('restaurants')->insert([
+            'restaurant_name' => 'PlatedMemoirs'   ,
+            'restaurant_status' => 1,
+            'restaurant_id' => 0, 
+            'restaurant_image' => 'platedmemoir.jpg', 
+            'restaurant_opening_times' => '9:40', 
+            'restaurant_minimum_order' => '₦500',     
+            'restaurant_delivery_fee' => 'COLLECTION ONLY',
+            'restaurant_phone_number' => '+447903065903'  
+       ]);
+
+       DB::table('user')->insert([
+        'user_name' => 'PlatedMemoirs',
+        'email' => 'platedMemoirs',
+        'password' => app('hash')->make('IdiMMa'), 
+        'user_role' => 3, 
+        'user_address' => 'V.I, Lagos', 
+        'user_phone_number' => '+2347037699184'
+       ]);
 
        DB::table('user')->insert([
                   'user_name' => 'Eat Is Greek',

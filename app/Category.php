@@ -13,6 +13,7 @@ class Category extends Model
     ];
 
     protected $table = 'categories';
+    protected $primaryKey = "category_id";
 
     public function menu()
     {
