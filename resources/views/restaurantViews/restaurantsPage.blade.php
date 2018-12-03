@@ -302,8 +302,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style = "">
                <ul class="nav navbar-nav navbar-right" ">
                       @if (!Auth::user())
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary disabled" href="/login" style="color: black; text-transform: none; ">Sign in</a></li>
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary disabled" href="/register" style="border-color:#fed136; background-color: transparent; margin-left: 10px; color: black; text-transform: none; ">Register</a></li>
+                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login" style="color: black; text-transform: none; ">Sign in</a></li>
+                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent; margin-left: 10px; color: black; text-transform: none; ">Register</a></li>
                         @else
                             <li class=" nav-item dropdown" style = "color:black;">
                                 <a style = "color:black;" href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -376,7 +376,7 @@
                                 <i @if($r->restaurant_status == 0)class="fa fa-lock fa-2x" @elseif($r->restaurant_status == 1) class="fa fa-cutlery fa-2x"@endif></i>
                             </div>
                         </div>
-                        <img src="/storage/images/{{$r->restaurant_image}}" class="img-responsive img-rounded" style="width: 1000px; " alt="">
+                        <img src="/storage/images/{{$r->restaurant_image}}" class="img-responsive img-rounded" style="width: 1000px; height:auto; " alt="">
                     </a>
                     <div class="portfolio-caption" style = "padding-top: 10px; ">
                         <h3 style = "margin-bottom: 10px; ">{{$r->restaurant_name}}</h3>
