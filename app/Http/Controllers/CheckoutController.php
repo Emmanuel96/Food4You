@@ -31,7 +31,7 @@ class CheckoutController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         // return $cart->totalPrice; 
-        //$days_of_delivery = daysofdelivery::all();
+        
 
         return view('checkOutViews.checkout',['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }

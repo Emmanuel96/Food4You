@@ -430,7 +430,7 @@
                                 <select name="days" id="inlineFormCustomSelect" class="form-control">
                                     <option selected>Day of Delivery</option>
 
-                                    
+                                   
                                 </select>
 
                                 </div>
