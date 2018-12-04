@@ -8,6 +8,7 @@ use App\Cart;
 use App\User; 
 use App\Restaurants; 
 use App\order; 
+use App\daysofdelivery;
 use App\Mail\OrderConfirmation;
 use DB; 
 use App\Notifications\OrderConfirmed; 
@@ -30,6 +31,8 @@ class CheckoutController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         // return $cart->totalPrice; 
+        //$days_of_delivery = daysofdelivery::all();
+
         return view('checkOutViews.checkout',['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
@@ -54,6 +57,7 @@ class CheckoutController extends Controller
                 'order_slug' => substr( "abcdefghijklmnopqrstuvwxyz" ,mt_rand( 0 ,5 ) ,1 ) .substr( md5( time( ) ) ,1 ),
                 'payment_ref' => substr( "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890" ,mt_rand( 0 ,5 ) ,1 ) .substr( md5( time( ) ) ,1 ),
                 'image' => 'ass.jpg'
+                 
             ]);
 
         //find the order from the order table 
@@ -84,6 +88,7 @@ class CheckoutController extends Controller
                     DB::table('order_products')->insert(
                         ['order_id' => $orders->order_id, 'restaurant_id' => $restaurant_id , 'product_id' => $product['item']['product_id'],'order_extras'=> $product['extra'], 'qty_ordered' =>$product['qty'] ] 
                     );
+
                 }
             }
         } 

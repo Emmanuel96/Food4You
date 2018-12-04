@@ -24,6 +24,9 @@ class Order extends Migration
             $table->string('payment_ref');
             $table->string('batch')->default('0');
             $table->string('days')->default('0');
+            
+            //$table->foreign('days')->references('days')->on('days_of_delivery');
+
             $table->timestamps();
         });
     }

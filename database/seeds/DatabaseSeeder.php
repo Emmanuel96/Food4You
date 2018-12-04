@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(notifcationTestSeed::class);
         $this->call(orderSeeder::class); 
         $this->call(categorySeeder::class);
+        $this->call(daysofdeliverySeeder::class);
     }
 }

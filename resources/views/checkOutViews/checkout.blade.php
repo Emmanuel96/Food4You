@@ -423,6 +423,27 @@
                                 <label for="phone_number" class="form-label">Phone No</label>
                                 <input type="text" class="form-control" id="phone-number" name="phone" placeholder="07037699184" required="true">
                                 </div>
+
+                                <div class="form-group">
+                                <label for="day" class="form-label">Day</label>
+                                
+                                <select name="days" id="inlineFormCustomSelect" class="form-control">
+                                    <option selected>Day of Delivery</option>
+
+                                    
+                                </select>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="batch" class="form-label">Batch</label>
+                                    
+                                    <select name="days" id="inlineFormCustomSelect" class="form-control">
+                                        <option selected>Batch</option>
+                                    </select>
+    
+                                </div>
+
                                 <div class="form-group">
                                 <label for="address" class="form-label">Address #1</label>
                                 <input type = "Address Line #1" class="form-control" id="address" required="true" rows="5" name="address"></textarea>
