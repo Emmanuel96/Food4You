@@ -1089,4 +1089,49 @@ class productseeders extends Seeder
                   'product_image' => 'images.jpg', 
                   'restaurant_id' => 7
                 ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Shawarma',
+                  'product_description' => '',
+                  'product_price' => 1000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'shawarma.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Pancakes',
+                  'product_description' => '',
+                  'product_price' => 1000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'pancakes.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Sandwich',
+                  'product_description' => '',
+                  'product_price' => 1000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'BES Sandwich',
+                  'product_description' => '',
+                  'product_price' => 1500,
+                  'product_has_extra' => 0,
+                  'product_image' => 'BES_sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Barbecue Chicken',
+                  'product_description' => '',
+                  'product_price' => 2000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'barbecue_chicken.jpeg',
+                  'restaurant_id' => 0
+                ]);
           }}   
