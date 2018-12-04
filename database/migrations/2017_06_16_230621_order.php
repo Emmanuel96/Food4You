@@ -22,6 +22,8 @@ class Order extends Migration
             $table->boolean('delivery_status')->default('0');
             $table->string('order_slug');
             $table->string('payment_ref');
+            $table->string('batch')->default('0');
+            $table->string('days')->default('0');
             $table->timestamps();
         });
     }

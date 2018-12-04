@@ -32,26 +32,6 @@ class RestaurantSeeder extends Seeder
                 'restaurant_phone_number' => '+447903065903'
             ]);
 
-       DB::table('restaurants')->insert([
-            'restaurant_name' => 'PlatedMemoirs'   ,
-            'restaurant_status' => 1,
-            'restaurant_id' => 0, 
-            'restaurant_image' => 'platedmemoir.jpg', 
-            'restaurant_opening_times' => '9:40', 
-            'restaurant_minimum_order' => '₦500',     
-            'restaurant_delivery_fee' => 'COLLECTION ONLY',
-            'restaurant_phone_number' => '+447903065903'  
-       ]);
-
-       DB::table('user')->insert([
-        'user_name' => 'PlatedMemoirs',
-        'email' => 'platedMemoirs',
-        'password' => app('hash')->make('IdiMMa'), 
-        'user_role' => 3, 
-        'user_address' => 'V.I, Lagos', 
-        'user_phone_number' => '+2347037699184'
-       ]);
-
        DB::table('user')->insert([
                   'user_name' => 'Eat Is Greek',
                   'email' => 'eatIsGreek@gmail.com',
@@ -131,6 +111,27 @@ class RestaurantSeeder extends Seeder
                 'restaurant_delivery_fee' => 'DELIVERY ONLY',
                  'restaurant_phone_number' => '+2348029255138'
             ]);
+
+            DB::table('restaurants')->insert([
+                'restaurant_name' => 'PlatedMemoirs'   ,
+                'restaurant_status' => 1,
+                'restaurant_id' => 0, 
+                'restaurant_image' => 'platedmemoir.jpg', 
+                'restaurant_opening_times' => '9:40', 
+                'restaurant_minimum_order' => '₦500',     
+                'restaurant_delivery_fee' => 'COLLECTION ONLY',
+                'restaurant_phone_number' => '+447903065903'  
+           ]);
+    
+           DB::table('user')->insert([
+            'user_name' => 'PlatedMemoirs',
+            'email' => 'platedMemoirs@gmail.com',
+            'password' => app('hash')->make('IdiMMa'), 
+            'user_role' => 3, 
+            'user_address' => 'V.I, Lagos', 
+            'user_phone_number' => '+2347037699184'
+           ]);
+
 
        //  DB::table('user')->insert([
        //      'user_name' => 'Taco Food Van 3',
