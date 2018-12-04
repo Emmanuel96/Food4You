@@ -24,7 +24,13 @@ class Order extends Migration
             $table->string('payment_ref');
             $table->string('batch')->default('0');
             $table->string('days')->default('0');
+<<<<<<< HEAD
             $table->integer('restaurant_id'); 
+=======
+            
+            //$table->foreign('days')->references('days')->on('days_of_delivery');
+
+>>>>>>> 6470cf53caab392efec098ebd2ae76206d596ad3
             $table->timestamps();
         });
     }
