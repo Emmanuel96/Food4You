@@ -73,3 +73,5 @@ Route::post('/pay', 'CheckoutController@createOrder')->name('pay');
 
 Route::get('/payment_complete', 'CheckoutController@handleGatewayCallback');
 
+Route::get('/order/tracking/{id}', 'CheckoutController@orderTracking'); 
+

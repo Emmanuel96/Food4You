@@ -13,6 +13,7 @@ class orderSeeder extends Seeder
     {
         DB::table('orders')->insert([
             'buyer_name' => 'Emmanuel Audu', 
+            'restaurant_id' => 13,
             'buyer_address' => '128 Bateman House', 
             'buyer_phone_number' => '+447903065903', 
             'delivery_status' => 0, 
@@ -21,6 +22,7 @@ class orderSeeder extends Seeder
         ]);
         DB::table('orders')->insert([
             'buyer_name' => 'Oluchi Audu', 
+            'restaurant_id' => 13,
             'buyer_address' => '128 Bateman House Again', 
             'order_slug' => 'fuck yall noise makers', 
             'buyer_phone_number' => '+447903065903', 

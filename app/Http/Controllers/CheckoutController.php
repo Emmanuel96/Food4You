@@ -43,6 +43,10 @@ class CheckoutController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 
+        //so for now you can only get the orders from one restaurant at a time
+        //store the restaurant ID
+        $restaurant_id = 0; 
+
         //Create order
         $orders = order::create(
             [
@@ -53,9 +57,14 @@ class CheckoutController extends Controller
                 'buyer_address' => $request->address, 
                 'order_slug' => substr( "abcdefghijklmnopqrstuvwxyz" ,mt_rand( 0 ,5 ) ,1 ) .substr( md5( time( ) ) ,1 ),
                 'payment_ref' => substr( "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890" ,mt_rand( 0 ,5 ) ,1 ) .substr( md5( time( ) ) ,1 ),
+                'order_status' => '-1',
+                'restaurant_id' => $restaurant_id,
                 'image' => 'ass.jpg'
             ]);
 
+
+            //he only way to sovle this issue is by going left and right 
+            
         //find the order from the order table 
         $orders = order::where('order_slug','=', $orders->order_slug)->first(); 
 
@@ -131,6 +140,8 @@ class CheckoutController extends Controller
             $orders->order_status = -1; 
         }
 
+        $orders->save(); 
+
 
         //else order status = -1
 
@@ -167,5 +178,10 @@ class CheckoutController extends Controller
         Session::forget('cart');
       
         return redirect()->route('restaurants.show')->with('success', 'successfully purchased products');
+    }
+
+    public function orderTracking()
+    {
+        return view('OrderTracker.orderTracking');
     }
 }
