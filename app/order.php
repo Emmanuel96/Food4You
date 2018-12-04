@@ -15,7 +15,7 @@ class order extends Model
 
     protected $fillable = 
     [
-      'payment_ref', 'restaurant_id','buyer_address','buyer_name','buyer_phone_number','order_slug',
+      'payment_ref', 'restaurant_id','buyer_address','buyer_name','buyer_phone_number','order_slug', 'days', 'batch',
     ];
 
     public function products()
@@ -28,6 +28,11 @@ class order extends Model
     public function user()
     {
        return $this->belongsTo('App\User', 'buyer_id', 'id');
+    }
+
+    public function daysofdelivery()
+    {
+      return $this->belongsTo('App\daysofdelivery', 'days');
     }
 
     public function routeNotificationForNexmo()
