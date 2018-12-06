@@ -427,19 +427,25 @@
                                 <div class="form-group">
                                 <label for="day" class="form-label">Day</label>
                                 
-                                <select name="days" id="inlineFormCustomSelect" class="form-control">
+                                <select name="day" id="inlineFormCustomSelect" class="form-control" required>
                                     <option selected>Day of Delivery</option>
 
-                                    
+                                    @foreach($days as $day)
+                                        <option value = "{{$day->id}}"  @if($day->current_no_of_delivery == $day->max_delivery) disabled @endif> {{$day->days}}</option>
+                                    @endforeach
+
                                 </select>
 
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="batch" class="form-label">Batch</label>
+                                    <label for="batch" class="form-label">Delivery Batch</label>
                                     
-                                    <select name="days" id="inlineFormCustomSelect" class="form-control">
-                                        <option selected>Batch</option>
+                                    <select name="batch" id="inlineFormCustomSelect" class="form-control" required>
+                                        <option selected>Delivery Batch</option>
+                                        <option>10 AM - 12 PM</option>
+                                        <option>12:30 PM - 02:30 PM</option>
+                                        <option>03:00 PM - 06:00 PM</option>
                                     </select>
     
                                 </div>

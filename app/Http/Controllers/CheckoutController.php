@@ -30,10 +30,12 @@ class CheckoutController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        // return $cart->totalPrice; 
-        //$days_of_delivery = daysofdelivery::all();
 
-        return view('checkOutViews.checkout',['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+        //we need the days for delivery for that particular customer
+        //$days_of_delivery = daysofdelivery::all();
+        $days_of_delivery = DB::select('select * from days_of_delivery where restaurant_id = 0');
+
+        return view('checkOutViews.checkout',['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'days'=> $days_of_delivery]);
     }
 
     public function createOrder(Request $request)
@@ -50,6 +52,10 @@ class CheckoutController extends Controller
         //store the restaurant ID
         $restaurant_id = 0; 
 
+        //get the actual day from the db
+        $day =  DB::table('days_of_delivery')->where('id', $request->day)->pluck('days');;
+        
+
         //Create order
         $orders = order::create(
             [
@@ -62,9 +68,20 @@ class CheckoutController extends Controller
                 'payment_ref' => substr( "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890" ,mt_rand( 0 ,5 ) ,1 ) .substr( md5( time( ) ) ,1 ),
                 'order_status' => '-1',
                 'restaurant_id' => $restaurant_id,
+                'batch' => $request->batch, 
+                'day'=> $day[0],
                 'image' => 'ass.jpg'
                  
             ]);
+
+
+            //once we create the order, we update the amount in the current number of order
+            $current_no_of_delivery =  DB::table('days_of_delivery')->where('id', $request->day)->pluck('current_no_of_delivery');;
+            $c_no_of_del = $current_no_of_delivery[0] + 1;  
+
+            $update = DB::update('update days_of_delivery set current_no_of_delivery ='. $c_no_of_del.' where id = ?', [''.$request->day.'']);
+            return $update; 
+            
 
 
             //he only way to sovle this issue is by going left and right 

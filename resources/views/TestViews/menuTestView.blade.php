@@ -497,7 +497,7 @@
 							<img class="img-fluid" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
 
 							<div class="w3-section">
-								<a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  @if($m->product_has_extra == 1) onclick = "openDetailsModal({{$m->product_id}})" @else onclick= "addItemToCart({{$m->product_id}})" @endif >@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
+								<a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
 							</div>
 							<div class="w3-section">
 							    <!-- <label for="sel1">Select Quantity:</label> -->

@@ -19,6 +19,8 @@ class CreateDaysOfDeliveryTable extends Migration
             $table->string('days');
             $table->integer('max_delivery')->unsigned()->default('0');
             $table->boolean('available');
+            
+            $table->integer('current_no_of_delivery')->unsigned()->default(0);
 
             $table->integer('restaurant_id')->default('0');
 
