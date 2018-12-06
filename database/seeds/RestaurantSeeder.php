@@ -113,10 +113,10 @@ class RestaurantSeeder extends Seeder
             ]);
 
             DB::table('restaurants')->insert([
-                'restaurant_name' => 'PlatedMemoirs'   ,
+                'restaurant_name' => 'Plated Memoirs'   ,
                 'restaurant_status' => 1,
                 'restaurant_id' => 0, 
-                'restaurant_image' => 'pancakes.jpeg', 
+                'restaurant_image' => 'platedMemoirs.jpg', 
                 'restaurant_opening_times' => '9:40', 
                 'restaurant_minimum_order' => '₦500',     
                 'restaurant_delivery_fee' => 'COLLECTION ONLY',
@@ -124,6 +124,7 @@ class RestaurantSeeder extends Seeder
            ]);
     
            DB::table('user')->insert([
+            'id'=> 0,
             'user_name' => 'PlatedMemoirs',
             'email' => 'platedMemoirs@gmail.com',
             'password' => app('hash')->make('IdiMMa'), 

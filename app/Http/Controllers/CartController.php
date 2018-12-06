@@ -82,7 +82,7 @@ class CartController extends Controller
                           </a>".
                         "</td>".
                         "<td class='product-name-td' style=' padding-top: 12px;  width:70%; '>". $product['item']['product_name']. "+". $product['extra']. "</td>".
-                        "<td  align='right' id='price".$product['item']['product_id']."' style = 'width: 100%; vertical-align:middle;'>£".$product['price']."</td>".
+                        "<td  align='right' id='price".$product['item']['product_id']."' style = 'width: 100%; vertical-align:middle;'>₦".$product['price']."</td>".
                         "</tr>";
           }
           $listOfItems .= "     </tbody>
@@ -181,7 +181,7 @@ class CartController extends Controller
                           </a>".
                         "</td>".
                         "<td class='product-name-td' style=' padding-top: 12px;  width:70%; '>". $product['item']['product_name']. "</td>".
-                        "<td  align='right' id='price".$product['item']['product_id']."' style = 'width: 100%; vertical-align:middle;'>£".$product['price']."</td>".
+                        "<td  align='right' id='price".$product['item']['product_id']."' style = 'width: 100%; vertical-align:middle;'>₦".$product['price']."</td>".
                         "</tr>";
           }
           $listOfItems .= "     </tbody>
