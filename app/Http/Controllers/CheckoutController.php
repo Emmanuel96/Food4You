@@ -147,7 +147,7 @@ class CheckoutController extends Controller
         //dd($order);
 
         //send email of confirmation to the user 
-        Mail::to($request->user())->send(new OrderConfirmation()); 
+        //Mail::to($request->user())->send(new OrderConfirmation()); 
 
         //send text message to user confirming order 
         //$orders->notify(new OrderConfirmed($orders->payment_ref));
