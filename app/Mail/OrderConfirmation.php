@@ -29,7 +29,7 @@ class OrderConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->from('noReply@sandbox99e8798c955f4cd89209d7b7f0f93e6e.mailgun.org')
+        return $this->from('order@naijabites.com')
                 ->view('emails.verifyEmail');
 
     }

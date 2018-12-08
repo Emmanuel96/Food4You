@@ -1092,7 +1092,7 @@ class productseeders extends Seeder
 
                 DB::table('menu')->insert([
                   'product_name' => 'Shawarma',
-                  'product_description' => '',
+                  'product_description' => 'shawarma',
                   'product_price' => 1000,
                   'product_has_extra' => 0,
                   'product_image' => 'shawarma.jpeg',
@@ -1101,7 +1101,7 @@ class productseeders extends Seeder
 
                 DB::table('menu')->insert([
                   'product_name' => 'Pancakes',
-                  'product_description' => '',
+                  'product_description' => 'pancakes',
                   'product_price' => 1000,
                   'product_has_extra' => 0,
                   'product_image' => 'pancakes.jpeg',
@@ -1110,7 +1110,7 @@ class productseeders extends Seeder
 
                 DB::table('menu')->insert([
                   'product_name' => 'Sandwich',
-                  'product_description' => '',
+                  'product_description' => 'sandwich',
                   'product_price' => 1000,
                   'product_has_extra' => 0,
                   'product_image' => 'sandwich.jpeg',
@@ -1119,7 +1119,7 @@ class productseeders extends Seeder
 
                 DB::table('menu')->insert([
                   'product_name' => 'BES Sandwich',
-                  'product_description' => '',
+                  'product_description' => 'bes sandwich',
                   'product_price' => 1500,
                   'product_has_extra' => 0,
                   'product_image' => 'BES_sandwich.jpeg',
@@ -1128,10 +1128,84 @@ class productseeders extends Seeder
 
                 DB::table('menu')->insert([
                   'product_name' => 'Barbecue Chicken',
-                  'product_description' => '',
+                  'product_description' => 'barbecue chicken',
                   'product_price' => 2000,
                   'product_has_extra' => 0,
                   'product_image' => 'barbecue_chicken.jpeg',
                   'restaurant_id' => 0
                 ]);
+              
+              //Basic 75k (for 2 weeks) 37500 (for 1 week)
+                DB::table('menu')->insert([
+                  'product_name' => 'Basic Platter',
+                  'product_description' => 'The Meat Fest Pasta . Gizzard Jollof . Turkey Suya . Peppered Snail . Moimoi . Gizdodo . Strawberry Vanilla Oreo Cheesecake (Double Layered Delight) . lasts for 1 week',
+                  'product_price' => 37500,
+                  'product_has_extra' => 0,
+                  'product_image' => 'sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Basic Platter Deluxe',
+                  'product_description' => 'The Meat Fest Pasta . Gizzard Jollof . Turkey Suya . Peppered Snail . Moimoi . Gizdodo . Strawberry Vanilla Oreo Cheesecake (Double Layered Delight) . lasts for 2 weeks',
+                  'product_price' => 75000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Finger food Platter Deluxe-Lite',
+                  'product_description' => 'Franks in French Toast bits . Shrimp in waffle saucers . Chicken Spring Rolls . Yam Piccata . Pepper Sauce . Honey Soy Wings . Mini Tuna French toast Pockets ',
+                  'product_price' => 40000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Finger Food Palette',
+                  'product_description' => 'Battered Prawns . Shrimp & Mayo Spring rolls . Pepper Sauce . Peppered Snails . Goat meat in Coconut Oil stir fry sauce . Mini Chicken French Toast Pockets',
+                  'product_price' => 70000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Soupreme',
+                  'product_description' => 'Seafood Okra . Egusi Soup . Oge Nsala . Chicken Curry . Rice & Swallow of Choice . Red Velvet Brownie Muffins . lasts for 1 week ',
+                  'product_price' => 45000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Soupreme Deluxe',
+                  'product_description' => 'Seafood Okra . Egusi Soup . Oge Nsala . Chicken Curry . Rice & Swallow of Choice . Red Velvet Brownie Muffins . lasts for 2 weeks ',
+                  'product_price' => 90000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Basic Deluxe',
+                  'product_description' => 'Szechuan Beef Stir Fry . Egg Fried Rice . Poulet DG . Special Fried Rice . Chicken Stir Fry . BBQ Ribs . Caramel Vanilla Oreo Cheesecake (Triple Layered Delight) . lasts for 1 week ',
+                  'product_price' => 50000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Deluxe Platter',
+                  'product_description' => 'Szechuan Beef Stir Fry . Egg Fried Rice . Poulet DG . Special Fried Rice . Chicken Stir Fry . BBQ Ribs . Caramel Vanilla Oreo Cheesecake (Triple Layered Delight) . lasts for 1 week ',
+                  'product_price' => 100000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+              
           }}   

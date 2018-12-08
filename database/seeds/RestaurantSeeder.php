@@ -130,7 +130,7 @@ class RestaurantSeeder extends Seeder
             'password' => app('hash')->make('IdiMMa'), 
             'user_role' => 3, 
             'user_address' => 'V.I, Lagos', 
-            'user_phone_number' => '+2347037699184'
+            'user_phone_number' => '+2347037699184' 
            ]);
 
 

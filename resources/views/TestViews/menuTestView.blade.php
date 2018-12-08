@@ -664,9 +664,8 @@
                     </label>
                 </div> -->
 
-                <textarea class= "form-control" style = "width: 100%; height: 100%;">
+                <textarea placeholder = "Please Tell us if ther's any way we can make this better for you. " name="" id= " " class= "form-control" style = "width: 100%; height: 100%;" ></textarea>                                                                 
 
-                </textarea>
 <!-- 
                 <div class="form-check">
                     <label class="form-check-label">

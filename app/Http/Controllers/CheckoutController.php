@@ -35,11 +35,12 @@ class CheckoutController extends Controller
         //$days_of_delivery = daysofdelivery::all();
         $days_of_delivery = DB::select('select * from days_of_delivery where restaurant_id = 0');
 
-        return view('checkOutViews.checkout',['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'days'=> $days_of_delivery]);
+        return view('checkOutViews.checkout',['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'days'=> $days_of_delivery]);//, 'phone_numbers'=> $restaurants->restaurant_phone_number]);
     }
 
     public function createOrder(Request $request)
     {
+
         if(!Session::has('cart'))
         {
         	return redirect()->route('cart.show');
@@ -57,11 +58,12 @@ class CheckoutController extends Controller
         
 
         //Create order
-        $orders = order::create(
+        $orders = order::create(                                                                                                
             [
                  //STORE ORDER PRICE
                 'buyer_name' => $request->name, 
-                //I NEED TO FIND A PROPER WAY TO FIND THE RESTAURANT ID 
+                //I NEED TO FIND A PROPER WAY TO FIND THE RESTAURANT ID
+                'buyer_email' => $request->email, 
                 'buyer_phone_number' => $request->phone, 
                 'buyer_address' => $request->address, 
                 'order_slug' => substr( "abcdefghijklmnopqrstuvwxyz" ,mt_rand( 0 ,5 ) ,1 ) .substr( md5( time( ) ) ,1 ),
@@ -74,6 +76,11 @@ class CheckoutController extends Controller
                  
             ]);
 
+            $order_slug = $orders->order_slug;
+            Session::put('order_slug', $order_slug);
+
+
+                    //dd($orders);die;
 
             //once we create the order, we update the amount in the current number of order
             $current_no_of_delivery =  DB::table('days_of_delivery')->where('id', $request->day)->pluck('current_no_of_delivery');;
@@ -142,9 +149,10 @@ class CheckoutController extends Controller
         // $data = ["sdkflsjadkfsdlfsdllfjsdflksdkfdslsfjdsfldlfkjdsljfldslfkds"]; 
 
         ///NOTIFICATIONS FOR ORDER
-        //$request->session()->put('order');
-        //$order = $request->session()->get('order');
-        //dd($order);
+        //$order_slug = $request->session()->get('order_slug');
+        //$order_slug = $request->session()->pull('buyer_email');
+        
+        // dd($order_slug);
 
         //send email of confirmation to the user 
         //Mail::to($request->user())->send(new OrderConfirmation()); 
@@ -202,8 +210,10 @@ class CheckoutController extends Controller
         }
 
         Session::forget('cart');
-      
-        return view('OrderTracker.orderTracking');
+
+        
+        return redirect()->route('order/tracking/'.$orders->id);
+        return view('OrderTracker.preparing');
     }
 
     public function orderTracking($id)
