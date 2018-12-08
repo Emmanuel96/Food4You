@@ -75,7 +75,3 @@ Route::get('/payment_complete', 'CheckoutController@handleGatewayCallback');
 
 Route::get('/order/tracking/{id}', 'CheckoutController@orderTracking'); 
 
-Route::post('/order/tracking/preparing/{id}', 'CheckoutController@orderTracking');
-Route::post('/order/tracking/readyForDelivery/{id}', 'CheckoutController@orderTracking');
-Route::post('/order/tracking/outForDelivery/{id}', 'CheckoutController@orderTracking');
-Route::post('/order/tracking/delivered/{id}', 'CheckoutController@orderTracking');
