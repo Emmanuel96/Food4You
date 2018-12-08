@@ -80,7 +80,8 @@ class CheckoutController extends Controller
             $c_no_of_del = $current_no_of_delivery[0] + 1;  
 
             $update = DB::update('update days_of_delivery set current_no_of_delivery ='. $c_no_of_del.' where id = ?', [''.$request->day.'']);
-            return $update; 
+            //return $update; 
+            //return $update; 
             
 
 
@@ -123,7 +124,7 @@ class CheckoutController extends Controller
     }
 
 
-    public function handleGatewayCallback()
+    public function handleGatewayCallback(Request $request)
     {
         $paymentDetails = Paystack::getPaymentData();
 
@@ -141,12 +142,15 @@ class CheckoutController extends Controller
         // $data = ["sdkflsjadkfsdlfsdllfjsdflksdkfdslsfjdsfldlfkjdsljfldslfkds"]; 
 
         ///NOTIFICATIONS FOR ORDER
+        //$request->session()->put('order');
+        //$order = $request->session()->get('order');
+        //dd($order);
 
         //send email of confirmation to the user 
-       // Mail::to('emmanuel.audu1@aun.edu.ng')->send(new OrderConfirmation()); 
+        //Mail::to($request->user())->send(new OrderConfirmation()); 
 
         //send text message to user confirming order 
-        // $orders->notify(new OrderConfirmed($orders->payment_ref));
+        //$orders->notify(new OrderConfirmed($orders->payment_ref));
 
         // echo session::get('order_slug'); 
 
@@ -199,11 +203,41 @@ class CheckoutController extends Controller
 
         Session::forget('cart');
       
-        return redirect()->route('restaurants.show')->with('success', 'successfully purchased products');
-    }
-
-    public function orderTracking()
-    {
         return view('OrderTracker.orderTracking');
     }
+
+    public function orderTracking($id)
+    {
+        $order_status = DB::table('orders')->where('order_id', $id)->value('order_status');
+        
+        //echo $order_status;
+        
+        if($order_status == 1)
+        {
+            return view('OrderTracker.preparing');
+        }
+
+        if($order_status == 2)
+        {
+            return view('OrderTracker.readyForDelivery');
+        }
+
+        if($order_status == 3)
+        {
+            return view('OrderTracker.outForDelivery');
+        }
+
+        if($order_status == 4)
+        {
+            return view('OrderTracker.delivered');
+        }
+        
+
+        return view('OrderTracker.orderTracking');
+    }
+
+   // public function orderTracking()
+    //{
+      //  return view('OrderTracker.orderTracking');
+    //}
 }
