@@ -20,6 +20,7 @@ class OrderProducts extends Migration
             $table->integer('restaurant_id'); 
             $table->integer('product_id');
             $table->integer('qty_ordered');
+            $table->string('comment');
             $table->string('order_extras')->nullable(true); 
             $table->timestamps();
         });

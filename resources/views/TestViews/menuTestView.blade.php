@@ -547,8 +547,9 @@
       </div>
       <div class="modal-body">
       <form>
+            <img id = "product_details_image" style = "height: 80px;" class= "img-responsive center img-rounded" />
+
         <h5 style = "width: 100%; text-align:center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;"><span style = "background: #fff; padding: 0 10px; font-weight:bold;">DESCRIPTION</span></h5>
-        <img id = "product_details_image" style = "height: 80px;" class= "img-responsive center img-rounded" />
          <p class = "text-center" style="margin-bottom: 20px; " id = "product_description">  </p>
 
               <!-- <h5 style = "width: 100%; text-align:center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;"><span style = "background: #fff; padding: 0 10px; font-weight: bold;">FILLINGS</span></h5>
@@ -640,7 +641,7 @@
                     </label>
                 </div>
   -->
-        <h5 style = "width: 100%; text-align:center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;"><span style = "background: #fff; padding: 0 10px; font-weight: bold;">SAUCE</span></h5>
+        <h5 style = "width: 100%; text-align:center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;"><span style = "background: #fff; padding: 0 10px; font-weight: bold;">Comments </span></h5>
 
                  <!-- <div class="form-check">
                     <label class="form-check-label">
@@ -663,7 +664,10 @@
                     </label>
                 </div> -->
 
+                <textarea class= "form-control" style = "width: 100%; height: 100%;">
 
+                </textarea>
+<!-- 
                 <div class="form-check">
                     <label class="form-check-label">
                         <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Ketchup" class="form-check-input">
@@ -677,7 +681,7 @@
                     </label>
                 </div>
                 <div class="form-check">
-                    <label class="form-check-label">
+                    <label class="sform-check-label">
                         <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Spicy Cheese Deep" class="form-check-input">
                         Spicy Cheese Deep 
                     </label>
@@ -699,11 +703,11 @@
                         <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Mayonnaise" class="form-check-input">
                         Mayo
                     </label>
-                </div>
+                </div> -->
         </form>
       <div class="modal-footer">
 
-        <a  class ="btn btn-primary btn-sm text-center disabled" id= "extra_menu_add_to_cart"  href="#" >Add To Cart <i class="fa fa-cart-plus"></i></a>
+        <a  class ="btn btn-primary btn-sm text-center" id= "extra_menu_add_to_cart"  href="#" >Add To Cart <i class="fa fa-cart-plus"></i></a>
 
       </div>
     </div>
@@ -799,7 +803,7 @@
         //so first thing is to pass the ajax request 
           $.ajax({
               type: 'GET',
-              url: '{{route('menu.getProductDetails')}}',
+              url: "{{route('menu.getProductDetails')}}",
               data: {id: pid, _token: '{{ csrf_token() }}'},
               dataType: 'json',
               success: function(output){
@@ -850,7 +854,7 @@
         //AJAX with jquery to pass the selected item to the cart controller
         $.ajax({
               type: 'GET',
-              url: '{{route('product.addToCart')}}',
+              url: "{{route('product.addToCart')}}",
               data: {id: id,qty: 1, _token: '{{ csrf_token() }}'},
               dataType: 'json',
               success: function(output){
@@ -890,17 +894,17 @@
             }
         });
 
-        if(extraSelected == true)
-        {
-            if($('#extra_menu_add_to_cart').hasClass('disabled'))
-            {
-                 $('#extra_menu_add_to_cart').removeClass('disabled'); 
-            }     
-        }
-        else
-        {
-             $('#extra_menu_add_to_cart').addClass('disabled'); 
-        }
+        // if(extraSelected == true)
+        // {
+        //     if($('#extra_menu_add_to_cart').hasClass('disabled'))
+        //     {
+        //          $('#extra_menu_add_to_cart').removeClass('disabled'); 
+        //     }     
+        // }
+        // else
+        // {
+        //      $('#extra_menu_add_to_cart').addClass('disabled'); 
+        // }
 
     }
 
