@@ -18,15 +18,13 @@ class Order extends Migration
             $table->string('buyer_name');
             $table->string('buyer_address'); 
             $table->string('buyer_phone_number');
-            $table->string('order_status')->default('0');
+            $table->integer('order_status')->default('-1');
             $table->boolean('delivery_status')->default('0');
             $table->string('order_slug');
             $table->string('payment_ref');
             $table->string('batch')->default('0');
             $table->string('days')->default('0');
-            
-            //$table->foreign('days')->references('days')->on('days_of_delivery');
-
+            $table->integer('restaurant_id'); 
             $table->timestamps();
         });
     }

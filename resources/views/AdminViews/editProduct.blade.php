@@ -50,14 +50,14 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-shopping-bag"></i>Product<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="viewProducts">View Products</a></li>
-                      <li><a href="addProduct">Add New Products</a></li>
+                      <li><a href="/admin/viewProducts">View Products</a></li>
+                      <li><a href="/admin/addProduct">Add New Products</a></li>
                     </ul>
                   </li>
 
                    <li><a><i class="fa fa-shopping-cart"></i>Orders<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                     <li><a href="viewOrders">View Orders</a></li>
+                     <li><a href="/admin/viewOrders">View Orders</a></li>
                     </ul>
                   </li>         
                 </ul>

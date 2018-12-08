@@ -113,7 +113,7 @@ class RestaurantSeeder extends Seeder
             ]);
 
             DB::table('restaurants')->insert([
-                'restaurant_name' => 'PlatedMemoirs'   ,
+                'restaurant_name' => 'Plated Memoirs'   ,
                 'restaurant_status' => 1,
                 'restaurant_id' => 0, 
                 'restaurant_image' => 'platedMemoirs.jpg', 
@@ -124,6 +124,7 @@ class RestaurantSeeder extends Seeder
            ]);
     
            DB::table('user')->insert([
+            'id'=> 0,
             'user_name' => 'PlatedMemoirs',
             'email' => 'platedMemoirs@gmail.com',
             'password' => app('hash')->make('IdiMMa'), 

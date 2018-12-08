@@ -312,9 +312,9 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style = "">
-               <ul class="nav navbar-nav navbar-right" ">
+               <ul class="nav navbar-nav navbar-right">
                       @if (!Auth::user())
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login" style="color: black; text-transform: none; ">Sign </a></li>
+                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login" style="color: black; text-transform: none; ">Sign In </a></li>
                             <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent; margin-left: 10px; color: black; text-transform: none; ">Register</a></li>
                         @else
                             <li class=" nav-item dropdown">
@@ -356,7 +356,7 @@
         <div class="container">
         	<div id = "restaurant_info" style="background-color: #fff; padding: 20px; margin-top: 200px; margin-left: auto; margin-right: auto; color: black; width: 400px; border-radius: 5px;"> 
         		<h3 style = "font-weight:bold; font-size:3em;">{{$restaurant->restaurant_name}}</h2>
-        		<h6 class="label label-warning"><i class="fa fa-map-marker"></i> No 4 Addo, Badore</h6>
+        		<h6 class="label label-warning"><i class="fa fa-map-marker"></i> V.I Lagos.</h6>
         		<h6>Minimum Orders: ₦1000	</h6>
         		<div style = " border-radius: 3px;">
         			<a style = "color: #fed136;" ></a>
@@ -497,7 +497,7 @@
 							<img class="img-fluid" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
 
 							<div class="w3-section">
-								<a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  @if($m->product_has_extra == 1) onclick = "openDetailsModal({{$m->product_id}})" @else onclick= "addItemToCart({{$m->product_id}})" @endif >@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
+								<a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
 							</div>
 							<div class="w3-section">
 							    <!-- <label for="sel1">Select Quantity:</label> -->

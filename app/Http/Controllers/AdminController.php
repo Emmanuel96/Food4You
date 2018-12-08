@@ -107,6 +107,8 @@ class AdminController extends Controller
 		//we need to get the products for that particular restaurant or everything for the admin 
 		$user = Auth::user(); 
 
+		//next time we should find the matching restaurant
+
 		//if it's an admin user
 		if($user->user_role == 1)
 		{
@@ -116,8 +118,8 @@ class AdminController extends Controller
 		{
 			//else select the products only for that particular user
 			// $products = DB::select('select * from restaurants_products, menu where restaurants_products.restaurant_id = :id && menu.item_id = restaurants_products.product_id', ['id' => $user->id] );
+			$restaurants = Restaurants::where('restaurant_id', '=', 0)->first();
 
-			$restaurants = Restaurants::where('restaurant_id', '=', $user->id)->first();
 			$products = $restaurants->menu()->paginate(10); 
 		}
 
@@ -135,19 +137,13 @@ class AdminController extends Controller
 			//all i need to implement right now is a way to view all the orders made for you
 			//$orders = DB::select('select * from order_products, orders, user where order_products.order_id = orders.order_id'); 
 
-			$orders = DB::select('select * from orders');
+			$orders = DB::select('select * from orders where order_status != -1');
 		}
 		else
 		{
-			// $restaurants = Restaurants::where('restaurant_id', '=', $user->id)->first(); 
-			// return $restaurants->orders; 
-
-			//get all the orders for this restaurant from the DB
-			// $orders = DB::select('select user_address from user, order_products where order_products.restaurant_id = :restaurant_id', ['restaurant_id' => ])
-			// return $orders; 
-			// $orders = DB::select('select DISTINCT order_products.order_id, user.user_name,user.user_address,user.user_phone_number, buyer_id, delivery_status, order_slug,orders.created_at from user,order_products, orders where orders.order_id = order_products.order_id && order_products.restaurant_id = :user_id && user.id = buyer_id', ['user_id' => $user->id]);
+			 $restaurants = Restaurants::where('restaurant_id', '=', 0)->first(); 
+			 $orders = DB::select('select * from orders where order_status != -1 AND restaurant_id = 0');
 		}
-		//return $orders; 
 
 		//return $orders; 	
 		return view('AdminViews.viewOrders')->with('orders', $orders);
@@ -206,7 +202,7 @@ class AdminController extends Controller
 		$order = order::where('order_id','=', $orderID)->first();
 		 
 		//change the status of the order to re==ady 
-		$order->delivery_status = 1; 
+		$order->order_status = $request->order_status; 
 
 		//save changes to the order DB
 		$order->save(); 

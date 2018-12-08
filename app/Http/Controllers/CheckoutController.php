@@ -81,6 +81,7 @@ class CheckoutController extends Controller
 
             $update = DB::update('update days_of_delivery set current_no_of_delivery ='. $c_no_of_del.' where id = ?', [''.$request->day.'']);
             //return $update; 
+            //return $update; 
             
 
 
@@ -141,8 +142,8 @@ class CheckoutController extends Controller
         // $data = ["sdkflsjadkfsdlfsdllfjsdflksdkfdslsfjdsfldlfkjdsljfldslfkds"]; 
 
         ///NOTIFICATIONS FOR ORDER
-        $request->session()->put('order', 'value');
-        $order = $request->session()->get('order');
+        //$request->session()->put('order');
+        //$order = $request->session()->get('order');
         //dd($order);
 
         //send email of confirmation to the user 
@@ -234,4 +235,9 @@ class CheckoutController extends Controller
 
         return view('OrderTracker.orderTracking');
     }
+
+   // public function orderTracking()
+    //{
+      //  return view('OrderTracker.orderTracking');
+    //}
 }
