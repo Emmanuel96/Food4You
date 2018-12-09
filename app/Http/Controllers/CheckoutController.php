@@ -212,7 +212,7 @@ class CheckoutController extends Controller
         Session::forget('cart');
 
         
-        return redirect()->route('order/tracking/'.$orders->id);
+        return redirect()->route('order.tracking', ['id' =>$orders] );
         return view('OrderTracker.preparing');
     }
 
