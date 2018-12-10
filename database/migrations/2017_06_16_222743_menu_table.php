@@ -21,7 +21,7 @@ class MenuTable extends Migration
             $table->float('product_price');
             $table->string('product_image');
             $table->integer('restaurant_id');
-            $table->string('category')->default(0);
+            $table->string('category')->default('extra');
             $table->boolean('inStock')->default(1); 
             $table->timestamps();
         });

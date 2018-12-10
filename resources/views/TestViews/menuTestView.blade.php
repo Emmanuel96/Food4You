@@ -370,9 +370,9 @@
     <div id = "category_nav" class="categoryNav center" style = "font-family: Montserrat, Helvetica, sans-serif; background-color: #fff; padding-left: 72px; padding-right:100px; height: 55px; margin-bottom: 20px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
     	<ul class="nav navbar-nav nav-left " style = "margin-top: auto; margin-bottom: auto;    font-family: ClanPro-News, Helvetica, sans-serif;
  ">
-    		<li class="nav-item"><a href = "#most_popular" class="nav-link cat-link page-scroll">Sandwith</a></li>
-    		<li class="nav-item"><a href = "#ice_tea" class="page-scroll cat-link" >Platters</a></li>
-    		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Others</a></li>
+    		<li class="nav-item"><a href = "#sandwich" class="nav-link cat-link page-scroll">Sandwich</a></li>
+    		<li class="nav-item"><a href = "#platter" class="page-scroll cat-link" >Platters</a></li>
+    		<li class="nav-item"><a href = "#others" class= "page-scroll cat-link" >Others</a></li>
 <!--     		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Iced tea</a></li>
  -->    </ul>
 
@@ -396,6 +396,7 @@
              <table class="table table-hover" id= "cartTable" style = "height: 70px; ">
                 <tbody style = "height: 100%; overflow-y:scroll; overflow-x: hidden; display: block;  ">
                     @foreach($products as $product)
+                        @if(category == "sandwich")
                         <tr id = "{{$product['item']['product_id']}}">                          
                             <td class= "qty-edit-td" style = "width: 45.5%;">
                                 <a style = "border-radius: 9px; height: 5px; padding: 0;" href="" onclick = "deleteCartItem('{{$product['item']['product_id']}}')" >
@@ -415,6 +416,7 @@
                             <td class="product-name-td" style = "padding-top: 12px; width: 70%; ">  {{$product['item']['product_name']}} + {{$product['extra']}} </td>
                             <td align="right" id="price{{$product['item']['product_id']}}" style = "width:100%; vertical-align:middle;">₦{{$product['price']}}</td>
                         </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
@@ -476,18 +478,122 @@
 		<div class = "row">
 			<!-- Column for the Products -->
 			<div class = "col-xs-12 mobile_resp" style = "width: 63%; ">
-			<div class = "container" style = "width: 100%">
+			    <div class = "container" style = "width: 100%">
 
-			<!-- Information for about the restaurant -->
-		
-			<!-- For each statment to display products We need i to count 3 for items in each row , later versions should use the chunk method -->
+                    <!-- Information for about the restaurant -->
+                
+                    <!-- For each statment to display products We need i to count 3 for items in each row , later versions should use the chunk method -->
 
-			<?php $i = 0; ?>
-			<h2 id = "most_popular">Sandwitches</h2>
+                    <?php $i = 0; ?>
+                    <h2 id = "sandwich">Sandwich</h2>
+                    @foreach ($menu as $m)
+                        @if( $i == 0 || $i == 3 )
+                            <div class="row menu_row">
+                        @endif
+                        @if($m->category == "sandwich")
+                            <div class="col-sm-4 col-xs-12">
+
+                                <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
+                                    <div class="w3-container w3-center">
+                                        <!-- <h3>{{$m->product_name}}</h3> -->
+                                        <h4>{{$m->product_name}}</h4>
+                                        <img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
+
+                                        <div class="w3-section">
+                                            <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
+                                        </div>
+                                        <div class="w3-section">
+                                            <!-- <label for="sel1">Select Quantity:</label> -->
+                                            <!-- <select class="invisible" name = "qty" id="qty{{$m->product_id}}">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select> -->
+                                            <h3>₦{{$m->product_price}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ending the row if last item or items on the row are 3 already -->
+                            @if($i == 2 || $loop->last)
+                                
+                                </div>
+                                @break
+                                <?php 
+                                    $i = 0; 
+                                ?>
+                            @else 
+                                <?php $i++ ?>
+                            @endif
+                        @endif
+                    @endforeach
+                </div>
+            </div> 
+        </div>
+
+
+        <div class = "row">
+            <div class = "col-xs-12 mobile_resp" style = "width: 63%; ">
+                <div class = "container" style = "width: 100%">
+
+                    <?php $i = 0; ?>
+                    <h2 id = "platter">Platter</h2>
+                    @foreach ($menu as $m)
+                        @if( $i == 0 || $i == 3 )
+                            <div class="row menu_row">
+                        @endif
+                        @if($m->category == "platter")
+                            <div class="col-sm-4 col-xs-12">
+
+                                <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
+                                    <div class="w3-container w3-center">
+                                        <!-- <h3>{{$m->product_name}}</h3> -->
+                                        <h4>{{$m->product_name}}</h4>
+                                        <img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
+
+                                        <div class="w3-section">
+                                            <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
+                                        </div>
+                                        <div class="w3-section">
+                                            <!-- <label for="sel1">Select Quantity:</label> -->
+                                            <!-- <select class="invisible" name = "qty" id="qty{{$m->product_id}}">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select> -->
+                                            <h3>₦{{$m->product_price}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ending the row if last item or items on the row are 3 already -->
+                            @if($i == 2 || $loop->last)
+                                </div>
+                                <?php 
+                                    $i = 0; 
+                                ?>
+                            @else 
+                                <?php $i++ ?>
+                            @endif
+                        @endif
+                    @endforeach
+            </div>
+                </div>
+       </div>
+  
+            <?php $i = 0; ?>
+
+            <h2 id = "others">Extras</h2>
+            
 			@foreach ($menu as $m)
 				@if( $i == 0 || $i == 3 )
 					<div class="row menu_row">
-				@endif
+                @endif
+                @if($m->category == "extra")
 				<div class="col-sm-4 col-xs-12">
 
 					<div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
@@ -521,18 +627,13 @@
 					?>
 				@else 
 					<?php $i++ ?>
-				@endif
-			@endforeach	
-			</div>
-			</div>
-
-			</div>	
-
-	
-
-<div class="pagination-bar text-center">
-       {{ $menu->links() }}
-</div>
+                @endif
+                @endif
+            @endforeach
+            
+        </div>
+    </div>
+			
 
 
 <!-- Begin of my modal  -->
