@@ -370,9 +370,9 @@
     <div id = "category_nav" class="categoryNav center" style = "font-family: Montserrat, Helvetica, sans-serif; background-color: #fff; padding-left: 72px; padding-right:100px; height: 55px; margin-bottom: 20px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
     	<ul class="nav navbar-nav nav-left " style = "margin-top: auto; margin-bottom: auto;    font-family: ClanPro-News, Helvetica, sans-serif;
  ">
-    		<li class="nav-item"><a href = "#most_popular" class="nav-link cat-link page-scroll">Wraps</a></li>
-    		<li class="nav-item"><a href = "#ice_tea" class="page-scroll cat-link" >Meals</a></li>
-    		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Drinks</a></li>
+    		<li class="nav-item"><a href = "#most_popular" class="nav-link cat-link page-scroll">Sandwith</a></li>
+    		<li class="nav-item"><a href = "#ice_tea" class="page-scroll cat-link" >Platters</a></li>
+    		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Others</a></li>
 <!--     		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Iced tea</a></li>
  -->    </ul>
 
@@ -483,7 +483,7 @@
 			<!-- For each statment to display products We need i to count 3 for items in each row , later versions should use the chunk method -->
 
 			<?php $i = 0; ?>
-			<h2 id = "most_popular">Wraps</h2>
+			<h2 id = "most_popular">Sandwitches</h2>
 			@foreach ($menu as $m)
 				@if( $i == 0 || $i == 3 )
 					<div class="row menu_row">
@@ -494,7 +494,7 @@
 						<div class="w3-container w3-center">
 							<!-- <h3>{{$m->product_name}}</h3> -->
 							<h4>{{$m->product_name}}</h4>
-							<img class="img-fluid" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
+							<img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
 
 							<div class="w3-section">
 								<a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
@@ -547,7 +547,7 @@
       </div>
       <div class="modal-body">
       <form>
-            <img id = "product_details_image" style = "height: 80px;" class= "img-responsive center img-rounded" />
+            <img id = "product_details_image" style = "height: auto; width: 50%; " class= "img-responsive center img-rounded" />
 
         <h5 style = "width: 100%; text-align:center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;"><span style = "background: #fff; padding: 0 10px; font-weight:bold;">DESCRIPTION</span></h5>
          <p class = "text-center" style="margin-bottom: 20px; " id = "product_description">  </p>
