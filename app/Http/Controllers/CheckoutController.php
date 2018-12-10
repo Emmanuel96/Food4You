@@ -150,8 +150,6 @@ class CheckoutController extends Controller
 
         ///NOTIFICATIONS FOR ORDER
         $order_slug = $request->session()->get('order_slug');
-        
-
         $order_slug = $request->session()->pull('buyer_email');
         
         //dd($order_slug);
@@ -215,8 +213,8 @@ class CheckoutController extends Controller
         Session::forget('cart');
 
         
-        return redirect()->route('order/tracking/' . $orders->id);
-        //return view('OrderTracker.preparing');
+        return redirect()->route('order.tracking', ['id' =>$orders]  );
+        return view('OrderTracker.preparing');
     }
 
     public function orderTracking($id)

@@ -1138,10 +1138,10 @@ class productseeders extends Seeder
               //Basic 75k (for 2 weeks) 37500 (for 1 week)
                 DB::table('menu')->insert([
                   'product_name' => 'Basic Platter',
-                  'product_description' => 'The Meat Fest Pasta . Gizzard Jollof . Turkey Suya . Peppered Snail . Moimoi . Gizdodo . Strawberry Vanilla Oreo Cheesecake (Double Layered Delight) . lasts for 1 week',
+                  'product_description' => 'The Meat Fest Pasta . Gizzard Jollof . Turkey Suya . Peppered Snail . Moimoi . Gizdodo . Strawberry Vanilla Oreo . Cheesecake. (Double Layered Delight) . Lasts for 1 week',
                   'product_price' => 37500,
                   'product_has_extra' => 0,
-                  'product_image' => 'sandwich.jpeg',
+                  'product_image' => 'basic_platter.jpeg',
                   'restaurant_id' => 0
                 ]);
 
@@ -1150,61 +1150,52 @@ class productseeders extends Seeder
                   'product_description' => 'The Meat Fest Pasta . Gizzard Jollof . Turkey Suya . Peppered Snail . Moimoi . Gizdodo . Strawberry Vanilla Oreo Cheesecake (Double Layered Delight) . lasts for 2 weeks',
                   'product_price' => 75000,
                   'product_has_extra' => 0,
-                  'product_image' => 'sandwich.jpeg',
+                  'product_image' => 'basic_platter.jpeg',
                   'restaurant_id' => 0
                 ]);
 
                 DB::table('menu')->insert([
-                  'product_name' => 'Finger food Platter Deluxe-Lite',
+                  'product_name' => 'Finger food Lite',
                   'product_description' => 'Franks in French Toast bits . Shrimp in waffle saucers . Chicken Spring Rolls . Yam Piccata . Pepper Sauce . Honey Soy Wings . Mini Tuna French toast Pockets ',
                   'product_price' => 40000,
                   'product_has_extra' => 0,
-                  'product_image' => 'sandwich.jpeg',
+                  'product_image' => 'finger_food_lite.jpeg',
                   'restaurant_id' => 0
                 ]);
 
                 DB::table('menu')->insert([
-                  'product_name' => 'Finger Food Palette',
+                  'product_name' => 'Finger Food Deluxe',
                   'product_description' => 'Battered Prawns . Shrimp & Mayo Spring rolls . Pepper Sauce . Peppered Snails . Goat meat in Coconut Oil stir fry sauce . Mini Chicken French Toast Pockets',
                   'product_price' => 70000,
                   'product_has_extra' => 0,
-                  'product_image' => 'sandwich.jpeg',
+                  'product_image' => 'finger_food_deluxe.jpeg',
                   'restaurant_id' => 0
                 ]);
 
                 DB::table('menu')->insert([
                   'product_name' => 'Soupreme',
-                  'product_description' => 'Seafood Okra . Egusi Soup . Oge Nsala . Chicken Curry . Rice & Swallow of Choice . Red Velvet Brownie Muffins . lasts for 1 week ',
+                  'product_description' => 'Seafood Okra . Egusi Soup . Oge Nsala . Chicken Curry . Rice & Swallow of Choice . Red Velvet Brownie Muffins . Lasts for 1 week ',
                   'product_price' => 45000,
                   'product_has_extra' => 0,
-                  'product_image' => 'sandwich.jpeg',
-                  'restaurant_id' => 0
-                ]);
-
-                DB::table('menu')->insert([
-                  'product_name' => 'Soupreme Deluxe',
-                  'product_description' => 'Seafood Okra . Egusi Soup . Oge Nsala . Chicken Curry . Rice & Swallow of Choice . Red Velvet Brownie Muffins . lasts for 2 weeks ',
-                  'product_price' => 90000,
-                  'product_has_extra' => 0,
-                  'product_image' => 'sandwich.jpeg',
-                  'restaurant_id' => 0
-                ]);
-
-                DB::table('menu')->insert([
-                  'product_name' => 'Basic Deluxe',
-                  'product_description' => 'Szechuan Beef Stir Fry . Egg Fried Rice . Poulet DG . Special Fried Rice . Chicken Stir Fry . BBQ Ribs . Caramel Vanilla Oreo Cheesecake (Triple Layered Delight) . lasts for 1 week ',
-                  'product_price' => 50000,
-                  'product_has_extra' => 0,
-                  'product_image' => 'sandwich.jpeg',
+                  'product_image' => 'soupreme.jpeg',
                   'restaurant_id' => 0
                 ]);
 
                 DB::table('menu')->insert([
                   'product_name' => 'Deluxe Platter',
                   'product_description' => 'Szechuan Beef Stir Fry . Egg Fried Rice . Poulet DG . Special Fried Rice . Chicken Stir Fry . BBQ Ribs . Caramel Vanilla Oreo Cheesecake (Triple Layered Delight) . lasts for 1 week ',
+                  'product_price' => 50000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'deluxe.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Deluxe 2 Weeks',
+                  'product_description' => 'Szechuan Beef Stir Fry . Egg Fried Rice . Poulet DG . Special Fried Rice . Chicken Stir Fry . BBQ Ribs . Caramel Vanilla Oreo Cheesecake (Triple Layered Delight) . lasts for 1 week ',
                   'product_price' => 100000,
                   'product_has_extra' => 0,
-                  'product_image' => 'sandwich.jpeg',
+                  'product_image' => 'deluxe.jpeg',
                   'restaurant_id' => 0
                 ]);
               
