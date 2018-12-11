@@ -1095,7 +1095,7 @@ class productseeders extends Seeder
                   'category' => 'sandwich',
                   'product_price' => 2500,
                   'product_has_extra' => 0,
-                  'product_image' => 'bbq_chicken_sandwich.jpeg',
+                  'product_image' => 'sloppy_philly_sandwich.jpeg',
                   'restaurant_id' => 0
                 ]);
               
@@ -1126,7 +1126,7 @@ class productseeders extends Seeder
                   'category' => 'sandwich',
                   'product_price' => 2500,
                   'product_has_extra' => 0,
-                  'product_image' => 'sloppy_philly_sandwich.jpeg',
+                  'product_image' => 'bbq_chicken_sandwich.jpeg',
                   'restaurant_id' => 0
                 ]);
                
@@ -1135,7 +1135,7 @@ class productseeders extends Seeder
                 DB::table('menu')->insert([
                   'product_name' => 'Shawarma',
                   'product_description' => 'Shawarma',
-                    'product_price' => 2200,
+                  'product_price' => 2200,
                   'product_has_extra' => 0,
                   'product_image' => 'shawarma.jpeg',
                   'restaurant_id' => 0
