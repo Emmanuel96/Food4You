@@ -371,7 +371,7 @@
     	<ul class="nav navbar-nav nav-left " style = "margin-top: auto; margin-bottom: auto;    font-family: ClanPro-News, Helvetica, sans-serif;
  ">
     		<li class="nav-item"><a href = "#sandwich" class="nav-link cat-link page-scroll">Sandwich</a></li>
-    		<li class="nav-item"><a href = "#platter" class="page-scroll cat-link" >Platters</a></li>
+    		<li class="nav-item"><a href = "#platter" class="page-scroll cat-link" >Christmas Specials</a></li>
     		<li class="nav-item"><a href = "#others" class= "page-scroll cat-link" >Others</a></li>
 <!--     		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Iced tea</a></li>
  -->    </ul>
@@ -537,7 +537,7 @@
                 <div class = "container" style = "width: 100%">
 
                     <?php $i = 0; ?>
-                    <h2 id = "platter">Platter</h2>
+                    <h2 id = "platter">Christmas Specials</h2>
                     @foreach ($menu as $m)
                         @if( $i == 0 || $i == 3 )
                             <div class="row menu_row">

@@ -1214,7 +1214,7 @@ class productseeders extends Seeder
                 ]);
 
                 DB::table('menu')->insert([
-                  'product_name' => 'Soupreme Deluxe',
+                  'product_name' => 'Soupreme (2 Weeks)',
                   'product_description' => 'Seafood Okra . Egusi Soup . Oge Nsala . Chicken Curry . Rice & Swallow of Choice . Red Velvet Brownie Muffins . Lasts for 2 week ',
                   'category' => 'platter',
                   'product_price' => 100000,
