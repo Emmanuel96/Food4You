@@ -515,7 +515,7 @@
                             </div>
 
                             <!-- ending the row if last item or items on the row are 3 already -->
-                            @if($i == 3 || $loop->last)
+                            @if($i == 2 || $loop->last)
                                 
                                 </div>
                                
@@ -863,9 +863,9 @@
                 </div>
                 <div class="col-md-3">
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-wechat"></i></a>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
                         </li>
-						<li><a href="https://login.yahoo.com/?.src=ym&.intl=us&.lang=en-US&.done=https%3a//mail.yahoo.com"><i class="fa fa-weibo"></i></a>
+						<li><a href="https://login.yahoo.com/?.src=ym&.intl=us&.lang=en-US&.done=https%3a//mail.yahoo.com"><i class="fa fa-twitter"></i></a>
                         </li>
                     </ul>
                 </div>
