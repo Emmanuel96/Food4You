@@ -292,8 +292,38 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" @if(!Auth::user()) data-target="#bs-example-navbar-collapse-1"@else data-target ="#"@endif>
+                    @if(!Auth::user()) 
+                        <span class="sr-only">Toggle navigation</span> 
+                        Menu  <i class="fa fa-bars"></i>
+                    @else
+                        <li class="nav-item dropdown">
+                                    <a style = "color:black;"  class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        {{ Auth::user()->user_name }} <span class="caret"></span>
+                                    </a>
+
+                                    <ul style="color:black;" class="dropdown-menu" role="menu">
+                                        <li class="nav-item">
+                                            <a style = "color:black;" class="nav-link" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                                Logout
+                                            </a>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                        @if(Auth::user()->user_role == 1 || Auth::user()->user_role == 3)
+                                            <li class = "nav-item">
+                                                <a style = "color:black;" class="nav-link" href="{{route('admin.viewProducts')}}">
+                                                    Dashboard
+                                                </a>
+                                            </li>
+                                        @endif
+                                    </ul>
+                        </li>
+                    @endif
                 </button>
                 <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Naija Bites</a>
             </div>
