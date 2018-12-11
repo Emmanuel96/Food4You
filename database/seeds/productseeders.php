@@ -1089,6 +1089,9 @@ class productseeders extends Seeder
                   'product_image' => 'images.jpg', 
                   'restaurant_id' => 7
                 ]);
+
+
+                //IDIMMAS PRODUCTS START FROM HERE OH!
                 DB::table('menu')->insert([
                   'product_name' => 'Sloppy Philly Sandwich',
                   'product_description' => 'Our Signature Sloppy Joe Meats Philly Cheesesteak Sandwich',
@@ -1101,11 +1104,30 @@ class productseeders extends Seeder
               
                 DB::table('menu')->insert([
                   'product_name' => 'Frankfurters Rolled in French Toast',
-                  'category' => 'sandwich',
                   'product_description' => '6 Pcs of Franks Rolled In French Toast',
                   'product_price' => 2000,
                   'product_has_extra' => 0,
                   'product_image' => 'grilled_frankfurter.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'French Toast Club Sandwich',
+                  'category' => 'sandwich',
+                  'product_description' => 'French Toast Club Sandwich',
+                  'product_price' => 2500,
+                  'product_has_extra' => 0,
+                  'product_image' => 'french_toast_club_sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'French Toast BES Sandwich',
+                  'product_description' => 'French Toast BES Sandwich',
+                  'category' => 'sandwich',
+                  'product_price' => 2700,
+                  'product_has_extra' => 0,
+                  'product_image' => 'french_toast_bes_sandwich.jpeg',
                   'restaurant_id' => 0
                 ]);
 
@@ -1135,6 +1157,7 @@ class productseeders extends Seeder
                 DB::table('menu')->insert([
                   'product_name' => 'Shawarma',
                   'product_description' => 'Shawarma',
+                  'category' => 'sandwich',
                   'product_price' => 2200,
                   'product_has_extra' => 0,
                   'product_image' => 'shawarma.jpeg',
@@ -1185,7 +1208,6 @@ class productseeders extends Seeder
 
                 DB::table('menu')->insert([
                   'product_name' => 'Cinnamon French Toast Sticks',
-                  'category' => 'sandwich',
                   'product_description' => '5 Pcs of Cinnamon French Toast Sticks',
                   'product_price' => 1500,
                   'product_has_extra' => 0,
