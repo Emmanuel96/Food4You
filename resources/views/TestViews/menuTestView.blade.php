@@ -396,7 +396,6 @@
              <table class="table table-hover" id= "cartTable" style = "height: 70px; ">
                 <tbody style = "height: 100%; overflow-y:scroll; overflow-x: hidden; display: block;  ">
                     @foreach($products as $product)
-                        @if(category == "sandwich")
                         <tr id = "{{$product['item']['product_id']}}">                          
                             <td class= "qty-edit-td" style = "width: 45.5%;">
                                 <a style = "border-radius: 9px; height: 5px; padding: 0;" href="" onclick = "deleteCartItem('{{$product['item']['product_id']}}')" >
@@ -416,7 +415,6 @@
                             <td class="product-name-td" style = "padding-top: 12px; width: 70%; ">  {{$product['item']['product_name']}} + {{$product['extra']}} </td>
                             <td align="right" id="price{{$product['item']['product_id']}}" style = "width:100%; vertical-align:middle;">₦{{$product['price']}}</td>
                         </tr>
-                        @endif
                     @endforeach
                 </tbody>
             </table>
