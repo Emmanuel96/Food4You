@@ -1089,6 +1089,25 @@ class productseeders extends Seeder
                   'product_image' => 'images.jpg', 
                   'restaurant_id' => 7
                 ]);
+                DB::table('menu')->insert([
+                  'product_name' => 'Sloppy Philly Sandwich',
+                  'product_description' => 'Our Signature Sloppy Joe Meats Philly Cheesesteak Sandwich',
+                  'category' => 'sandwich',
+                  'product_price' => 2500,
+                  'product_has_extra' => 0,
+                  'product_image' => 'bbq_chicken_sandwich.jpeg',
+                  'restaurant_id' => 0
+                ]);
+              
+                DB::table('menu')->insert([
+                  'product_name' => 'Frankfurters Rolled in French Toast',
+                  'category' => 'sandwich',
+                  'product_description' => '6 Pcs of Franks Rolled In French Toast',
+                  'product_price' => 2000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'grilled_frankfurter.jpeg',
+                  'restaurant_id' => 0
+                ]);
 
                 
                 DB::table('menu')->insert([
@@ -1111,26 +1130,7 @@ class productseeders extends Seeder
                   'restaurant_id' => 0
                 ]);
                
-                DB::table('menu')->insert([
-                  'product_name' => 'Sloppy Philly Sandwich',
-                  'product_description' => 'Our Signature Sloppy Joe Meats Philly Cheesesteak Sandwich',
-                  'category' => 'sandwich',
-                  'product_price' => 2500,
-                  'product_has_extra' => 0,
-                  'product_image' => 'bbq_chicken_sandwich.jpeg',
-                  'restaurant_id' => 0
-                ]);
               
-                DB::table('menu')->insert([
-                  'product_name' => 'Frankfurters Rolled in French Toast',
-                  'category' => 'sandwich',
-                  'product_description' => '6 Pcs of Franks Rolled In French Toast',
-                  'product_price' => 2000,
-                  'product_has_extra' => 0,
-                  'product_image' => 'grilled_frankfurter.jpeg',
-                  'restaurant_id' => 0
-                ]);
-
                 
                 DB::table('menu')->insert([
                   'product_name' => 'Shawarma',
