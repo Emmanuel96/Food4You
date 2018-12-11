@@ -1237,7 +1237,7 @@ class productseeders extends Seeder
                   'product_name' => 'Deluxe (2 Weeks)',
                   'product_description' => 'Szechuan Beef Stir Fry . Egg Fried Rice . Poulet DG . Special Fried Rice . Chicken Stir Fry . BBQ Ribs . Caramel Vanilla Oreo Cheesecake (Triple Layered Delight) . lasts for 1 week ',
                   'category' => 'platter',
-                  'product_price' => 1100000,
+                  'product_price' => 110000,
                   'product_has_extra' => 0,
                   'product_image' => 'deluxe.jpeg',
                   'restaurant_id' => 0
