@@ -532,9 +532,9 @@
             <tbody>
                 <tr>                            
                     <td colspan="2">
-                        <i class= "fa fa-bicycle"></i> Delivery Fee
+                        <i class= "fa fa-bicycle"></i> Pay on Delivery 
                     </td>
-                    <td align="right"  style = "color: red; font-style: italic; ">₦500</td>
+                    <td align="right"  style = "color: red; font-style: italic; "> ₦1000</td>
                 </tr>
             </tbody>
         </table>
