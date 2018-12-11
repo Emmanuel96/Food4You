@@ -517,14 +517,14 @@
                             </div>
 
                             <!-- ending the row if last item or items on the row are 3 already -->
-                            @if($i == 2 || $loop->last)
+                            @if($i == 3 || $loop->last)
                                 
                                 </div>
-                                @break
+                               
                                 <?php 
                                     $i = 0; 
                                 ?>
-                            @else 
+                            @else
                                 <?php $i++ ?>
                             @endif
                         @endif
