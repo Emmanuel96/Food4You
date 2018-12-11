@@ -149,13 +149,13 @@ class CheckoutController extends Controller
         // $data = ["sdkflsjadkfsdlfsdllfjsdflksdkfdslsfjdsfldlfkjdsljfldslfkds"]; 
 
         ///NOTIFICATIONS FOR ORDER
-        $order_slug = $request->session()->get('order_slug');
-        $order_slug = $request->session()->pull('buyer_email');
+        //$order_slug = $request->session()->get('order_slug');
+        //$order_slug = $request->session()->pull('buyer_email');
         
         //dd($order_slug);
 
         //send email of confirmation to the user 
-        Mail::to($request->user())->send(new OrderConfirmation()); 
+        Mail::to('emmanuel.audu1@aun.edu.ng')->send(new OrderConfirmation()); 
 
         //send text message to user confirming order 
         //$orders->notify(new OrderConfirmed($orders->payment_ref));
