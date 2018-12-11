@@ -207,6 +207,9 @@
 
             @media screen and (max-width: 768px)
             {
+                header{
+                    margin-top: 60px; 
+                }
                 .navbar-toggle
                 {
                     margin-right: 30px; 
@@ -238,6 +241,9 @@
            
                @media screen and (min-width: 991px) {
              /* start of large tablet styles */
+                header{
+                    margin-top: 60px; 
+                }
                  .categoryNav
                  {
                      padding-right: 10px !important; 
