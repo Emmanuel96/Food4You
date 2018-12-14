@@ -24,9 +24,11 @@ class CheckoutController extends Controller
 {
     public function displayCheckout(){
         Log::info('I got here');
-        if(!Session::has('cart'))
+        // return Session::get('cart');
+        if(Session::get('cart') == "")
         {
-            return view('cartViews.cart');
+            //if no cart, return back to menu view
+            return redirect(url()->previous());
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
