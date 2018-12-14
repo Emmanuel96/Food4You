@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.AdminHeader')
 
-    <title>Food App</title>
-
-    <link href="{{URL::asset('css/Chendu.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    {{--Google Fonts--}}
-<!-- Custom Fonts -->
-    {{--<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">--}}
-
-    <link href="{{URL::asset('css/nprogress.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/prettify.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/select2/dist/css/select2.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/switchery/dist/switchery.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/starrr.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
-
-    <link href="{{URL::asset('css/custom.min.css')}}" rel="stylesheet">
-        
-
-
-  </head>
-
+@section('content')
+    
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -299,4 +269,5 @@
 
     <!-- Custom Theme Scripts -->
   </body>
-</html>
+
+  @endsection

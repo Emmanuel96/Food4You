@@ -534,7 +534,7 @@
                     <td colspan="2">
                         <i class= "fa fa-bicycle"></i> Pay on Delivery 
                     </td>
-                    <td align="right"  style = "color: red; font-style: italic; "> ₦1000</td>
+                    <td align="right"  style = "color: red; font-style: italic; "> </td>
                 </tr>
             </tbody>
         </table>
