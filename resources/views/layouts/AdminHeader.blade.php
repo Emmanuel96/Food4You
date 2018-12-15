@@ -36,6 +36,34 @@
       @media screen and (max-width: 414px)
             {
 
+               table{
+                   font-size: 12px;
+               }
+
+               #product_image{
+                    display:none;                           
+               }
+
+               #product_image_header{
+                   display:none; 
+               }
+
+               #product_description_header{
+                   display:none;
+               }
+
+               #product_description{
+                   display:none;
+               }
+
+               #product_category{
+                   display:none;
+               }
+
+               #product_stock{
+                   display:none;
+               }
+
                 footer
                 {
                     display: none !important;     
@@ -108,6 +136,7 @@
 
             @media screen and (max-width: 768px)
             {
+
                 header{
                     margin-top: 60px; 
                 }
@@ -136,7 +165,7 @@
                  .nav-item .cat-link
                  {
                     padding: 15px 5px !important; 
-                 }
+                 }    
             }
 
            
