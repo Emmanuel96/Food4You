@@ -66,10 +66,10 @@
 
         <!-- footer content -->
         <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          <!-- <div class="pull-right">
+            <a href="#"></a>
           </div>
-          <div class="clearfix"></div>
+          <div class="clearfix"></div> -->
         </footer>
         <!-- /footer content -->
       </div>

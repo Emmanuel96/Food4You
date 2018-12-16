@@ -221,7 +221,7 @@ class AdminController extends Controller
 
 	{
 		$product = menu::find($id);
-		$product->product_description; 
+		//$product->product_description; 
 
 		return view ('AdminViews/editProduct', compact('product'));
 	}
