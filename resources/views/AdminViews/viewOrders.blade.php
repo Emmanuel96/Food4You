@@ -1,13 +1,12 @@
 @extends('layouts.AdminHeader')
 
 @section('content')
-    
             <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>View All Orders</h3>
+                <h3>Orders</h3>
               </div>
 
 
@@ -15,12 +14,12 @@
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th class="text-center">Name</th>
-                          <th class="text-center">Mobile No</th>
-                          <th class="text-center">Address</th>
-                          <th class = "text-center"> Date</th>
+                          <th  class="text-center">Name</th>
+                          <th id = "order_mobile_no" class="text-center">Mobile No</th>
+                          <th id = "order_address" class="text-center">Address</th>
+                          <th id = "order_date" class = "text-center"> Date</th>
                           <th class="text-center"> Order Status </th>
-                          <th class="text-center">Products</th>
+                          <th class="text-center">Details</th>
                         </tr>
                         @foreach($orders as $order)
                           <tr>

@@ -1,13 +1,19 @@
 @extends('layouts.AdminHeader')
 
+<style>
+  table {
+    background-color:black;                                        
+  }
+</style>
+
 @section('content')
-            
-            <!-- page content -->
+
+        <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Product</h3>
+                <h3 style= "font-weight: bold;">Product</h3>
               </div>
 
 
@@ -15,25 +21,25 @@
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Product Image</th>
+                          <th id = "product_image_header">Product Image</th>
                           <th>Product Name</th>
-                          <th>Product Description</th>
-                          <th>Product Price</th>
-                          <th>Category</th>
+                          <th id = "product_description">Product Description</th>
+                          <th>Price</th>
+                          <th id = "product_category">Category</th>
                           <th>Edit</th>
-                          <th>Stock</th>
+                          <th id = "product_stock">Stock</th>
                         </tr>
                       </thead>
                       <tbody>
                           @foreach($products as $product)
                             <tr>
-                              <td><img class="responsive-img mx-auto" width ="30px" height="30px" src = "/storage/images/{{$product->product_image}}"/></td>
-                              <td>{{$product->product_name}}</td>
-                              <td>{{$product->product_description}}</td>
-                              <td>₦{{$product->product_price}}</td>
-                              <td>{{$product->category}}</td>
-                              <td><a href="{{ url('admin/editProduct')}}/{{ $product->product_id }}" class ="btn btn-primary">Edit</a></td>
-                              <td ><a id = "inOutStockLink{{$product->product_id}}" onclick = "inOutOfStock( {{$product->product_id}})"  @if($product->inStock != 0) class = "btn btn-primary">In Stock</a> @else class = "btn btn-danger"> Out Of Stock </a> @endif </td>
+                              <td id = "product_image"><img class="responsive-img mx-auto" width ="30px" height="30px" src = "/storage/images/{{$product->product_image}}"/></td>
+                              <td id = "product_name">{{$product->product_name}}</td>
+                              <td id = "product_description">{{$product->product_description}}</td>
+                              <td id = "product_price">₦{{$product->product_price}}</td>
+                              <td id = "product_category">{{$product->category}}</td>
+                              <td id = "edit_product"><a href="{{ url('admin/editProduct')}}/{{ $product->product_id }}" class ="btn btn-primary">Edit</a></td>
+                              <td id = "product_stock"><a id = "inOutStockLink{{$product->product_id}}" onclick = "inOutOfStock( {{$product->product_id}})"  @if($product->inStock != 0) class = "btn btn-primary">In Stock</a> @else class = "btn btn-danger"> Out Of Stock </a> @endif </td>
                             </tr>
                           @endforeach
                       </tbody>

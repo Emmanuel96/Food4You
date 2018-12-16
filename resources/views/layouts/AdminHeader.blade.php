@@ -33,8 +33,61 @@
 
   </head>
   <style>
+
+      #product-description-add-product
+      {
+          width: 100%;
+      }
       @media screen and (max-width: 414px)
             {
+                .top_nav .navbar-right
+                {
+                    width: 50%; 
+                }
+               table{                                                   
+                   font-size: 12px;
+               }
+
+               #product-description-add-product
+               {
+                   width: 100%              ;
+               }
+
+                #order_mobile_no{
+                display:none; 
+                }
+
+                #order_address{
+                display:none;
+                }
+
+                #order_date{
+                display:none; 
+                }
+
+               #product_image{
+                    display:none;                           
+               }
+
+               #product_image_header{
+                   display:none; 
+               }
+
+               #product_description_header{
+                   display:none;
+               }
+
+               #product_description{
+                   display:none;
+               }
+
+               #product_category{
+                   display:none;
+               }
+
+               #product_stock{
+                   display:none;
+               }
 
                 footer
                 {
@@ -108,6 +161,7 @@
 
             @media screen and (max-width: 768px)
             {
+
                 header{
                     margin-top: 60px; 
                 }
@@ -136,7 +190,7 @@
                  .nav-item .cat-link
                  {
                     padding: 15px 5px !important; 
-                 }
+                 }    
             }
 
            
