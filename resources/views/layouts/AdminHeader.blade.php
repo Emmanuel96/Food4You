@@ -33,12 +33,37 @@
 
   </head>
   <style>
+
+      #product-description-add-product
+      {
+          width: 100%;
+      }
       @media screen and (max-width: 414px)
             {
-
-               table{
+                .top_nav .navbar-right
+                {
+                    width: 50%; 
+                }
+               table{                                                   
                    font-size: 12px;
                }
+
+               #product-description-add-product
+               {
+                   width: 100%              ;
+               }
+
+                #order_mobile_no{
+                display:none; 
+                }
+
+                #order_address{
+                display:none;
+                }
+
+                #order_date{
+                display:none; 
+                }
 
                #product_image{
                     display:none;                           

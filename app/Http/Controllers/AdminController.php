@@ -71,19 +71,22 @@ class AdminController extends Controller
 
 		
 		//if product name already exist
-		$menu = menu::where('product_name', $menu->product_name)->first();
+		// $menu = menu::where('product_name', $menu->product_name)->first();
 
-		if($menu)
-		{
-			return redirect()->route('admin.addProduct', ['product_name' => $menu->product_name])
-			->with('success', $request->input('product_name'). ' added successfully');
-		}
+		// if($menu)
+		// {
+		// 	return 'IGH';
+		// 	return redirect()->route('admin.addProduct', ['product_name' => $menu->product_name])
+		// 	->with('success', $request->input('product_name'). ' added successfully');
+		// }
 
 		//STORING THE IMAGE 
 
 		$imageName = $request->product_image->getClientOriginalName();
 		$file = $request->file('product_image')->storeAs('images',$imageName);
-	
+		// Storage::disk('public')->put($imageName, 'Contents');
+
+		return $file;
 
 		return view('AdminViews.addProduct', compact());
 																																																
@@ -120,7 +123,7 @@ class AdminController extends Controller
 			// $products = DB::select('select * from restaurants_products, menu where restaurants_products.restaurant_id = :id && menu.item_id = restaurants_products.product_id', ['id' => $user->id] );
 			$restaurants = Restaurants::where('restaurant_id', '=', 0)->first();
 
-			$products = $restaurants->menu()->paginate(10); 
+			$products = $restaurants->menu()->paginate(5); 
 		}
 
 		return view('AdminViews.viewProducts')->with('products',$products); 

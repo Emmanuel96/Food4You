@@ -316,7 +316,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li class="nav-item">
-                                        <a style="color:black;" class="nav-link" href="{{ route('logout') }}"
+                                        <a style="color:black;" class="nav-link" href="{{ route('../logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout

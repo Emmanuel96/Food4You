@@ -36,8 +36,8 @@
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                  <div class="x_title">
-                    <h2></h2>
+                  <div class="x_title" style="border-bottom:0px;">
+                    
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="#"></i></a>
                       </li>
@@ -50,11 +50,11 @@
                           </li>
                         </ul>
                       </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      <!-- <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
-                    </ul>
+                    </ul> -->
                     <div class="clearfix"></div>
-                  </div>
+                  </div> 
                   <div class="x_content">
                     <br />
                     <form enctype="multipart/form-data" name="add_product" id="demo-form2" method = "POST" action="{{url('admin/createProduct')}}" class="form-horizontal form-label-left">
@@ -116,9 +116,9 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="last-name">Product Description *</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-0">
-                            <textarea name="product_description" id="product-description" cols="30" rows="10"></textarea>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="product-description-add-product">Product Description *</label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <textarea name="product_description" id="product-description-add-product"  cols="100" rows="5"></textarea>
                         </div>
                       </div>
                       
