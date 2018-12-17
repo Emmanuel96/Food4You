@@ -38,7 +38,7 @@
       {
           width: 100%;
       }
-      @media screen and (max-width: 414px)
+      @media screen and (max-width: 435px)
             {
                 .top_nav .navbar-right
                 {
