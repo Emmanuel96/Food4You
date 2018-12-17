@@ -123,7 +123,7 @@ class AdminController extends Controller
 			// $products = DB::select('select * from restaurants_products, menu where restaurants_products.restaurant_id = :id && menu.item_id = restaurants_products.product_id', ['id' => $user->id] );
 			$restaurants = Restaurants::where('restaurant_id', '=', 0)->first();
 
-			$products = $restaurants->menu()->paginate(5); 
+			$products = $restaurants->menu()->paginate(7); 
 		}
 
 		return view('AdminViews.viewProducts')->with('products',$products); 
@@ -220,8 +220,7 @@ class AdminController extends Controller
 	public function editProduct($id)
 
 	{
-		$product = menu::find($id);
-		//$product->product_description; 
+		$product = menu::find($id); 
 
 		return view ('AdminViews/editProduct', compact('product'));
 	}

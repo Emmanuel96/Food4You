@@ -107,9 +107,33 @@
   </body>
 
   <style>
-      .pagination
+
+      @media screen and (min-width: 320px)
       {
-        margin-top: 500px; 
+        .pagination{margin-top: 500px; margin-bottom: 20px; }
+      }
+      @media screen and (min-width: 360px)
+      {
+        .pagination{ margin-top: 500px; margin-bottom: 20px; }
+      }
+      @media screen and (min-width: 375px)
+      {
+        .pagination{ margin-top: 500px; margin-bottom: 20px; }
+      }
+
+      @media screen and (min-width: 411px)
+      {
+        .pagination{ margin-top: 500px; margin-bottom: 20px; }
+      }
+
+      @media screen and (min-width: 768px)
+      {
+        .pagination{ margin-top: 850px; margin-bottom: 20px; }
+      }
+
+      @media screen and (min-width: 1024px)
+      {
+        .pagination{ margin-top: 900px; margin-bottom: 20px; }
       }
   </style>
 

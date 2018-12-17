@@ -23,14 +23,14 @@
                         </tr>
                         @foreach($orders as $order)
                           <tr>
-                            <td>{{$order->buyer_name}}</td>
-                            <td>{{$order->buyer_phone_number}}</td>
-                            <td class="text-center">{{$order->buyer_address}}</td>
-                            <td class = "text-center">
+                            <td id = "buyer_name">{{$order->buyer_name}}</td>
+                            <td id = "buyer_phone_number">{{$order->buyer_phone_number}}</td>
+                            <td id = "buyer_address" class="text-center">{{$order->buyer_address}}</td>
+                            <td id = "created_at" class = "text-center">
                                 {{$order->created_at}} 
                                
                             </td>
-                            <td class="text-center">
+                            <td id = "order_status" class="text-center">
                                 <select class="btn btn-warning" style="width:70%;" id = "order_status{{$order->order_id}}" onChange = "sendNotification('{{$order->order_id}}', this.value)">
                                   <option @if($order->order_status == 1) selected @endif value = "1">Preparing</option>
                                   <option @if($order->order_status == 2) selected @endif value = "2">Ready</option>
@@ -38,7 +38,7 @@
                                   <option @if($order->order_status == 4) selected @endif value = "4">Delivered</option>
                                 </select>
                             </td>
-                            <td class="text-center"><a href= "viewOrders/{{$order->order_slug}}" class="btn btn-primary" >View Products</a>
+                            <td id = "order_slug" class="text-center"><a href= "viewOrders/{{$order->order_slug}}" class="btn btn-primary" >View Products</a>
                           </tr>
                         @endforeach
                         <!-- <tr>
