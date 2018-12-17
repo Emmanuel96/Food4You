@@ -35,7 +35,7 @@
                                   <option @if($order->order_status == 4) selected @endif value = "4">Delivered</option>
                                 </select>
                             </td>
-                            <td class="text-center"><a href= "viewOrders/{{$order->order_slug}}" class="btn btn-primary" >View Products</a>
+                            <td id = "order_slug" class="text-center"><a href= "viewOrders/{{$order->order_slug}}" class="btn btn-primary" >View Products</a>
                           </tr>
                         @endforeach
                         <!-- <tr>
@@ -63,10 +63,10 @@
 
         <!-- footer content -->
         <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          <!-- <div class="pull-right">
+            <a href="#"></a>
           </div>
-          <div class="clearfix"></div>
+          <div class="clearfix"></div> -->
         </footer>
         <!-- /footer content -->
       </div>
