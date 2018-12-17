@@ -374,7 +374,7 @@
 
 	         <a  href="./checkout" class = "btn btn-primary btn-lg cartButtons" style="color:black; margin-left: 300px; margin-bottom: 30px;  border-radius: 0px; width: 50%;" href = "./checkout" >Go to Checkout</a>
 
-	           <a  href="/menu/Eat Is Greek" class = "btn btn-success btn-lg cartButtons" style="color:white; margin-left: 300px; margin-bottom: 10px;   border-radius: 0px; width: 50%;" >Add More Items</a>
+	           <a  href="/menu/Plated Memoirs" class = "btn btn-success btn-lg cartButtons" style="color:white; margin-left: 300px; margin-bottom: 10px;   border-radius: 0px; width: 50%;" >Add More Items</a>
 
 	 </div>
 </div>

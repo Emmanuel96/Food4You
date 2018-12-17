@@ -67,7 +67,8 @@
                   <ul class="nav navbar-nav navbar-right" style="align:right;">
                     <li class="">
                       <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="images/img.jpg" alt="">{{ Auth::user()->user_name }} 
+                        <!-- <img src="images/img.jpg" alt=""> -->
+                        {{ Auth::user()->user_name }} 
                         <span class=" fa fa-angle-down"></span>
                       </a>
                       <ul class="dropdown-menu dropdown-usermenu pull-right">
