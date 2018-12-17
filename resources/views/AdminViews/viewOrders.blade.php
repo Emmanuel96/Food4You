@@ -23,14 +23,11 @@
                         </tr>
                         @foreach($orders as $order)
                           <tr>
-                            <td id = "buyer_name">{{$order->buyer_name}}</td>
-                            <td id = "buyer_phone_number">{{$order->buyer_phone_number}}</td>
-                            <td id = "buyer_address" class="text-center">{{$order->buyer_address}}</td>
-                            <td id = "created_at" class = "text-center">
-                                {{$order->created_at}} 
-                               
-                            </td>
-                            <td id = "order_status" class="text-center">
+                            <td >{{$order->buyer_name}}</td>
+                            <td id= "order_mobile_no">{{$order->buyer_phone_number}}</td>
+                            <td id = "order_address" class="text-center">{{$order->buyer_address}}</td>
+                            <td id="order_date" class = "text-center"> {{$order->created_at}}</td>
+                            <td class="text-center">
                                 <select class="btn btn-warning" style="width:70%;" id = "order_status{{$order->order_id}}" onChange = "sendNotification('{{$order->order_id}}', this.value)">
                                   <option @if($order->order_status == 1) selected @endif value = "1">Preparing</option>
                                   <option @if($order->order_status == 2) selected @endif value = "2">Ready</option>
