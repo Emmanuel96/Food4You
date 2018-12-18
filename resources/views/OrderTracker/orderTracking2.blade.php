@@ -4,7 +4,6 @@
     
 <!-- <style> 
     .timeline { list-style: none; padding: 0; position:relative; }
-    .timeline:before { top: 0; bottom: 0; position: absolute; content: ""; width: 2px; background-color: #f1f1f1; left: 40px; margin-left: -1.5px; }
     .timeline { top: 0; bottom: 0; position: absolute; content: ""; width: 2px; background-color: #f1f1f1; left: 40px; margin-left: -1.5px; }
     .timeline > li { clear: both; content: " "; display: table;}
     .timeline > li { margin-bottom: 50px; position: relative; min-height: 50px; }
