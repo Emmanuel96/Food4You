@@ -249,8 +249,8 @@ class CheckoutController extends Controller
         return view('OrderTracker.orderTracking');
     }
 
-   // public function orderTracking()
-    //{
-      //  return view('OrderTracker.orderTracking');
-    //}
+   public function orderTracking2()
+    {
+        return view('OrderTracker.orderTracking2');
+    }
 }
