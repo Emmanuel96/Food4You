@@ -15,7 +15,6 @@
     .timeline > li:last-child { margin-bottom: 0;}
     .timeline .timeline-heading h4 { margin-top: 0; color: inherit; }
     .timeline .timeline-heading h4.subheading { text-transform: none }
-    .timeline .timeline-body > p,
     .timeline .timeline-body > ul { margin-bottom: 0;}
     .timeline > li .timeline-image { left: 0; margin-left: 0; width: 80px; height: 80px; position: absolute; z-index: 100; background-color: #fed136; color: white;  border-radius: 100%; border: 7px solid #f1f1f1; text-align: center; }
 
