@@ -18,7 +18,7 @@
 
 
             <div class="clearfix"></div>
-                    <table id="datatable" class="table table-striped table-bordered">
+                    <table id="datatable" class="table table-bordered table-hover">
                       <thead>
                         <tr>
                           <th id = "product_image_header">Product Image</th>
