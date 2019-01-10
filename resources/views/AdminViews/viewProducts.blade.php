@@ -18,7 +18,7 @@
 
 
             <div class="clearfix"></div>
-                    <table id="datatable" class="table table-bordered table-hover">
+                    <table id="datatable" class="display table table-bordered table-hover" width="100%">
                       <thead>
                         <tr>
                           <th id = "product_image_header">Product Image</th>
@@ -63,11 +63,32 @@
       </div>
     </div>
 
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/dataTables.bootstrap.min.js') }}"></script>
+
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+        $('#datatable').DataTable(
+          {
+        data: dataSet,
+        columns: [
+            { title: "product_image" },
+            { title: "product_name" },
+            { title: "product_description" },
+            { title: "product_price" },
+            { title: "product_category" },
+        ]
+      });
+      });
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
-     <script src="{{URL::asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
 
-    <script src="{{URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
 
     <!-- Bootstrap -->

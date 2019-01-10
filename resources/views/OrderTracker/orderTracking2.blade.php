@@ -20,6 +20,39 @@
 
 </style> -->
 
+<style>
+  @media screen and (min-width: 320px)
+  {
+    img 
+    {
+      vertical-align: middle;
+      max-width: 50px;
+      max-height: 60px;
+    }
+  }
+
+  @media screen and (min-width: 768px)
+  {
+    img
+    {
+      vertical-align: middle;
+      max-width: 80px;
+      max-height: 80px;
+    }
+  }
+
+  @media screen and (min-width: 1024px)
+  {
+    img
+    {
+      vertical-align: middle;
+      max-width: 100px;
+      max-height: 100px;
+    }
+  }
+ 
+</style>
+
 <section id="about">
     <div class="container">
       <div class="row">
