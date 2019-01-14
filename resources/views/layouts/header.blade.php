@@ -19,6 +19,8 @@
 
 
         <title>Naija Bites</title>
+        
+        <link rel="shortcut icon" href="/storage/images/food4you.ico" />
 
 
 

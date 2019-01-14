@@ -19,6 +19,40 @@
     .timeline > li .timeline-image { left: 0; margin-left: 0; width: 80px; height: 80px; position: absolute; z-index: 100; background-color: #fed136; color: white;  border-radius: 100%; border: 7px solid #f1f1f1; text-align: center; }
 
 </style> -->
+
+<style>
+  @media screen and (min-width: 320px)
+  {
+    img 
+    {
+      vertical-align: middle;
+      max-width: 50px;
+      max-height: 60px;
+    }
+  }
+
+  @media screen and (min-width: 768px)
+  {
+    img
+    {
+      vertical-align: middle;
+      max-width: 80px;
+      max-height: 80px;
+    }
+  }
+
+  @media screen and (min-width: 1024px)
+  {
+    img
+    {
+      vertical-align: middle;
+      max-width: 100px;
+      max-height: 100px;
+    }
+  }
+ 
+</style>
+
 <section id="about">
     <div class="container">
       <div class="row">
@@ -32,68 +66,75 @@
         <div class="col-lg-12">
           <ul class="timeline">
             <li>
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" alt="">
+              <div class="timeline-image complete">
+                <img class="rounded-circle img-fluid" src="{{ asset('img/preparing.png') }}" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
+                  <br>
                   <h4>Step 1:</h4>
                   <h4 class="subheading">Preparing</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <br>
+                  <p class="text-muted">Hi, the restaurant is preparing your order!</p>
                 </div>
               </div>
             </li>
             <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="img/about/2.jpg" alt="">
+              <div class="timeline-image complete">
+                <img class="rounded-circle img-fluid" src="{{ asset('img/ready.png') }}" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
+                  <br>
                   <h4>Step 2:</h4>
                   <h4 class="subheading">Ready For Delivery</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <br>
+                  <p class="text-muted">Your order is ready for shipment!</p>
                 </div>
               </div>
             </li>
             <li>
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
+              <div class="timeline-image active">
+                <img class="rounded-circle img-fluid" src="{{ asset('img/outForDelivery.png') }}" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
+                  <br>
                   <h4>Step 3:</h4>
                   <h4 class="subheading">Out For Delivery</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <br>
+                  <p class="text-muted">Good news, your order is on its way!</p>
                 </div>
               </div>
             </li>
             <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
+              <div class="timeline-image disabled">
+                <img class="rounded-circle img-fluid" src="{{ asset('img/delivered.png') }}" alt="">
               </div>
-              <div class="timeline-panel">
+              <div class="timeline-panel disabled">
                 <div class="timeline-heading">
+                  <br>
                   <h4>Step 4:</h4>
                   <h4 class="subheading">Delivered</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <br>
+                  <p class="text-muted">Thanks for ordering on Naija Bites!</p>
                 </div>
               </div>
             </li>
-            <li class="timeline-inverted">
+             <li class="timeline-inverted">
               <div class="timeline-image">
-                <h4>Be Part
-                  <br>Of Our
-                  <br>Story!</h4>
+                <h4>Order
+                  <br>Delivered!</h4>
               </div>
-            </li>
+            </li> 
           </ul>
         </div>
       </div>
@@ -125,5 +166,19 @@
         </div>
     </div>
 </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
 
 @endsection
