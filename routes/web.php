@@ -77,3 +77,9 @@ Route::get('/order/tracking/{id}', 'CheckoutController@orderTracking')->name('or
 
 Route::get('/order/tracking2/{id}', 'CheckoutController@orderTracking2');
 
+//MAIL TESTING 
+Route::get('/testMail', 'CheckoutController@mailTest');
+
+//TESTING FOR THE ADMIN PAGES 
+Route::get('/admin/testViewOrders', 'AdminController@testViewOrder');
+

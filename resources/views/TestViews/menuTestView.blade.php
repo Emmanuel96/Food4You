@@ -125,7 +125,7 @@
                 /*margin: 0px; */
             }
 
-            @media screen and (max-width: 414px)
+            @media screen and (max-width: 450px)
             {
 
                 #restaurant_info
@@ -267,25 +267,6 @@
                 
           }
 
-
-        
-
-
-                        /* #####################################################################
-               #
-               #   Project       : Modal Login with jQuery Effects
-               #   Author        : Rodrigo Amarante (rodrigockamarante)
-               #   Version       : 1.0
-               #   Created       : 07/28/2015
-               #   Last Change   : 08/02/2015
-               #
-               ##################################################################### */
-               
-/*            @import url(http://fonts.googleapis.com/css?family=Roboto);
-
-            * {
-                font-family: 'Roboto', sans-serif;
-            }*/
 
         </style>
 

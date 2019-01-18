@@ -47,10 +47,10 @@
                   </div>
 
                 </div>
-                 {{ $products->links() }}
               </div>
 
         <!-- /page content -->
+        
 
         <!-- footer content -->
         <footer>
@@ -63,102 +63,10 @@
       </div>
     </div>
 
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/jquery.dataTables.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/dataTables.bootstrap.min.js') }}"></script>
-
     <script type="text/javascript">
 
-      $(document).ready(function(){
-        $('#datatable').DataTable(
-          {
-        data: dataSet,
-        columns: [
-            { title: "product_image" },
-            { title: "product_name" },
-            { title: "product_description" },
-            { title: "product_price" },
-            { title: "product_category" },
-        ]
-      });
-      });
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-
-    <script src="{{ URL::asset('vendors/jquery/dist/jquery.min.js') }}"></script>
-
-    <script src="{{ URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-
-
-    <!-- Bootstrap -->
-    <!-- FastClick -->
-    <script src="{{URL::asset('vendors/fastclick/lib/fastclick.js')}}"></script>
-    <!-- NProgress -->
-    <script src="{{URL::asset('vendors/nprogress/nprogress.js')}}"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="{{URL::asset('vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
-    <!-- iCheck -->
-    <script src="{{URL::asset('vendors/iCheck/icheck.min.js')}}"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="{{URL::asset('vendors/moment/min/moment.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-    <!-- bootstrap-wysiwyg -->
-    <script src="{{URL::asset('vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/jquery.hotkeys/jquery.hotkeys.js')}}"></script>
-    <script src="{{URL::asset('vendors/google-code-prettify/src/prettify.js')}}"></script>
-    <!-- jQuery Tags Input -->
-    <script src="{{URL::asset('vendors/jquery.tagsinput/src/jquery.tagsinput.js')}}"></script>
-    <!-- Switchery -->
-    <script src="{{URL::asset('vendors/switchery/dist/switchery.min.js')}}"></script>
-    <!-- Select2 -->
-    <script src="{{URL::asset('vendors/select2/dist/js/select2.full.min.js')}}"></script>
-    <!-- Parsley -->
-    <script src="{{URL::asset('vendors/parsleyjs/dist/parsley.min.js')}}"></script>
-    <!-- Autosize -->
-    <script src="{{URL::asset('vendors/autosize/dist/autosize.min.js')}}"></script>
-    <!-- jQuery autocomplete -->
-    <script src="{{URL::asset('vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
-    <!-- starrr -->
-    <script src="{{URL::asset('vendors/starrr/dist/starrr.js')}}"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="{{URL::asset('js/custom.min.js')}}"></script>
-
-    <!-- Custom Theme Scripts -->
-  </body>
-
-  <style>
-
-      @media screen and (min-width: 320px)
-      {
-        .pagination{margin-top: 500px; margin-bottom: 20px; }
-      }
-      @media screen and (min-width: 360px)
-      {
-        .pagination{ margin-top: 500px; margin-bottom: 20px; }
-      }
-      @media screen and (min-width: 375px)
-      {
-        .pagination{ margin-top: 500px; margin-bottom: 20px; }
-      }
-
-      @media screen and (min-width: 411px)
-      {
-        .pagination{ margin-top: 500px; margin-bottom: 20px; }
-      }
-
-      @media screen and (min-width: 768px)
-      {
-        .pagination{ margin-top: 850px; margin-bottom: 20px; }
-      }
-
-      @media screen and (min-width: 1024px)
-      {
-        .pagination{ margin-top: 900px; margin-bottom: 20px; }
-      }
-  </style>
-
-  <script>
+     
+   
       function inOutOfStock(id)
       {
         //alert(id);
@@ -193,5 +101,34 @@
 
       }
   </script>
+   <!-- jQuery -->
+    <script src="{{URL::asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- FastClick -->
+    <script src="{{URL::asset('vendors/fastclick/lib/fastclick.js')}}"></script>
+    <!-- NProgress -->
+    <script src="{{URL::asset('vendors/nprogress/nprogress.js')}}"></script>
+    <!-- iCheck -->
+    <script src="{{URL::asset('vendors/iCheck/icheck.min.js')}}"></script>
+    <!-- Datatables -->
+    <script src="{{URL::asset('vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-buttons/js/buttons.flash.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
+    <script src="{{URL::asset('vendors/datatables.net-scroller/js/dataTables.scroller.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/jszip/dist/jszip.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/pdfmake/build/pdfmake.min.js')}}"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{{URL::asset('js/custom.min.js')}}"></script>
 
 @endsection

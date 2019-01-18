@@ -3,14 +3,14 @@
 @section('content')
  
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div  role="main">
           <div class="">
             <div class="page-title">
-              <div class="title_left">
-                <h3>Add New Product</h3>
+              <div class="">
+                <h3 style = "color:white; font-size: 18px; margin-left: 10px; " >Add New Product</h3>
 
                 @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="alert alert-danger" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
                   <ul>
                     @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>
@@ -18,12 +18,17 @@
                   </ul>
                 </div>
               @endif
+            
+                 
+             @if(Session::has('success'))
+                  <div id = "success-div" class="alert alert-success" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
+                      <div class = "text-center" >{{Session::get('success')}}
 
-              @if(Session::has('success'))
-                  <div class="alert alert-success">
-                    <ul>
-                      <li>{{Session::get('success')}}</li>
-                    </ul>
+                        <button style = "" type="button" class="close" onclick = "document.getElementById('success-div').style.display = 'none';" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button> 
+                      </div>              
+                
                   </div>
               @endif
 
@@ -62,22 +67,23 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Product Name *</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="first-name" name="product_name" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="product-name" name="product_name" class="form-control col-md-7 col-xs-12" required>
                         </div>
                       </div>
                    
                       <div class="form-group">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price *</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text">
+                          <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text" required>
                         </div>
                       </div>  
                       <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">Category *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12"> 
-                            <select name="category" id="inlineFormCustomSelect" class="form-control col-md-7 col-xs-12">
-                                  <option selected>Select Category</option>
-                                                                    
+                            <select required name="category" id = "category-select" onchange = "create_new_category()" id="inlineFormCustomSelect" class="form-control col-md-7 col-xs-12">
+                                <option selected>Select Category</option>
+                                <option id = "new-category"> New Category </option>
+                                                               
                                 @foreach($category_array as $data)
                                   <option value="{{$data->category_id}}">{{$data->category_name}}</option>
                                 @endforeach
@@ -85,7 +91,14 @@
                             </select>
                             
                           </div>
-                         </div>
+                      </div>
+
+                      <div class="form-group"  id = "hidden-category-div" style = "display: none; ">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">New Category *</label>
+                          <div class="col-md-6 col-sm-6 col-xs-12"> 
+                              <input type = "text" name = "new_category" placeholder = "Enter New Category" class="form-control col-md-7 col-xs-12" required />                            
+                          </div>
+                      </div>
 
                       {{-- <div class="form-group">
                         <label for="price" required="required" class="control-label col-md-3 col-sm-3 col-xs-12">Has Extra<span class="required">*</span></label>
@@ -188,6 +201,19 @@
       function addExtraRow()
       {
         //
+      }
+
+      function create_new_category()
+      {
+        //make the new category text box to be visible 
+        var option = document.getElementById("new-category").selected;; 
+
+        if(option == true)
+        {
+          //if option is true then show hidden-category-div
+          document.getElementById('hidden-category-div').style.display = "block";
+        }
+        // alert(option);
       }
     </script>
   </body>

@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'mailgun'),
     //first time testing the mandrill driver 
     //'driver' => 'mailgun',
 
@@ -61,7 +61,7 @@ return [
     'from' => [
         // 'address' => env('MAIL_FROM_ADDRESS', 'testEmail@food4you.co.uk'),
         // 'name' => env('MAIL_FROM_NAME', 'Emmanuel'),
-        'address' => 'testEmail@food4you.co.uk',
+        'address' => 'Order@naijabites.com',
         'name' => 'Still Emmanuel'
     ],
 
@@ -78,6 +78,7 @@ return [
 
     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 
+    
     /*
     |--------------------------------------------------------------------------
     | SMTP Server Username
