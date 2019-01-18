@@ -53,7 +53,10 @@ class CheckoutController extends Controller
 
         //so for now you can only get the orders from one restaurant at a time
         //store the restaurant ID
-        $restaurant_id = 0; 
+
+
+        $restaurant_id = 7;
+        // $restaurant_id = session::get(current_restaurant_id); 
 
         //get the actual day from the db
         $day =  DB::table('days_of_delivery')->where('id', $request->day)->pluck('days');;
@@ -157,7 +160,7 @@ class CheckoutController extends Controller
         //dd($order_slug);
 
         //send email of confirmation to the user 
-        Mail::to('odamie3@gmail.com')->send(new OrderConfirmation()); 
+        // Mail::to('odamie3@gmail.com')->send(new OrderConfirmation()); 
 
         //send text message to user confirming order 
         //$orders->notify(new OrderConfirmed($orders->payment_ref));
@@ -252,5 +255,12 @@ class CheckoutController extends Controller
    public function orderTracking2()
     {
         return view('OrderTracker.orderTracking2');
+    }
+
+    public function mailTest()
+    {
+        Mail::to('emmanuel.audu1@aun.edu.ng')
+            ->send(new OrderConfirmation());
+        return 'done';
     }
 }

@@ -36,40 +36,60 @@ class AdminController extends Controller
 
 	public function createProduct(Request $request)
 	{
-
 		//firstly we get the user
-		$user = Auth::user(); 
+		$user = Auth::user(); 		
 
 		$messages = [
             
-            'product.name.unique' => 'Product name already exists',
+            'product.name.unique' => 'Product name already exists', 
         ];
-
-		$request->validate([
-			 'product_name' => 'required|unique:menu',
-			 'product_description' => 'required',
-			 'product_price' => 'required',
-			 'category' => 'required',
-			 'product_image' => 'required',
-		]);
 		
+		if($request->new_category != null)
+		{
+			$request->validate([
+				'product_name' => 'required|unique:menu',
+				'product_description' => 'required',
+				'product_price' => 'required',
+				'category' => 'required',
+				'new_category' => 'required',
+				'product_image' => 'required',
+		   ]);
+		   
+			$category = $request->new_category; 
+
+			//then add the category to the category database
+			$category = category::create(
+				[
+					'category_name' => $category, 
+					'restaurant_id' => 1
+				]
+				);
+		}
+		else
+		{
+			$request->validate([
+				'product_name' => 'required|unique:menu',
+				'product_description' => 'required',
+				'product_price' => 'required',
+				'category' => 'required',
+				'product_image' => 'required',
+		   ]);
+		   
+			$category = $request->category; 
+		}
 		
 		//FIRSTLY, WE CREATE THE PRODUCT AND STORE IT IN THE MENU TABLE 
-		
 
 		$menu = menu::create([
 			'product_name'=> $request->input('product_name'), 
 			'product_description' => $request->input('product_description'), 
 			'product_price' => $request->product_price,
-			'category' => $request->category,
+			'category' => $category,
 			'product_image'=> $request->product_image->getClientOriginalName(),
 			'restaurant_id' => $user->id
 
 			]);
 
-		
-
-		
 		//if product name already exist
 		// $menu = menu::where('product_name', $menu->product_name)->first();
 
@@ -85,10 +105,11 @@ class AdminController extends Controller
 		$imageName = $request->product_image->getClientOriginalName();
 		$file = $request->file('product_image')->storeAs('images',$imageName);
 		// Storage::disk('public')->put($imageName, 'Contents');
+		
+		
 
-		return $file;
-
-		return view('AdminViews.addProduct', compact());
+		return redirect()->route('admin.addProduct', ['product_name' => $menu->product_name])
+			->with('success', $request->input('product_name').  ' Added Successfully');
 																																																
 		}	
 
@@ -115,7 +136,7 @@ class AdminController extends Controller
 		//if it's an admin user
 		if($user->user_role == 1)
 		{
-			$products = menu::paginate(7); 
+			$products = menu::all(); 
 		}
 		else 
 		{
@@ -123,7 +144,7 @@ class AdminController extends Controller
 			// $products = DB::select('select * from restaurants_products, menu where restaurants_products.restaurant_id = :id && menu.item_id = restaurants_products.product_id', ['id' => $user->id] );
 			$restaurants = Restaurants::where('restaurant_id', '=', 0)->first();
 
-			$products = $restaurants->menu()->paginate(7); 
+			$products = $restaurants->menu()->all(); 
 		}
 
 		return view('AdminViews.viewProducts')->with('products',$products); 
@@ -230,9 +251,8 @@ class AdminController extends Controller
 	{
 		$menu = new menu;
 
-
 		$Request->validate([
-			'product_name' => 'required|min:6',
+			'product_name' => 'required',
 			'product_price' => 'required',
 			'category' => 'required',
 			'product_image' => 'required',
@@ -249,7 +269,22 @@ class AdminController extends Controller
 				]);
 
 		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
+		
+		$imageName = $Request->product_image->getClientOriginalName();
+
+		$file = $Request->file('product_image')->storeAs('images',$imageName);
+		// Storage::disk('public')->put($imageName, 'Contents');
 
 		return redirect('admin/viewProducts')->with('success', 'menu updated successfully!');
+	}
+
+	public function testViewOrder(Request $request, Response $response)
+	{
+		$user = Auth::user(); 
+
+		$orders = DB::select('select * from orders where order_status != -1');
+
+		//return $orders; 	
+		return view('AdminViews.testViewOrders')->with('orders', $orders);
 	}
 }

@@ -11,8 +11,9 @@ class RestaurantSeeder extends Seeder
      */
     public function run()
     {
-           //CREATING A SEED FOR THE RESTAURANTS
+      //CREATING A SEED FOR THE RESTAURANTS
       DB::table('user')->insert([
+            'id' => 4,
             'user_name' => 'Taco Food Van',
             'email' => 'Taco@gmail.com',
             'password' => app('hash')->make('taco'), 
@@ -22,7 +23,8 @@ class RestaurantSeeder extends Seeder
         ]);
 
        DB::table('restaurants')->insert([
-            'restaurant_name' => 'Baja Cantina'   ,
+            'restaurant_name' => 'Baja Cantina',
+            'user_id' => 4,
             'restaurant_status' => 0,
             'restaurant_id' => 3, 
             'restaurant_image' => 'eat_is_greek_logo.jpg', 
@@ -33,6 +35,7 @@ class RestaurantSeeder extends Seeder
             ]);
 
        DB::table('user')->insert([
+                  'id' => 3, 
                   'user_name' => 'Eat Is Greek',
                   'email' => 'eatIsGreek@gmail.com',
                   'password' => app('hash')->make('greek'), 
@@ -42,6 +45,7 @@ class RestaurantSeeder extends Seeder
               ]);
 
        DB::table('restaurants')->insert([
+                'user_id' => 3, 
                 'restaurant_name' => 'Eat Is Greek',
                 'restaurant_id' => 13, 
                 'restaurant_status' => 0,
@@ -53,6 +57,7 @@ class RestaurantSeeder extends Seeder
             ]);
 
             DB::table('restaurants')->insert([
+                'user_id' => 7, 
                 'restaurant_name' => 'Simply Delicious',
                 'restaurant_id' => 5, 
                 'restaurant_status' => 0,
@@ -64,6 +69,7 @@ class RestaurantSeeder extends Seeder
             ]);
 
             DB::table('user')->insert([
+                'id' => 7, 
                 'user_name' => 'Simply Delicious',
                 'email' => 'emmanuel.audu1@aun.edu.ng',
                 'password' => app('hash')->make('simplydelicious'), 
@@ -93,8 +99,9 @@ class RestaurantSeeder extends Seeder
             ]);
 
             DB::table('user')->insert([
+                'id' => 9,
                 'user_name' => 'Vernacular',
-                'email' => '',
+                'email' => 'vernacular@gmail.com',
                 'password' => app('hash')->make('vernacular'), 
                 'user_role' => 3, 
                 'user_address' => 'No 8b Amodu Ojikutu St VI', 
@@ -102,6 +109,7 @@ class RestaurantSeeder extends Seeder
             ]);
 
             DB::table('restaurants')->insert([
+                'user_id' => 9,
                 'restaurant_name' => 'Vernacular',
                 'restaurant_id' => 7, 
                 'restaurant_status' => 0,
