@@ -26,6 +26,12 @@
       {
           width: 100%;
       }
+      table{
+          font-family: Helvetica Neue,Roboto,Arial,Droid Sans,sans-serif;
+          font-size: 13px;
+          font-weight: 400; 
+          color: #73879C;
+      }
       @media screen and (max-width: 435px)
             {
                 .top_nav .navbar-right
@@ -33,7 +39,7 @@
                     width: 50%; 
                 }
                table{                                                   
-                   font-size: 12px;
+                   /* font-size: 12px; */
                }
 
                #product-description-add-product
