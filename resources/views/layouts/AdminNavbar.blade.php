@@ -25,11 +25,15 @@
                          <li><a href="/admin/viewOrders">View Orders</a></li>
                         </ul>
                       </li>
-                               
+                      <li><a><i class="fa fa-shopping-cart"></i>Restaurants<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                         <li><a href="/admin/restaurants">View Restaurants</a></li>
+                          <li><a href="/admin/restaurants/new">Add New Restaurant</a></li>
+                        </ul>
+                      </li>     
                     </ul>
                   </div>
                 </div>
-                <!-- /sidebar menu -->
     
                 <!-- /menu footer buttons -->
                 <!-- <div class="sidebar-footer hidden-small">

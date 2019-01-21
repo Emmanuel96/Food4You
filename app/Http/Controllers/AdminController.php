@@ -142,10 +142,13 @@ class AdminController extends Controller
 		{
 			//else select the products only for that particular user
 			// $products = DB::select('select * from restaurants_products, menu where restaurants_products.restaurant_id = :id && menu.item_id = restaurants_products.product_id', ['id' => $user->id] );
-			$restaurants = Restaurants::where('restaurant_id', '=', 0)->first();
+			//else get the id of the restaurant 
+			$restaurant_id = DB::select("select restaurant_id from restaurants where user_id = :user_id", ['user_id'=> $user->id]);
+			$restaurant_id = $restaurant_id[0]->restaurant_id;
 
-			$products = $restaurants->menu()->all(); 
+			$products = Menu::where('restaurant_id', '=', $restaurant_id)->get();
 		}
+
 
 		return view('AdminViews.viewProducts')->with('products',$products); 
 	}
@@ -286,5 +289,37 @@ class AdminController extends Controller
 
 		//return $orders; 	
 		return view('AdminViews.testViewOrders')->with('orders', $orders);
+	}
+
+	public function restaurants()
+	{
+		$restaurants = DB::select('select * from restaurants'); 
+
+		return view('AdminViews.view_restaurants')->with('restaurants', $restaurants); 
+	}
+
+	public function newRestaurant()
+	{
+		return view('AdminViews.new_restaurant'); 
+	}
+
+	public function new_restaurant(Request $request, Response $response)
+	{
+		$restaurant_id = rand(50,1000); 
+		Restaurants::create(
+			[
+				'restaurant_id' => $restaurant_id, 
+				'restaurant_name'=> $request->restaurant_name, 
+				'restaurant_opening_times'=> $request->restaurant_opening_times, 
+				'restaurant_closing_times'=> $request->restaurant_closing_times, 
+				'restaurant_address' => $request->restaurant_address, 
+				'restaurant_phone_number' => $request->restaurant_phone_no, 
+				'restaurant_image' => $request->restaurant_image,
+				'restaurant_minimum_order' => $request->restaurant_minimum_order
+			]
+			);
+
+			return "successfully saved";
+
 	}
 }

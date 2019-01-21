@@ -15,7 +15,7 @@ class Restaurants extends Model
 
     protected $fillable = 
     [
-    	'restaurant_name','restaurant_image','restaurant_opening_times', 'restaurant_minimum_order', 'restaurant_delivery_fee'
+    	'restaurant_id', 'restaurant_name','restaurant_image','restaurant_opening_times','restaurant_address', 'restaurant_minimum_order', 'restaurant_delivery_fee', 'restaurant_phone_number', 'updated_at', 'created_at'
     ];
 
     public function menu()

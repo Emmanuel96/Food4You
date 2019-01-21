@@ -49,6 +49,10 @@ Route::get('/admin/editProduct/{id}', 'AdminController@editProduct')->name('admi
 Route::post('/admin/updateProduct/{id}', 'AdminController@updateProduct');
 //Route::match(['get','post'],'/admin/add-category','categoryController@addCategory');
 
+Route::get('/admin/restaurants', 'AdminController@restaurants')->name('admin.restuarants'); 
+Route::get('/admin/restaurants/new','AdminController@newRestaurant')->name('admin.newRestaurant'); 
+Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('admin.new_restaurant'); 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -82,4 +86,6 @@ Route::get('/testMail', 'CheckoutController@mailTest');
 
 //TESTING FOR THE ADMIN PAGES 
 Route::get('/admin/testViewOrders', 'AdminController@testViewOrder');
+
+//RESTAURANTS
 
