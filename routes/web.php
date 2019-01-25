@@ -49,9 +49,14 @@ Route::get('/admin/editProduct/{id}', 'AdminController@editProduct')->name('admi
 Route::post('/admin/updateProduct/{id}', 'AdminController@updateProduct');
 //Route::match(['get','post'],'/admin/add-category','categoryController@addCategory');
 
-Route::get('/admin/restaurants', 'AdminController@restaurants')->name('admin.restuarants'); 
-Route::get('/admin/restaurants/new','AdminController@newRestaurant')->name('admin.newRestaurant'); 
-Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('admin.new_restaurant'); 
+Route::get('/admin/restaurants', 'AdminController@restaurants')->name('admin.restuarants')->middleware('admin_restaurant_middleware'); 
+Route::get('/admin/restaurants/new','AdminController@newRestaurant')->name('admin.newRestaurant')->middleware('admin_restaurant_middleware'); 
+Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('admin.new_restaurant')->middleware('admin_restaurant_middleware'); 
+
+//ROUTES FOR THE BATCH FUNCTIONALITY
+Route::get('/admin/restaurant/batch', 'AdminController@view_restaurant_batch')->name('admin.restaurant_batch');
+Route::get('/admin/restaurant/batch/new', 'AdminController@post_new_restaurant_batch')->name('admin.new_restaurant_batch');
+Route::post('/admin/restaurant/batch/new', 'AdminController@post_new_restaurant_batch')->name('admin.new_restaurant_batch');
 
 Auth::routes();
 
