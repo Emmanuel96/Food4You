@@ -322,4 +322,28 @@ class AdminController extends Controller
 			return "successfully saved";
 
 	}
+
+	public function new_restaurant_batch(Request $request, Response $response)
+	{
+		//validate the info for the new restaurant first
+		$request->validate([
+			'product_name' => 'required|unique:menu',
+			'product_description' => 'required',
+			'product_price' => 'required',
+			'category' => 'required',
+			'new_category' => 'required',
+			'product_image' => 'required',
+	   ]);
+
+		return view('adminViews.new_restaurant_batch'); 
+	}
+
+	public function view_restaurant_batch()
+	{
+		return view('adminViews.view_restaurant_batch');
+	}
+	public function post_new_restaurant_batch(Request $request, Response $response)
+	{
+		// return view('adminViews.view_restaurant_batch')
+	}
 }
