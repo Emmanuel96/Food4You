@@ -55,7 +55,7 @@ Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('a
 
 //ROUTES FOR THE BATCH FUNCTIONALITY
 Route::get('/admin/restaurant/batch', 'AdminController@view_restaurant_batch')->name('admin.restaurant_batch');
-Route::get('/admin/restaurant/batch/new', 'AdminController@post_new_restaurant_batch')->name('admin.new_restaurant_batch');
+Route::get('/admin/restaurant/batch/new', 'AdminController@new_restaurant_batch')->name('admin.new_restaurant_batch');
 Route::post('/admin/restaurant/batch/new', 'AdminController@post_new_restaurant_batch')->name('admin.new_restaurant_batch');
 
 Auth::routes();
