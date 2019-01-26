@@ -9,6 +9,7 @@ use DB;
 use App\order; 
 use App\Restaurants; 
 use App\category;
+use App\Batch;
 use Illuminate\Notifications\Notification;
 use Session; 
 use Illuminate\Support\Facades\Input;
@@ -148,8 +149,7 @@ class AdminController extends Controller
 
 			$products = Menu::where('restaurant_id', '=', $restaurant_id)->get();
 		}
-
-
+		
 		return view('AdminViews.viewProducts')->with('products',$products); 
 	}
 
@@ -323,27 +323,35 @@ class AdminController extends Controller
 
 	}
 
+	
+	public function view_restaurant_batch()
+	{
+		$batches = DB::select('select * from batch'); 
+
+		return view('adminViews.view_restaurant_batch')->with('batches' , $batches);
+	}
+
 	public function new_restaurant_batch(Request $request, Response $response)
 	{
-		//validate the info for the new restaurant first
-		$request->validate([
-			'product_name' => 'required|unique:menu',
-			'product_description' => 'required',
-			'product_price' => 'required',
-			'category' => 'required',
-			'new_category' => 'required',
-			'product_image' => 'required',
-	   ]);
-
 		return view('adminViews.new_restaurant_batch'); 
 	}
 
-	public function view_restaurant_batch()
-	{
-		return view('adminViews.view_restaurant_batch');
-	}
 	public function post_new_restaurant_batch(Request $request, Response $response)
 	{
-		// return view('adminViews.view_restaurant_batch')
+		$request->validate([
+			'batch_day' => 'required|int',
+			'batch_max_order_no'=> 'required|int', 
+			'batch_range' => 'required|string' 
+		]); 
+
+		$batch_slug = md5(uniqid(rand(), true)); 
+
+		Batch::create([
+			'batch_slug' =>  $batch_slug, // something random 
+			'batch_day' => $request->batch_day, 
+			'batch_max_order_no' => $request->batch_max_order_no, 
+			'batch_time_range' => $request->batch_range
+		]); 
+		return view('adminViews.new_restaurant_batch');
 	}
 }
