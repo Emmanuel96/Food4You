@@ -53,6 +53,15 @@ Route::get('/admin/restaurants', 'AdminController@restaurants')->name('admin.res
 Route::get('/admin/restaurants/new','AdminController@newRestaurant')->name('admin.newRestaurant')->middleware('admin_restaurant_middleware'); 
 Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('admin.new_restaurant')->middleware('admin_restaurant_middleware'); 
 
+Route::get('/admin/test', function (){
+	event(new App\Events\orderNotification(Auth::user()->user_name));
+	return "Event has been sent!";
+});
+
+Route::get('/admin/listen', function(){
+	return view('AdminViews.listen');
+});
+
 //ROUTES FOR THE BATCH FUNCTIONALITY
 Route::get('/admin/restaurant/batch', 'AdminController@view_restaurant_batch')->name('admin.restaurant_batch');
 Route::get('/admin/restaurant/batch/new', 'AdminController@new_restaurant_batch')->name('admin.new_restaurant_batch');

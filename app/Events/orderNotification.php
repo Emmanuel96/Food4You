@@ -24,6 +24,7 @@ class orderNotification implements ShouldBroadcast
      *
      * @return void
      */
+
     public function __construct($user_name)
     {
         $this->user = $user_name;
@@ -35,6 +36,7 @@ class orderNotification implements ShouldBroadcast
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
+     
     public function broadcastOn()
     {
         //return new PrivateChannel('channel-name');

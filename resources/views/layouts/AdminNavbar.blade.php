@@ -91,6 +91,13 @@
                         </form>
                       </ul>
                     </li>
+                    <ul class="nav navbar-nav navbar-right">
+                    <li id="notifications" class="nav navbar-nav">
+                        <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
+                            <i data-count="0" class="glyphicon glyphicon-bell notification-icon"></i>
+                          </a>
+                    </li>
+                    </ul>
     
                     <li role="presentation" class="dropdown">
                       <ul id="menu1" class ="dropdown-menu list-unstyled msg_list" role="menu">
@@ -157,3 +164,28 @@
               </div>
             </div>
             <!-- /top navigation -->
+          </div>
+
+        <script src="//js.pusher.com/3.1/pusher.min.js"></script>
+        <script type="text/javascript">
+
+            const notificationsWrapper = document.getElementById('notifications');
+            notificationsWrapper.
+
+            Pusher.logToConsole = true;
+
+            var pusher = new Pusher('c23961426f29ed3e3502', {
+            cluster: 'mt1',
+            encrypted: true
+            });
+
+            var channel = pusher.subscribe('order-status');
+
+            channel.bind('App\\Events\\orderNotification', function(data) {
+            alert(JSON.stringify(data));
+            });
+            
+     
+
+        </script>
+        </body>
