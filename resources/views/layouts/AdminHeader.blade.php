@@ -1,45 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	  
-    <title>Naija Bites</title>
-    <link href="{{URL::asset('css/Chendu.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    {{--Google Fonts--}}
-    <!-- Custom Fonts -->
-    {{--<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">--}}
-
-    <link href="{{URL::asset('css/nprogress.css')}}" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link href="{{URL::asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{{URL::asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{{URL::asset('vendors/nprogress/nprogress.css')}}" rel="stylesheet">
+    <!-- iCheck -->
     <link href="{{URL::asset('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/prettify.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/select2/dist/css/select2.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/switchery/dist/switchery.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('css/starrr.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="{{URL::asset('vendors/datatables.net-bs/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
 
+    <!-- Custom Theme Style -->
     <link href="{{URL::asset('css/custom.min.css')}}" rel="stylesheet">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="{{URL::asset('css/dataTables.bootstrap.min.css') }}">
   </head>
   <style>
 
       #product-description-add-product
       {
           width: 100%;
+      }
+      table{
+          font-family: Helvetica Neue,Roboto,Arial,Droid Sans,sans-serif;
+          font-size: 13px;
+          font-weight: 400; 
+          color: #73879C;
       }
       @media screen and (max-width: 435px)
             {
@@ -48,12 +39,12 @@
                     width: 50%; 
                 }
                table{                                                   
-                   font-size: 12px;
+                   /* font-size: 12px; */
                }
 
                #product-description-add-product
                {
-                   width: 100%              ;
+                   width: 100%;
                }
 
                 #order_mobile_no{
@@ -217,6 +208,13 @@
                     /*padding-right: 20px; */
                   }
             }
+  
+  
+  
+  
+  
+  
+  
   </style>
   <body>
         @include('layouts.AdminNavbar')
@@ -226,4 +224,3 @@
   </div>
   </body>
 </html>
-

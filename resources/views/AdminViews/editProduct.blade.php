@@ -53,7 +53,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                  <form enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{url('admin/updateProduct')}}/{{ $product->product_id}}" class="form-horizontal form-label-left">
+                  <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{url('admin/updateProduct')}}/{{ $product->product_id}}" class="form-horizontal form-label-left">
                       <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Product Name *</label>
@@ -82,16 +82,16 @@
                          <div class="form-group">
                           <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                          <img  id = "product-image" src =  "/storage/images/{{$product->product_image}}"   >
+                          <img name = "current_image" class = "img-responsive" alt = " No image"  id = "product-image" src =  "/storage/images/{{$product->product_image}}"   >
                           <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
-                          <input value = "/storage/images/{{$product->product_image}}" type = "hidden" id = "product-image" name = "product_image"/>
+                          <input value = "{{$product->product_image}}" type = "file " id = "product-image" name = "product_image"/>
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="last-name">Product Description *</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                            <textarea name="product_description" id="product-description" cols="100" rows="5">{{ $product->product_description }}</textarea>
-                          </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                               <textarea style= "width: 100%; " name="product_description" id="product-description" cols="6" rows="5">{{ $product->product_description }}</textarea>
+                            </div>
                         </div>
                         <div class="form-group">
                         </div>

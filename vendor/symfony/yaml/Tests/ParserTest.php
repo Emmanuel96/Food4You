@@ -788,7 +788,7 @@ EOF
      *
      * > It is an error for two equal keys to appear in the same mapping node.
      * > In such a case the YAML processor may continue, ignoring the second
-     * > `key: value` pair and issuing an appropriate warning. This strategy
+     * > "key: value" pair and issuing an appropriate warning. This strategy
      * > preserves a consistent information model for one-pass and random access
      * > applications.
      *
@@ -1698,7 +1698,7 @@ YAML
 
     /**
      * @expectedException \Symfony\Component\Yaml\Exception\ParseException
-     * @expectedExceptionMessage Tags support is not enabled. Enable the `Yaml::PARSE_CUSTOM_TAGS` flag to use "!iterator" at line 1 (near "!iterator [foo]").
+     * @expectedExceptionMessage Tags support is not enabled. Enable the "Yaml::PARSE_CUSTOM_TAGS" flag to use "!iterator" at line 1 (near "!iterator [foo]").
      */
     public function testCustomTagsDisabled()
     {
@@ -1707,7 +1707,7 @@ YAML
 
     /**
      * @expectedException \Symfony\Component\Yaml\Exception\ParseException
-     * @expectedExceptionMessage Tags support is not enabled. Enable the `Yaml::PARSE_CUSTOM_TAGS` flag to use "!iterator" at line 1 (near "!iterator foo").
+     * @expectedExceptionMessage Tags support is not enabled. Enable the "Yaml::PARSE_CUSTOM_TAGS" flag to use "!iterator" at line 1 (near "!iterator foo").
      */
     public function testUnsupportedTagWithScalar()
     {
@@ -2021,6 +2021,48 @@ YAML;
 foo: { &foo { a: Steve, <<: *foo} }
 EOE;
         $this->parser->parse($yaml);
+    }
+
+    /**
+     * @dataProvider circularReferenceProvider
+     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
+     * @expectedExceptionMessage Circular reference [foo, bar, foo] detected
+     */
+    public function testDetectCircularReferences($yaml)
+    {
+        $this->parser->parse($yaml, Yaml::PARSE_CUSTOM_TAGS);
+    }
+
+    public function circularReferenceProvider()
+    {
+        $tests = array();
+
+        $yaml = <<<YAML
+foo:
+    - &foo
+      - &bar
+        bar: foobar
+        baz: *foo
+YAML;
+        $tests['sequence'] = array($yaml);
+
+        $yaml = <<<YAML
+foo: &foo
+    bar: &bar
+        foobar: baz
+        baz: *foo
+YAML;
+        $tests['mapping'] = array($yaml);
+
+        $yaml = <<<YAML
+foo: &foo
+    bar: &bar
+        foobar: baz
+        <<: *foo
+YAML;
+        $tests['mapping with merge key'] = array($yaml);
+
+        return $tests;
     }
 
     /**

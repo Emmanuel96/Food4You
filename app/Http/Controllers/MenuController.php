@@ -69,6 +69,9 @@ class MenuController extends Controller
         $restaurants = Restaurants::where('restaurant_name' , '=', $name)->first();
         $restaurant_status = $restaurants->restaurant_status;
 
+        //store the current restaurant in the session 
+        Session::put('current_restaurant_id', $restaurants->restaurant_id);
+
         $menu = $restaurants->menu()->paginate(20); 
 
         // $menu =  DB::select('select * from restaurants_products, menu, user where user.name = :name && user.role =3 && restaurants_products.restaurant_id = user.id && menu.item_id = restaurants_products.product_id', ['name' => $name] )->paginate(15);

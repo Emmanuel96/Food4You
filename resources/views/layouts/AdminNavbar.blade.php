@@ -25,11 +25,23 @@
                          <li><a href="/admin/viewOrders">View Orders</a></li>
                         </ul>
                       </li>
-                               
+                      @if(Auth::user()->id == 1)
+                        <li><a><i class="fa fa-shopping-cart"></i>Restaurants<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                          <li><a href="/admin/restaurants">View Restaurants</a></li>
+                            <li><a href="/admin/restaurants/new">Add New Restaurant</a></li>
+                          </ul>
+                        </li>  
+                      @endif  
+                      <li><a><i class="fa fa-shopping-cart"></i>Batch<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                         <li><a href="/admin/restaurant/batch">View Batch</a></li>
+                          <li><a href="/admin/restaurant/batch/new">New Batch</a></li>
+                        </ul>
+                      </li>     
                     </ul>
                   </div>
                 </div>
-                <!-- /sidebar menu -->
     
                 <!-- /menu footer buttons -->
                 <!-- <div class="sidebar-footer hidden-small">

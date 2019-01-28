@@ -50,6 +50,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'admin_restaurant_middleware' =>  \App\Http\Middleware\adminRestaurant::class,
         'admin'=> \App\Http\Middleware\adminMiddleware::class, 
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
