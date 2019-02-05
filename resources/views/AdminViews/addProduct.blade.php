@@ -3,11 +3,11 @@
 @section('content')
  
         <!-- page content -->
-        <div  role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="">
-                <h3 style = "color:white; font-size: 18px; margin-left: 10px; " >Add New Product</h3>
+        <!-- <div  role="main">
+          <div class=""> -->
+            <!-- <div class="page-title"> -->
+              <!-- <div class=""> -->
+                <!-- <h3 style = "color:white; font-size: 18px; margin-left: 10px; " >Add New Product</h3> -->
 
                 @if ($errors->any())
                 <div class="alert alert-danger" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
@@ -63,20 +63,36 @@
                   <div class="x_content">
                     <br />
                     <form enctype="multipart/form-data" name="add_product" id="demo-form2" method = "POST" action="{{url('admin/createProduct')}}" class="form-horizontal form-label-left">
-                      <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
+                     
+                   
+                      <div class="form-group">
+                          <div class="avatar-upload" style = "margin-top: -20px; margin-bottom: 18px;">
+                            <div class="avatar-edit">
+                              <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                              <label for="imageUpload"></label>
+                            </div>
+                          <div class="avatar-preview">
+                            <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                            </div>
+                          </div>
+                      </div>
+
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Product Name *</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="product-name" name="product_name" class="form-control col-md-7 col-xs-12" required>
                         </div>
                       </div>
-                   
-                      <div class="form-group">
+
+                      <div class = "form-group">
+                        <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price *</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text" required>
+                         <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text" required>
                         </div>
                       </div>  
+
+                          
                       <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">Category *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12"> 
@@ -135,22 +151,22 @@
                         </div>
                       </div>
                       
-					  <div class="form-group">
-                      </div>
-                      <div class="ln_solid"></div>
                       <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button">Cancel</button>
-						              <button class="btn btn-primary" type="reset">Reset</button>
-                          <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-                      </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button class="btn btn-primary" type="button">Cancel</button>
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                  </div>
+                                </div>
 
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>  
 
     
     <!-- jQuery -->
@@ -188,7 +204,6 @@
     <script src="{{URL::asset('vendors/starrr/dist/starrr.js')}}"></script>
     <!-- Custom Theme Scripts -->
     <script src="{{URL::asset('js/custom.min.js')}}"></script>
-    <script src="{{ asset('/css/bootstrap/js/bootstrap.min.js') }}"></script>
 
     <script>
       //this function automatically calls the function to mess with these 
@@ -215,7 +230,24 @@
         }
         // alert(option);
       }
+
+      function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#imageUpload").change(function() {
+    readURL(this);
+});
     </script>
+
+
   </body>
 
   @endsection

@@ -354,4 +354,9 @@ class AdminController extends Controller
 		]); 
 		return view('adminViews.new_restaurant_batch');
 	}
+
+	public function adminator()
+	{
+		return view('adminViews.adminator');
+	}
 }

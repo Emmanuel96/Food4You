@@ -1,6 +1,5 @@
 @extends('layouts.AdminHeader')
 
-
 @section('content')
 
         <!-- page content -->
@@ -16,23 +15,17 @@
                     <table id="datatable" class="display table table-bordered table-hover" width="100%">
                       <thead>
                         <tr>
-                          <th id = "product_image_header">Restaurant Name</th>
-                          <th>Restaurant Address</th>
-                          <th id = "product_description">Restaurant Mobile</th>
-                          <th>Restaurant Closing times</th>
-                          <th id = "product_category">Restaurant opening times</th>
-                          <th>Edit</th>
+                          <th id = "product_image_header">Day</th>
+                          <th id = "product_description">Batch</th>
+                          <th>Price</th>
+                          <th id = "product_category">Max Orders </th>
+                          <th>Orders </th>
+                          <th id = "product_stock"><a>Edit</a></th>
                         </tr>
                       </thead>
                       <tbody>
-                          @foreach($restaurants as $restaurant)
+                          @foreach($batches as $batch)
                             <tr>
-                              <td width = "35%" id = "restaurant_name">{{$restaurant->restaurant_name}}</td>
-                              <td id = "restaurant_address">{{$restaurant->restaurant_address}}</td>
-                              <td id = "restaurant_phone_number">{{$restaurant->restaurant_phone_number}}</td>
-                              <td id = "restaurant_opening_time">{{$restaurant->restaurant_opening_times}}</td>
-                              <td id = "restaurant_closing_time">{{$restaurant->restaurant_closing_times}}</td>
-                              <td></td>
                             </tr>
                           @endforeach
                       </tbody>

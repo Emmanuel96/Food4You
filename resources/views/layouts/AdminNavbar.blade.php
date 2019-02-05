@@ -91,13 +91,74 @@
                         </form>
                       </ul>
                     </li>
-                    <ul class="nav navbar-nav navbar-right">
-                    <li id="notifications" class="nav navbar-nav">
-                        <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
-                            <i data-count="0" class="glyphicon glyphicon-bell notification-icon"></i>
-                          </a>
+
+                    <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-bell-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
                     </li>
-                    </ul>
+                    <li>
+                      <a>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                    <!-- <ul class="nav navbar-nav navbar-right">
+                      <li id="notifications" class="nav navbar-nav">
+                          <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
+                              <i data-count="0" class="glyphicon glyphicon-bell notification-icon"></i>
+                            </a>
+                      </li>
+                    </ul> -->
     
                     <li role="presentation" class="dropdown">
                       <ul id="menu1" class ="dropdown-menu list-unstyled msg_list" role="menu">
