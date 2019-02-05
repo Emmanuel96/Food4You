@@ -1,11 +1,5 @@
 @extends('layouts.AdminHeader')
 
-<style>
-  table {
-    background-color:black;                                        
-  }
-</style>
-
 @section('content')
 
         <!-- page content -->
@@ -131,6 +125,28 @@
     <script src="{{URL::asset('vendors/jszip/dist/jszip.min.js')}}"></script>
     <script src="{{URL::asset('vendors/pdfmake/build/pdfmake.min.js')}}"></script>
     <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
+
+    <script src="{{URL::asset('vendors/moment/min/moment.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+    <!-- bootstrap-wysiwyg -->
+    <script src="{{URL::asset('vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
+    <script src="{{URL::asset('vendors/jquery.hotkeys/jquery.hotkeys.js')}}"></script>
+    <script src="{{URL::asset('vendors/google-code-prettify/src/prettify.js')}}"></script>
+    <!-- jQuery Tags Input -->
+    <script src="{{URL::asset('vendors/jquery.tagsinput/src/jquery.tagsinput.js')}}"></script>
+    <!-- Switchery -->
+    <script src="{{URL::asset('vendors/switchery/dist/switchery.min.js')}}"></script>
+    <!-- Select2 -->
+    <script src="{{URL::asset('vendors/select2/dist/js/select2.full.min.js')}}"></script>
+    <!-- Parsley -->
+    <script src="{{URL::asset('vendors/parsleyjs/dist/parsley.min.js')}}"></script>
+    <!-- Autosize -->
+    <script src="{{URL::asset('vendors/autosize/dist/autosize.min.js')}}"></script>
+    <!-- jQuery autocomplete -->
+    <script src="{{URL::asset('vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
+    <!-- starrr -->
+    <script src="{{URL::asset('vendors/starrr/dist/starrr.js')}}"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="{{URL::asset('js/custom.min.js')}}"></script>
