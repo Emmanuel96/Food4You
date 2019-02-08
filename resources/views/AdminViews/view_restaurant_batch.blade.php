@@ -10,7 +10,6 @@
                 <h3 style= "font-weight: bold;">Product</h3>
               </div>
 
-
             <div class="clearfix"></div>
                     <table id="datatable" class="display table table-bordered table-hover" width="100%">
                       <thead>
@@ -26,6 +25,12 @@
                       <tbody>
                           @foreach($batches as $batch)
                             <tr>
+                              <td id="batch_day">{{$batch->batch_day}}</td>
+                              <td id="batch_time_range">{{$batch->batch_time_range}}</td>
+                              <td id="price"></td>
+                              <td id="batch_max_order_no">{{$batch->batch_max_order_no}}</td>
+                              <td id="batch_order_no">{{$batch->batch_order_no}}</td>
+                              <td id="editBtn"></td>
                             </tr>
                           @endforeach
                       </tbody>

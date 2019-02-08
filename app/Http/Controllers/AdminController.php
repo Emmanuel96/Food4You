@@ -50,7 +50,7 @@ class AdminController extends Controller
 			$request->validate([
 				'product_name' => 'required|unique:menu',
 				'product_description' => 'required',
-				'product_price' => 'required',
+				'product_price' => 'required|int',
 				'category' => 'required',
 				'new_category' => 'required',
 				'product_image' => 'required',
@@ -306,6 +306,18 @@ class AdminController extends Controller
 	public function new_restaurant(Request $request, Response $response)
 	{
 		$restaurant_id = rand(50,1000); 
+
+		$request->validate([
+			//'restaurant_id' => 'required|unique:Restaurants',
+			'restaurant_name' => 'required|unique:Restaurants',
+			'restaurant_opening_times' => 'required|date_format:H:i',
+			'restaurant_closing_times' => 'date_format:H:i',
+			'restaurant_address' => 'required|max:255',
+			'restaurant_phone_number' => 'int|min:11',
+			'restaurant_image' => 'required',
+			'restaurant_minimum_order' => 'required|int',
+		]);
+
 		Restaurants::create(
 			[
 				'restaurant_id' => $restaurant_id, 
@@ -339,8 +351,8 @@ class AdminController extends Controller
 	public function post_new_restaurant_batch(Request $request, Response $response)
 	{
 		$request->validate([
-			'batch_day' => 'required|int',
-			'batch_max_order_no'=> 'required|int', 
+			'batch_day' => 'required',
+			'batch_max_order_no' => 'required|int', 
 			'batch_range' => 'required|string' 
 		]); 
 
@@ -352,6 +364,8 @@ class AdminController extends Controller
 			'batch_max_order_no' => $request->batch_max_order_no, 
 			'batch_time_range' => $request->batch_range
 		]); 
+
+		
 		return view('adminViews.new_restaurant_batch');
 	}
 

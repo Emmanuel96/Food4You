@@ -8,6 +8,7 @@ class Batch extends Model
 {
     protected $table = "batch"; 
     protected $primary_key = "batch_id";
+    
     public $fillable = 
     [
         'batch_slug', 

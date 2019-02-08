@@ -67,20 +67,20 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Name *</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="restaurant-name" name="restaurant_name" class="form-control col-md-7 col-xs-12" required>
+                          <input type="text" id="restaurant-name" name="restaurant_name" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                    
                       <div class="form-group">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Address</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="address" class="form-control col-md-7 col-xs-12" name="restaurant_address" type="text" required>
+                          <input id="address" class="form-control col-md-7 col-xs-12" name="restaurant_address" type="text">
                         </div>
                       </div>  
                       <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">Phone No *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="restaurant-phone-no" class="form-control col-md-7 col-xs-12" name="restaurant_phone_no" type="text" required>
+                            <input id="restaurant-phone-no" class="form-control col-md-7 col-xs-12" name="restaurant_phone_no" type="text">
                           </div>
                       </div>
 
@@ -95,21 +95,21 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="product-description-add-product">Opening times</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text" required>
+                            <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label id = "restaurant-closing-times" class="control-label col-md-3 col-sm-3 col-xs-12"  for="restaurant_closing_times">Closing times</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="restaurant-opening-times" class="form-control col-md-7 col-xs-12" name="restaurant_opening_times" type="text" required>
+                            <input id="restaurant-opening-times" class="form-control col-md-7 col-xs-12" name="restaurant_opening_times" type="text">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label id = "restaurant-closing-times" class="control-label col-md-3 col-sm-3 col-xs-12"  for="restaurant_closing_times">Minimum Order Price</label>
+                        <label id = "restaurant-minimum-order" class="control-label col-md-3 col-sm-3 col-xs-12"  for="restaurant_minimum_order">Minimum Order Price</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="restaurant-minimum-order" class="form-control col-md-7 col-xs-12" name="restaurant_minimum_order" type="text" required>
+                            <input id="restaurant-minimum-order" class="form-control col-md-7 col-xs-12" name="restaurant_minimum_order" type="text">
                         </div>
                       </div>
                       
