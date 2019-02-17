@@ -245,9 +245,16 @@ class AdminController extends Controller
 
 	{
 		$product = menu::find($id);
-		//$product->product_description; 
-
+		
 		return view ('AdminViews/editProduct', compact('product'));
+	}
+
+	public function showProduct($id) 
+	{
+		$product = menu::where('product_id', $id)->find($id);
+
+		return view ('AdminViews/showProduct', compact('product'));
+
 	}
 
 	public function updateProduct(Request $Request, $id)
@@ -281,6 +288,14 @@ class AdminController extends Controller
 		return redirect('admin/viewProducts')->with('success', 'menu updated successfully!');
 	}
 
+	public function destroy($id)
+	{
+		$product = menu::find($id);
+		$product->delete();
+
+		return redirect()->route('admin.viewProducts');
+	}
+
 	public function testViewOrder(Request $request, Response $response)
 	{
 		$user = Auth::user(); 
@@ -291,6 +306,8 @@ class AdminController extends Controller
 		return view('AdminViews.testViewOrders')->with('orders', $orders);
 	}
 
+	//Restaurant functionalities
+	
 	public function restaurants()
 	{
 		$restaurants = DB::select('select * from restaurants'); 
@@ -333,6 +350,13 @@ class AdminController extends Controller
 
 			return "successfully saved";
 
+	}
+
+	public function deleteRestaurant($id) {
+		$restaurant = Restaurants::find($id);
+		$restaurant->delete();
+
+		return redirect()->route('admin.restuarants');
 	}
 
 	

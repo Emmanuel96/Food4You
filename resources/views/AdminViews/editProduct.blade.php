@@ -8,6 +8,7 @@
             <div class="page-title">
               <div class="title_left">
                 <h3>Edit Product</h3>
+              </div>
                 
                 @if ($errors->any())
                   <div class="alert alert-danger">

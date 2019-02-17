@@ -65,7 +65,7 @@
                     <form enctype="multipart/form-data" name="add_product" id="demo-form2" method = "POST" action="{{url('admin/createProduct')}}" class="form-horizontal form-label-left">
                      
                    
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                           <div class="avatar-upload" style = "margin-top: -20px; margin-bottom: 18px;">
                             <div class="avatar-edit">
                               <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
@@ -75,7 +75,7 @@
                             <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
                             </div>
                           </div>
-                      </div>
+                      </div> -->
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Product Name *</label>

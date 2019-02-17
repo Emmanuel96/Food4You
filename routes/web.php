@@ -45,6 +45,13 @@ Route::get('/admin/viewOrders/{slug?}', 'AdminController@viewOrderProducts')->na
 Route::post('/admin/InOutOfStock', 'AdminController@InOutOfStock')->name('admin.inOutOfStock');
 Route::post('/admin/notifyCustomerOfOrder', 'AdminController@notifyCustomers')->name('admin.notifyCustomerOfOrder');  
 
+Route::get('/admin/showProduct/{id}', 'AdminController@showProduct')->name('admin.showProduct');
+
+Route::get('/admin/delete/{id}',[
+	'as' => 'admin.delete',
+	'uses' => 'AdminController@destroy'
+]);
+
 Route::get('/admin/editProduct/{id}', 'AdminController@editProduct')->name('admin.editProduct');
 Route::post('/admin/updateProduct/{id}', 'AdminController@updateProduct');
 //Route::match(['get','post'],'/admin/add-category','categoryController@addCategory');
@@ -52,6 +59,11 @@ Route::post('/admin/updateProduct/{id}', 'AdminController@updateProduct');
 Route::get('/admin/restaurants', 'AdminController@restaurants')->name('admin.restuarants')->middleware('admin_restaurant_middleware'); 
 Route::get('/admin/restaurants/new','AdminController@newRestaurant')->name('admin.newRestaurant')->middleware('admin_restaurant_middleware'); 
 Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('admin.new_restaurant')->middleware('admin_restaurant_middleware'); 
+
+Route::get('/admin/restaurants/delete/{id}', [
+	'as' => 'restaurant.delete',
+	'uses' => 'AdminController@deleteRestaurant'
+]);
 
 Route::get('/admin/test', function (){
 	event(new App\Events\orderNotification(Auth::user()->user_name));

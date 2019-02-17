@@ -232,7 +232,7 @@
         <script type="text/javascript">
 
             const notificationsWrapper = document.getElementById('notifications');
-            notificationsWrapper.
+            
 
             Pusher.logToConsole = true;
 
