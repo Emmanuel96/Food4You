@@ -2,41 +2,53 @@
 
 @section('content')
 
+          
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
                 <h3 style= "font-weight: bold;">Product</h3>
-              </div>
+        </div>
+
+        
 
 
             <div class="clearfix"></div>
                     <table id="datatable" class="display table table-bordered table-hover" width="100%">
                       <thead>
                         <tr>
-                          <th id = "product_image_header">Product Image</th>
-                          <th>Product Name</th>
-                          <th id = "product_description">Product Description</th>
-                          <th>Price</th>
+                          <!-- <th id = "product_image_header">Product Image</th> -->
+                          <th id = "product_id">Product Name</th>
+                          <!-- <th id = "product_description">Product Description</th> -->
+                          <th id = "product_price">Price</th>
                           <th id = "product_category">Category</th>
-                          <th>Edit</th>
-                          <th id = "product_stock">Stock</th>
+                          <th id ="editBtn">Edit</th>
+                          <!-- <th id = "product_stock">Stock</th> -->
                         </tr>
                       </thead>
                       <tbody>
                           @foreach($products as $product)
                             <tr>
-                              <td></td>
+                              <!-- <td></td> -->
                               <!-- <td id = "product_image"><img class="responsive-img mx-auto" width ="30px" height="30px" src = "/storage/images/{{$product->product_image}}"/></td> -->
-                              <td width = "35%" id = "product_name">{{$product->product_name}}</td>
-                              <td></td>
+                              <td width = "35%" id = "product_name" style="t">
+                                <a href="{!! route('admin.showProduct', [ $product->product_id ]) !!}">
+                                  {{$product->product_name}}
+                              </td>
+                              </a>
+                              <!-- <td></td>-->
                               <!-- <td id = "product_description">{{$product->product_description}}</td> -->
                               <td id = "product_price">₦{{$product->product_price}}</td>
                               <td id = "product_category">{{$product->category}}</td>
-                              <td></td>
-                              <td></td>
-                              <!-- <td id = "edit_product"><a href="{{ url('admin/editProduct')}}/{{ $product->product_id }}" class ="btn btn-primary">Edit</a></td> -->
+                              <td> 
+                                <div class="btn-group">
+                                  <a href="{!! route('admin.showProduct', [$product->product_id]) !!}" class='btn btn-primary btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                                  <a href="{!! route('admin.editProduct', [$product->product_id]) !!}" class='btn btn-success btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                                  <a href="{!! route('admin.delete', [$product->product_id], ['type' => 'submit', 'class', 'onclick' => "return confirm('Are you sure?')"]) !!}" class='btn btn-danger btn-xs'><i class="glyphicon glyphicon-trash"></i></a>
+                                </div>                         
+                              </td>
+                              <!-- <td></td> -->
                               <!-- <td id = "product_stock"><a id = "inOutStockLink{{$product->product_id}}" onclick = "inOutOfStock( {{$product->product_id}})"  @if($product->inStock != 0) class = "btn btn-primary">In Stock</a> @else class = "btn btn-danger"> Out Of Stock </a> @endif </td> -->
                             </tr>
                           @endforeach
