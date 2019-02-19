@@ -352,6 +352,53 @@ class AdminController extends Controller
 
 	}
 
+	public function showRestaurant($id) {
+		$restaurant = Restaurants::find($id);
+
+		return view ('AdminViews/showRestaurant', compact('restaurant'));
+	}
+
+	public function editRestaurant($id) {
+		$restaurant = Restaurants::find($id);
+		
+		return view ('AdminViews/editRestaurant', compact('restaurant'));
+	}
+
+	public function updateRestaurant(Request $request, $id) {
+		$restaurant = new Restaurants;
+
+		$request->validate([
+			//'restaurant_id' => 'required|unique:Restaurants',
+			'restaurant_name' => 'required|unique:Restaurants',
+			'restaurant_opening_times' => 'required|date_format:H:i',
+			'restaurant_closing_times' => 'date_format:H:i',
+			'restaurant_address' => 'required|max:255',
+			'restaurant_phone_number' => 'int|min:11',
+			'restaurant_image' => 'required',
+			'restaurant_minimum_order' => 'required|int',
+		]);
+
+		DB::table('restaurants')->where('restaurant_id', $id)->update([
+				'restaurant_id' => $restaurant_id, 
+				'restaurant_name'=> $request->restaurant_name, 
+				'restaurant_opening_times'=> $request->restaurant_opening_times, 
+				'restaurant_closing_times'=> $request->restaurant_closing_times, 
+				'restaurant_address' => $request->restaurant_address, 
+				'restaurant_phone_number' => $request->restaurant_phone_no, 
+				'restaurant_image' => $request->restaurant_image,
+				'restaurant_minimum_order' => $request->restaurant_minimum_order
+		]);
+
+		Session::flash('RestaurantUpdated', 'Restaurant ['.$Request->restaurant_name.'] Updated Successfully');
+		
+		$imageName = $Request->restaurant_image->getClientOriginalName();
+
+		$file = $Request->file('restaurant_image')->storeAs('images',$imageName);
+		// Storage::disk('public')->put($imageName, 'Contents');
+
+		return redirect('admin/restaurants')->with('success', 'restaurant updated successfully!');
+	}
+
 	public function deleteRestaurant($id) {
 		$restaurant = Restaurants::find($id);
 		$restaurant->delete();
