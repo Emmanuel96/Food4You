@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Batch' => $baseDir . '/app/Batch.php',
     'App\\Cart' => $baseDir . '/app/cart.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
@@ -58,6 +59,7 @@ return array(
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
     'Carbon\\Translator' => $vendorDir . '/nesbot/carbon/src/Carbon/Translator.php',
     'CategoryMenu' => $baseDir . '/database/migrations/2017_10_25_162751_category_menu.php',
+    'CreateBatchTable' => $baseDir . '/database/migrations/2019_01_25_131929_create_batch_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2018_11_16_120015_create_categories_table.php',
     'CreateContentsTable' => $baseDir . '/database/migrations/2017_06_17_040921_create_contents_table.php',
     'CreateDaysOfDeliveryTable' => $baseDir . '/database/migrations/2018_12_04_054520_create_days_of_delivery_table.php',
@@ -1538,6 +1540,11 @@ return array(
     'Illuminate\\Hashing\\BcryptHasher' => $vendorDir . '/laravel/framework/src/Illuminate/Hashing/BcryptHasher.php',
     'Illuminate\\Hashing\\HashManager' => $vendorDir . '/laravel/framework/src/Illuminate/Hashing/HashManager.php',
     'Illuminate\\Hashing\\HashServiceProvider' => $vendorDir . '/laravel/framework/src/Illuminate/Hashing/HashServiceProvider.php',
+    'Illuminate\\Html\\FormBuilder' => $vendorDir . '/illuminate/html/FormBuilder.php',
+    'Illuminate\\Html\\FormFacade' => $vendorDir . '/illuminate/html/FormFacade.php',
+    'Illuminate\\Html\\HtmlBuilder' => $vendorDir . '/illuminate/html/HtmlBuilder.php',
+    'Illuminate\\Html\\HtmlFacade' => $vendorDir . '/illuminate/html/HtmlFacade.php',
+    'Illuminate\\Html\\HtmlServiceProvider' => $vendorDir . '/illuminate/html/HtmlServiceProvider.php',
     'Illuminate\\Http\\Concerns\\InteractsWithContentTypes' => $vendorDir . '/laravel/framework/src/Illuminate/Http/Concerns/InteractsWithContentTypes.php',
     'Illuminate\\Http\\Concerns\\InteractsWithFlashData' => $vendorDir . '/laravel/framework/src/Illuminate/Http/Concerns/InteractsWithFlashData.php',
     'Illuminate\\Http\\Concerns\\InteractsWithInput' => $vendorDir . '/laravel/framework/src/Illuminate/Http/Concerns/InteractsWithInput.php',

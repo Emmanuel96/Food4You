@@ -352,6 +352,54 @@ class AdminController extends Controller
 
 	}
 
+	public function showRestaurant($id) {
+		$restaurant = Restaurants::find($id);
+		//dd($restaurant);
+
+		return view ('AdminViews/showRestaurant', compact('restaurant'));
+	}
+
+	public function editRestaurant($id) {
+		$restaurant = Restaurants::find($id);
+		
+		return view ('AdminViews/editRestaurant', compact('restaurant'));
+	}
+
+	public function updateRestaurant(Request $request, $id) {
+		$restaurant = new Restaurants;
+
+		$request->validate([
+			//'restaurant_id' => 'required|unique:Restaurants',
+			'restaurant_name' => 'required|unique:Restaurants',
+			'restaurant_opening_times' => 'required|date_format:H:i',
+			'restaurant_closing_times' => 'date_format:H:i',
+			'restaurant_address' => 'required|max:255',
+			'restaurant_phone_number' => 'int|min:11',
+			'restaurant_image' => 'required',
+			'restaurant_minimum_order' => 'required|int',
+		]);
+
+		DB::table('restaurants')->where('restaurant_id', $id)->update([
+				'restaurant_id' => $restaurant_id, 
+				'restaurant_name'=> $request->restaurant_name, 
+				'restaurant_opening_times'=> $request->restaurant_opening_times, 
+				'restaurant_closing_times'=> $request->restaurant_closing_times, 
+				'restaurant_address' => $request->restaurant_address, 
+				'restaurant_phone_number' => $request->restaurant_phone_no, 
+				'restaurant_image' => $request->restaurant_image,
+				'restaurant_minimum_order' => $request->restaurant_minimum_order
+		]);
+
+		Session::flash('RestaurantUpdated', 'Restaurant ['.$Request->restaurant_name.'] Updated Successfully');
+		
+		$imageName = $Request->restaurant_image->getClientOriginalName();
+
+		$file = $Request->file('restaurant_image')->storeAs('images',$imageName);
+		// Storage::disk('public')->put($imageName, 'Contents');
+
+		return redirect('admin/restaurants')->with('success', 'restaurant updated successfully!');
+	}
+
 	public function deleteRestaurant($id) {
 		$restaurant = Restaurants::find($id);
 		$restaurant->delete();
@@ -391,6 +439,52 @@ class AdminController extends Controller
 
 		
 		return view('adminViews.new_restaurant_batch');
+	}
+
+	public function showBatch($id) {
+	
+		//$batch = Batch::all()->find($id);
+		$batch = Batch::first();
+		//dd($batch);
+		
+		return view('AdminViews/showBatch', compact('batch'));
+	}
+
+	public function editBatch($id) {
+		$batch = Batch::first();
+
+		return view('AdminViews/editBatch', compact('batch'));
+	}
+
+	public function updateBatch(Request $request, $id) {
+
+		$batch = Batch::first();
+		$request->validate([
+			'batch_day' => 'required',
+			'batch_max_order_no' => 'required|int', 
+			'batch_range' => 'required|string' 
+		]); 
+
+		DB::table('batch')
+		->where('batch_id', $id)
+		->update($request->all(), $id);
+
+		return Redirect::back();
+	}
+
+	public function deleteBatch($id) {
+
+		$batch = Batch::first();
+
+		if($batch != null) {
+			//$batch = Batch::where('batch_id', $id)->find($id);
+			DB::table('batch')->delete();
+			//$batch->delete();
+
+			return redirect()->route('admin.restaurant_batch')->with(['message' => 'successfully deleted!']);
+		}
+
+		return redirect()->route('admin.restaurant_batch')->with(['message' => 'Wrong ID!']);
 	}
 
 	public function adminator()

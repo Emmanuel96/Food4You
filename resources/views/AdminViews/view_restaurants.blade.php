@@ -8,7 +8,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3 style= "font-weight: bold;">Product</h3>
+                <h3 style= "font-weight: bold;">Restaurant</h3>
               </div>
 
 
@@ -17,22 +17,31 @@
                       <thead>
                         <tr>
                           <th id = "product_image_header">Restaurant Name</th>
-                          <th>Restaurant Address</th>
-                          <th id = "product_description">Restaurant Mobile</th>
-                          <th>Restaurant Closing times</th>
+                          <!-- <th>Restaurant Address</th> -->
+                          <!-- <th id = "product_description">Restaurant Mobile</th> -->    
                           <th id = "product_category">Restaurant opening times</th>
+                          <th>Restaurant Closing times</th>
                           <th>Edit</th>
                         </tr>
                       </thead>
                       <tbody>
                           @foreach($restaurants as $restaurant)
                             <tr>
-                              <td width = "35%" id = "restaurant_name">{{$restaurant->restaurant_name}}</td>
-                              <td id = "restaurant_address">{{$restaurant->restaurant_address}}</td>
-                              <td id = "restaurant_phone_number">{{$restaurant->restaurant_phone_number}}</td>
+                              <td width = "35%" id = "restaurant_name">
+                                <a href="{!! route('admin.showRestaurant', [ $restaurant->restaurant_id ]) !!}">
+                                {{$restaurant->restaurant_name}}
+                              </td>
+                              <!-- <td id = "restaurant_address">{{$restaurant->restaurant_address}}</td> -->
+                              <!-- <td id = "restaurant_phone_number">{{$restaurant->restaurant_phone_number}}</td>-->
                               <td id = "restaurant_opening_time">{{$restaurant->restaurant_opening_times}}</td>
                               <td id = "restaurant_closing_time">{{$restaurant->restaurant_closing_times}}</td>
-                              <td></td>
+                              <td>
+                                <div class=btn-group>
+                                      <a href="{!! route('admin.showRestaurant', [$restaurant->restaurant_id]) !!}" class="btn btn-primary btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                      <a href="{!! route('admin.editRestaurant', [$restaurant->restaurant_id]) !!}" class="btn btn-success btn-xs"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                                      <a href="{!! route('restaurant.delete', [$restaurant->restaurant_id]) !!}" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                </div>
+                              </td>
                             </tr>
                           @endforeach
                       </tbody>
