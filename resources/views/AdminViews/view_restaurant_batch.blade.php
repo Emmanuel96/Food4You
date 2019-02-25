@@ -7,19 +7,18 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3 style= "font-weight: bold;">Product</h3>
+                <h3 style= "font-weight: bold;">Batch</h3>
               </div>
 
             <div class="clearfix"></div>
                     <table id="datatable" class="display table table-bordered table-hover" width="100%">
                       <thead>
                         <tr>
-                          <th id = "product_image_header">Day</th>
-                          <th id = "product_description">Batch</th>
-                          <th>Price</th>
-                          <th id = "product_category">Max Orders </th>
-                          <th>Orders </th>
-                          <th id = "product_stock"><a>Edit</a></th>
+                          <th id = "batch_day">Day</th>
+                          <th id = "batch_time_range">Batch</th>
+                          <th id = "batch_max_order_no">Max Orders </th>
+                          <th id = "batch_order_no">Orders </th>
+                          <th id = "editBtn"><a>Edit</a></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -27,10 +26,15 @@
                             <tr>
                               <td id="batch_day">{{$batch->batch_day}}</td>
                               <td id="batch_time_range">{{$batch->batch_time_range}}</td>
-                              <td id="price"></td>
                               <td id="batch_max_order_no">{{$batch->batch_max_order_no}}</td>
                               <td id="batch_order_no">{{$batch->batch_order_no}}</td>
-                              <td id="editBtn"></td>
+                              <td id="editBtn">
+                                  <div class=btn-group>
+                                      <a href="{!! route('admin.showBatch', [$batch->batch_id]) !!}" class="btn btn-primary btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                      <a href="{!! route('admin.editBatch', [$batch->batch_id]) !!}" class="btn btn-success btn-xs"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                                      <a href="{!! route('admin.deleteBatch', [$batch->batch_id]) !!}" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                </div>
+                              </td>
                             </tr>
                           @endforeach
                       </tbody>

@@ -354,6 +354,7 @@ class AdminController extends Controller
 
 	public function showRestaurant($id) {
 		$restaurant = Restaurants::find($id);
+		//dd($restaurant);
 
 		return view ('AdminViews/showRestaurant', compact('restaurant'));
 	}
@@ -438,6 +439,52 @@ class AdminController extends Controller
 
 		
 		return view('adminViews.new_restaurant_batch');
+	}
+
+	public function showBatch($id) {
+	
+		//$batch = Batch::all()->find($id);
+		$batch = Batch::first();
+		//dd($batch);
+		
+		return view('AdminViews/showBatch', compact('batch'));
+	}
+
+	public function editBatch($id) {
+		$batch = Batch::first();
+
+		return view('AdminViews/editBatch', compact('batch'));
+	}
+
+	public function updateBatch(Request $request, $id) {
+
+		$batch = Batch::first();
+		$request->validate([
+			'batch_day' => 'required',
+			'batch_max_order_no' => 'required|int', 
+			'batch_range' => 'required|string' 
+		]); 
+
+		DB::table('batch')
+		->where('batch_id', $id)
+		->update($request->all(), $id);
+
+		return Redirect::back();
+	}
+
+	public function deleteBatch($id) {
+
+		$batch = Batch::first();
+
+		if($batch != null) {
+			//$batch = Batch::where('batch_id', $id)->find($id);
+			DB::table('batch')->delete();
+			//$batch->delete();
+
+			return redirect()->route('admin.restaurant_batch')->with(['message' => 'successfully deleted!']);
+		}
+
+		return redirect()->route('admin.restaurant_batch')->with(['message' => 'Wrong ID!']);
 	}
 
 	public function adminator()

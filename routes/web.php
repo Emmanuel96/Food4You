@@ -53,12 +53,16 @@ Route::get('/admin/delete/{id}',[
 ]);
 
 Route::get('/admin/editProduct/{id}', 'AdminController@editProduct')->name('admin.editProduct');
-Route::post('/admin/updateProduct/{id}', 'AdminController@updateProduct');
+Route::post('/admin/updateProduct/{id}', 'AdminController@updateProduct')->name('admin.updateProduct');
 //Route::match(['get','post'],'/admin/add-category','categoryController@addCategory');
 
 Route::get('/admin/restaurants', 'AdminController@restaurants')->name('admin.restuarants')->middleware('admin_restaurant_middleware'); 
 Route::get('/admin/restaurants/new','AdminController@newRestaurant')->name('admin.newRestaurant')->middleware('admin_restaurant_middleware'); 
 Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('admin.new_restaurant')->middleware('admin_restaurant_middleware'); 
+Route::get('/admin/restaurants/showRestaurants/{id}', 'AdminController@showRestaurant')->name('admin.showRestaurant')->middleware('admin_restaurant_middleware');
+
+Route::get('/admin/restaurants/editRestaurants/{id}', 'AdminController@editRestaurant')->name('admin.editRestaurant');
+Route::post('/admin/restaurants/updateRestaurant/{id}', 'AdminController@updateRestaurant');
 
 Route::get('/admin/restaurants/delete/{id}', [
 	'as' => 'restaurant.delete',
@@ -78,6 +82,16 @@ Route::get('/admin/listen', function(){
 Route::get('/admin/restaurant/batch', 'AdminController@view_restaurant_batch')->name('admin.restaurant_batch');
 Route::get('/admin/restaurant/batch/new', 'AdminController@new_restaurant_batch')->name('admin.new_restaurant_batch');
 Route::post('/admin/restaurant/batch/new', 'AdminController@post_new_restaurant_batch')->name('admin.new_restaurant_batch');
+
+Route::get('/admin/restaurant/batch/showBatch/{id}', 'AdminController@showBatch')->name('admin.showBatch');
+
+Route::get('/admin/restaurant/batch/editBatch/{id}', 'AdminController@editBatch')->name('admin.editBatch');
+Route::post('/admin/restaurant/batch/updateBatch/{id}', 'AdminController@updateBatch');
+
+Route::get('/admin/restaurant/batch/delete/{id}', [
+	'as' => 'admin.deleteBatch',
+	'uses' => 'AdminController@deleteBatch'
+]);
 
 Auth::routes();
 
