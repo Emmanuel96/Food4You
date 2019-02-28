@@ -395,6 +395,7 @@ return array(
     'Dotenv\\Exception\\InvalidPathException' => $vendorDir . '/vlucas/phpdotenv/src/Exception/InvalidPathException.php',
     'Dotenv\\Exception\\ValidationException' => $vendorDir . '/vlucas/phpdotenv/src/Exception/ValidationException.php',
     'Dotenv\\Loader' => $vendorDir . '/vlucas/phpdotenv/src/Loader.php',
+    'Dotenv\\Parser' => $vendorDir . '/vlucas/phpdotenv/src/Parser.php',
     'Dotenv\\Validator' => $vendorDir . '/vlucas/phpdotenv/src/Validator.php',
     'Egulias\\EmailValidator\\EmailLexer' => $vendorDir . '/egulias/email-validator/EmailValidator/EmailLexer.php',
     'Egulias\\EmailValidator\\EmailParser' => $vendorDir . '/egulias/email-validator/EmailValidator/EmailParser.php',

@@ -1,5 +1,5 @@
-<body class="nav-md">
-        <div class="container body">
+<body  class="nav-md">
+        <div id= "my_app" class="container body">
           <div class="main_container">
             <div class="col-md-3 left_col">
               <div class="left_col scroll-view">
@@ -14,7 +14,15 @@
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                   <div class="menu_section">
                     <ul class="nav side-menu">
-                      <li><a><i class="fa fa-shopping-cart"></i>Products<span class="fa fa-chevron-down"></span></a>
+                    @if(Auth::user()->id == 1)
+                        <li><a><i class="fa fa-building-o"></i>Restaurants<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                          <li><a href="/admin/restaurants">View Restaurants</a></li>
+                            <li><a href="/admin/restaurants/new">Add New Restaurant</a></li>
+                          </ul>
+                        </li>  
+                      @endif  
+                      <li><a><i class="fa fa-folder-o"></i>Products<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                          <li><a href="/admin/viewProducts">View Products</a></li>
                           <li><a href="/admin/addProduct">Add New Products</a></li>
@@ -25,15 +33,8 @@
                          <li><a href="/admin/viewOrders">View Orders</a></li>
                         </ul>
                       </li>
-                      @if(Auth::user()->id == 1)
-                        <li><a><i class="fa fa-shopping-cart"></i>Restaurants<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                          <li><a href="/admin/restaurants">View Restaurants</a></li>
-                            <li><a href="/admin/restaurants/new">Add New Restaurant</a></li>
-                          </ul>
-                        </li>  
-                      @endif  
-                      <li><a><i class="fa fa-shopping-cart"></i>Batch<span class="fa fa-chevron-down"></span></a>
+                    
+                      <li><a><i class="fa fa-calendar-o"></i>Batch<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                          <li><a href="/admin/restaurant/batch">View Batch</a></li>
                           <li><a href="/admin/restaurant/batch/new">New Batch</a></li>
@@ -44,7 +45,7 @@
                 </div>
     
                 <!-- /menu footer buttons -->
-                <!-- <div class="sidebar-footer hidden-small">
+                <div class="sidebar-footer hidden-small">
                   <a data-toggle="tooltip" data-placement="top" title="Settings">
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                   </a>
@@ -54,16 +55,16 @@
                   <a data-toggle="tooltip" data-placement="top" title="Lock">
                     <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                   </a>
-                   <a class="nav-link" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                  <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}"  onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
-                        Logout
+                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                   </a>
+                  
     
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       {{ csrf_field() }}
                   </form>
-                </div> -->
+                </div>
                 <!-- /menu footer buttons -->                         
               </div>
             </div>
@@ -77,6 +78,10 @@
                   </div>
     
                   <ul class="nav navbar-nav navbar-right" style="align:right;">
+                    <li class = "">
+                      <input type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
+                      <input type="checkbox" id="toggle-two">
+                    </li>
                     <li class="">
                       <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <!-- <img src="images/img.jpg" alt=""> -->
@@ -91,6 +96,15 @@
                             {{ csrf_field() }}
                         </form>
                       </ul>
+
+                      <ul class="dropdown-menu dropdown-usermenu pull-right">
+                        
+                        <li><a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                      </ul>
+                      
                     </li>
 
                     <li role="presentation" class="dropdown">
@@ -171,7 +185,7 @@
                               <span class="time">3 mins ago</span>
                             </span>
                             <span class="message">
-                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                               Film festivals used to be do-or-die moments for movie makers. They were where...
                             </span>
                           </a>
                         </li>
@@ -251,3 +265,5 @@
 
         </script>
         </body>
+
+       

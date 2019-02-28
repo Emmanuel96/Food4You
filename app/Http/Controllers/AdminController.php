@@ -149,7 +149,6 @@ class AdminController extends Controller
 
 			$products = Menu::where('restaurant_id', '=', $restaurant_id)->get();
 		}
-		
 		return view('AdminViews.viewProducts')->with('products',$products); 
 	}
 

@@ -69,12 +69,15 @@ Route::get('/admin/restaurants/delete/{id}', [
 	'uses' => 'AdminController@deleteRestaurant'
 ]);
 
-Route::get('/admin/test', function (){
+Route::get('/admin/notification/test', function (){
 	event(new App\Events\orderNotification(Auth::user()->user_name));
-	return "Event has been sent!";
+	return [
+		'user_id' => '1', 
+		'order_id' => '2'
+	];
 });
 
-Route::get('/admin/listen', function(){
+Route::get('/admin/notification/listen', function(){
 	return view('AdminViews.listen');
 });
 
@@ -127,5 +130,6 @@ Route::get('/testMail', 'CheckoutController@mailTest');
 //TESTING FOR THE ADMIN PAGES 
 Route::get('/admin/testViewOrders', 'AdminController@testViewOrder');
 
-//RESTAURANTS
+//TEST ROUTE FOR THE ADMINATOR THEME WITH LARAVEL INTEGRATION
+Route::get('admin/adminator/test', 'AdminController@adminator');
 
