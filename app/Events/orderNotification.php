@@ -40,6 +40,6 @@ class orderNotification implements ShouldBroadcast
     public function broadcastOn()
     {
         //return new PrivateChannel('channel-name');
-        return ['order-status'];
+        return new Channel('order-status');
     }
 }

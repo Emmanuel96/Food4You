@@ -2,7 +2,8 @@
 
 @section('content')
 
-          
+<div class="col-md-12 col-sm-12 col-xs-12">
+
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -32,21 +33,19 @@
                             <tr>
                               <!-- <td></td> -->
                               <!-- <td id = "product_image"><img class="responsive-img mx-auto" width ="30px" height="30px" src = "/storage/images/{{$product->product_image}}"/></td> -->
-                              <td width = "35%" id = "product_name" style="t">
+                              <td width = "35%" id = "product_name" style=" padding-top: 20px; ">
                                 <a href="{!! route('admin.showProduct', [ $product->product_id ]) !!}">
                                   {{$product->product_name}}
                               </td>
                               </a>
                               <!-- <td></td>-->
                               <!-- <td id = "product_description">{{$product->product_description}}</td> -->
-                              <td id = "product_price">₦{{$product->product_price}}</td>
-                              <td id = "product_category">{{$product->category}}</td>
-                              <td> 
-                                <div class="btn-group">
-                                  <a href="{!! route('admin.showProduct', [$product->product_id]) !!}" class='btn btn-primary btn-xs'><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                  <a href="{!! route('admin.editProduct', [$product->product_id]) !!}" class='btn btn-success btn-xs'><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                  <a href="{!! route('admin.delete', [$product->product_id], ['type' => 'submit', 'class', 'onclick' => "return confirm('Are you sure?')"]) !!}" class='btn btn-danger btn-xs'><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                </div>                         
+                              <td id = "product_price"  style=" padding-top: 20px; "> ₦{{$product->product_price}} </td>
+                              <td id = "product_category"  style=" padding-top: 20px; ">{{$product->category}}</td>
+                              <td style = "padding-top: 15px;"> 
+                                  <a href="{!! route('admin.showProduct', [$product->product_id]) !!}" class='btn btn-primary btn-xs'><i class="fa fa-eye"></i></a>
+                                  <a href="{!! route('admin.editProduct', [$product->product_id]) !!}" class='btn btn-success btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                                  <a href="{!! route('admin.delete', [$product->product_id], ['type' => 'submit', 'class', 'onclick' => "return confirm('Are you sure?')"]) !!}" class='btn btn-danger btn-xs'><i class="glyphicon glyphicon-trash"></i></a>
                               </td>
                               <!-- <td></td> -->
                               <!-- <td id = "product_stock"><a id = "inOutStockLink{{$product->product_id}}" onclick = "inOutOfStock( {{$product->product_id}})"  @if($product->inStock != 0) class = "btn btn-primary">In Stock</a> @else class = "btn btn-danger"> Out Of Stock </a> @endif </td> -->
@@ -74,9 +73,7 @@
     </div>
 
     <script type="text/javascript">
-
-     
-   
+    
       function inOutOfStock(id)
       {
         //alert(id);
@@ -111,8 +108,10 @@
 
       }
   </script>
+
    <!-- jQuery -->
     <script src="{{URL::asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+
     <!-- Bootstrap -->
     <script src="{{URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- FastClick -->
@@ -162,5 +161,15 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{URL::asset('js/custom.min.js')}}"></script>
+    
+    <!-- <script src = "{{URL::asset('js/app.js')}}"></script> -->
+    <script>
+      $(function() {
+        $('#toggle-two').bootstrapToggle({
+          on: 'Enabled',
+          off: 'Disabled'
+        });
+      })
+    </script>
 
 @endsection
