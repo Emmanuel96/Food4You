@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
+  <title>Hungry Rout3s Admin</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  
     <!-- Bootstrap -->
     <link href="{{URL::asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -17,10 +19,17 @@
     <link href="{{URL::asset('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
 
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
     <!-- Custom Theme Style -->
     <link href="{{URL::asset('css/custom.min.css')}}" rel="stylesheet">
   </head>
   <style>
+      
+      @toggle-default-size: 1.5rem;
+      @toggle-default-label-width: 4rem;
+      @toggle-default-font-size: 0.75rem;
 
       #product-description-add-product
       {
@@ -267,21 +276,25 @@
                   {
                     /*padding-right: 20px; */
                   }
+
+                  .btn {
+                    background-color: #2A3F54;
+                    opacity: 0.8;
+                    border: none;
+                    color: white;
+                    padding: 5px 8px;
+                    font-size: 15px;
+                    cursor: pointer;
+                    }
+                    table{
+                    }
+                
             }
-  
-  
-  
-  
-  
-  
-  
   </style>
-  
-        @include('layouts.AdminNavbar')
-    <body class= "my_app">    
+    @include('layouts.AdminNavbar')
+    <body class= "">    
   <div class="container">
       @yield('content')
   </div>
   </body>
-  <script src = "{{URL::asset('js/app.js')}}" />
 </html>

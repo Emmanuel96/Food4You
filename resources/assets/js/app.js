@@ -18,11 +18,11 @@ window.Vue = require('vue');
 Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
-    el: '#app',
+    el: '#my_app',
     created(){
         Echo.channel('order-status')
         .listen('orderNotification', (e) => {
-            alert('the event has been triggered!');
+             alert('the event has been triggered!');
             console.log(e);
         });
     }

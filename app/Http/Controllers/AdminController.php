@@ -151,9 +151,6 @@ class AdminController extends Controller
 
 			$products = Menu::where('restaurant_id', '=', $restaurant_id)->get();
 		}
-
-		//change the category for each of the 
-		
 		return view('AdminViews.viewProducts')->with('products',$products); 
 	}
 
