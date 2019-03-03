@@ -19,14 +19,14 @@ class adminRestaurant
          //get the auth user 
          $user = Auth::user(); 
          //check if the authenticated user is an admin 
-         if(!$user || $user->user_role == 2 || $user->user_role == 3)
+         if(!$user || $user->user_role == 3)
          {
-             return redirect('/admin/viewProducts');
+             return redirect()->route('admin.viewProducts');
+         } 
+         else {
+             return view('/home');
          }
-         if(Auth::user()->user_role == 1)
-         {
-             //if authenticated user is an admin then redirect back to the home page 
-             return $next($request);
-         }
+
+         return $next($request);
     }
 }
