@@ -56,15 +56,17 @@ class AdminController extends Controller
 				'product_image' => 'required',
 		   ]);
 		   
-			$category = $request->new_category; 
+			$new_category = $request->new_category; 
 
 			//then add the category to the category database
-			$category = category::create(
+			$create_category = category::create(
 				[
-					'category_name' => $category, 
+					'category_name' => $new_category, 
 					'restaurant_id' => 1
 				]
 				);
+			//category to store on the products page will be an id 
+		    $category = $create_category->category_name; 
 		}
 		else
 		{
@@ -258,7 +260,7 @@ class AdminController extends Controller
 
 	public function updateProduct(Request $Request, $id)
 	{
-		$menu = new menu;
+		$menu = menu::find($id);
 
 		$Request->validate([
 			'product_name' => 'required',
@@ -276,6 +278,8 @@ class AdminController extends Controller
 				'product_image' => $Request->product_image ,
 				'product_description' => $Request->product_description
 				]);
+
+
 
 		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
 		
@@ -365,7 +369,8 @@ class AdminController extends Controller
 	}
 
 	public function updateRestaurant(Request $request, $id) {
-		$restaurant = new Restaurants;
+
+		$restaurant = Restaurants::find($id);
 
 		$request->validate([
 			//'restaurant_id' => 'required|unique:Restaurants',
@@ -389,6 +394,8 @@ class AdminController extends Controller
 				'restaurant_minimum_order' => $request->restaurant_minimum_order
 		]);
 
+		$restaurant->save();
+
 		Session::flash('RestaurantUpdated', 'Restaurant ['.$Request->restaurant_name.'] Updated Successfully');
 		
 		$imageName = $Request->restaurant_image->getClientOriginalName();
@@ -396,7 +403,8 @@ class AdminController extends Controller
 		$file = $Request->file('restaurant_image')->storeAs('images',$imageName);
 		// Storage::disk('public')->put($imageName, 'Contents');
 
-		return redirect('admin/restaurants')->with('success', 'restaurant updated successfully!');
+
+		return 'updated successfully';
 	}
 
 	public function deleteRestaurant($id) {
@@ -411,7 +419,8 @@ class AdminController extends Controller
 	{
 		$batches = DB::select('select * from batch'); 
 
-		return view('adminViews.view_restaurant_batch')->with('batches' , $batches);
+		return view('adminViews.view_restaurant_batch')
+		->with('batches' , $batches);
 	}
 
 	public function new_restaurant_batch(Request $request, Response $response)
@@ -466,9 +475,11 @@ class AdminController extends Controller
 
 		DB::table('batch')
 		->where('batch_id', $id)
-		->update($request->all(), $id);
+		->update($request->all());
 
-		return Redirect::back();
+		$batch->save();
+		
+		return 'updated successfully!';
 	}
 
 	public function deleteBatch($id) {
@@ -480,10 +491,10 @@ class AdminController extends Controller
 			DB::table('batch')->delete();
 			//$batch->delete();
 
-			return redirect()->route('admin.restaurant_batch')->with(['message' => 'successfully deleted!']);
+			return redirect()->route('admin.restaurant_batch');
 		}
 
-		return redirect()->route('admin.restaurant_batch')->with(['message' => 'Wrong ID!']);
+		return redirect()->route('admin.restaurant_batch');
 	}
 
 	public function adminator()
