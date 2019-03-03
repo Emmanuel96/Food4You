@@ -139,8 +139,9 @@ class CheckoutController extends Controller
 
     public function handleGatewayCallback(Request $request)
     {
+        return 'kk';
         $paymentDetails = Paystack::getPaymentData();
-
+            return 'screw';
         // echo $paymentDetails['status']; 
 
         // dd($paymentDetails); return;
@@ -161,7 +162,7 @@ class CheckoutController extends Controller
         //dd($order_slug);
 
         //send email of confirmation to the user 
-        // Mail::to('odamie3@gmail.com')->send(new OrderConfirmation()); 
+       // Mail::to('emmanuelaudu@aun.com.ng')->send(new OrderConfirmation()); 
 
         //send text message to user confirming order 
         //$orders->notify(new OrderConfirmed($orders->payment_ref));
@@ -262,8 +263,8 @@ class CheckoutController extends Controller
 
     public function mailTest()
     {
-        Mail::to('emmanuel.audu1@aun.edu.ng')
-            ->send(new OrderConfirmation());
-        return 'done';
+        // Mail::to('emmanuel.audu1@aun.edu.ng')
+        //     ->send(new OrderConfirmation());
+        // return 'done';
     }
 }
