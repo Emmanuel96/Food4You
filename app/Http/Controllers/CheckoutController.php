@@ -10,6 +10,7 @@ use App\Restaurants;
 use App\order; 
 use App\daysofdelivery;
 use App\Mail\OrderConfirmation;
+use App\Events\orderNotification;
 use DB; 
 use App\Notifications\OrderConfirmed; 
 use App\Notifications\newOrderReceived; 
@@ -175,6 +176,7 @@ class CheckoutController extends Controller
         if($paymentDetails['status'] ==1)
         {
             $orders->order_status = 1; 
+            event(new orderNotification(Auth::user()->user_name));
         }
         else
         {
@@ -183,6 +185,7 @@ class CheckoutController extends Controller
 
         $orders->save(); 
 
+        
 
         //else order status = -1
 

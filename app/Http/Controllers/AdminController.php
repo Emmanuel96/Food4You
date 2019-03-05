@@ -309,8 +309,7 @@ class AdminController extends Controller
 		return view('AdminViews.testViewOrders')->with('orders', $orders);
 	}
 
-	//Restaurant functionalities
-	
+	//Restaurant functionalities	
 	public function restaurants()
 	{
 		$restaurants = DB::select('select * from restaurants'); 
