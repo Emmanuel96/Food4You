@@ -2,6 +2,16 @@
 
 @section('content')
 
+<div id = "notification-div" class="alert alert-success" style = "display: none; padding: 50px; width:30%; padding: 0; margin-right:auto; margin-left:auto;">
+    <div class = "text-center" >
+      <span id = "notification-text" > </span>
+      <button style = "" type="button" class="close" onclick = "document.getElementById('notification-div').style.display = 'none';" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>              
+
+</div>
+
 <div class="col-md-12 col-sm-12 col-xs-12">
 
         <!-- page content -->
@@ -11,10 +21,7 @@
               <div class="title_left">
                 <h3 style= "font-weight: bold;">Product</h3>
         </div>
-
         
-
-
             <div class="clearfix"></div>
                     <table id="datatable" class="display table table-bordered table-hover" width="100%">
                       <thead>
@@ -24,7 +31,7 @@
                           <!-- <th id = "product_description">Product Description</th> -->
                           <th id = "product_price">Price</th>
                           <th id = "product_category">Category</th>
-                          <th id ="editBtn">Edit</th>
+                          <th style = "width : 30%;"  id ="editBtn">Edit</th>
                           <!-- <th id = "product_stock">Stock</th> -->
                         </tr>
                       </thead>
@@ -72,6 +79,8 @@
       </div>
     </div>
 
+
+
     <script type="text/javascript">
     
       function inOutOfStock(id)
@@ -107,69 +116,13 @@
         });   
 
       }
-  </script>
+    </script>
+    <script src = "{{URL::asset('js/app.js')}}"></script>
 
-   <!-- jQuery -->
-    <script src="{{URL::asset('vendors/jquery/dist/jquery.min.js')}}"></script>
-
-    <!-- Bootstrap -->
-    <script src="{{URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <!-- FastClick -->
-    <script src="{{URL::asset('vendors/fastclick/lib/fastclick.js')}}"></script>
-    <!-- NProgress -->
-    <script src="{{URL::asset('vendors/nprogress/nprogress.js')}}"></script>
-    <!-- iCheck -->
-    <script src="{{URL::asset('vendors/iCheck/icheck.min.js')}}"></script>
-    <!-- Datatables -->
-    <script src="{{URL::asset('vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-buttons/js/buttons.flash.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
-    <script src="{{URL::asset('vendors/datatables.net-scroller/js/dataTables.scroller.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/jszip/dist/jszip.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/pdfmake/build/pdfmake.min.js')}}"></script>
-    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
-
-
-    <script src="{{URL::asset('vendors/moment/min/moment.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-    <!-- bootstrap-wysiwyg -->
-    <script src="{{URL::asset('vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
-    <script src="{{URL::asset('vendors/jquery.hotkeys/jquery.hotkeys.js')}}"></script>
-    <script src="{{URL::asset('vendors/google-code-prettify/src/prettify.js')}}"></script>
-    <!-- jQuery Tags Input -->
-    <script src="{{URL::asset('vendors/jquery.tagsinput/src/jquery.tagsinput.js')}}"></script>
-    <!-- Switchery -->
-    <script src="{{URL::asset('vendors/switchery/dist/switchery.min.js')}}"></script>
-    <!-- Select2 -->
-    <script src="{{URL::asset('vendors/select2/dist/js/select2.full.min.js')}}"></script>
-    <!-- Parsley -->
-    <script src="{{URL::asset('vendors/parsleyjs/dist/parsley.min.js')}}"></script>
-    <!-- Autosize -->
-    <script src="{{URL::asset('vendors/autosize/dist/autosize.min.js')}}"></script>
-    <!-- jQuery autocomplete -->
-    <script src="{{URL::asset('vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
-    <!-- starrr -->
-    <script src="{{URL::asset('vendors/starrr/dist/starrr.js')}}"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="{{URL::asset('js/custom.min.js')}}"></script>
+
     
-    <!-- <script src = "{{URL::asset('js/app.js')}}"></script> -->
-    <script>
-      $(function() {
-        $('#toggle-two').bootstrapToggle({
-          on: 'Enabled',
-          off: 'Disabled'
-        });
-      })
-    </script>
 
 @endsection

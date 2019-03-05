@@ -22,7 +22,7 @@ const app = new Vue({
     created(){
         Echo.channel('order-status')
         .listen('orderNotification', (e) => {
-             alert('the event has been triggered!');
+            //  alert('the event has been triggered!');
             console.log(e);
         });
     }
