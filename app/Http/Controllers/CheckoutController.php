@@ -139,9 +139,9 @@ class CheckoutController extends Controller
 
     public function handleGatewayCallback(Request $request)
     {
-        return 'kk';
+        //return 'kk';
         $paymentDetails = Paystack::getPaymentData();
-            return 'screw';
+        //return 'screw';
         // echo $paymentDetails['status']; 
 
         // dd($paymentDetails); return;

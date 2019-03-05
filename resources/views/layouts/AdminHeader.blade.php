@@ -18,15 +18,13 @@
     <link href="{{URL::asset('vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
-
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-
     <!-- Custom Theme Style -->
     <link href="{{URL::asset('css/custom.min.css')}}" rel="stylesheet">
   </head>
   <style>
-      
+      select{
+          font-family: sans-serif; 
+      }
       @toggle-default-size: 1.5rem;
       @toggle-default-label-width: 4rem;
       @toggle-default-font-size: 0.75rem;

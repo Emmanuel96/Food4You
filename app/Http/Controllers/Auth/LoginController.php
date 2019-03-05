@@ -37,7 +37,7 @@ class LoginController extends Controller
 
         switch($role) {
             case 1:
-                return '/restaurants';
+                return 'admin/restaurants';
             break;
 
             case 2:
@@ -45,7 +45,7 @@ class LoginController extends Controller
             break;
 
             case 3:
-                return redirect()->route('admin.viewProducts');
+                return '/admin/viewProducts';
             break;
 
             default:

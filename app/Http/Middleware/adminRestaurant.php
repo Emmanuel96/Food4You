@@ -23,10 +23,6 @@ class adminRestaurant
          {
              return redirect()->route('admin.viewProducts');
          } 
-         else {
-             return view('/home');
-         }
-
          return $next($request);
     }
 }
