@@ -227,6 +227,26 @@ class AdminController extends Controller
 		return $output; 
 	}
 
+	public function toggleRestaurant(Request $request)
+	{
+		$restaurant = DB::table('restaurants')->where('restaurant_id', $id)->first();
+		$status = $restaurant->restaurant_status;
+
+		if($status->active == 1)
+		{
+			$status = 1;
+		}
+		else{
+			$status = 0;
+		}
+
+		$restaurant->restaurant_status = $status;
+		$restaurant->save();
+
+		
+
+	}
+
 	//FUNCTION NOTIFIES CUSTOMERS OF THEIR ORDER BEING READY OR BEING PREPARED 
 	public function notifyCustomers(Request $request)
 	{

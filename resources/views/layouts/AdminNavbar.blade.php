@@ -49,10 +49,19 @@
                 </div>
     
                 <!-- /menu footer buttons -->
-                <div class="sidebar-footer hidden-small">
-                  <a data-toggle="tooltip" data-placement="top" title="Settings">
-                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                <div class="sidebar-footer hidden-small" >
+
+                  <a data-toggle = "tooltip">
+                    <label id="status">
+                    <div class="container">
+                        <div style = "margin-right:2px;" id="toggle-btn" class="toggle-btn" onclick="changeStatus() ">
+                          <div style="margin-right:2px;" class="inner-circle"></div>
+                        </div>
+                    </div>
+                  </label>
                   </a>
+                 
+
                   <a data-toggle="tooltip" data-placement="top" title="FullScreen">
                     <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
                   </a>
@@ -72,7 +81,8 @@
                 <!-- /menu footer buttons -->                         
               </div>
             </div>
-    
+
+
             <!-- top navigation -->
             <div class="top_nav">
               <div class="nav_menu">
@@ -90,20 +100,13 @@
                         <span class=" fa fa-angle-down"></span>
                       </a>
                       
-                      <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        
-                        <li><a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                      </ul>
-
-                      <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        
-                        <li><a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
+                        <ul class="dropdown-menu dropdown-usermenu pull-right">
+                          
+                          <li class = "dropdown-menu dropdown-usermenu"><a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              {{ csrf_field() }}
+                          </form>
+                      
                       </ul>
                       
                     </li>
@@ -148,6 +151,7 @@
                     </li>
                   </ul>
                 </li>
+
                     <!-- <ul class="nav navbar-nav navbar-right">
                       <li id="notifications" class="nav navbar-nav">
                           <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
@@ -226,9 +230,9 @@
         <script src="//js.pusher.com/3.1/pusher.min.js"></script>
         <script type="text/javascript">
 
-            const notificationsWrapper = document.getElementById('notifications');
-            
-
+            const notificationsWrapper = document.getElementById('notifications'),
+                  toggle = document.querySelector('#toggle-btn');
+         
             Pusher.logToConsole = true;
 
             var pusher = new Pusher('c23961426f29ed3e3502', {
@@ -248,8 +252,71 @@
                 $('#order-counter').text(orderCounter); 
             });
             
-     
+          
+          function changeStatus()
+          {
+
+            let url = '{{ route('admin.toggleRestaurant') }}';
+
+            const xhr = new XMLHttpRequest;
+
+            xhr.open('POST', url, true);
+
+            xhr.onload = function(e) {
+              if(this.status === 200) {
+                  if(this.classList.toggle('active'))
+                  {
+                    toggle = 1;
+                  }
+                  else {
+                    toggle = 0;
+                  }
+
+                  console.log(toggle);
+              }
+
+            }
+
+            xhr.send();
+          }
 
         </script>
+<<<<<<< Updated upstream
+=======
+
+        <style>
+            .container-toggle {
+              position: absolute;
+              top:50%;
+              left: 50%;
+              transform:translate(-50%, -50%);
+            }
+            .toggle-btn {
+              width: 40px;
+              height: 22px;
+              background: gray;
+              border-radius: 10px;
+              padding: 5px;
+              transition: all 300ms ease-in-out;
+            }
+            .toggle-btn > .inner-circle {
+              width: 15px;
+              height: 15px;
+              background: #fff;
+              border-radius: 50%;
+              padding: 5px;
+              transition: all 300ms ease-in-out;
+            }
+            .toggle-btn.active {
+              background: green;
+            }
+            .toggle-btn.active > .inner-circle {
+              margin-left: 10px;
+            }
+
+          </style>
+
+        </body>
+>>>>>>> Stashed changes
 
        
