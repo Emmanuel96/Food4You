@@ -14,10 +14,14 @@
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                   <div class="menu_section">
                     <ul class="nav side-menu">
-                    @if(Auth::user()->id == 1)
+                     
+                       <li><a href = "/admin/viewProducts"><i class="fa fa-home"></i>Dashboard</a>
+                       </li>  
+
+                     @if(Auth::user()->id == 1)
                         <li><a><i class="fa fa-building-o"></i>Restaurants<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                          <li><a href="/admin/restaurants">View Restaurants</a></li>
+                            <li><a href="/admin/restaurants">View Restaurants</a></li>
                             <li><a href="/admin/restaurants/new">Add New Restaurant</a></li>
                           </ul>
                         </li>  
@@ -78,10 +82,7 @@
                   </div>
     
                   <ul class="nav navbar-nav navbar-right" style="align:right;">
-                    <li class = "">
-                      <input type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
-                      <input type="checkbox" id="toggle-two">
-                    </li>
+                    
                     <li class="">
                       <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <!-- <img src="images/img.jpg" alt=""> -->
@@ -109,58 +110,38 @@
 
                     <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-bell-o"></i>
-                    <span class="badge bg-green">6</span>
+                    <i class="fa fa-bell-o fa-4x"></i>
+                    <span id = "order-counter" class="badge bg-green">{{$restaurant_order_count}}</span>
                   </a>
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
+
+                    @php
+                      $counter = 0; 
+                    @endphp
+                    @foreach($restaurant_orders as $order)
+                      
+                      @php
+                        $counter++; 
+                      @endphp
+                      <li>
+                        <a href = '/admin/viewOrders/{{$order->order_slug}}'>
+                          <span>
+                            <span>View {{$order->buyer_name}}'s order</span>
+                            <!-- <span style= "padding-left:30px;" class="time">3 mins ago</span> -->
+                          </span>
+                          <!-- <span class="message">
+                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                          </span> -->
+                        </a>
+                      </li>
+                      @if($counter == 4)
+                        @break
+                      @endif
+                    @endforeach
                     <li>
                       <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
+                        <a href = "{{route('admin.viewOrders')}}">
+                          <strong>See All Orders</strong>
                           <i class="fa fa-angle-right"></i>
                         </a>
                       </div>
@@ -215,6 +196,7 @@
                         </li>
                         <li>
                           <a>
+                          009/
                             <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                             <span>
                               <span>John Smith</span>
@@ -241,7 +223,6 @@
             </div>
             <!-- /top navigation -->
           </div>
-
         <script src="//js.pusher.com/3.1/pusher.min.js"></script>
         <script type="text/javascript">
 
@@ -251,19 +232,24 @@
             Pusher.logToConsole = true;
 
             var pusher = new Pusher('c23961426f29ed3e3502', {
-            cluster: 'mt1',
+            cluster: 'mt1', 
             encrypted: true
             });
 
             var channel = pusher.subscribe('order-status');
 
             channel.bind('App\\Events\\orderNotification', function(data) {
-            alert(JSON.stringify(data));
+                //alert(JSON.stringify(data));
+                $('#notification-div').show(); 
+                $('#notification-text').text(JSON.stringify(data.message).replace(/\"/g, ""));
+
+                var orderCounter = "{{$restaurant_order_count + 1}}";
+                //increment order counter 
+                $('#order-counter').text(orderCounter); 
             });
             
      
 
         </script>
-        </body>
 
        

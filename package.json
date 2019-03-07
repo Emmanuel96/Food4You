@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "bootstrap-toggle": "^2.2.2",
+    "datatables-bootstrap": "0.0.1",
     "laravel-echo": "^1.5.2",
     "pusher-js": "^4.3.1"
   }
