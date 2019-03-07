@@ -89,6 +89,7 @@
         //first get the id of what we are object we are sending 
         var link = "inOutStockLink" + id; 
 
+
          $.ajax({
               type: 'POST',
               url: '{{route('admin.inOutOfStock')}}',

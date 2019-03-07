@@ -292,7 +292,18 @@
     @include('layouts.AdminNavbar')
     <body class= "">    
   <div class="container">
+  <div id = "notification-div" class="alert alert-success" style = "display: none; padding: 50px; width:30%; padding: 0; margin-right:auto; margin-left:auto;">
+    <div class = "text-center" >
+      <span id = "notification-text" > </span>
+      <button style = "" type="button" class="close" onclick = "document.getElementById('notification-div').style.display = 'none';" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>              
+
+</div>
       @yield('content')
   </div>
   </body>
+  <script src = "{{URL::asset('js/app.js')}}"/>
+
 </html>
