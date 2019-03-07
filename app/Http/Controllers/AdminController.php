@@ -9,9 +9,9 @@ use DB;
 use App\order; 
 use App\Restaurants; 
 use App\category;
+use Session;
 use App\Batch;
-use Illuminate\Notifications\Notification;
-use Session; 
+use Illuminate\Notifications\Notification; 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\OrderConfirmed; 
@@ -151,7 +151,12 @@ class AdminController extends Controller
 
 			$products = Menu::where('restaurant_id', '=', $restaurant_id)->get();
 		}
-		return view('AdminViews.viewProducts')->with('products',$products); 
+
+		$orders = order::where('order_status', '=','1')->get(); 
+		//get the number of orders with a status of 1
+		$order_count = order::where('order_status', '=', '1')->count(); 
+
+		return view('AdminViews.viewProducts', ['products'=> $products]); 
 	}
 
 

@@ -32,7 +32,7 @@
                                 <select  class="btn btn-primary" style="width:70%; font-family: FontAwesome;color:  " id = "order_status{{$order->order_id}}" onChange = "sendNotification('{{$order->order_id}}', this.value)">
                                   <option @if($order->order_status == 1) selected @endif value = "1">&#xf118 Preparing</option>
                                   <option @if($order->order_status == 2) selected @endif value = "2">&#xf1a5 Ready</option>
-                                  <option style = "font-family: FontAwesome; " @if($order->order_status == 3) selected @endif value = "3">&#xf197 On its way</option>
+                                  <option @if($order->order_status == 3) selected @endif value = "3">&#xf197 On its way</option>
                                   <option @if($order->order_status == 4) selected @endif value = "4">&#xf118 delivered</option>
                                 </select>
                             </td>
