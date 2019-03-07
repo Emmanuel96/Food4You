@@ -47,6 +47,11 @@ Route::post('/admin/notifyCustomerOfOrder', 'AdminController@notifyCustomers')->
 
 Route::get('/admin/showProduct/{id}', 'AdminController@showProduct')->name('admin.showProduct');
 
+Route::post('/admin/toggleRestaurant',[
+	'as' => 'admin.toggleRestaurant',
+	'uses' => 'AdminController@toggleRestaurant'
+]);
+
 Route::get('/admin/delete/{id}',[
 	'as' => 'admin.delete',
 	'uses' => 'AdminController@destroy'

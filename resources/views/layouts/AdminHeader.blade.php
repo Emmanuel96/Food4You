@@ -22,6 +22,7 @@
     <link href="{{URL::asset('css/custom.min.css')}}" rel="stylesheet">
   </head>
   <style>
+
       select{
           font-family: sans-serif; 
       }
