@@ -67,7 +67,7 @@ Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('a
 Route::get('/admin/restaurants/showRestaurants/{id}', 'AdminController@showRestaurant')->name('admin.showRestaurant')->middleware('admin_restaurant_middleware');
 
 Route::get('/admin/restaurants/editRestaurants/{id}', 'AdminController@editRestaurant')->name('admin.editRestaurant');
-Route::post('/admin/restaurants/updateRestaurant/{id}', 'AdminController@updateRestaurant');
+Route::post('/admin/restaurants/updateRestaurant/{id}', 'AdminController@updateRestaurant')->name('admin.updateRestaurant');
 
 Route::get('/admin/restaurants/delete/{id}', [
 	'as' => 'restaurant.delete',
@@ -82,6 +82,13 @@ Route::get('/admin/notification/test', function (){
 	];
 });
 
+Route::get('/admin/editRestaurantPassword/{id}', 'AdminController@editRestaurantPassword')->name('admin.editRestaurantPassword');
+Route::post('/admin/editRestaurantPassword/{id}', 'AdminController@changeRestaurantPassword');
+
+Route::get('/admin/editRestaurantProfile/{id}', 'AdminController@editRestaurantProfile')->name('admin.editRestaurantProfile');
+
+Route::post('/admin/updateRestaurantProfile/{id}', 'AdminController@updateRestaurantProfile')->name('admin.updateRestaurantProfile');
+
 Route::get('/admin/notification/listen', function(){
 	return view('AdminViews.listen');
 });
@@ -94,7 +101,7 @@ Route::post('/admin/restaurant/batch/new', 'AdminController@post_new_restaurant_
 Route::get('/admin/restaurant/batch/showBatch/{id}', 'AdminController@showBatch')->name('admin.showBatch');
 
 Route::get('/admin/restaurant/batch/editBatch/{id}', 'AdminController@editBatch')->name('admin.editBatch');
-Route::post('/admin/restaurant/batch/updateBatch/{id}', 'AdminController@updateBatch');
+Route::post('/admin/restaurant/batch/updateBatch/{id}', 'AdminController@updateBatch')->name('admin.updateBatch');
 
 Route::get('/admin/restaurant/batch/delete/{id}', [
 	'as' => 'admin.deleteBatch',

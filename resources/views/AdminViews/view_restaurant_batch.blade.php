@@ -29,7 +29,7 @@
                               <td id="batch_max_order_no">{{$batch->batch_max_order_no}}</td>
                               <td id="batch_order_no">{{$batch->batch_order_no}}</td>
                               <td id="editBtn">
-                                  <div class=btn-group>
+                                  <div class="btn-group">
                                       <a href="{!! route('admin.showBatch', [$batch->batch_id]) !!}" class="btn btn-primary btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                       <a href="{!! route('admin.editBatch', [$batch->batch_id]) !!}" class="btn btn-success btn-xs"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                                       <a href="{!! route('admin.deleteBatch', [$batch->batch_id]) !!}" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
