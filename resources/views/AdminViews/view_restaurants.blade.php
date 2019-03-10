@@ -22,6 +22,7 @@
                           <th id = "product_category">Restaurant opening times</th>
                           <th>Restaurant Closing times</th>
                           <th>Edit</th>
+                          <th>Change Password</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -35,12 +36,15 @@
                               <!-- <td id = "restaurant_phone_number">{{$restaurant->restaurant_phone_number}}</td>-->
                               <td id = "restaurant_opening_time">{{$restaurant->restaurant_opening_times}}</td>
                               <td id = "restaurant_closing_time">{{$restaurant->restaurant_closing_times}}</td>
-                              <td>
+                              <td >
                                 <div class=btn-group>
                                       <a href="{!! route('admin.showRestaurant', [$restaurant->restaurant_id]) !!}" class="btn btn-primary btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                       <a href="{!! route('admin.editRestaurant', [$restaurant->restaurant_id]) !!}" class="btn btn-success btn-xs"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                                       <a href="{!! route('restaurant.delete', [$restaurant->restaurant_id]) !!}" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </div>
+                              </td>
+                              <td style="text-align: center; ">
+                                <a href="{!! route('admin.editRestaurantPassword', [$restaurant->restaurant_id]) !!}" class="btn btn-primary btn-xs"><i class="fa fa-lock" aria-hidden="true"></i></a>
                               </td>
                             </tr>
                           @endforeach

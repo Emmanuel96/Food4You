@@ -270,7 +270,7 @@ class AdminController extends Controller
 	public function editProduct($id)
 
 	{
-		$product = menu::find($id);
+		$product = menu::where('product_id', $id)->find($id);
 		
 		return view ('AdminViews/editProduct', compact('product'));
 	}
@@ -285,7 +285,7 @@ class AdminController extends Controller
 
 	public function updateProduct(Request $Request, $id)
 	{
-		$menu = menu::find($id);
+		$menu = menu::where('product_id', $id)->find($id);
 
 		$Request->validate([
 			'product_name' => 'required',
@@ -304,7 +304,7 @@ class AdminController extends Controller
 				'product_description' => $Request->product_description
 				]);
 
-
+		
 
 		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
 		
@@ -338,6 +338,9 @@ class AdminController extends Controller
 	public function restaurants()
 	{
 		$restaurants = DB::select('select * from restaurants'); 
+		//$restaurants = Restaurants::where('restaurant_id', '$id')->get();
+
+		//return $restaurants;
 
 		return view('AdminViews.view_restaurants')->with('restaurants', $restaurants); 
 	}
@@ -380,21 +383,22 @@ class AdminController extends Controller
 	}
 
 	public function showRestaurant($id) {
-		$restaurant = Restaurants::find($id);
+		$restaurant = Restaurants::where('restaurant_id', $id)->find($id);
 		//dd($restaurant);
 
 		return view ('AdminViews/showRestaurant', compact('restaurant'));
 	}
 
 	public function editRestaurant($id) {
-		$restaurant = Restaurants::find($id);
+
+		$restaurant = Restaurants::where('restaurant_id', '=', $id)->first();
 		
 		return view ('AdminViews/editRestaurant', compact('restaurant'));
 	}
 
 	public function updateRestaurant(Request $request, $id) {
 
-		$restaurant = Restaurants::find($id);
+		$restaurant = Restaurants::where('restaurant_id', $id)->first();
 
 		$request->validate([
 			//'restaurant_id' => 'required|unique:Restaurants',
@@ -417,6 +421,8 @@ class AdminController extends Controller
 				'restaurant_image' => $request->restaurant_image,
 				'restaurant_minimum_order' => $request->restaurant_minimum_order
 		]);
+
+		return $restaurant;
 
 		$restaurant->save();
 
@@ -476,21 +482,22 @@ class AdminController extends Controller
 	public function showBatch($id) {
 	
 		//$batch = Batch::all()->find($id);
-		$batch = Batch::first();
+		$batch = Batch::where('batch_id', '=', $id)->first();
 		//dd($batch);
 		
 		return view('AdminViews/showBatch', compact('batch'));
 	}
 
 	public function editBatch($id) {
-		$batch = Batch::first();
+		$batch = Batch::where('batch_id', '=', $id)->first();
 
 		return view('AdminViews/editBatch', compact('batch'));
 	}
 
 	public function updateBatch(Request $request, $id) {
 
-		$batch = Batch::first();
+		$batch = Batch::where('batch_id', $id)->first();
+
 		$request->validate([
 			'batch_day' => 'required',
 			'batch_max_order_no' => 'required|int', 
@@ -499,9 +506,15 @@ class AdminController extends Controller
 
 		DB::table('batch')
 		->where('batch_id', $id)
-		->update($request->all());
+		->update([
+			'batch_day' => $request->batch_day,
+			'batch_time_range' => $request->batch_time_range,
+			'batch_max_order_no' => $request->batch_max_order_no,
+			'batch_order_no' => $request->batch_order_no
+		]);
 
 		$batch->save();
+		return $batch;
 		
 		return 'updated successfully!';
 	}
@@ -524,5 +537,68 @@ class AdminController extends Controller
 	public function adminator()
 	{
 		return view('adminViews.adminator');
+	}
+
+	public function editRestaurantPassword($id, Request $request)
+	{
+		$restaurant = Restaurants::where('restaurant_id', $id)->first();
+
+		return view('adminViews.editRestaurantPassword', compact('restaurant'));
+	}
+	public function changeRestaurantPassword($id)
+	{
+
+		$user = User::where('id', $user->user_id)->update([
+			'password' => $request->restaurant_password
+			
+		]);
+
+		return 'password changed!';
+	}
+
+	public function editRestaurantProfile($id)
+	{
+			$user_role = Auth::user()->user_role;
+
+			if($user_role === 3){
+				
+			$restaurant = Restaurants::where('restaurant_id','=', $id )->first();
+
+			return view('adminViews.editRestaurantProfile', compact('restaurant'));	
+
+			} 
+			else {
+
+				return 'what you doing here ?';
+			}
+	}
+
+	public function updateRestaurantProfile(Request $request, $id) 
+	{
+
+		$restaurant = Restaurants::where('restaurant_id', $id)->first();
+
+		$request->validate([
+			'restaurant_name' => 'required|unique:Restaurants',
+			'restaurant_opening_times' => 'required|date_format:H:i',
+			'restaurant_closing_times' => 'date_format:H:i',
+			'restaurant_address' => 'required|max:255',
+			'restaurant_phone_number' => 'int|min:11',
+			'restaurant_image' => 'required',
+			'restaurant_minimum_order' => 'required|int',
+		]);
+
+		DB::table('restaurants')->where('restaurant_id', $id)->update([
+			'restaurant_name' => $request->restaurant_name,
+			'restaurant_address' => $request->restaurant_address,
+			'restaurant_phone_number' => $request->restaurant_phone_number,
+			'restaurant_opening_times' => $request->restaurant_opening_times,
+			'restaurant_closing_times' => $request->restaurant_closing_times,
+			'restaurant_minimum_order' => $request->restaurant_minimum_order
+		]);
+
+		$restaurant->save();
+
+		return 'updated successfully!';
 	}
 }

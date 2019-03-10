@@ -35,7 +35,7 @@
           </div>
           <div class="x_content">
             <br />
-          <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{url('admin/updateRestaurant')}}/{{ $restaurant->restaurant_id}}" class="form-horizontal form-label-left">
+          <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{ route('admin.updateRestaurant', [ $restaurant->restaurant_id ])}}" class="form-horizontal form-label-left">
               <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Restaurant Name: </label>
