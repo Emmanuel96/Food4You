@@ -51,7 +51,7 @@
                 <!-- /menu footer buttons -->
                 <div class="sidebar-footer hidden-small" >
 
-                  <a data-toggle = "tooltip">
+                  <a >
                     <label id="status">
                     <div class="container">
                         <div style = "margin-right:2px;" id="toggle-btn" class="toggle-btn" onclick="changeStatus() ">
@@ -256,33 +256,31 @@
           function changeStatus()
           {
 
-            let url = '{{ route('admin.toggleRestaurant') }}';
+              let url = '{{ route('admin.toggleRestaurant') }}';
 
-            const xhr = new XMLHttpRequest;
+              const xhr = new XMLHttpRequest;
 
-            xhr.open('POST', url, true);
+              xhr.open('POST', url, true);
 
-            xhr.onload = function(e) {
-              if(this.status === 200) {
-                  if(this.classList.toggle('active'))
-                  {
-                    toggle = 1;
-                  }
-                  else {
-                    toggle = 0;
-                  }
+              xhr.onload = function(e) {
+                if(this.status === 200) {
+                    if(this.classList.toggle('active'))
+                    {
+                      toggle = 1;
+                    }
+                    else {
+                      toggle = 0;
+                    }
 
-                  console.log(toggle);
+                    console.log(toggle);
+                }
+
               }
 
-            }
-
-            xhr.send();
+              xhr.send();
           }
 
         </script>
-<<<<<<< Updated upstream
-=======
 
         <style>
             .container-toggle {
@@ -312,11 +310,11 @@
             }
             .toggle-btn.active > .inner-circle {
               margin-left: 10px;
+              margin-bottom:10px;
             }
 
           </style>
 
         </body>
->>>>>>> Stashed changes
 
        

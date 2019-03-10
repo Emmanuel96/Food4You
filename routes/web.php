@@ -52,6 +52,8 @@ Route::post('/admin/toggleRestaurant',[
 	'uses' => 'AdminController@toggleRestaurant'
 ]);
 
+Route::post('/admin/toggleRestaurant', 'AdminController@toggleRestaurant')->name('admin.toggleRestaurant');
+
 Route::get('/admin/delete/{id}',[
 	'as' => 'admin.delete',
 	'uses' => 'AdminController@destroy'
