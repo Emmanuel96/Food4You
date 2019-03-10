@@ -51,7 +51,7 @@
                 <!-- /menu footer buttons -->
                 <div class="sidebar-footer hidden-small" >
 
-                  <a data-toggle = "tooltip">
+                  <a >
                     <label id="status">
                     <div class="container">
                         <div style = "margin-right:2px;" id="toggle-btn" class="toggle-btn" onclick="changeStatus() ">
@@ -283,6 +283,7 @@
             }
             .toggle-btn.active > .inner-circle {
               margin-left: 10px;
+              margin-bottom:10px;
             }
 
           </style>
