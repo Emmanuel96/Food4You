@@ -1,11 +1,10 @@
 @extends('layouts.AdminHeader')
-
 @section('content')
 <div class="right_col" role="main">
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3 style>Edit Restaurant Batch</h3>
+          <h3 style>Change Restaurant Password</h3>
   </div>
 
 </div>
@@ -34,40 +33,27 @@
       </div>
       <div class="x_content">
         <br />
-      <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{ route('admin.updateBatch', [$batch->batch_id]) }}" class="form-horizontal form-label-left">
+      <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{url('/admin/editRestaurantPassword')}}/ {{$restaurant->restaurant_id }}" class="form-horizontal form-label-left">
           <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Batch Day: </label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="restaurant_password">Restaurant Password: </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            <input type="text" id="first-name" name="batch_day" class="form-control col-md-7 col-xs-12" value="{{ $batch->batch_day }}">
+            <input type="text" id="first-name" name="batch_day" class="form-control col-md-7 col-xs-12" value="">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Batch Time Range: </label>
+            <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Confirm Password: </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            <input id="price" class="form-control col-md-7 col-xs-12" name="batch_time_range" type="text" value="{{ $batch->batch_time_range }}">
+            <input id="price" class="form-control col-md-7 col-xs-12" name="batch_time_range" type="text" value="">
             </div>
           </div>  
-
-          <div class="form-group">
-                <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Batch Max Order: </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                <input id="price" class="form-control col-md-7 col-xs-12" name="batch_max_order_no" type="text" value="{{ $batch->batch_max_order_no }}">
-            </div>
-            </div> 
-
-            <div class="form-group">
-                <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Batch Order No: </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                <input id="price" class="form-control col-md-7 col-xs-12" name="batch_order_no" type="text" value="{{ $batch->batch_order_no }}">
-                </div>
-              </div>  
+ 
 
              <div class="ln_solid"></div>
                 <div class="form-group">
                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                    <button type="submit" class="btn btn-success">Update</button>
+                    <button type="submit" class="btn btn-success">Change Password</button>
                   </div>
                 </div>
           </form>

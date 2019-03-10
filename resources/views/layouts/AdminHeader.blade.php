@@ -26,9 +26,6 @@
       select{
           font-family: sans-serif; 
       }
-      @toggle-default-size: 1.5rem;
-      @toggle-default-label-width: 4rem;
-      @toggle-default-font-size: 0.75rem;
 
       #product-description-add-product
       {
@@ -305,6 +302,6 @@
       @yield('content')
   </div>
   </body>
-  <script src = "{{URL::asset('js/app.js')}}"/>
+  <script src = "{{ URL::asset('js/app.js') }}" />
 
 </html>

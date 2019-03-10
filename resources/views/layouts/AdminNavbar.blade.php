@@ -65,8 +65,9 @@
                   <a data-toggle="tooltip" data-placement="top" title="FullScreen">
                     <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
                   </a>
-                  <a data-toggle="tooltip" data-placement="top" title="Lock">
-                    <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+
+                  <a href="{{ route('admin.editRestaurantProfile', [$restaurant->restaurant_id]) }}" data-toggle="tooltip" data-placement="top" title="Edit Profile">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                   </a>
                   <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}"  onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
@@ -230,8 +231,7 @@
         <script src="//js.pusher.com/3.1/pusher.min.js"></script>
         <script type="text/javascript">
 
-            const notificationsWrapper = document.getElementById('notifications'),
-                  toggle = document.querySelector('#toggle-btn');
+            const notificationsWrapper = document.getElementById('notifications');                                                                                            
          
             Pusher.logToConsole = true;
 
@@ -252,37 +252,8 @@
                 $('#order-counter').text(orderCounter); 
             });
             
-          
-          function changeStatus()
-          {
-
-            let url = '{{ route('admin.toggleRestaurant') }}';
-
-            const xhr = new XMLHttpRequest;
-
-            xhr.open('POST', url, true);
-
-            xhr.onload = function(e) {
-              if(this.status === 200) {
-                  if(this.classList.toggle('active'))
-                  {
-                    toggle = 1;
-                  }
-                  else {
-                    toggle = 0;
-                  }
-
-                  console.log(toggle);
-              }
-
-            }
-
-            xhr.send();
-          }
 
         </script>
-<<<<<<< Updated upstream
-=======
 
         <style>
             .container-toggle {
@@ -317,6 +288,5 @@
           </style>
 
         </body>
->>>>>>> Stashed changes
 
        
