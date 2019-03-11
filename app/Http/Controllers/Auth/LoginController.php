@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use sessions; 
 
 class LoginController extends Controller
 {
@@ -37,14 +38,18 @@ class LoginController extends Controller
 
         switch($role) {
             case 1:
+                session(['logged_in_restaurant'=> Auth::user()]);
                 return 'admin/restaurants';
             break;
 
             case 2:
+
                 return '/restaurants';
             break;
 
             case 3:
+                //save the current restaurant as the active restaurant 
+                session(['logged_in_restaurant'=> Auth::user()]);
                 return '/admin/viewProducts';
             break;
 
