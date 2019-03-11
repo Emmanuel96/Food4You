@@ -51,7 +51,7 @@
                 <!-- /menu footer buttons -->
                 <div class="sidebar-footer hidden-small" >
 
-                  <a >
+                  <a data-toggle = "tooltip">
                     <label id="status">
                     <div class="container">
                         <div style = "margin-right:2px;" id="toggle-btn" class="toggle-btn" onclick="changeStatus() ">
@@ -66,7 +66,7 @@
                     <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
                   </a>
 
-                  <a href="/admin/editRestaurantProfile/{Session::get('logged_in_restaurant')}" data-toggle="tooltip" data-placement="top" title="Edit Profile">
+                  <a href="{{ route('admin.editRestaurantProfile', [$restaurant->restaurant_id]) }}" data-toggle="tooltip" data-placement="top" title="Edit Profile">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                   </a>
                   <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}"  onclick="event.preventDefault();
@@ -283,7 +283,6 @@
             }
             .toggle-btn.active > .inner-circle {
               margin-left: 10px;
-              margin-bottom:10px;
             }
 
           </style>

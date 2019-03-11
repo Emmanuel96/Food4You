@@ -127,7 +127,7 @@ class AdminController extends Controller
 
 	
 
-	public function viewProducts()
+	public function viewProducts(Request $request)
 	{
 		//variable to store my restaurants product details 
 		$restaurant_product = null; 
