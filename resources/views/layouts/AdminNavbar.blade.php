@@ -63,8 +63,6 @@
                     </div>
                   </label>
                   </a> -->
-                 
-                 
 
                   <a data-toggle="tooltip" data-placement="top" title="FullScreen">
                     <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>

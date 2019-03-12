@@ -560,11 +560,14 @@ class AdminController extends Controller
 	{
 			$user_role = Auth::user()->user_role;
 
-			if($user_role === 3){
-				
+			if($user_role === 3 || $user_role === 1 ){
+	
 			$restaurant = Restaurants::where('restaurant_id','=', $id )->first();
+			
+			$restaurants = Restaurants::all();
+			//return $restaurants;
 
-			return view('adminViews.editRestaurantProfile', compact('restaurant'));	
+			return view('adminViews.editRestaurantProfile', compact('restaurant', 'restaurants'));	
 
 			} 
 			else {
