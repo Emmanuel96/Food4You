@@ -15,9 +15,12 @@
                   <div class="menu_section">
                     <ul class="nav side-menu">
                      
-                       <li><a href = "/admin/viewProducts"><i class="fa fa-home"></i>Dashboard</a>
+                       <li><a href = "#"><i class="fa fa-home"></i>Dashboard</a>
+                          <ul class = "nav child_menu"> 
+                            <li><a href= "#">asfds</a></li>
+                          </ul>
                        </li>  
-
+                
                      @if(Auth::user()->id == 1)
                         <li><a><i class="fa fa-building-o"></i>Restaurants<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
@@ -50,7 +53,7 @@
     
                 <!-- /menu footer buttons -->
                 <div class="sidebar-footer hidden-small" >
-
+<!-- 
                   <a >
                     <label id="status">
                     <div class="container">
@@ -59,7 +62,8 @@
                         </div>
                     </div>
                   </label>
-                  </a>
+                  </a> -->
+                 
                  
 
                   <a data-toggle="tooltip" data-placement="top" title="FullScreen">
@@ -91,9 +95,26 @@
                   <div class="nav toggle">
                     <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                   </div>
-    
-                  <ul class="nav navbar-nav navbar-right" style="align:right;">
+
+
+                  <ul class = "nav navbar-nav pull-left">
+                      <li>
+                        <label class="switch">
+                          <input onclick= "open_close_restaurant(this)" type="checkbox" class="checkbox"  <?php if(Session::has('logged_in_restaurant')){ if(Session::get('logged_in_restaurant')->restaurant_status == 1){ echo 'checked'; } }?> />
+                          
+                          <div class="text"></div>
+                        </label>
+                      </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
                     
+                   
+
+                    <!-- <label class="label-switch">
+                      <input type="checkbox" />
+                      <div>No</div>
+                    </label> -->
+
                     <li class="">
                       <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <!-- <img src="images/img.jpg" alt=""> -->
@@ -113,6 +134,13 @@
                     </li>
 
                     <li role="presentation" class="dropdown">
+                    
+                   
+
+                    <!-- <label class="label-switch">
+                    <input type="checkbox" />
+                    <div>No</div>
+                    </label> -->
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-bell-o fa-4x"></i>
                     <span id = "order-counter" class="badge bg-green">{{$restaurant_order_count}}</span>
@@ -253,41 +281,6 @@
             });
             
 
-        </script>
-
-        <style>
-            .container-toggle {
-              position: absolute;
-              top:50%;
-              left: 50%;
-              transform:translate(-50%, -50%);
-            }
-            .toggle-btn {
-              width: 40px;
-              height: 22px;
-              background: gray;
-              border-radius: 10px;
-              padding: 5px;
-              transition: all 300ms ease-in-out;
-            }
-            .toggle-btn > .inner-circle {
-              width: 15px;
-              height: 15px;
-              background: #fff;
-              border-radius: 50%;
-              padding: 5px;
-              transition: all 300ms ease-in-out;
-            }
-            .toggle-btn.active {
-              background: green;
-            }
-            .toggle-btn.active > .inner-circle {
-              margin-left: 10px;
-              margin-bottom:10px;
-            }
-
-          </style>
-
-        </body>
+        </script>        
 
        

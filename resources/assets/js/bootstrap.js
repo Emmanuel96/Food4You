@@ -12,6 +12,7 @@ try {
 
     require('bootstrap-sass');
     require('datatables-bootstrap');
+    require('bootstrap-toggle');
 } catch (e) {}
 
 /**
@@ -54,3 +55,6 @@ window.Pusher = require('pusher-js');
             cluster: "mt1",
             encrypted: true
 });
+
+    
+    

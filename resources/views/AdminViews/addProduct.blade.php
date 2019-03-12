@@ -19,7 +19,7 @@
                 </div>
               @endif
             
-                 
+            
              @if(Session::has('success'))
                   <div id = "success-div" class="alert alert-success" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
                       <div class = "text-center" >{{Session::get('success')}}

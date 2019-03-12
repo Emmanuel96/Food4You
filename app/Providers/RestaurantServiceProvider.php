@@ -18,9 +18,9 @@ class RestaurantServiceProvider extends ServiceProvider
     {
         view()->composer('*', function($view)
         {
-            //$restaurant_id = DB::table('restaurants')->where('restaurant_id', '$id')->first(); 
+            $restaurant_id = DB::table('restaurants')->where('restaurant_id', '$id')->first(); 
             
-            //$view->with('restaurant', $restaurant_id);
+            $view->with('restaurant_id', $restaurant_id);
         });
     }
 
