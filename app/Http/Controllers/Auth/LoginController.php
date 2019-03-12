@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use sessions; 
-
+use App\Restaurants; 
 class LoginController extends Controller
 {
     /*
@@ -36,20 +36,21 @@ class LoginController extends Controller
         $role = Auth::user()->user_role;
         //dd($role);
 
+
         switch($role) {
             case 1:
+            //get the restaurant from the user 
                 session(['logged_in_restaurant'=> Auth::user()]);
                 return 'admin/restaurants';
             break;
 
-            case 2:
-
+            case 2: 
                 return '/restaurants';
             break;
 
             case 3:
-                //save the current restaurant as the active restaurant 
-                session(['logged_in_restaurant'=> Auth::user()]);
+                $restaurant = Restaurants::where('user_id', '=', Auth::user()->id)->first(); 
+                session(['logged_in_restaurant'=> $restaurant]);
                 return '/admin/viewProducts';
             break;
 

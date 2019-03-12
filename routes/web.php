@@ -95,6 +95,9 @@ Route::get('/admin/notification/listen', function(){
 	return view('AdminViews.listen');
 });
 
+Route::post('/admin/close/restaurant', 'AdminController@closeRestaurant')->name('admin.close_restaurant'); 
+Route::post('/admin/open/restaurant', 'AdminController@openRestaurant')->name('admin.open_restaurant'); 
+
 //ROUTES FOR THE BATCH FUNCTIONALITY
 Route::get('/admin/restaurant/batch', 'AdminController@view_restaurant_batch')->name('admin.restaurant_batch');
 Route::get('/admin/restaurant/batch/new', 'AdminController@new_restaurant_batch')->name('admin.new_restaurant_batch');

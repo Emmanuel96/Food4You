@@ -601,4 +601,30 @@ class AdminController extends Controller
 
 		return 'updated successfully!';
 	}
+
+	public function openRestaurant()
+	{
+		//firstly confirm if the session has the current logged in restaurant and if it does then close it 
+		if(session()->has('logged_in_restaurant'))
+		{
+			$restaurant = Restaurants::where('restaurant_id', '=',session::get('logged_in_restaurant')->restaurant_id)->first(); 
+			
+			$restaurant->restaurant_status = 1; 
+			$restaurant->save(); 
+			return; 
+		}
+	}
+
+	public function closeRestaurant()
+	{
+		//firstly confirm if the session has the current logged in restaurant and if it does then close it 
+		if(session()->has('logged_in_restaurant'))
+		{ 
+			$restaurant = Restaurants::where('restaurant_id', '=',session::get('logged_in_restaurant')->restaurant_id)->first(); 
+			
+			$restaurant->restaurant_status = 0; 
+			$restaurant->save(); 
+			return; 
+		}
+	}
 }

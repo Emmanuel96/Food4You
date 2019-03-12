@@ -23,6 +23,83 @@
   </head>
   <style>
 
+* { 
+  box-sizing: border-box; 
+  font-family: helvetica,arial,sans-serif;
+}
+
+
+.switch .checkbox {
+  opacity: 0;
+}
+
+.switch > div {
+
+  margin-top: -7px; 
+  width: 85px;
+  height: 33px;
+  background: #9A9A9A;
+  z-index: 0;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50px;
+  line-height: 40px;
+  text-align: right;
+  padding: 0 5px;
+  color: rgba(0,0,0,.5);
+  transition: all 250ms;
+  box-shadow: inset 0 3px 15px -3px
+}
+
+.switch > input:checked + div {
+  background: #1ABB9C!important;
+  text-align: center;
+  color: rgba(255,255,255,.75);
+}
+
+.switch > div:before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  height: 36px;
+  width: 36px;
+  background: linear-gradient(#f9f9f9 30%,#CDCDCD);
+  border-radius: 50%;
+  transition: all 200ms;
+  /* box-shadow: 0 15px 15px -3px rgba(255,255,255,.75), inset 0 -2px 2px -3px,  0 3px 0 0px #f9f9f9; */
+}
+
+.switch > div:after {
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 12px;
+  width: 12px;
+  background: linear-gradient(#DCDCDC,#E3E3E3);
+  border-radius: 50%;
+  transition: all 200ms;
+}
+
+.switch > input:checked + div:after {
+  left: 67px;
+}
+
+.switch > input:checked + div:before {
+  content: '';
+  position: absolute;
+  left: 55px;
+  border-radius: 50%;
+}
+
+.switch  .text +div:before {
+  color: white;
+  content: 'CLOSED';
+}
+
+
       select{
           font-family: sans-serif; 
       }
@@ -96,6 +173,11 @@
         background-repeat: no-repeat;
         background-position: center;
         }
+
+        * { 
+  box-sizing: border-box; 
+  font-family: helvetica,arial,sans-serif;
+}
 
       @media screen and (max-width: 435px)
             {
@@ -302,6 +384,42 @@
       @yield('content')
   </div>
   </body>
+ 
+  <script>
+    function open_close_restaurant(mytoggle)
+    {
+      var url = ""; 
+
+      var toggleValue = mytoggle.checked; 
+      alert(toggleValue);
+      if(toggleValue == true)
+      {
+        url = "{{route('admin.open_restaurant')}}"; 
+      }
+      else
+      {
+        url = "{{route('admin.close_restaurant')}}"; 
+      }
+
+      $.ajax
+      ({
+          type: 'POST',
+          url: url,
+          data: {_token: '{{ csrf_token() }}'},
+          dataType: 'json',
+          success: function(output)
+          {
+            alert('successful'); 
+          }
+      });   
+    }
+    
+  </script> 
   <script src = "{{ URL::asset('js/app.js') }}" />
+
+
+
+
+ 
 
 </html>
