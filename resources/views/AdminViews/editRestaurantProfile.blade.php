@@ -36,12 +36,28 @@
         <br />
       <form style= "overflow-x: scroll; height: 50%; " enctype="multipart/form-data" id="demo-form2" method = "POST" action="{{route('admin.updateRestaurantProfile', [ $restaurant->restaurant_id ])}}" class="form-horizontal form-label-left">
           <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
+
+          @if(Auth::user()->user_role === 3)
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Restaurant Name: </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="text" id="first-name" name="restaurant_name" class="form-control col-md-7 col-xs-12" value="{{ $restaurant->restaurant_name }}">
             </div>
           </div>
+          @endif
+
+          @if(Auth::user()->user_role === 1)
+          <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Restaurant Name: </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <select name="restaurant-name" id="restaurant_name" class="form-control col-md-7 col-xs-12" >
+                @foreach ($restaurants as $restaurant)
+                  <option value="{{ $restaurant->restaurant_id }}"><a href=""></a>{{ $restaurant->restaurant_name }}</option> 
+                @endforeach 
+              </select>
+            </div>
+          </div>
+          @endif
        
           <div class="form-group">
             <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Address: </label>
@@ -60,24 +76,34 @@
           <div class="form-group">
                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Header Image: </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                <img name = "current_image" class = "img-responsive" alt = " No image"  id = "restaurant-image" src =  ""   >
+                <img name = "current_image" class = "img-responsive" alt = " No image"  id = "restaurant-image" src =  "/storage/images/{{$restaurant->header_image}}"   >
                 <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
-                <input value = "" type = "file " id = "restaurant-image" name = "product_image"/>
+                  <input value = "{{ $restaurant->header_image }}" type = "file " id = "restaurant-image" name = "product_image"/>
                 </div>
               </div>
 
             <div class="form-group">
                     <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Opening Time: </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="price" class="form-control col-md-7 col-xs-12" name="restaurant_opening_times" type="text" value="{{ $restaurant->restaurant_opening_times }}">
+                        <div class='input-group date' id='datetimepicker3'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
                     </div>
                   </div> 
 
             <div class="form-group">
                     <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Closing Time: </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="price" class="form-control col-md-7 col-xs-12" name="restaurant_closing_times" type="text" value="{{ $restaurant->restaurant_closing_times }}">
-                </div>
+                        <div class='input-group date' id='datetimepicker3'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
+                    </div>
                 </div>  
 
             <div class="form-group">
@@ -97,6 +123,9 @@
             </div>
       </form>
       </div>
+
+
+
 
     <!-- jQuery -->
   <script src="{{URL::asset('vendors/jquery/dist/jquery.min.js')}}"></script>
