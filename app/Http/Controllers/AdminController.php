@@ -18,7 +18,7 @@ use App\Notifications\OrderConfirmed;
 use App\Notifications\orderReadyForPickUp; 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-use Illuminate\Http\Response;	
+use Illuminate\Http\Response;
 
 
 class AdminController extends Controller
@@ -497,13 +497,6 @@ class AdminController extends Controller
 	public function updateBatch(Request $request, $id) {
 
 		$batch = Batch::where('batch_id', $id)->first();
-
-		$request->validate([
-			'batch_day' => 'required',
-			'batch_max_order_no' => 'required|int', 
-			'batch_range' => 'required|string' 
-		]); 
-
 		DB::table('batch')
 		->where('batch_id', $id)
 		->update([
@@ -513,9 +506,8 @@ class AdminController extends Controller
 			'batch_order_no' => $request->batch_order_no
 		]);
 
-		$batch->save();
-		return $batch;
-		
+		$batch->save();	
+		//return $batch;	
 		return 'updated successfully!';
 	}
 
@@ -560,7 +552,7 @@ class AdminController extends Controller
 	{
 			$user_role = Auth::user()->user_role;
 
-			if($user_role === 3 || $user_role === 1 ){
+			if($user_role === 3){
 	
 			$restaurant = Restaurants::where('restaurant_id','=', $id )->first();
 			
@@ -569,27 +561,19 @@ class AdminController extends Controller
 
 			return view('adminViews.editRestaurantProfile', compact('restaurant', 'restaurants'));	
 
+
 			} 
 			else {
 
 				return 'what you doing here ?';
 			}
+
+
 	}
 
 	public function updateRestaurantProfile(Request $request, $id) 
 	{
-
 		$restaurant = Restaurants::where('restaurant_id', $id)->first();
-
-		$request->validate([
-			'restaurant_name' => 'required|unique:Restaurants',
-			'restaurant_opening_times' => 'required|date_format:H:i',
-			'restaurant_closing_times' => 'date_format:H:i',
-			'restaurant_address' => 'required|max:255',
-			'restaurant_phone_number' => 'int|min:11',
-			'restaurant_image' => 'required',
-			'restaurant_minimum_order' => 'required|int',
-		]);
 
 		DB::table('restaurants')->where('restaurant_id', $id)->update([
 			'restaurant_name' => $request->restaurant_name,

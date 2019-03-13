@@ -21,6 +21,7 @@ class Restaurants extends Migration
             $table->string('restaurant_name'); 
             $table->string('restaurant_address')->default('Lagos'); 
             $table->string('restaurant_image'); 
+            $table->string('header_image');
             $table->time('restaurant_opening_times');
             $table->time('restaurant_closing_times')->default('12:00');
             $table->boolean('restaurant_status')->default(0);

@@ -56,6 +56,9 @@
 
         <style>
 
+            header{
+                background-image: url('/storage/images/{{ $restaurant->header_image }}')
+            }
             .flat-table {
                 display: block;
                 font-family: Montserrat, Helvetica, sans-serif;
