@@ -25,7 +25,7 @@ class Restaurants extends Migration
             $table->time('restaurant_opening_times');
             $table->time('restaurant_closing_times')->default('12:00');
             $table->boolean('restaurant_status')->default(0);
-            $table->string('restaurant_minimum_order');
+            $table->float('restaurant_minimum_order')->default(1000);
             $table->string('restaurant_delivery_fee')->default('500');
             $table->string('restaurant_phone_number');
             $table->date('updated_at')->default('2019-01-21 13:13:51'); 

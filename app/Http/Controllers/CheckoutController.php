@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Log;
 class CheckoutController extends Controller
 {
     public function displayCheckout(){
+
         Log::info('I got here');
         // return Session::get('cart');
         if(Session::get('cart') == "")
@@ -54,9 +55,9 @@ class CheckoutController extends Controller
 
         //so for now you can only get the orders from one restaurant at a time
         //store the restaurant ID
+        $user = Auth::user(); 
 
-
-        $restaurant_id = 7;
+        $restaurant_id = Session::get('logged_in_restaurant')->restaurant_id; 
         // $restaurant_id = session::get(current_restaurant_id); 
 
         //get the actual day from the db
@@ -266,5 +267,26 @@ class CheckoutController extends Controller
         // Mail::to('emmanuel.audu1@aun.edu.ng')
         //     ->send(new OrderConfirmation());
         // return 'done';
+    }
+
+    public function min_order_check(Request $request)
+    {
+        if(Session::has('current_restaurant_id'))
+        {
+            $restaurant_min_order = Restaurants::find(Session::get('current_restaurant_id'))->restaurant_minimum_order;
+            if(Session::has('cart'))
+            {
+                $cart = Session::get('cart'); 
+
+                if($restaurant_min_order > $cart->totalPrice)
+                {
+                    //return 1 that the checkout button shousld still be stable
+                    echo 1; 
+                    return 1; 
+                }
+            }
+        }
+        
+        
     }
 }
