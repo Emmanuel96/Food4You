@@ -87,6 +87,7 @@ class MenuController extends Controller
 
         //make restaurant_status = 1; 
         $restaurant_status = 1; 
+        
        // return $cart->items;
 
         return view('TestViews.menuTestView',['menu'=> $menu, 'products' => $cart->items, 'totalPrice' => $cart->totalPrice,'restaurant_status' => $restaurant_status, 'restaurant'=>$restaurants]);

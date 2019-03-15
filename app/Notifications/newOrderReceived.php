@@ -20,12 +20,13 @@ class newOrderReceived extends Notification
      */
 
     private $user_name = " "; 
-    private $phone_no = ""; 
+    private $phone_number = ""; 
+    
     public function __construct($name, $phone)
     {
         //get the name of the restaurant 
        $this->user_name = $name; 
-       $this->phone_no = $phone; 
+       $this->phone_number = $phone; 
     }
 
     /**
@@ -55,7 +56,7 @@ class newOrderReceived extends Notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-                    ->content($this->user_name. ' ('. $this->phone_no.') just made an order');
+                    ->content($this->user_name. ' ('. $this->phone_number.') just made an order');
     }
 
     public function toArray($notifiable)

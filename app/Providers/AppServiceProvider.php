@@ -20,12 +20,12 @@ class AppServiceProvider extends ServiceProvider
         //
         Schema::defaultStringLength(191);
 
-        // $orders = order::where('order_status', '=', 1)->orderBy('created_at', 'DESC')->get(); 
+        $orders = order::where('order_status', '=', 1)->orderBy('created_at', 'DESC')->get(); 
 
-        // $orders_count = order::where('order_status', '=', 1)->count();
+        $orders_count = order::where('order_status', '=', 1)->count();
 
-        // View::share('restaurant_orders', $orders);
-        // View::share('restaurant_order_count', $orders_count);
+        View::share('restaurant_orders', $orders);
+        View::share('restaurant_order_count', $orders_count);
         
 
         // if(Auth::user() != null && (Auth::user()->user_role == 1 || Auth::user()->user_role == 3))
