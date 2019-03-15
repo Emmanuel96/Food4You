@@ -39,7 +39,11 @@ class CheckoutController extends Controller
         //$days_of_delivery = daysofdelivery::all();
         $days_of_delivery = DB::select('select * from days_of_delivery where restaurant_id = 0');
 
-        return view('checkOutViews.checkout',['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'days'=> $days_of_delivery]);//, 'phone_numbers'=> $restaurants->restaurant_phone_number]);
+        $restaurants = DB::table('restaurants')->where('restaurant_id', '$id')->first();
+       // return $restaurants;
+
+        return view('checkOutViews.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'days'=> $days_of_delivery, 
+        'restaurants' => $restaurants ]);
     }
 
     public function createOrder(Request $request)
@@ -165,14 +169,13 @@ class CheckoutController extends Controller
         //send email of confirmation to the user 
        // Mail::to('emmanuelaudu@aun.com.ng')->send(new OrderConfirmation()); 
 
-        //send text message to user confirming order 
-        //$orders->notify(new OrderConfirmed($orders->payment_ref));
-
         // echo session::get('order_slug'); 
 
         //get order with this order slug 
         $orders = order::where('order_slug','=', session::get('order_slug'))->first(); 
-        
+
+         //send text message to user confirming order 
+        $orders->notify(new OrderConfirmed($orders->payment_ref));
         //if payment was successful then order status = 1
         if($paymentDetails['status'] ==1)
         {

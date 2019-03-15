@@ -368,10 +368,12 @@
     <!-- Header -->
     <header style = "height: 500px;">
         <div class="container">
-        	<div id = "restaurant_info" style="background-color: #fff; padding: 20px; margin-top: 200px; margin-left: auto; margin-right: auto; color: black; width: 400px; border-radius: 5px;"> 
+        	<div id = "restaurant_info" style="background-color: #fff; padding: 20px; margin-top: 200px; margin-left: auto; margin-right: auto; color: black; width: 400px; border-radius: 5px; text-align:center;"> 
         		<h3 style = "font-weight:bold; font-size:3em;">{{$restaurant->restaurant_name}}</h2>
-        		<h6 class="label label-warning"><i class="fa fa-map-marker"></i> V.I Lagos.</h6>
-        		<h6>Minimum Orders: ₦1000	</h6>
+        		<h6 class="label label-warning"><i class="fa fa-map-marker"></i> {{$restaurant->restaurant_address }}</h6>
+                <h6 class="label label-success"></i> Opens for: {{ $restaurant->restaurant_opening_times }}</h6>
+                <h6 class="label label-warning">Closes by: {{$restaurant->restaurant_closing_times }}</h6>
+                <h6 class="label label-danger">Minimum Order: {{$restaurant->restaurant_minimum_order }}</h6>
         		<div style = " border-radius: 3px;">
         			<a style = "color: #fed136;" ></a>
         		</div>

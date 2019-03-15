@@ -480,9 +480,11 @@
      <div id = "basket_div" class="basket" style="margin-top: 0; padding-top: 30px;    background-color:#fff; border-color: black; height:auto; width:80%;">
         <h3 class = "text-center" style = "margin-top: 0; "> Your Order</h3>
         <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
+
         
-        <h5 class = "text-center">Pls call 08174392938<span style= "color: red; "></span> if you encouter any issues. Thank you for your order. </h5>
+            <h5 class = "text-center">Pls call<span style= "color: red; "></span> if you encouter any issues. Thank you for your order. </h5>
         
+
         <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
            <div id = "basket_basket">
            <?php
