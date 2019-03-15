@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\menu;
 use App\Cart; 
+use App\Restaurants; 
 use Session; 
 
 class CartController extends Controller
@@ -56,8 +57,15 @@ class CartController extends Controller
                           <table style='margin-left:0px; height: 70px; border-top:0px;' class='table table-hover' id= 'cartTable'>
                              <tbody id = 'myTBody' style = 'height: 100%; overflow-y: scroll; overflow-x: hidden; display:block; ' >";
 
-        //JUST A TEST FOR DEBUG 
-        //return $cart->items; 
+        $checkout_button_state = " ";
+        //to confirm if the orders if the checkout button is active or in active 
+        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id'));
+    
+
+        if($cart->totalPrice < $current_restaurant->restaurant_minimum_order)
+        {
+            $checkout_button_state = "disabled";
+        }
 
         //next thing is the list of items 
         //we need to iterate through the cart and make it into an html text contatonated in a string 
@@ -67,7 +75,7 @@ class CartController extends Controller
               $listOfItems .= 
                       "<tr id = '".$product['item']['product_id']."'>".
                         "<td class= 'qty-edit-td' style = 'width: 45.5%;'>".
-                          "<a style = 'border-radius: 9px; height: 5px; padding: 0;' href='' onclick = 'deleteCartItem(".$product['item']['product_id'].")' >".
+                          "<a ".$checkout_button_state."style = 'border-radius: 9px; height: 5px; padding: 0;' href='' onclick = 'deleteCartItem(".$product['item']['product_id'].")' >".
                             "<span class='fa-stack fa-sm'>".
                               " <i class='fa fa-circle fa-stack-2x text-primary'></i>".
                               " <i class='fa fa-minus fa-stack-1x text-primary' style='color: white; padding-top:1px;'></i>".
@@ -92,11 +100,14 @@ class CartController extends Controller
         $subTotal = $cart->totalPrice; 
         $total = $cart->totalPrice; 
 
+        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id')); 
+
         $info = array(
           'productQty' => $productQty,
           'listOfItems' => $listOfItems,
           'subTotal' => $subTotal,
-          'total' => $total
+          'total' => $total, 
+          'min_order_price' => $current_restaurant->restaurant_minimum_order
         );
 
         $result_info = json_encode($info);
@@ -158,6 +169,16 @@ class CartController extends Controller
                           <table style='margin-left:0px; height: 70px; border-top:0px;' class='table table-hover' id= 'cartTable'>
                              <tbody id = 'myTBody' style = 'height: 100%; overflow-y: scroll; overflow-x: hidden; display:block; ' >";
 
+                             
+        $checkout_button_state = " ";
+
+        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id')); 
+        //to confirm if the orders if the checkout button is active or in active 
+        if($cart->totalPrice < $current_restaurant->restaurant_minimum_order)
+        {
+            $checkout_button_state = "disabled";
+        }
+
         //next thing is the list of items 
         //we need to iterate through the cart and make it into an html text contatonated in a string 
           foreach($cart->items as $product)
@@ -166,7 +187,7 @@ class CartController extends Controller
               $listOfItems .= 
                       "<tr id = '".$product['item']['product_id']."'>".
                         "<td class= 'qty-edit-td' style = 'width: 45.5%;'>".
-                          "<a style = 'border-radius: 9px; height: 5px; padding: 0;' href='' onclick = 'deleteCartItem(".$product['item']['product_id'].")' >".
+                          "<a ".$checkout_button_state. "style = 'border-radius: 9px; height: 5px; padding: 0;' href='' onclick = 'deleteCartItem(".$product['item']['product_id'].")' >".
                             "<span class='fa-stack fa-sm'>".
                               " <i class='fa fa-circle fa-stack-2x text-primary'></i>".
                               " <i class='fa fa-minus fa-stack-1x text-primary' style='color: white; padding-top:1px;'></i>".
@@ -192,12 +213,21 @@ class CartController extends Controller
         $subTotal = $cart->totalPrice; 
         $total = $cart->totalPrice; 
 
+        //to confirm if the orders if the checkout button is active or in active 
+        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id'));
+
+
+        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id')); 
+        var_dump($current_restaurant); 
+        return;
+
         $info = array(
           'productQty' => $productQty,
           'listOfItems' => $listOfItems,
           'subTotal' => $subTotal,
           'total' => $total,
-          'totalQtyInCart' => $cart->totalQty
+          'totalQtyInCart' => $cart->totalQty, 
+          'min_order_price' => $current_restaurant->restaurant_minimum_order,
         );
 
         $result_info = json_encode($info);

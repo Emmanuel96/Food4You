@@ -32,9 +32,9 @@ Route::get('/cart', 'CartController@displayCart')->name('cart.show');
 
 Route::delete('/deleteFromCart', 'CartController@deleteFromCart')->name('cart.delete');
 
-Route::get('/checkout', 'CheckoutController@displayCheckout')->name('checkout.show');
+Route::get('/checkout', 'CheckoutController@displayCheckout')->middleware('restaurant_minimum_order')->name('checkout.show');
 
-Route::post('/checkout', 'CheckoutController@createOrder')->name('checkout.create'); 
+Route::post('/checkout', 'CheckoutController@createOrder')->middleware('restaurant_minimum_order')->name('checkout.create'); 
 
 //ADMIN PAGE ROUTES
 Route::get('/admin/addProduct','AdminController@addProductPage')->name('admin.addProduct');
@@ -150,3 +150,4 @@ Route::get('/admin/testViewOrders', 'AdminController@testViewOrder');
 //TEST ROUTE FOR THE ADMINATOR THEME WITH LARAVEL INTEGRATION
 Route::get('admin/adminator/test', 'AdminController@adminator');
 
+Route::get('/minimumOrder/check', 'CheckoutController@min_order_check')->name('order.min_order'); 

@@ -280,7 +280,7 @@
             $productDescription = "---- "; 
              ?>
     </head>
-   <body id="page-top" class="index">
+   <body  id="page-top" class="index">
 
 
     <!-- Navigation -->
@@ -906,7 +906,7 @@
     <script src ="{{URL::asset('js/contact_me.js')}}" ></script>
     <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
 
-<script> 
+<script type = "text/javascript"> 
 
     function openDetailsModal(pid)
     {
@@ -1088,44 +1088,37 @@
                     $('#extras_menu').modal('hide');
 
                     // document.getElementById("myTBody").style.overflow-x = "hidden"; 
+
+                    //if it's still below the minimum order, then disable the basket checkout 
+                    if(output.min_order_price > output.total)
+                    {
+                        $('#checkout-button').addClass('disabled'); 
+                    }
                     
               }
         });   
 
     }
 
-    function deleteCartItem(id)
-    {
-        event.preventDefault() 
-          //AJAX with jquery to pass the selected item to the cart controller
-        var qty = 1;
+      function CheckOutBtnStatus(){
+
         $.ajax({
-              type: 'DELETE',
-              url: '{{route('cart.delete')}}',
-              data: {id: id,qty: qty, _token: '{{ csrf_token() }}'},
+              type: 'GET',
+              url: '{{route('order.min_order')}}',
+              data: {_token: '{{ csrf_token() }}'},
               dataType: 'json',
-              success: function(output)
-              {
-
-                    if(output.totalQtyInCart ==0)
+              success: function(output){
+                    if(output != 1)
                     {
-                        $('#checkout-button').addClass('disabled');
+                        $('#checkout-button').addClass('disabled'); 
                     }
-                  //after the item is added to the cart, then i want to change the cart quantity at the top of the page
-                    // $('#totalQty').text(output.productQty);
-
-                    document.getElementById('basket_basket').innerHTML = output.listOfItems;  
-
-                    // document.getElementById('quantity'+id).html= " "; 
-                    // $('#extras_menu').modal('hide');
-
-                    $('#total').text("₦"+output.total);
-
-                    $('#subTotal').text("₦"+output.subTotal);
-
               }
-        });   
-    }
+        }); 
+     }
+
+     window.onload = CheckOutBtnStatus; 
+  
 </script>
+
 
 

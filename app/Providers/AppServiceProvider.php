@@ -47,10 +47,7 @@ class AppServiceProvider extends ServiceProvider
         //     View::share('restauant', $restaurant);
             
         // }
-       
-
-
-       
+          
     }
 
     /**
