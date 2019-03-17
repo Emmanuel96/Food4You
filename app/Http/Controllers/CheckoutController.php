@@ -14,7 +14,7 @@ use App\Events\orderNotification;
 use DB; 
 use App\Notifications\OrderConfirmed; 
 use App\Notifications\newOrderReceived; 
-use Illuminate\Notifications\Notification;
+use Notification; 
 use Illuminate\Support\Facades\Auth;
 use Stripe\Stripe;
 use Illuminate\Support\Facades\Mail;
@@ -61,7 +61,7 @@ class CheckoutController extends Controller
         //store the restaurant ID
         $user = Auth::user(); 
 
-        $restaurant_id = Session::get('logged_in_restaurant')->restaurant_id; 
+        $restaurant_id = Session::get('current_restaurant_id'); 
         // $restaurant_id = session::get(current_restaurant_id); 
 
         //get the actual day from the db
@@ -137,6 +137,7 @@ class CheckoutController extends Controller
                 }
             }
         } 
+
         return Paystack::getAuthorizationUrl()->redirectNow();
 
     }
@@ -144,7 +145,7 @@ class CheckoutController extends Controller
 
     public function handleGatewayCallback(Request $request)
     {
-        //return 'kk';
+       
         $paymentDetails = Paystack::getPaymentData();
         //return 'screw';
         // echo $paymentDetails['status']; 
@@ -161,26 +162,31 @@ class CheckoutController extends Controller
         // $data = ["sdkflsjadkfsdlfsdllfjsdflksdkfdslsfjdsfldlfkjdsljfldslfkds"]; 
 
         ///NOTIFICATIONS FOR ORDER
-        //$order_slug = $request->session()->get('order_slug');
-        //$order_slug = $request->session()->pull('buyer_email');
+        $order_slug = $request->session()->get('order_slug');
+        $order_slug = $request->session()->pull('buyer_email');
         
-        //dd($order_slug);
 
         //send email of confirmation to the user 
        // Mail::to('emmanuelaudu@aun.com.ng')->send(new OrderConfirmation()); 
 
         // echo session::get('order_slug'); 
-
+        //get 
         //get order with this order slug 
-        $orders = order::where('order_slug','=', session::get('order_slug'))->first(); 
+        $orders = order::where('order_slug','=', session::get('order_slug'))->first();
 
-         //send text message to user confirming order 
-        $orders->notify(new OrderConfirmed($orders->payment_ref));
+        Notification::route('nexmo', '+2348135019640')
+        ->notify(new newOrderReceived($orders->buyer_phone_number));
+
+        // Notification::route('nexmo', '+2348135019640')
+        //     ->notify(new OrderConfirmed($orders->payment_ref));
+
+        //send text message to user confirming order 
+        // $orders->notify(new OrderConfirmed($orders->payment_ref));
         //if payment was successful then order status = 1
         if($paymentDetails['status'] ==1)
         {
             $orders->order_status = 1; 
-            event(new orderNotification(Auth::user()->user_name));
+           event(new orderNotification(Auth::user()->user_name));
         }
         else
         {

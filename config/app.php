@@ -168,6 +168,8 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Nexmo\Laravel\NexmoServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -179,8 +181,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\CategoryServiceProvider::class,
         App\Providers\RestaurantServiceProvider::class,
-        //Nexmo\Laravel\NexmoServiceProvider::class,
-
+        
     ],
 
     /*
