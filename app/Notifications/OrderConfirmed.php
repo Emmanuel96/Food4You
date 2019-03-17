@@ -17,11 +17,13 @@ class OrderConfirmed extends Notification implements ShouldQueue
      *
      * @return void
      */
+
     private $payment_ref; 
 
     public function __construct($ref)
     {
         $this->payment_ref = $ref;
+
     }
 
     /**
@@ -35,6 +37,11 @@ class OrderConfirmed extends Notification implements ShouldQueue
         return ['nexmo'];
     }
 
+
+    public function routeNotificationForNexmo($notification)
+    {
+        return $this->phone;
+    }
     /**
      * Get the mail representation of the notification.
      *
@@ -44,6 +51,7 @@ class OrderConfirmed extends Notification implements ShouldQueue
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
+            
                     ->content('Thanks for ordering from HUNGRY ROUT3S '.
                      'Here is your Order Reference: #'.$this->payment_ref. '.')
 

@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\NexmoMessage;
+use Auth;
 
 
 class newOrderReceived extends Notification
@@ -19,14 +20,16 @@ class newOrderReceived extends Notification
      * @return void
      */
 
-    private $user_name = " "; 
-    private $phone_number = ""; 
     
-    public function __construct($name, $phone)
+    private $user_name; 
+    public $buyer_phone_number;
+    
+    public function __construct($phone)
     {
         //get the name of the restaurant 
-       $this->user_name = $name; 
-       $this->phone_number = $phone; 
+       $this->buyer_phone_number = $phone; 
+       $this->user_name = Auth::user()->user_name;
+
     }
 
     /**
@@ -38,6 +41,11 @@ class newOrderReceived extends Notification
     public function via($notifiable)
     {
         return ['nexmo'];
+    }
+
+    public function routeNotificationForNexmo($notification)
+    {
+        return $this->phone;
     }
 
     /**
@@ -56,7 +64,7 @@ class newOrderReceived extends Notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-                    ->content($this->user_name. ' ('. $this->phone_number.') just made an order');
+                    ->content($this->user_name. ' ('. $this->buyer_phone_number.') just made an order');
     }
 
     public function toArray($notifiable)
