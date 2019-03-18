@@ -20,6 +20,7 @@
     <link href="{{URL::asset('vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="{{URL::asset('css/custom.min.css')}}" rel="stylesheet">
+
   </head>
   <style>
 
@@ -385,6 +386,8 @@
   </div>
   </body>
  
+
+
   <script>
     function open_close_restaurant(mytoggle)
     {
@@ -415,36 +418,34 @@
     }
     
   </script> 
+
+<script src="//js.pusher.com/3.1/pusher.min.js"></script>
+  <script type="text/javascript">
+
+      const notificationsWrapper = document.getElementById('notifications');                                                                                            
+    
+      Pusher.logToConsole = true;
+
+      var pusher = new Pusher('c23961426f29ed3e3502', {
+      cluster: 'mt1', 
+      encrypted: true
+      });
+
+      var channel = pusher.subscribe('order-status');
+
+      channel.bind('App\\Events\\orderNotification', function(data) {
+          //alert(JSON.stringify(data));
+          $('#notification-div').show(); 
+          $('#notification-text').text(JSON.stringify(data.message).replace(/\"/g, ""));
+
+          var orderCounter = "{{$restaurant_order_count + 1}}";
+          //increment order counter 
+          $('#order-counter').text(orderCounter); 
+      });
+      
+
+  </script>        
+  
   <script src = "{{ URL::asset('js/app.js') }}" />
 
-<script>
-    $('#myDatepicker').datetimepicker();
-    
-    $('#myDatepicker2').datetimepicker({
-        format: 'DD.MM.YYYY'
-    });
-    
-    $('#myDatepicker3').datetimepicker({
-        format: 'hh:mm A'
-    });
-    
-    $('#myDatepicker4').datetimepicker({
-        ignoreReadonly: true,
-        allowInputToggle: true
-    });
-
-    $('#datetimepicker6').datetimepicker();
-    
-    $('#datetimepicker7').datetimepicker({
-        useCurrent: false
-    });
-    
-    $("#datetimepicker6").on("dp.change", function(e) {
-        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-    });
-    
-    $("#datetimepicker7").on("dp.change", function(e) {
-        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-    });
-</script>
 </html>

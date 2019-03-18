@@ -70,28 +70,34 @@
                 <div class="form-group">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Opening Time: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="price" class="form-control col-md-7 col-xs-12" name="restaurant_opening_times" type="text" value="{{ $restaurant->restaurant_opening_times }}">
+                        <div class='input-group date' id='datetimepicker3'>
+                            <input name = "restaurant_opening_times" type='text' value = "{{$restaurant->restaurant_opening_times}}" class="form-control" />
+                            <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
                         </div>
                       </div> 
 
                 <div class="form-group">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Closing Time: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="price" class="form-control col-md-7 col-xs-12" name="restaurant_closing_times" type="text" value="{{ $restaurant->restaurant_closing_times }}">
+                        <div class='input-group date' id='datetimepicker4'>
+                            <input type='text' class="form-control" value= "{{$restaurant->restaurant_closing_times}}" name = "restaurant_closing_time"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
                     </div>
                     </div>  
 
-                <div class="form-group">
-                    <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Status: </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="price" class="form-control col-md-7 col-xs-12" name="restaurant_status" type="text" value="{{ $restaurant->restaurant_status }}">
-                </div>
-                </div> 
+               
 
                 <div class="form-group">
                     <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Minimum Order: </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="price" class="form-control col-md-7 col-xs-12" name="restaurant_minimum_order" type="text" value="{{ $restaurant->restaurant_minimum_order }}">
+                    <input id="price" class="form-control col-md-3 col-xs-12" name="restaurant_minimum_order" type="text" value="{{ $restaurant->restaurant_minimum_order }}">
+
                 </div>
                 </div> 
 
@@ -144,6 +150,23 @@
       <script src="{{URL::asset('vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
       <!-- starrr -->
       <script src="{{URL::asset('vendors/starrr/dist/starrr.js')}}"></script>
+      <script src="{{URL::asset('vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')}}"></script>
+
       <!-- Custom Theme Scripts -->
       <script src="{{URL::asset('js/custom.min.js')}}"></script>
+
+
+      <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
+            });
+
+            $(function () {
+                $('#datetimepicker4').datetimepicker({
+                    format: 'LT'
+                });
+            });
+      </script>
 @endsection
