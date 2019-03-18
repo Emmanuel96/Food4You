@@ -254,31 +254,7 @@
             </div>
             <!-- /top navigation -->
           </div>
-        <script src="//js.pusher.com/3.1/pusher.min.js"></script>
-        <script type="text/javascript">
 
-            const notificationsWrapper = document.getElementById('notifications');                                                                                            
-         
-            Pusher.logToConsole = true;
-
-            var pusher = new Pusher('c23961426f29ed3e3502', {
-            cluster: 'mt1', 
-            encrypted: true
-            });
-
-            var channel = pusher.subscribe('order-status');
-
-            channel.bind('App\\Events\\orderNotification', function(data) {
-                //alert(JSON.stringify(data));
-                $('#notification-div').show(); 
-                $('#notification-text').text(JSON.stringify(data.message).replace(/\"/g, ""));
-
-                var orderCounter = "{{$restaurant_order_count + 1}}";
-                //increment order counter 
-                $('#order-counter').text(orderCounter); 
-            });
-            
-
-        </script>        
+          
 
        
