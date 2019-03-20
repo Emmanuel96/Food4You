@@ -44,14 +44,14 @@
   </div>
 
 <div class="clearfix"></div>
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product_description">Restaurant Opening Time:</label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product_description">Opening Time:</label>
     <br>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <p><a href="">{!! $restaurant->restaurant_opening_times !!}</a></p>
   </div>
 
 <div class="clearfix"></div>
-  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product_description">Restaurant Closing Time:</label>
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product_description">Closing Time:</label>
   <br>
   <div class="col-md-6 col-sm-6 col-xs-12">
     <p><a href="">{!! $restaurant->restaurant_closing_times !!}</a></p>

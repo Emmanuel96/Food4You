@@ -19,21 +19,21 @@
                           <th id = "product_image_header">Restaurant Name</th>
                           <!-- <th>Restaurant Address</th> -->
                           <!-- <th id = "product_description">Restaurant Mobile</th> -->    
-                          <th id = "product_category">Restaurant opening times</th>
-                          <th>Restaurant Closing times</th>
+                          <th id = "product_category">Opening times</th>
+                          <th>Closing times</th>
                           <th>Edit</th>
-                          <th>Change Password</th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
                           @foreach($restaurants as $restaurant)
                             <tr>
                               <td width = "35%" id = "restaurant_name">
-                                <a href="{!! route('admin.showRestaurant', [ $restaurant->restaurant_id ]) !!}">
-                                {{$restaurant->restaurant_name}}
+                                <a style = "display:block; text-oveflow:ellipsis; white-space:nowrap; overflow:hidden;" href="{!! route('admin.showRestaurant', [ $restaurant->restaurant_id ]) !!}">
+                                     {{$restaurant->restaurant_name}}
+                                </a>
                               </td>
-                              <!-- <td id = "restaurant_address">{{$restaurant->restaurant_address}}</td> -->
-                              <!-- <td id = "restaurant_phone_number">{{$restaurant->restaurant_phone_number}}</td>-->
+                            
                               <td id = "restaurant_opening_time">{{$restaurant->restaurant_opening_times}}</td>
                               <td id = "restaurant_closing_time">{{$restaurant->restaurant_closing_times}}</td>
                               <td >

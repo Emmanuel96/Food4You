@@ -56,6 +56,11 @@
 
         <style>
 
+            #category_nav_restaurants{
+                margin-left:117px;
+                margin-top: 20px;
+            }
+
             .flat-table {
                 display: block;
                 font-family: Montserrat, Helvetica, sans-serif;
@@ -91,6 +96,7 @@
             .menu_row{
                 margin-bottom:50px;
             }
+
             .qty
             {
                 width: 35px;
@@ -173,12 +179,13 @@
                     margin-left: auto !important;
                     margin-right: auto !important;
                 }
+
                 #category_nav_restaurants.affix
-              {
-                top: 51px;
-                width: 100%;
-                z-index: 1; 
-              }
+                {
+                    top: 51px;
+                    width: 100%;
+                    z-index: 1; 
+                }
 
                 .nav
                 {
@@ -211,7 +218,17 @@
 
             @media screen and (max-width: 768px)
             {
-				.nav>li>a {
+                #category_nav_restaurants{
+                    margin-left:-15px;
+                    padding-left:-38px;
+                    width:100%;
+                }
+/* 
+                #cat_nav{
+                    margin-right;10px;
+                } */
+
+				.nav > li> a {
 					position: relative;
 					display: block;
 					padding-left: 90px;
@@ -291,7 +308,7 @@
     <nav style="background-color:#fff;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class="navbar-header page-scroll" style = "margin-bottom: 20px; border-bottom: 10px; border-color: black;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" @if(!Auth::user()) data-target="#bs-example-navbar-collapse-1"@else data-target ="#"@endif>
                     @if(!Auth::user()) 
                         <span class="sr-only">Toggle navigation</span> 
@@ -329,7 +346,7 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style = "">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                <ul class="nav navbar-nav navbar-right" ">
                       @if (!Auth::user())
                             <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login" style="color: black; text-transform: none; ">Sign In </a></li>
@@ -369,8 +386,8 @@
         <!-- /.container-fluid -->							
     </nav>
 
-  <div id = "category_nav_restaurants" class="categoryNav center" style = "z-index: 12; position:fixed; width: 100%; font-family: Montserrat, Helvetica, sans-serif; background-color: #fff; padding-left: 100px; padding-right:100px; height: 55px; margin-top: 65px;  margin-bottom: 20px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
-    	<ul class="nav navbar-nav nav-left " style = "margin-left: 30px; margin-top: auto; margin-bottom: auto; font-family: ClanPro-News, Helvetica, sans-serif;
+  <div id = "category_nav_restaurants" class="categoryNav center" style = "z-index: 12; position:fixed; width: 100%; font-family: Montserrat, Helvetica, sans-serif; background-color: #fff;  height: 65px; margin-top: 63px; border-bottom: 20px; border-top:10px;  margin-bottom: 0px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
+    	<ul class="nav navbar-nav nav-left" id ="cat_nav " style = "margin-left: 30px; margin-top: auto; margin-bottom: auto; font-family: ClanPro-News, Helvetica, sans-serif;
  ">
     		<li class="nav-item"><a href = "#most_popular" class="nav-link cat-link page-scroll" >Food Vans</a></li>
     		<li class="nav-item"><a href = "#ice_tea" class="page-scroll cat-link" > Take Aways</a></li>

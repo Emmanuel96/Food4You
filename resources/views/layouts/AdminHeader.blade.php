@@ -111,7 +111,7 @@
       }
       table{
           font-family: Helvetica Neue,Roboto,Arial,Droid Sans,sans-serif;
-          font-size: 13px;
+          font-size: 23px;
           font-weight: 400; 
           color: #73879C;
       }
@@ -182,12 +182,18 @@
 
       @media screen and (max-width: 435px)
             {
+                .dataTables{
+                  font-size: 25px;
+                }
+                body{
+                  font-size: 25px; 
+                }
                 .top_nav .navbar-right
                 {
                     width: 50%; 
                 }
                table{                                                   
-                   /* font-size: 12px; */
+                   font-size: 22px;
                }
 
                #product-description-add-product
@@ -296,7 +302,7 @@
 
                 .nav-item .cat-link
                  {
-                    font-size: 12px !important;
+                    font-size: 22px !important;
                     padding: 15px 5px !important; 
                  }
             }
@@ -362,7 +368,7 @@
                     border: none;
                     color: white;
                     padding: 5px 8px;
-                    font-size: 15px;
+                    font-size: 25px;
                     cursor: pointer;
                     }
                     table{
