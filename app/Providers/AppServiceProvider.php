@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
         //
         Schema::defaultStringLength(191);
 
-        if(Schema::hasTable('orers'))
+        if(Schema::hasTable('orders'))
         {
             $orders = order::where('order_status', '=', 1)->orderBy('created_at', 'DESC')->get(); 
 
