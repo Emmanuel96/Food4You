@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Database\Seeder;
 
 class categorySeeder extends Seeder
@@ -15,7 +16,7 @@ class categorySeeder extends Seeder
         
         DB::table('categories')->insert([
            'category_name' => 'drinks',
-            'restaurant_id' => 3
+            'restaurant_id' => 3,
         ]);
     }
 }
