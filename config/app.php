@@ -169,7 +169,9 @@ return [
          * asdfgi
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-        Nexmo\Laravel\NexmoServiceProvider::class,
+
+
+        // Nexmo\Laravel\NexmoServiceProvider::class,
 
 
         /*
