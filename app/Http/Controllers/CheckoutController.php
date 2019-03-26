@@ -273,9 +273,10 @@ class CheckoutController extends Controller
 
     public function mailTest()
     {
-        // Mail::to('emmanuel.audu1@aun.edu.ng')
-        //     ->send(new OrderConfirmation());
-        // return 'done';
+        return 'i got here';
+        Mail::to('emmanuel.audu1@aun.edu.ng')
+        ->send(new OrderConfirmation());
+        return 'done';
     }
 
     public function min_order_check(Request $request)
