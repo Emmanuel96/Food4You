@@ -129,6 +129,9 @@
 
             @media screen and (max-width: 414px)
             {
+                #header{
+                    /* margin-top: 100px; */
+                }
 
                 #restaurant_info
                 {
@@ -207,12 +210,21 @@
 
             @media screen and (max-width: 768px)
             {
+                header .intro-text .intro-heading{
+                    font-size: 28px;
+                }
+
+                header .intro-text{
+                    padding-top:100px;
+                    font-size: 1ems; 
+                    font-size: 15px;
+                }
                 header{
                     margin-top: 60px; 
                 }
                 .navbar-toggle
                 {
-                    margin-right: 30px; 
+                    margin-right: 0px; 
                 }
 
                 .navbar-brand
