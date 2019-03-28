@@ -39,59 +39,54 @@ class AdminController extends Controller
 	{
 		//firstly we get the user
 		$user = Auth::user(); 		
-
 		$messages = [
             
             'product.name.unique' => 'Product name already exists', 
-        ];
+		];
+		
+		$request->validate([
+			'product_name' => 'required|unique:menu',
+			'product_description' => 'required',
+			'product_price' => 'required|int',
+			'product_image' => 'required',
+	   ]);
 		
 		if($request->new_category != null)
 		{
-			$request->validate([
-				'product_name' => 'required|unique:menu',
-				'product_description' => 'required',
-				'product_price' => 'required|int',
-				'category' => 'required',
-				'new_category' => 'required',
-				'product_image' => 'required',
-		   ]);
 		   
 			$new_category = $request->new_category; 
 
 			//then add the category to the category database
-			$create_category = category::create(
-				[
+			$create_category = category::create([
 					'category_name' => $new_category, 
 					'restaurant_id' => 1
-				]
-				);
+				]);
 			//category to store on the products page will be an id 
 		    $category = $create_category->category_name; 
 		}
-		else
-		{
-			$request->validate([
-				'product_name' => 'required|unique:menu',
-				'product_description' => 'required',
-				'product_price' => 'required',
-				'category' => 'required',
-				'product_image' => 'required',
-		   ]);
+		else {
+		// {
+		// 	$request->validate([
+		// 		'product_name' => 'required|unique:menu',
+		// 		'product_description' => 'required',
+		// 		'product_price' => 'required',
+		// 		'category' => 'required',
+		// 		'product_image' => 'required',
+		//    ]);
 		   
 			$category = $request->category; 
-		}
-		
+
+			$menu = menu::create([
+				'product_name'=> $request->input('product_name'), 
+				'product_description' => $request->input('product_description'), 
+				'product_price' => $request->product_price,
+				'category' => $category,
+				'product_image'=> $request->product_image->getClientOriginalName(),
+				'restaurant_id' => $user->id
+	
+				]);
+		}		
 		//FIRSTLY, WE CREATE THE PRODUCT AND STORE IT IN THE MENU TABLE 
-
-		$menu = menu::create([
-			'product_name'=> $request->input('product_name'), 
-			'product_description' => $request->input('product_description'), 
-			'product_price' => $request->product_price,
-			'category' => $category,
-			'product_image'=> $request->product_image->getClientOriginalName(),
-			'restaurant_id' => $user->id
-
-			]);
 
 		//if product name already exist
 		// $menu = menu::where('product_name', $menu->product_name)->first();
@@ -111,7 +106,7 @@ class AdminController extends Controller
 		
 		
 
-		return redirect()->route('admin.addProduct', ['product_name' => $menu->product_name])
+		return redirect()->route('admin.addProduct', ['menu' => $menu ])
 			->with('success', $request->input('product_name').  ' Added Successfully');
 																																																
 		}	
@@ -266,7 +261,7 @@ class AdminController extends Controller
 	public function updateProduct(Request $Request, $id)
 	{
 		$menu = menu::where('product_id', $id)->find($id);
-
+		
 		$Request->validate([
 			'product_name' => 'required',
 			'product_price' => 'required',
@@ -284,15 +279,22 @@ class AdminController extends Controller
 				'product_description' => $Request->product_description
 				]);
 
+		$file = $Request->input('product_image');
+		dd($file);
 		
+		$new_name = rand() . '.' . $file;
+		dd($new_name);
 
-		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
 		
-		$imageName = $Request->product_image->getClientOriginalName();
+		// $imageName = $Request->file('image')->getClientOriginalName();
 
-		$file = $Request->file('product_image')->storeAs('images',$imageName);
+		// $file = $Request->file('product_image')->storeAs('images',$imageName);
+	
 		// Storage::disk('public')->put($imageName, 'Contents');
 
+		return $menu;
+		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
+		
 		return redirect('admin/viewProducts')->with('success', 'menu updated successfully!');
 	}
 

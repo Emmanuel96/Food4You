@@ -85,7 +85,7 @@
                           <div class="col-md-6 col-sm-6 col-xs-12">
                           <img name = "current_image" class = "img-responsive" alt = " No image"  id = "product-image" src =  "/storage/images/{{$product->product_image}}"   >
                           <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
-                          <input value = "{{$product->product_image}}" type = "file " id = "product-image" name = "product_image"/>
+                          <input value = "{{$product->product_image}}" type = "file " id = "product-image" name = "product_image[]"/>
                           </div>
                         </div>
                         <div class="form-group">
