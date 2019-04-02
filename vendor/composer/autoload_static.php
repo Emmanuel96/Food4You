@@ -19,9 +19,6 @@ class ComposerStaticInit020f04dc7f33618b6b98de48fbcc2f78
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'cf97c57bfe0f23854afd2f3818abb7a0' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/create_uploaded_file.php',
         '9bf37a3d0dad93e29cb4e1b1bfab04e9' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/marshal_headers_from_sapi.php',
         'ce70dccb4bcc2efc6e94d2ee526e6972' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/marshal_method_from_sapi.php',
@@ -30,6 +27,9 @@ class ComposerStaticInit020f04dc7f33618b6b98de48fbcc2f78
         '0b0974a5566a1077e4f2e111341112c1' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/normalize_server.php',
         '1ca3bc274755662169f9629d5412a1da' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/normalize_uploaded_files.php',
         '40360c0b9b437e69bcbb7f1349ce029e' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/parse_cookie_header.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '752af1c2bdb339e8474c3c31b22b7d54' => __DIR__ . '/..' . '/illuminate/html/helpers.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
@@ -100,6 +100,7 @@ class ComposerStaticInit020f04dc7f33618b6b98de48fbcc2f78
         ),
         'N' => 
         array (
+            'Nexmo\\Laravel\\' => 14,
             'Nexmo\\' => 6,
         ),
         'M' => 
@@ -308,6 +309,10 @@ class ComposerStaticInit020f04dc7f33618b6b98de48fbcc2f78
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
+        'Nexmo\\Laravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nexmo/laravel/src',
         ),
         'Nexmo\\' => 
         array (
@@ -2673,6 +2678,8 @@ class ComposerStaticInit020f04dc7f33618b6b98de48fbcc2f78
         'Nexmo\\Insights\\Standard' => __DIR__ . '/..' . '/nexmo/client/src/Insights/Standard.php',
         'Nexmo\\Insights\\StandardCnam' => __DIR__ . '/..' . '/nexmo/client/src/Insights/StandardCnam.php',
         'Nexmo\\InvalidResponseException' => __DIR__ . '/..' . '/nexmo/client/src/InvalidResponseException.php',
+        'Nexmo\\Laravel\\Facade\\Nexmo' => __DIR__ . '/..' . '/nexmo/laravel/src/Facade/Nexmo.php',
+        'Nexmo\\Laravel\\NexmoServiceProvider' => __DIR__ . '/..' . '/nexmo/laravel/src/NexmoServiceProvider.php',
         'Nexmo\\Message\\AutoDetect' => __DIR__ . '/..' . '/nexmo/client/src/Message/AutoDetect.php',
         'Nexmo\\Message\\Binary' => __DIR__ . '/..' . '/nexmo/client/src/Message/Binary.php',
         'Nexmo\\Message\\Callback\\Receipt' => __DIR__ . '/..' . '/nexmo/client/src/Message/Callback/Receipt.php',

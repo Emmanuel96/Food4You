@@ -42,37 +42,40 @@ class AdminController extends Controller
 
 		$messages = [     
             'product.name.unique' => 'Product name already exists', 
-		];
-		
-		$request->validate([
-			'product_name' => 'required|unique:menu',
-			'product_description' => 'required',
-			'product_price' => 'required|int',
-			'product_image' => 'required',
-	   ]);
+        ];
 		
 		if($request->new_category != null)
 		{
+			$request->validate([
+				'product_name' => 'required|unique:menu',
+				'product_description' => 'required',
+				'product_price' => 'required|int',
+				'category' => 'required',
+				'new_category' => 'required',
+				'product_image' => 'required',
+		   ]);
 		   
 			$new_category = $request->new_category; 
 
 			//then add the category to the category database
-			$create_category = category::create([
+			$create_category = category::create(
+				[
 					'category_name' => $new_category, 
 					'restaurant_id' => 1
-				]);
+				]
+				);
 			//category to store on the products page will be an id 
 			$category = $create_category->category_name; 
 		}
-		else {
-		// {
-		// 	$request->validate([
-		// 		'product_name' => 'required|unique:menu',
-		// 		'product_description' => 'required',
-		// 		'product_price' => 'required',
-		// 		'category' => 'required',
-		// 		'product_image' => 'required',
-		//    ]);
+		else
+		{
+			$request->validate([
+				'product_name' => 'required|unique:menu',
+				'product_description' => 'required',
+				'product_price' => 'required',
+				'category' => 'required',
+				'product_image' => 'required',
+		   ]);
 		   
 			$category = $request->category; 
 		}
@@ -102,7 +105,7 @@ class AdminController extends Controller
 		// Storage::disk('public')->put($file, 'Contents');
 				
 
-		return redirect()->route('admin.addProduct', ['menu' => $menu ])
+		return redirect()->route('admin.addProduct', ['product_name' => $menu->product_name])
 			->with('success', $request->input('product_name').  ' Added Successfully');
 																																																
 		}	
@@ -257,7 +260,7 @@ class AdminController extends Controller
 	public function updateProduct(Request $Request, $id)
 	{
 		$menu = menu::where('product_id', $id)->find($id);
-		
+
 		$Request->validate([
 			'product_name' => 'required',
 			'product_price' => 'required',
@@ -282,9 +285,6 @@ class AdminController extends Controller
 		$file = $Request->file('product_image')->storeAs('images',$image_name);
 		// Storage::disk('public')->put($imageName, 'Contents');
 
-		return $menu;
-		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
-		
 		return redirect('admin/viewProducts')->with('success', 'menu updated successfully!');
 	}
 

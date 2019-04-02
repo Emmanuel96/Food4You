@@ -39,8 +39,8 @@ class AdminController extends Controller
 	{
 		//firstly we get the user
 		$user = Auth::user(); 		
-
-		$messages = [     
+		$messages = [
+            
             'product.name.unique' => 'Product name already exists', 
 		];
 		
@@ -62,7 +62,7 @@ class AdminController extends Controller
 					'restaurant_id' => 1
 				]);
 			//category to store on the products page will be an id 
-			$category = $create_category->category_name; 
+		    $category = $create_category->category_name; 
 		}
 		else {
 		// {
@@ -75,32 +75,36 @@ class AdminController extends Controller
 		//    ]);
 		   
 			$category = $request->category; 
-		}
-		
-		//get the current logged in restaurant 
-		if(session::has('logged_in_restaurant'))
-		{
-			$logged_in_restaurant = session::get('logged_in_restaurant'); 
-		}
 
-		$image_name = str_replace(' ', '', $request->input('product_name')).'.'.$request->product_image->getClientOriginalExtension(); 
-
-
+			$menu = menu::create([
+				'product_name'=> $request->input('product_name'), 
+				'product_description' => $request->input('product_description'), 
+				'product_price' => $request->product_price,
+				'category' => $category,
+				'product_image'=> $request->product_image->getClientOriginalName(),
+				'restaurant_id' => $user->id
+	
+				]);
+		}		
 		//FIRSTLY, WE CREATE THE PRODUCT AND STORE IT IN THE MENU TABLE 
-		$menu = menu::create([
-			'product_name'=> $request->input('product_name'), 
-			'product_description' => $request->input('product_description'), 
-			'product_price' => $request->product_price,
-			'category' => $category,
-			'product_image'=> $image_name,
-			'restaurant_id' => $logged_in_restaurant->restaurant_id
 
-		]);
+		//if product name already exist
+		// $menu = menu::where('product_name', $menu->product_name)->first();
+
+		// if($menu)
+		// {
+		// 	return 'IGH';
+		// 	return redirect()->route('admin.addProduct', ['product_name' => $menu->product_name])
+		// 	->with('success', $request->input('product_name'). ' added successfully');
+		// }
 
 		//STORING THE IMAGE 
-		$file = $request->file('product_image')->storeAs('images',$image_name);
-		// Storage::disk('public')->put($file, 'Contents');
-				
+
+		$imageName = $request->product_image->getClientOriginalName();
+		$file = $request->file('product_image')->storeAs('images',$imageName);
+		// Storage::disk('public')->put($imageName, 'Contents');
+		
+		
 
 		return redirect()->route('admin.addProduct', ['menu' => $menu ])
 			->with('success', $request->input('product_name').  ' Added Successfully');
@@ -266,20 +270,26 @@ class AdminController extends Controller
 			'product_description' => 'required|max:255',
 		]);
 
-		$image_name = str_replace(' ', '', $Request->input('product_name')).'.'.$Request->product_image->getClientOriginalExtension(); 
-
 		DB::table('menu')
 		->where('product_id', $id)	
 		->update(['product_name' => $Request->product_name , 
 				'product_price' => $Request->product_price , 
 				'category' => $Request->category, 
-				'product_image' => $image_name,
+				'product_image' => $Request->product_image ,
 				'product_description' => $Request->product_description
 				]);
 
-		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
+		$file = $Request->input('product_image');
+		dd($file);
 		
-		$file = $Request->file('product_image')->storeAs('images',$image_name);
+		$new_name = rand() . '.' . $file;
+		dd($new_name);
+
+		
+		// $imageName = $Request->file('image')->getClientOriginalName();
+
+		// $file = $Request->file('product_image')->storeAs('images',$imageName);
+	
 		// Storage::disk('public')->put($imageName, 'Contents');
 
 		return $menu;

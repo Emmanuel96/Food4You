@@ -517,13 +517,6 @@
                                             <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
                                         </div>
                                         <div class="w3-section">
-                                            <!-- <label for="sel1">Select Quantity:</label> -->
-                                            <!-- <select class="invisible" name = "qty" id="qty{{$m->product_id}}">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select> -->
                                             <h3>₦{{$m->product_price}}</h3>
                                         </div>
                                     </div>
@@ -545,109 +538,7 @@
                     @endforeach
                 </div>
             </div> 
-        </div>
-
-
-        <div class = "row">
-            <div class = "col-xs-12 mobile_resp" style = "width: 63%; ">
-                <div class = "container" style = "width: 100%">
-
-                    <?php $i = 0; ?>
-                    <h2 id = "platter">Christmas Specials</h2>
-                    @foreach ($menu as $m)
-                        @if( $i == 0 || $i == 3 )
-                            <div class="row menu_row">
-                        @endif
-                        @if($m->category == "platter")
-                            <div class="col-sm-4 col-xs-12">
-
-                                <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
-                                    <div class="w3-container w3-center">
-                                        <!-- <h3>{{$m->product_name}}</h3> -->
-                                        <h4>{{$m->product_name}}</h4>
-                                        <img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
-
-                                        <div class="w3-section">
-                                            <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
-                                        </div>
-                                        <div class="w3-section">
-                                            <!-- <label for="sel1">Select Quantity:</label> -->
-                                            <!-- <select class="invisible" name = "qty" id="qty{{$m->product_id}}">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select> -->
-                                            <h3>₦{{$m->product_price}}</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- ending the row if last item or items on the row are 3 already -->
-                            @if($i == 2 || $loop->last)
-                                </div>
-                                <?php 
-                                    $i = 0; 
-                                ?>
-                            @else 
-                                <?php $i++ ?>
-                            @endif
-                        @endif
-                    @endforeach
-            </div>
-                </div>
-       </div>
-  
-            <?php $i = 0; ?>
-
-            <h2 id = "others">Extras</h2>
-            
-			@foreach ($menu as $m)
-				@if( $i == 0 || $i == 3 )
-					<div class="row menu_row">
-                @endif
-                @if($m->category == "extra")
-				<div class="col-sm-4 col-xs-12">
-
-					<div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
-						<div class="w3-container w3-center">
-							<!-- <h3>{{$m->product_name}}</h3> -->
-							<h4>{{$m->product_name}}</h4>
-							<img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
-
-							<div class="w3-section">
-								<a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
-							</div>
-							<div class="w3-section">
-							    <!-- <label for="sel1">Select Quantity:</label> -->
-								<!-- <select class="invisible" name = "qty" id="qty{{$m->product_id}}">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-								</select> -->
-								<h3>₦{{$m->product_price}}</h3>
-							</div>
-						</div>
-					</div>
-		      	</div>
-
-		      	<!-- ending the row if last item or items on the row are 3 already -->
-				@if($i == 2 || $loop->last)
-					</div>
-					<?php 
-						$i = 0; 
-					?>
-				@else 
-					<?php $i++ ?>
-                @endif
-                @endif
-            @endforeach
-            
-        </div>
-    </div>
-			
+        </div>	
 
 
 <!-- Begin of my modal  -->
