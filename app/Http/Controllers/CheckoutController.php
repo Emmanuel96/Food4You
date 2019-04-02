@@ -186,7 +186,7 @@ class CheckoutController extends Controller
         if($paymentDetails['status'] ==1)
         {
             $orders->order_status = 1; 
-           event(new orderNotification(Auth::user()->user_name));
+        //    event(new orderNotification(Auth::user()->user_name));
         }
         else
         {
