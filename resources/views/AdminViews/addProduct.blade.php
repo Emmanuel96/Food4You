@@ -62,7 +62,7 @@
                   </div> 
                   <div class="x_content">
                     <br />
-                    <form enctype="multipart/form-data" name="add_product" id="demo-form2" method = "POST" action="{{url('admin/createProduct')}}" class="form-horizontal form-label-left">
+                    <form enctype="multipart/form-data" name="add_product" id="demo-form2" method = "POST" action="{!! route('admin.createProduct') !!}" class="form-horizontal form-label-left">
                      
                    
                       <!-- <div class="form-group">
@@ -96,7 +96,7 @@
                       <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">Category *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12"> 
-                            <select required name="category" id = "category-select" onchange = "create_new_category()" id="inlineFormCustomSelect" class="form-control col-md-7 col-xs-12">
+                            <select name="category" id = "category-select" onchange = "create_new_category()" id="inlineFormCustomSelect" class="form-control col-md-7 col-xs-12">
                                 <option selected>Select Category</option>
                                 <option id = "new-category"> New Category </option>
                                                                
@@ -112,7 +112,7 @@
                       <div class="form-group"  id = "hidden-category-div" style = "display: none; ">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">New Category *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12"> 
-                              <input type = "text" name = "new_category" placeholder = "Enter New Category" class="form-control col-md-7 col-xs-12" required />                            
+                              <input type = "text" name = "new_category" placeholder = "Enter New Category" class="form-control col-md-7 col-xs-12" />                            
                           </div>
                       </div>
 
@@ -152,15 +152,15 @@
                       </div>
                       
                       <div class="form-group">
-                                </div>
-                                <div class="ln_solid"></div>
-                                <div class="form-group">
-                                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button class="btn btn-primary" type="button">Cancel</button>
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                  </div>
-                                </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="button">Cancel</button>
+						              <button class="btn btn-primary" type="reset">Reset</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
 
                               </form>
                             </div>
@@ -169,6 +169,7 @@
                       </div>  
 
     
+     
     <!-- jQuery -->
     <script src="{{URL::asset('vendors/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
@@ -204,6 +205,7 @@
     <script src="{{URL::asset('vendors/starrr/dist/starrr.js')}}"></script>
     <!-- Custom Theme Scripts -->
     <script src="{{URL::asset('js/custom.min.js')}}"></script>
+    <script src="{{ asset('/css/bootstrap/js/bootstrap.min.js') }}"></script>
 
     <script>
       //this function automatically calls the function to mess with these 

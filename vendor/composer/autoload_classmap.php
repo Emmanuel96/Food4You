@@ -2219,6 +2219,8 @@ return array(
     'Nexmo\\Insights\\Standard' => $vendorDir . '/nexmo/client/src/Insights/Standard.php',
     'Nexmo\\Insights\\StandardCnam' => $vendorDir . '/nexmo/client/src/Insights/StandardCnam.php',
     'Nexmo\\InvalidResponseException' => $vendorDir . '/nexmo/client/src/InvalidResponseException.php',
+    'Nexmo\\Laravel\\Facade\\Nexmo' => $vendorDir . '/nexmo/laravel/src/Facade/Nexmo.php',
+    'Nexmo\\Laravel\\NexmoServiceProvider' => $vendorDir . '/nexmo/laravel/src/NexmoServiceProvider.php',
     'Nexmo\\Message\\AutoDetect' => $vendorDir . '/nexmo/client/src/Message/AutoDetect.php',
     'Nexmo\\Message\\Binary' => $vendorDir . '/nexmo/client/src/Message/Binary.php',
     'Nexmo\\Message\\Callback\\Receipt' => $vendorDir . '/nexmo/client/src/Message/Callback/Receipt.php',
