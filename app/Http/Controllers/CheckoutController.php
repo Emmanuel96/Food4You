@@ -174,8 +174,8 @@ class CheckoutController extends Controller
         //get order with this order slug 
         $orders = order::where('order_slug','=', session::get('order_slug'))->first();
 
-        Notification::route('nexmo', '+2348135019640')
-        ->notify(new newOrderReceived($orders->buyer_phone_number));
+        // Notification::route('nexmo', '+2348135019640')
+        // ->notify(new newOrderReceived($orders->buyer_phone_number));
 
         // Notification::route('nexmo', '+2348135019640')
         //     ->notify(new OrderConfirmed($orders->payment_ref));

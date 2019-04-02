@@ -83,9 +83,8 @@
                          <div class="form-group">
                           <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                          <img name = "current_image" class = "img-responsive" alt = " No image"  id = "product-image" src =  "/storage/images/{{$product->product_image}}"   >
-                          <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
-                          <input value = "{{$product->product_image}}" type = "file " id = "product-image" name = "product_image"/>
+                            <img name = "current_image" class = "img-responsive" alt = " No image"  id = "product-image" src =  "/storage/images/{{$product->product_image}}"   >
+                            <input class="form-control col-md-7 col-xs-12" value = "{{$product->product_image}}" type="file" name = "product_image">                                                                                                                                                                                                     
                           </div>
                         </div>
                         <div class="form-group">

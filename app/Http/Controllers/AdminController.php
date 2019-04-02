@@ -269,22 +269,20 @@ class AdminController extends Controller
 			'product_description' => 'required|max:255',
 		]);
 
+		$image_name = str_replace(' ', '', $Request->input('product_name')).'.'.$Request->product_image->getClientOriginalExtension(); 
+
 		DB::table('menu')
 		->where('product_id', $id)	
 		->update(['product_name' => $Request->product_name , 
 				'product_price' => $Request->product_price , 
 				'category' => $Request->category, 
-				'product_image' => $Request->product_image ,
+				'product_image' => $image_name,
 				'product_description' => $Request->product_description
 				]);
 
-		
-
 		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
 		
-		$imageName = $Request->product_image->getClientOriginalName();
-
-		$file = $Request->file('product_image')->storeAs('images',$imageName);
+		$file = $Request->file('product_image')->storeAs('images',$image_name);
 		// Storage::disk('public')->put($imageName, 'Contents');
 
 		return redirect('admin/viewProducts')->with('success', 'menu updated successfully!');
