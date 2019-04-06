@@ -15,17 +15,17 @@ class categorySeeder extends Seeder
         //
         
         DB::table('categories')->insert([
-           'category_name' => 'drinks',
+           'category_name' => 'Drinks',
             'restaurant_id' => 0,
         ]);
 
         DB::table('categories')->insert([
-            'category_name' => 'others',
+            'category_name' => 'Others',
             'restaurant_id' => 0,
         ]);
 
         DB::table('categories')->insert([
-            'category_name' => 'platter',
+            'category_name' => 'Platter',
             'restaurant_id' => 0,
         ]);
     }
