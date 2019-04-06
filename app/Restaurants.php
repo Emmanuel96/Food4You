@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
+
 class Restaurants extends Model
 {
     use Notifiable; 
@@ -31,5 +32,10 @@ class Restaurants extends Model
     public function routeNotificationForNexmo()
     {
         return $this->restaurant_phone_number;
+    }
+
+    public function categories()
+    {
+        return $this->hasMany('App\Category', 'restaurant_id', 'restaurant_id');
     }
 }

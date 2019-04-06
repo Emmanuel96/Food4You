@@ -386,11 +386,15 @@
     <div id = "category_nav" class="categoryNav center" style = "font-family: Montserrat, Helvetica, sans-serif; background-color: #fff; padding-left: 72px; padding-right:100px; height: 55px; margin-bottom: 20px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
     	<ul class="nav navbar-nav nav-left " style = "margin-top: auto; margin-bottom: auto;    font-family: ClanPro-News, Helvetica, sans-serif;
  ">
-    		<li class="nav-item"><a href = "#sandwich" class="nav-link cat-link page-scroll">Sandwich</a></li>
+            @if($categories != null)
+               @foreach($categories as $category)
+                    <li class="nav-item"><a href = "#{{$category->category_name}}" class="nav-link cat-link page-scroll">{{$category->category_name}}</a></li>
+               @endforeach 
+            @endif
+    		<!-- <li class="nav-item"><a href = "#sandwich" class="nav-link cat-link page-scroll">Sandwich</a></li>
     		<li class="nav-item"><a href = "#platter" class="page-scroll cat-link" >Christmas Specials</a></li>
-    		<li class="nav-item"><a href = "#others" class= "page-scroll cat-link" >Others</a></li>
-<!--     		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Iced tea</a></li>
- -->    </ul>
+    		<li class="nav-item"><a href = "#others" class= "page-scroll cat-link" >Others</a></li> -->
+        </ul>
 
          <div id = "basket_div" class="basket pull-right" style="padding-top: 3px; background-color:#fff; border-color: black; height:auto; width:33%;">
          <a id = "checkout-button" href="/checkout" class = "btn btn-primary btn-lg @if($products== null)disabled @endif" style="color:black; border-radius: 0px;  width: 100%;" >Go to Checkout</a>
@@ -499,42 +503,44 @@
                     <!-- For each statment to display products We need i to count 3 for items in each row , later versions should use the chunk method -->
 
                     <?php $i = 0; ?>
-                    <h2 id = "sandwich">Sandwich</h2>
-                    @foreach ($menu as $m)
-                        @if( $i == 0 || $i == 3 )
-                            <div class="row menu_row">
-                        @endif
-                        @if($m->category == "sandwich")
-                            <div class="col-sm-4 col-xs-12">
+                    @foreach($category2 as $key => $menu)
+                        <h2 id = "{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}">{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}</h2>
 
-                                <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
-                                    <div class="w3-container w3-center">
-                                        <!-- <h3>{{$m->product_name}}</h3> -->
-                                        <h4>{{$m->product_name}}</h4>
-                                        <img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
+                        @foreach ($menu as $m)
 
-                                        <div class="w3-section">
-                                            <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
-                                        </div>
-                                        <div class="w3-section">
-                                            <h3>₦{{$m->product_price}}</h3>
+                            @if( $i == 0 || $i == 3 )
+                                <div class="row menu_row">
+                            @endif
+                                <div class="col-sm-4 col-xs-12">
+
+                                    <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
+                                        <div class="w3-container w3-center">
+                                            <!-- <h3>{{$m->product_name}}</h3> -->
+                                            <h4>{{$m->product_name}}</h4>
+                                            <img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
+
+                                            <div class="w3-section">
+                                                <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
+                                            </div>
+                                            <div class="w3-section">
+                                                <h3>₦{{$m->product_price}}</h3>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- ending the row if last item or items on the row are 3 already -->
-                            @if($i == 2 || $loop->last)
+                                <!-- ending the row if last item or items on the row are 3 already -->
+                                @if($i == 2 || $loop->last)
+                                    
+                                    </div>
                                 
-                                </div>
-                               
-                                <?php 
-                                    $i = 0; 
-                                ?>
-                            @else
-                                <?php $i++ ?>
-                            @endif
-                        @endif
+                                    <?php 
+                                        $i = 0; 
+                                    ?>
+                                @else
+                                    <?php $i++ ?>
+                                @endif
+                        @endforeach
                     @endforeach
                 </div>
             </div> 
@@ -553,163 +559,15 @@
       </div>
       <div class="modal-body">
       <form>
-            <img id = "product_details_image" style = "height: auto; width: 50%; " class= "img-responsive center img-rounded" />
+        <img id = "product_details_image" style = "height: auto; width: 50%; " class= "img-responsive center img-rounded" />
 
         <h5 style = "width: 100%; text-align:center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;"><span style = "background: #fff; padding: 0 10px; font-weight:bold;">DESCRIPTION</span></h5>
          <p class = "text-center" style="margin-bottom: 20px; " id = "product_description">  </p>
-
-              <!-- <h5 style = "width: 100%; text-align:center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;"><span style = "background: #fff; padding: 0 10px; font-weight: bold;">FILLINGS</span></h5>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="radio" class="form-check-input" value = "Slow Cooked Chilli Beef" name = "fillingsOption">
-                        Slow Cooked Chilli Beef
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="radio" class="form-check-input" name = "fillingsOption" value = "Chicken chipotle">
-                        Chicken chipotle
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="radio" class="form-check-input" name = "fillingsOption" id= "Vegetarian Chilli" value = "Vegetarian Chilli">
-                        Vegetarian Chilli
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="radio" class="form-check-input" name = "fillingsOption" id = "Pulled Pork" value = "Pulled Pork">
-                        Pulled Pork
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="radio" class="form-check-input" name = "fillingsOption" value = "Halloumi">
-                        Halloumi
-                    </label>
-                </div>  -->
-<!--         
-        <h5 style = "width: 100%; text-align:center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;"><span style = "background: #fff; padding: 0 10px; font-weight: bold;">TOPPINGS</span></h5>
-
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" name = "lettuce" type="checkbox" class="form-check-input">
-                        Lettuce
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name= "Oregano" class="form-check-input">
-                        Oregano
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Tomatoes" class="form-check-input">
-                        Tomatoes
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="checkbox" name = "Grated Cheese" class="form-check-input">
-                        Grated Cheese
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name="Jalapeno" class="form-check-input">
-                        Jalapeño
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Sour Cream" class="form-check-input">
-                        Sour cream
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Chipotle Mayo" class="form-check-input">
-                        Chipotle mayo
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Lime Wedge" class="form-check-input">
-                        Lime wedge
-                    </label>
-                </div>
-  -->
         <h5 style = "width: 100%; text-align:center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;"><span style = "background: #fff; padding: 0 10px; font-weight: bold;">Comments </span></h5>
 
-                 <!-- <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name= "Medium Sauce" class="form-check-input">
-                        Medium Sauce
-                    </label>
-                </div>
 
-                 <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name= "Hot Sauce" class="form-check-input">
-                        Hot Sauce
-                    </label>
-                </div>
-
-                 <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name= "Inferno Sauce" class="form-check-input">
-                        Inferno
-                    </label>
-                </div> -->
-
-                <textarea placeholder = "Please Tell us if there's any way we can make this better for you. " name="" id= " " class= "form-control" style = "width: 100%; height: 100%;" ></textarea>                                                                 
-
-<!-- 
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Ketchup" class="form-check-input">
-                        Ketchup
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name= "Mustard" class="form-check-input">
-                        Mustard
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="sform-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Spicy Cheese Deep" class="form-check-input">
-                        Spicy Cheese Deep 
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Tzatziki Sauce" class="form-check-input">
-                        Tzatziki Sauce
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Barbecue Sauce" class="form-check-input">
-                        Barbecue Sauce
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input onclick = "ExtrasMenuBtnActiveInactive()" type="checkbox" name = "Mayonnaise" class="form-check-input">
-                        Mayo
-                    </label>
-                </div> -->
-        </form>
+        <textarea placeholder = "Please Tell us if there's any way we can make this better for you. " name="" id= " " class= "form-control" style = "width: 100%; height: 100%;" ></textarea>                                                                 
+      </form>
       <div class="modal-footer">
 
         <a  class ="btn btn-primary btn-sm text-center" id= "extra_menu_add_to_cart"  href="#" >Add To Cart <i class="fa fa-cart-plus"></i></a>
@@ -778,15 +636,18 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
+                        <li>
+                            <a href="#">Privacy Policy</a>
                         </li>
-                        <li><a href="#">Terms of Use</a>
+                        <li>
+                            <a href="#">Terms of Use</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
+</body>
 
 
     <!-- Portfolio Modals -->

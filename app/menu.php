@@ -11,7 +11,7 @@ class menu extends Model
     protected $primaryKey = 'product_id';
 
     protected $fillable = [
-        'product_name', 'product_description', 'product_price','product_image','inStock','restaurant_id', 'category'
+        'product_name', 'product_description', 'product_price','product_image','inStock','restaurant_id', 'category_id'
     ];
 
     public function restaurants()
