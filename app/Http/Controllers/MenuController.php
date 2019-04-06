@@ -9,6 +9,7 @@ use DB;
 use Session;
 use App\User; 
 use App\Cart;
+use App\Category; 
 use App\Notifications\OrderConfirmed; 
 use Illuminate\Notifications\Notification;
 use Auth; 
@@ -72,7 +73,29 @@ class MenuController extends Controller
         //store the current restaurant in the session 
         Session::put('current_restaurant_id', $restaurants->restaurant_id);
 
-        $menu = $restaurants->menu()->paginate(20); 
+        //get all the categories for the current restaurants 
+        $categories = $restaurants->categories()->get(); 
+
+        $menu = $restaurants->menu()->get()->sortBy('category_id'); 
+        $menu->toArray(); 
+        //----------------- TEST FOR GROUP BY WITH DB BUILDER ----------------------------- 
+            $category2 =  $menu->groupBy('category_id'); 
+            $category2->toArray(); 
+
+
+            
+            // foreach($category2 as $category => $menu)
+            // {
+            //     echo $category; 
+            //     echo '<br>';
+            //     foreach($menu as $m){
+            //         echo $m->product_name; 
+            //     }
+            // }
+            // // echo '<pre>'; 
+            // // var_dump($category2); 
+            // return; 
+        //------------------ END OF TEST ------------------------------------------------
 
         // $menu =  DB::select('select * from restaurants_products, menu, user where user.name = :name && user.role =3 && restaurants_products.restaurant_id = user.id && menu.item_id = restaurants_products.product_id', ['name' => $name] )->paginate(15);
 
@@ -84,13 +107,19 @@ class MenuController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 
-
         //make restaurant_status = 1; 
         $restaurant_status = 1; 
         
        // return $cart->items;
 
-        return view('TestViews.menuTestView',['menu'=> $menu, 'products' => $cart->items, 'totalPrice' => $cart->totalPrice,'restaurant_status' => $restaurant_status, 'restaurant'=>$restaurants]);
-        // return view('menuViews.menu',['menu'=> $menu, 'restaurant_status' => $restaurant_status]);
+        return view('TestViews.menuTestView',
+            [
+                'menu'=> $menu, 'products' => $cart->items, 
+                'totalPrice' => $cart->totalPrice,
+                'restaurant_status' => $restaurant_status,
+                'restaurant'=> $restaurants,
+                'categories' => $categories,
+                'category2' => $category2
+            ]);
     }
 }
