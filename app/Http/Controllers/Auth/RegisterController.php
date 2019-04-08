@@ -49,7 +49,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:user',
             'address' => 'required|string', 
             'phone_number' => 'required|string|max:12',
             'password' => 'required|string|min:6|confirmed',
@@ -72,5 +72,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']), 
             'role' => 5
         ]);
+
+        Session::flash('success', 'Welcome To Hungry Bites. :)'); 
     }
 }

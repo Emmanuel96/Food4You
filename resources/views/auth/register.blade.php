@@ -6,9 +6,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2 mx-auto">
             <div class="card card-default">
-                <div class="card-header">Register</div>
+                <div class="card-header"></div>
                 <div class="card-block">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }} row">
@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} row">
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} row" style = "margin-top: 20px;">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} row">
+                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} row" style = "margin-top: 20px;">
                             <label for="address" class="col-md-4 control-label">Address</label>
 
                             <div class="col-md-6">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }} row">
+                        <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }} row" style = "margin-top: 20px;">
                             <label for="address" class="col-md-4 control-label">Mobile Number</label>
 
                             <div class="col-md-6">
@@ -68,7 +68,7 @@
                         </div>
 
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} row">
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} row" style = "margin-top: 20px;">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row" style = "margin-top: 20px;">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
@@ -90,13 +90,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
+                        <button style="margin-top: 30px; margin-left: auto; margin-right: auto; text-align: center; display: block; width: 60%; font-weight: bold; font-size: 18px;" type="submit" class="btn btn-primary btn-md">
+                            REGISTER
+                        </button>
                     </form>
                 </div>
             </div>
