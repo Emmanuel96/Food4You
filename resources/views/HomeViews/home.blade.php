@@ -58,6 +58,10 @@
 
         <style>
 
+            .navbar-toggle{
+                margin-right: 30px;
+            }
+
             .flat-table {
                 display: block;
                 font-family: Montserrat, Helvetica, sans-serif;
@@ -224,7 +228,7 @@
                 }
                 .navbar-toggle
                 {
-                    margin-right: 0px; 
+                    /* margin-right: 0px;  */
                 }
 
                 .navbar-brand
