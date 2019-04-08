@@ -389,24 +389,24 @@
   <div id = "category_nav_restaurants" class="categoryNav center" style = "z-index: 12; position:fixed; width: 100%; font-family: Montserrat, Helvetica, sans-serif; background-color: #fff;  height: 65px; margin-top: 63px; border-bottom: 20px; border-top:10px;  margin-bottom: 0px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
     	<ul class="nav navbar-nav nav-left" id ="cat_nav " style = "margin-left: 30px; margin-top: auto; margin-bottom: auto; font-family: ClanPro-News, Helvetica, sans-serif;
  ">
-    		<li class="nav-item"><a href = "#most_popular" class="nav-link cat-link page-scroll" >Food Vans</a></li>
-    		<li class="nav-item"><a href = "#ice_tea" class="page-scroll cat-link" > Take Aways</a></li>
-    		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Restaurants</a></li>
+    		<li class="nav-item"><a href = "#most_popular" class="nav-link cat-link page-scroll" >Home Kitchens</a></li>
+    		<li class="nav-item"><a href = "#ice_tea" class="page-scroll cat-link" > Restaurants</a></li>
+    		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Small Chops</a></li>
 <!--     		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Iced tea</a></li>
  -->    </ul>
 
    </div>
 
-
-
 	@if(Session::has('success'))
 		<div class="row">
-		    <div style="position: absolute; margin-top:20px;" class = "alert alert-success mx-auto">
+		    <div style="position: fixed; margin-top:125px; width: 100%;z-index: 5;" class = "alert alert-success mx-auto">
 		        <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">&times;</button>
 		        {{Session::get('success')}}
 		    </div>
 		</div>
-	@endif
+
+   	@endif
+
     <div class="container" style="padding-top:170px;">
 	<!-- 	<div class="row">
 			<h1 class="text-center"> RESTAURANTS </h1>
