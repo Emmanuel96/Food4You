@@ -28,6 +28,8 @@ class Restaurants extends Migration
             $table->float('restaurant_minimum_order')->default(1000);
             $table->string('restaurant_delivery_fee')->default('500');
             $table->string('restaurant_phone_number');
+            // -- 0 is a home chef, 1 is a restaurant
+            $table->integer('restaurant_restaurant_type')->default(0); 
             $table->date('updated_at')->default('2019-01-21 13:13:51'); 
             $table->date('created_at')->default('2019-01-21 13:13:51');
         }); 

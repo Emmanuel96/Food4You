@@ -231,9 +231,14 @@ class CheckoutController extends Controller
 
         Session::forget('cart');
 
-        
-        return redirect()->route('order.tracking', ['id' =>$orders]  );
-        return view('OrderTracker.preparing');
+        //-------------------UNCOMMENT WHEN THE ORDER TRACKING PAGE IS MADE RESPONSIVE ----------//
+            // return redirect()->route('order.tracking', ['id' =>$orders]  );
+            // return view('OrderTracker.preparing');
+        //-------------------ORDER TRACKING SECTION --------------------------------------------//
+
+        //---- REDIRECT TO RESTAURANT PAGE FOR NOW -- //
+        Session::flash('success', 'Your order was successful'); 
+        return redirect()->route('restaurants.show'); 
     }
 
     public function orderTracking($id)
