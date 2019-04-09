@@ -15,7 +15,7 @@ class order extends Model
 
     protected $fillable = 
     [
-      'payment_ref', 'restaurant_id','buyer_address','buyer_name','buyer_phone_number','order_slug', 'days', 'batch', 'buyer_email',
+      'payment_ref', 'restaurant_id','buyer_address','buyer_name','buyer_phone_number','order_slug', 'days', 'batch', 'buyer_email', 'delivery_status', 'order_status'
     ];
 
     public function products()

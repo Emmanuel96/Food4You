@@ -16,6 +16,7 @@ use App\Notifications\OrderConfirmed;
 use App\Notifications\newOrderReceived; 
 use Notification; 
 use Illuminate\Support\Facades\Auth;
+use Redirect; 
 use Stripe\Stripe;
 use Illuminate\Support\Facades\Mail;
 use Paystack; 
@@ -186,6 +187,7 @@ class CheckoutController extends Controller
         if($paymentDetails['status'] ==1)
         {
             $orders->order_status = 1; 
+            $orders->delivery_status = 1; 
         //    event(new orderNotification(Auth::user()->user_name));
         }
         else
@@ -231,47 +233,57 @@ class CheckoutController extends Controller
 
         Session::forget('cart');
 
-        //-------------------UNCOMMENT WHEN THE ORDER TRACKING PAGE IS MADE RESPONSIVE ----------//
-            // return redirect()->route('order.tracking', ['id' =>$orders]  );
-            // return view('OrderTracker.preparing');
-        //-------------------ORDER TRACKING SECTION --------------------------------------------//
+        return redirect()->route('order.tracking', ['id' =>$orders]  );
+        return view('OrderTracker.preparing');
 
         //---- REDIRECT TO RESTAURANT PAGE FOR NOW -- //
-        Session::flash('success', 'Your order was successful'); 
-        return redirect()->route('restaurants.show'); 
+        // Session::flash('success', 'Your order was successful'); 
+        // return redirect()->route('restaurants.show'); 
+
+        //-- UNCOMMENT IN THE CASE OF MAKING CHANGES TO THE ORDER TRACKING PAGE
     }
 
     public function orderTracking($id)
     {
-        $order_status = DB::table('orders')->where('order_id', $id)->value('order_status');
+        $order = order::find($id);
         
-        //echo $order_status;
+        //if the order exists
+        if($order != null )
+        {
+            $order_status = $order->order_status; 
+
+            $order_delivery_status = $order->delivery_status; 
+
+            if( $order_status > 0 && $order_delivery_status >= 0)
+            {
+                //the 4 different states of an order
+                if($order_delivery_status == 1)
+                {
+                    return view('OrderTracker.preparing');
+                }
         
-        if($order_status == 1)
-        {
-            return view('OrderTracker.preparing');
-        }
-
-        if($order_status == 2)
-        {
-            return view('OrderTracker.readyForDelivery');
-        }
-
-        if($order_status == 3)
-        {
-            return view('OrderTracker.outForDelivery');
-        }
-
-        if($order_status == 4)
-        {
-            return view('OrderTracker.delivered');
-        }
+                if($order_delivery_status == 2)
+                {
+                    return view('OrderTracker.readyForDelivery');
+                }
         
+                if($order_delivery_status == 3)
+                {
+                    return view('OrderTracker.outForDelivery');
+                }
+        
+                if($order_delivery_status == 4)
+                {
+                    return view('OrderTracker.delivered');
+                }
+            }     
+        }   
 
-        return view('OrderTracker.orderTracking');
+        return Redirect::back(); 
+        return view('HomeViews.home');
     }
 
-   public function orderTracking2()
+    public function orderTracking2()
     {
         return view('OrderTracker.orderTracking2');
     }
