@@ -109,7 +109,7 @@
         <div class="row bs-wizard" style="border-bottom:0;">
             
             <div class="col-xs-3 bs-wizard-step complete">
-              <div class="text-center bs-wizard-stepnum">Step 1: Preparing</div>
+              <div class="text-center bs-wizard-stepnum"></div>
               <div class="progress"><div class="progress-bar"></div></div>
               <a href="#" class="bs-wizard-dot"></a>
               <div class="bs-wizard-info text-center">Payment</div>
@@ -126,7 +126,7 @@
               <div class="text-center bs-wizard-stepnum">Step 3: Out For Delivery</div>
               <div class="progress"><div class="progress-bar"></div></div>
               <a href="#" class="bs-wizard-dot"></a>
-              <div class="bs-wizard-info text-center">On Its Way</div>
+              <div class="bs-wizard-info text-center">On Its way</div>
             </div>
             
             <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->

@@ -226,13 +226,13 @@ class AdminController extends Controller
 		$order = order::where('order_id','=', $orderID)->first();
 		 
 		//change the status of the order to re==ady 
-		$order->order_status = $request->order_status; 
+		$order->delivery_status = $request->order_delivery_status; 
 
 		//save changes to the order DB
 		$order->save(); 
 
 		//send a message to the user of his order being ready 
-		$order->notify(new orderReadyForPickUp());
+		// $order->notify(new orderReadyForPickUp());
 		
 		$output = json_encode('complete');
 		return $output;

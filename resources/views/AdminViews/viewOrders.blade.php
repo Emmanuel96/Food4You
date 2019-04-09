@@ -30,10 +30,10 @@
                             <td id="order_date" class = "text-center"> {{$order->created_at}}</td>
                             <td class="text-center">
                                 <select  class="btn btn-primary" style="width:70%; font-family: FontAwesome;color:  " id = "order_status{{$order->order_id}}" onChange = "sendNotification('{{$order->order_id}}', this.value)">
-                                  <option @if($order->order_status == 1) selected @endif value = "1">&#xf118 Preparing</option>
-                                  <option @if($order->order_status == 2) selected @endif value = "2">&#xf1a5 Ready</option>
-                                  <option @if($order->order_status == 3) selected @endif value = "3">&#xf197 On its way</option>
-                                  <option @if($order->order_status == 4) selected @endif value = "4">&#xf118 delivered</option>
+                                  <option @if($order->delivery_status == 1) selected @endif value = "1">&#xf118 Preparing</option>
+                                  <option @if($order->delivery_status == 2) selected @endif value = "2">&#xf1a5 Ready</option>
+                                  <option @if($order->delivery_status == 3) selected @endif value = "3">&#xf197 On its way</option>
+                                  <option @if($order->delivery_status == 4) selected @endif value = "4">&#xf118 delivered</option>
                                 </select>
                             </td>
                             <td id = "order_slug" class="text-center"><a href= "viewOrders/{{$order->order_slug}}" class="btn btn-primary" >View Products</a>
@@ -74,22 +74,22 @@
     </div>
 
     <script>
-      function sendNotification(orderID, order_status)
+      function sendNotification(orderID, order_delivery_status)
       {
           // alert("Order status has been updated");
           //this function sends an ajax request to the users 
           $.ajax({
               type: 'POST',
               url: '{{route('admin.notifyCustomerOfOrder')}}',
-              data: { id:orderID, order_status:order_status, _token: '{{ csrf_token() }}'},
+              data: { id:orderID, order_delivery_status:order_delivery_status, _token: '{{ csrf_token() }}'},
               dataType: 'json',
               success: function(output){
-                  alert('I was successful');
+                  // alert('I was successful');
                   //on success it changes the delivery status to complete and changes the pending to Ready
-                  // delivery_status_button = document.getElementById('delivery_status' + orderID); 
-                  // delivery_status_button.innerHTML = "Ready"; 
-                  // delivery_status_button.className = "label label-primary"; 
-                  // delivery_status_button.onclick = "";
+                  delivery_status_button = document.getElementById('delivery_status' + orderID); 
+                  delivery_status_button.innerHTML = "Ready"; 
+                  delivery_status_button.className = "label label-primary"; 
+                  delivery_status_button.onclick = "";
               }
         });   
       }
