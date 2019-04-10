@@ -65,12 +65,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'user_name' => $data['name'],
             'email' => $data['email'],
-            'address' => $data['address'], 
+            'user_address' => $data['address'], 
             'phone_number' => $data['phone_number'], 
             'password' => bcrypt($data['password']), 
-            'role' => 5
+            'user_role' => 5
         ]);
 
         Session::flash('success', 'Welcome To Hungry Bites. :)'); 
