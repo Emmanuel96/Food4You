@@ -63,8 +63,6 @@
 
         <style>
 
-           
-
             .flat-table {
                 display: block;
                 font-family: Montserrat, Helvetica, sans-serif;
@@ -220,6 +218,8 @@
 
             @media screen and (max-width: 768px)
             {
+                
+          
 				.nav>li>a {
 					position: relative;
 					display: block;

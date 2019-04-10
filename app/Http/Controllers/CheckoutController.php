@@ -204,10 +204,10 @@ class CheckoutController extends Controller
         //SEND A TEXT MESSAGE TO ME WHEN IT'S READY 
         $user = User::where('email','admin@gmail.com')->first(); 
 
-         if(!Session::has('cart'))
-        {
-        	return redirect()->route('cart.show');
-        }
+        //  if(!Session::has('cart'))
+        // {
+        // 	return redirect()->route('cart.show');
+        // }
 
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
@@ -234,7 +234,6 @@ class CheckoutController extends Controller
         Session::forget('cart');
 
         return redirect()->route('order.tracking', ['id' =>$orders]  );
-        return view('OrderTracker.preparing');
 
         //---- REDIRECT TO RESTAURANT PAGE FOR NOW -- //
         // Session::flash('success', 'Your order was successful'); 
