@@ -24,11 +24,11 @@ class newOrderReceived extends Notification
     private $user_name; 
     public $buyer_phone_number;
     
-    public function __construct($phone)
+    public function __construct($phone, $buyer_name)
     {
         //get the name of the restaurant 
        $this->buyer_phone_number = $phone; 
-       $this->user_name = Auth::user()->user_name;
+       $this->user_name = $buyer_name;
 
     }
 
@@ -64,7 +64,7 @@ class newOrderReceived extends Notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-                    ->content($this->user_name. ' ('. $this->buyer_phone_number.') just made an order');
+                    ->content("Hello from Hungry Rout3s.". $this->user_name. ' ('. $this->buyer_phone_number.') just made an order');
     }
 
     public function toArray($notifiable)

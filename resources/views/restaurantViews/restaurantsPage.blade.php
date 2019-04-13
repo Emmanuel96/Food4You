@@ -2,14 +2,16 @@
 <html>
     <head>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121124308-1"></script>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138253927-1"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'UA-121124308-1');
+            gtag('config', 'UA-138253927-1');
         </script>
+
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -427,7 +429,7 @@
                     </a>
                     <div class="portfolio-caption" style = "padding-top: 10px; ">
                         <h3 style = "margin-bottom: 10px; ">{{$r->restaurant_name}}</h3>
-                        <h3 style = "font-style: normal; color: black; font-size: 16px;  margin-bottom:10px; " ><i style = "color:#fed136;" class="fa fa-clock-o"></i> 6pm - 9pm Wednesday</h3>
+                        <h3 style = "font-style: normal; color: black; font-size: 16px;  margin-bottom:10px; " ><i style = "color:#fed136;" class="fa fa-clock-o"></i> 24/7 Weekdays</h3>
                         <!-- <p class="text-muted">Graphic Design</p> -->
                     </div>
                 </div>

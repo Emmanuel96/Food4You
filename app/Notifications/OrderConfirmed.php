@@ -38,10 +38,6 @@ class OrderConfirmed extends Notification implements ShouldQueue
     }
 
 
-    public function routeNotificationForNexmo($notification)
-    {
-        return $this->phone;
-    }
     /**
      * Get the mail representation of the notification.
      *

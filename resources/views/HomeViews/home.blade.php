@@ -3,15 +3,14 @@
     <head>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121124308-1"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138253927-1"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'UA-121124308-1');
+            gtag('config', 'UA-138253927-1');
         </script>
-
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -478,6 +477,8 @@
     <script src ="{{URL::asset('js/agency.js')}}" ></script>
     <script src ="{{URL::asset('js/contact_me.js')}}" ></script>
     <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
+
+    
 </body>
 
 </html>
