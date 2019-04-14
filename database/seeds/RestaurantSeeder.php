@@ -148,6 +148,29 @@ class RestaurantSeeder extends Seeder
             'user_phone_number' => '+2347037699184' 
            ]);
 
+           DB::table('restaurants')->insert([
+            'restaurant_name' => "Tosin's Kitchen",
+            'user_id' => '40',
+            'restaurant_status' => 1,
+            'restaurant_id' => 10, 
+            'restaurant_image' => '', 
+            'header_image' => 'eat_is_greek_logo.jpg', 
+            'restaurant_opening_times' => '9:40', 
+            'restaurant_minimum_order' => 2500,     
+            'restaurant_delivery_fee' => 'COLLECTION ONLY',
+            'restaurant_phone_number' => '+447903065903'  
+          ]);
+
+            DB::table('user')->insert([
+                'id'=> 40,
+                'user_name' => 'Tosin',
+                'email' => 'oluwatosinmohammed@yahoo.com',
+                'password' => app('hash')->make('tosin@gmail.com'), 
+                'user_role' => 3, 
+                'user_address' => 'V.I, Lagos', 
+                'user_phone_number' => '+2347037699184' 
+            ]);
+
 
        //  DB::table('user')->insert([
        //      'user_name' => 'Taco Food Van 3',
