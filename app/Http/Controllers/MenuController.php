@@ -111,7 +111,8 @@ class MenuController extends Controller
         $restaurant_status = 1; 
         
        // return $cart->items;
-
+       echo '<pre>'; 
+       var_dump($category2); return; 
         return view('TestViews.menuTestView',
             [
                 'menu'=> $menu, 'products' => $cart->items, 
