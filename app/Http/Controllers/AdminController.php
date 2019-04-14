@@ -8,7 +8,7 @@ use App\Cart;
 use DB; 
 use App\order; 
 use App\Restaurants; 
-use App\category;
+use App\Category;
 use Session;
 use App\Batch;
 use Illuminate\Notifications\Notification; 
@@ -57,7 +57,7 @@ class AdminController extends Controller
 			$new_category = $request->new_category; 
 
 			//then add the category to the category database
-			$create_category = category::create([
+			$create_category = Category::create([
 					'category_name' => $new_category, 
 					'restaurant_id' => 1
 				]);
