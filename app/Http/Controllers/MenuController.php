@@ -79,22 +79,25 @@ class MenuController extends Controller
         $menu = $restaurants->menu()->get()->sortBy('category_id'); 
         $menu->toArray(); 
         //----------------- TEST FOR GROUP BY WITH DB BUILDER ----------------------------- 
-            $category2 =  $menu->groupBy('category_id'); 
-            $category2->toArray(); 
+        $category2 =  $menu->groupBy('category_id'); 
+        $category2->toArray(); 
 
+        // echo ' <pre>'; 
+        // var_dump($category2); 
+        // return; 
 
             
-            // foreach($category2 as $category => $menu)
-            // {
-            //     echo $category; 
-            //     echo '<br>';
-            //     foreach($menu as $m){
-            //         echo $m->product_name; 
-            //     }
-            // }
-            // // echo '<pre>'; 
-            // // var_dump($category2); 
-            // return; 
+        // foreach($category2 as $category => $menu)
+        // {
+        //     echo $category; 
+        //     echo '<br>';
+        //     foreach($menu as $m){
+        //         echo $m->product_name; 
+        //     }
+        // }
+        // echo '<pre>'; 
+        // var_dump($category2); 
+        // return; 
         //------------------ END OF TEST ------------------------------------------------
 
         // $menu =  DB::select('select * from restaurants_products, menu, user where user.name = :name && user.role =3 && restaurants_products.restaurant_id = user.id && menu.item_id = restaurants_products.product_id', ['name' => $name] )->paginate(15);
@@ -111,8 +114,9 @@ class MenuController extends Controller
         $restaurant_status = 1; 
         
        // return $cart->items;
-       echo '<pre>'; 
-       var_dump($category2); return; 
+
+    //    return $category2[0]; 
+
         return view('TestViews.menuTestView',
             [
                 'menu'=> $menu, 'products' => $cart->items, 

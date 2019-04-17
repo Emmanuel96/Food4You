@@ -44,6 +44,8 @@ Route::get('/admin/viewOrders', 'AdminController@viewOrders')->name('admin.viewO
 Route::get('/admin/viewOrders/{slug?}', 'AdminController@viewOrderProducts')->name('admin.viewOrdersDetails');
 Route::post('/admin/InOutOfStock', 'AdminController@InOutOfStock')->name('admin.inOutOfStock');
 Route::post('/admin/notifyCustomerOfOrder', 'AdminController@notifyCustomers')->name('admin.notifyCustomerOfOrder');  
+//--- test routes --//
+Route::get('/admin/products/view', 'AdminController@viewProduct_test'); 
 
 Route::get('/admin/showProduct/{id}', 'AdminController@showProduct')->name('admin.showProduct');
 

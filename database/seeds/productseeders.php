@@ -1098,7 +1098,8 @@ class productseeders extends Seeder
                   'product_price' => 2500,
                   'product_has_extra' => 0,
                   'product_image' => 'sloppy_philly_sandwich.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 1
                 ]);
               
                 DB::table('menu')->insert([
@@ -1107,7 +1108,8 @@ class productseeders extends Seeder
                   'product_price' => 2000,
                   'product_has_extra' => 0,
                   'product_image' => 'grilled_frankfurter.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 1
                 ]);
 
                 DB::table('menu')->insert([
@@ -1116,7 +1118,8 @@ class productseeders extends Seeder
                   'product_price' => 2500,
                   'product_has_extra' => 0,
                   'product_image' => 'french_toast_club_sandwich.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 1
                 ]);
 
                 DB::table('menu')->insert([
@@ -1125,7 +1128,8 @@ class productseeders extends Seeder
                   'product_price' => 2700,
                   'product_has_extra' => 0,
                   'product_image' => 'french_toast_bes_sandwich.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 1
                 ]);
 
                 
@@ -1135,7 +1139,8 @@ class productseeders extends Seeder
                   'product_price' => 2500,
                   'product_has_extra' => 0,
                   'product_image' => 'BES_sandwich.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 1
                 ]);
 
                 DB::table('menu')->insert([
@@ -1144,19 +1149,20 @@ class productseeders extends Seeder
                   'product_price' => 2500,
                   'product_has_extra' => 0,
                   'product_image' => 'bbq_chicken_sandwich.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 1
                 ]);
                
               
                 
-                DB::table('menu')->insert([
-                  'product_name' => 'Shawarma',
-                  'product_description' => 'Shawarma',
-                  'product_price' => 2200,
-                  'product_has_extra' => 0,
-                  'product_image' => 'shawarma.jpeg',
-                  'restaurant_id' => 0
-                ]);
+                // DB::table('menu')->insert([
+                //   'product_name' => 'Shawarma',
+                //   'product_description' => 'Shawarma',
+                //   'product_price' => 2200,
+                //   'product_has_extra' => 0,
+                //   'product_image' => 'shawarma.jpeg',
+                //   'restaurant_id' => 0
+                // ]);
 
 
                 // DB::table('menu')->insert([
@@ -1176,7 +1182,8 @@ class productseeders extends Seeder
                   'product_price' => 40000,
                   'product_has_extra' => 0,
                   'product_image' => 'basic_platter.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 2
                 ]);
 
                 DB::table('menu')->insert([
@@ -1185,7 +1192,8 @@ class productseeders extends Seeder
                   'product_price' => 80000,
                   'product_has_extra' => 0,
                   'product_image' => 'basic_platter.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 2
                 ]);
 
                 DB::table('menu')->insert([
@@ -1194,7 +1202,8 @@ class productseeders extends Seeder
                   'product_price' => 40000,
                   'product_has_extra' => 0,
                   'product_image' => 'finger_food_lite.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 2
                 ]);
 
                 DB::table('menu')->insert([
@@ -1203,7 +1212,8 @@ class productseeders extends Seeder
                   'product_price' => 1500,
                   'product_has_extra' => 0,
                   'product_image' => 'cinnamon_french_toast.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 3
                 ]);
 
                 DB::table('menu')->insert([
@@ -1212,7 +1222,8 @@ class productseeders extends Seeder
                   'product_price' => 70000,
                   'product_has_extra' => 0,
                   'product_image' => 'finger_food_deluxe.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 2
                 ]);
 
                 DB::table('menu')->insert([
@@ -1221,7 +1232,8 @@ class productseeders extends Seeder
                   'product_price' => 50000,
                   'product_has_extra' => 0,
                   'product_image' => 'soupreme.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 2
                 ]);
 
                 DB::table('menu')->insert([
@@ -1230,7 +1242,8 @@ class productseeders extends Seeder
                   'product_price' => 100000,
                   'product_has_extra' => 0,
                   'product_image' => 'soupreme.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 2
                 ]);
 
                 DB::table('menu')->insert([
@@ -1239,7 +1252,8 @@ class productseeders extends Seeder
                   'product_price' => 55000,
                   'product_has_extra' => 0,
                   'product_image' => 'deluxe.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 2
                 ]);
 
                 DB::table('menu')->insert([
@@ -1248,7 +1262,8 @@ class productseeders extends Seeder
                   'product_price' => 110000,
                   'product_has_extra' => 0,
                   'product_image' => 'deluxe.jpeg',
-                  'restaurant_id' => 0
+                  'restaurant_id' => 0, 
+                  'category_id' => 2
                 ]);
               
           }}   

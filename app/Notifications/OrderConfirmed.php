@@ -19,11 +19,12 @@ class OrderConfirmed extends Notification implements ShouldQueue
      */
 
     private $payment_ref; 
+    private $order_id; 
 
-    public function __construct($ref)
+    public function __construct($ref, $order_id)
     {
         $this->payment_ref = $ref;
-
+        $this->order_id = $order_id; 
     }
 
     /**
@@ -48,8 +49,8 @@ class OrderConfirmed extends Notification implements ShouldQueue
     {
         return (new NexmoMessage)
             
-                    ->content('Thanks for ordering from HUNGRY ROUT3S '.
-                     'Here is your Order Reference: #'.$this->payment_ref. '.')
+                    ->content('Thank you for ordering from HUNGRY ROUT3S '.
+                     'Here is your Order Reference: #'.$this->payment_ref. ". Here's a link to track your order: naijabites.com/order/tracking/".$order_id ); 
 
                     ;
     }

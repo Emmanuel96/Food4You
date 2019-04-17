@@ -14,8 +14,18 @@ class categorySeeder extends Seeder
     {
         //
         
+        // DB::table('categories')->insert([
+        //    'category_name' => 'Drinks',
+        //     'restaurant_id' => 10,
+        // ]);
+
         DB::table('categories')->insert([
-           'category_name' => 'Drinks',
+            'category_name' => 'Sandwitch',
+            'restaurant_id' => 0,
+        ]);
+
+        DB::table('categories')->insert([
+            'category_name' => 'Platter',
             'restaurant_id' => 0,
         ]);
 
@@ -24,9 +34,6 @@ class categorySeeder extends Seeder
             'restaurant_id' => 0,
         ]);
 
-        DB::table('categories')->insert([
-            'category_name' => 'Platter',
-            'restaurant_id' => 0,
-        ]);
+       
     }
 }

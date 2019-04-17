@@ -50,6 +50,15 @@ class AdminController extends Controller
 			'product_price' => 'required|int',
 			'product_image' => 'required',
 	   ]);
+
+	   	//get the current logged in restaurant 
+		if(session::has('logged_in_restaurant'))
+		{
+			$logged_in_restaurant = session::get('logged_in_restaurant'); 
+		}
+		else{
+			return redirect::back(); 
+		}
 		
 		if($request->new_category != null)
 		{
@@ -59,10 +68,11 @@ class AdminController extends Controller
 			//then add the category to the category database
 			$create_category = Category::create([
 					'category_name' => $new_category, 
-					'restaurant_id' => $logged_in_restaurant
+					'restaurant_id' => $logged_in_restaurant->restaurant_id
 				]);
+				// return $create_category->category_id; 
 			//category to store on the products page will be an id 
-			$category = $create_category->category_name; 
+			$category = $create_category; 
 		}
 		else {
 		// {
@@ -77,21 +87,18 @@ class AdminController extends Controller
 			$category = $request->category; 
 		}
 		
-		//get the current logged in restaurant 
-		if(session::has('logged_in_restaurant'))
-		{
-			$logged_in_restaurant = session::get('logged_in_restaurant'); 
-		}
+	
 
 		$image_name = str_replace(' ', '', $request->input('product_name')).'.'.$request->product_image->getClientOriginalExtension(); 
 
+		// return $category->category_id; 
 
 		//FIRSTLY, WE CREATE THE PRODUCT AND STORE IT IN THE MENU TABLE 
 		$menu = menu::create([
 			'product_name'=> $request->input('product_name'), 
 			'product_description' => $request->input('product_description'), 
 			'product_price' => $request->product_price,
-			'category' => $category,
+			'category_id' => $category->category_id,
 			'product_image'=> $image_name,
 			'restaurant_id' => $logged_in_restaurant->restaurant_id
 
@@ -585,5 +592,36 @@ class AdminController extends Controller
 			$restaurant->save(); 
 			return; 
 		}
+	}
+
+	public function viewProduct_test(Request $request){
+		//variable to store my restaurants product details 
+		$restaurant_product = null; 
+		//we need to get the products for that particular restaurant or everything for the admin 
+		$user = Auth::user(); 
+
+		//next time we should find the matching restaurant
+
+		//if it's an admin user
+		if($user->user_role == 1)
+		{
+			$products = menu::all(); 
+		}
+		else 
+		{
+			//else select the products only for that particular user
+			// $products = DB::select('select * from restaurants_products, menu where restaurants_products.restaurant_id = :id && menu.item_id = restaurants_products.product_id', ['id' => $user->id] );
+			//else get the id of the restaurant 
+			$restaurant_id = DB::select("select restaurant_id from restaurants where user_id = :user_id", ['user_id'=> $user->id]);
+			$restaurant_id = $restaurant_id[0]->restaurant_id;
+
+			$products = Menu::where('restaurant_id', '=', $restaurant_id)->get();
+		}
+
+		$orders = order::where('order_status', '=','1')->get(); 
+		//get the number of orders with a status of 1
+		$order_count = order::where('order_status', '=', '1')->count(); 
+
+		return view('AdminViews.viewProduct_test', ['products'=> $products]); 	
 	}
 }

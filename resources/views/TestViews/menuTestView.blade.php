@@ -384,8 +384,7 @@
 
 
     <div id = "category_nav" class="categoryNav center" style = "font-family: Montserrat, Helvetica, sans-serif; background-color: #fff; padding-left: 72px; padding-right:100px; height: 55px; margin-bottom: 20px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
-    	<ul class="nav navbar-nav nav-left " style = "margin-top: auto; margin-bottom: auto;    font-family: ClanPro-News, Helvetica, sans-serif;
- ">
+    	<ul class="nav navbar-nav nav-left " style = "margin-top: auto; margin-bottom: auto;    font-family: ClanPro-News, Helvetica, sans-serif;">
             @if($categories != null)
                @foreach($categories as $category)
                     <li class="nav-item"><a href = "#{{$category->category_name}}" class="nav-link cat-link page-scroll">{{$category->category_name}}</a></li>
@@ -402,8 +401,8 @@
          <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
            <div id = "basket_basket">
            <?php
-            $subTotal = 0; 
-            $total = 0;  
+                $subTotal = 0; 
+                $total = 0;  
            ?>
           @if($products!= null)
           <?php
@@ -503,8 +502,8 @@
                     <!-- For each statment to display products We need i to count 3 for items in each row , later versions should use the chunk method -->
 
                     <?php $i = 0; ?>
-                    @foreach($category2 as $key => $menu)
-                        <h2 id = "{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}">{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}</h2>
+                 @foreach($category2 as $key => $menu)     
+                      <h2 id = "{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}">{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}</h2>   
 
                         @foreach ($menu as $m)
 
@@ -515,7 +514,6 @@
 
                                     <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
                                         <div class="w3-container w3-center">
-                                            <!-- <h3>{{$m->product_name}}</h3> -->
                                             <h4>{{$m->product_name}}</h4>
                                             <img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
 
@@ -541,7 +539,7 @@
                                     <?php $i++ ?>
                                 @endif
                         @endforeach
-                    @endforeach
+                   @endforeach 
                 </div>
             </div> 
         </div>	
