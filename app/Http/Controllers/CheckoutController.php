@@ -190,7 +190,7 @@ class CheckoutController extends Controller
         $buyer_phone_number = "+234".substr($buyer_phone_number,1, 10); 
 
         Notification::route('nexmo', $buyer_phone_number) 
-            ->notify(new OrderConfirmed($orders->payment_ref)); 
+            ->notify(new OrderConfirmed($orders->payment_ref, $orders->order_id)); 
         
         //send text message to user confirming order 
         // $orders->notify(new OrderConfirmed($orders->payment_ref));

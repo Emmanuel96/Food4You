@@ -299,6 +299,13 @@
     <!-- Navigation -->
     <nav style="background-color:00000;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
+
+            <nav id = "sidebar" >
+                <div class = "sidebar-header">
+                    <h3>Menu</h3>
+                </div>
+            </nav>
+            
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll" >
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
