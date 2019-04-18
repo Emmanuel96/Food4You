@@ -300,9 +300,9 @@
     <nav style="background-color:00000;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
 
-            <nav id = "sidebar" >
+            <nav id = "sidebar fixed" >
                 <div class = "sidebar-header">
-                    <h3>Menu</h3>
+                    <!-- <h3>Menu</h3> -->
                 </div>
             </nav>
             

@@ -50,7 +50,7 @@ class OrderConfirmed extends Notification implements ShouldQueue
         return (new NexmoMessage)
             
                     ->content('Thank you for ordering from HUNGRY ROUT3S '.
-                     'Here is your Order Reference: #'.$this->payment_ref. ". Here's a link to track your order: naijabites.com/order/tracking/".$order_id ); 
+                     'Here is your Order Reference: #'.$this->payment_ref. ". Here's a link to track your order: naijabites.com/order/tracking/".$this->order_id ); 
 
                     ;
     }
