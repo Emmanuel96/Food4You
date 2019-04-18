@@ -64,7 +64,7 @@ class newOrderReceived extends Notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-                    ->content("Hello from Hungry Rout3s.". $this->user_name. ' ('. $this->buyer_phone_number.') just made an order');
+                    ->content("Hello from Hungry Rout3s. ". $this->user_name. ' ('. $this->buyer_phone_number.') just made an order');
     }
 
     public function toArray($notifiable)

@@ -180,7 +180,7 @@
                     margin-left: auto !important;
                     margin-right: auto !important;
                 }
-                #category_nav_restaurants.affix
+                #category_nav_restaurants.affix                                                                   
               {
                 top: 51px;
                 width: 100%;
