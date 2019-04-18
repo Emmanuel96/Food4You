@@ -72,10 +72,13 @@
                       <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">Category *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12"> 
-                            <select name="category" id="inlineFormCustomSelect" class="form-control col-md-7 col-xs-12">
-                                <option selected>Select Category...</option>
+                            <select name="category" id="inlineFormCustomSelect" class="form-control col-md-7 col-xs-12" >
                                 @foreach($category_array as $data)
-                                  <option value="{{$data->category_id}}">{{$data->category_name}}</option>
+                                  @if($data->category_id == $product->category_id)
+                                    <option value = "{{$data->category_id}}" selected>{{$data->category_name}}</option>
+                                  @else
+                                    <option value="{{$data->category_id}}">{{$data->category_name}}</option>
+                                  @endif
                                 @endforeach                      
                             </select>
                           </div>
@@ -83,14 +86,11 @@
                          <div class="form-group">
                           <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-<<<<<<< HEAD
-                            <img name = "current_image" class = "img-responsive" alt = " No image"  id = "product-image" src =  "/storage/images/{{$product->product_image}}"   >
-                            <input class="form-control col-md-7 col-xs-12" value = "{{$product->product_image}}" type="file" name = "product_image">                                                                                                                                                                                                     
-=======
-                          <img name = "current_image" class = "img-responsive" alt = " No image"  id = "product-image" src =  "/storage/images/{{$product->product_image}}"   >
-                          <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
-                          <input value = "{{$product->product_image}}" type = "file " id = "product-image" name = "product_image[]"/>
->>>>>>> 56329e7eedf288881b8204f8b3750b547bc30ae9
+
+                            <img  class = "img-responsive" style = "border-radius: 5px; width: 300px; height: 280px; margin-left: auto; margin-right: auto; margin-bottom: 10px; " id = "img-display" alt = " No image"  id = "product-image" src =  "/storage/images/{{$product->product_image}}"   >
+                            <input onchange= "onChangeDisplayImage(this)" id = "product-image" name = "product_image" value = "{{$product->product_image}}" class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
+                            <input type = "hidden" name = "product_prev_img" value = "{{$product->product_image}}" />
+
                           </div>
                         </div>
                         <div class="form-group">
@@ -152,4 +152,22 @@
       <!-- Custom Theme Scripts -->
       <script src="{{URL::asset('js/custom.min.js')}}"></script>
 
+      <script>
+
+        function onChangeDisplayImage(input) {
+
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+              $('#img-display').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+
+      </script>
+
+      
  @endsection     
