@@ -37,13 +37,14 @@ class AdminController extends Controller
 
 	public function createProduct(Request $request)
 	{
-		//firstly we get the user
-		$user = Auth::user(); 		
+		// //FIRSTLY WE GET THE LOGGED IN USER
+		// $user = Auth::user(); 		
 
+		
 		$messages = [     
             'product.name.unique' => 'Product name already exists', 
 		];
-		
+		//VALIDATE THE REQUEST INPUT
 		$request->validate([
 			'product_name' => 'required|unique:menu',
 			'product_description' => 'required',
@@ -51,13 +52,14 @@ class AdminController extends Controller
 			'product_image' => 'required',
 	   ]);
 
-	   	//get the current logged in restaurant 
+	   	//GET THE CURRENT RESTAURANT 
 		if(session::has('logged_in_restaurant'))
 		{
 			$logged_in_restaurant = session::get('logged_in_restaurant'); 
 		}
 		else{
-			return redirect::back(); 
+			//IF NO CURRENT LOGGED IN RESTAURANT REDIRECT BACK
+			return redirect::route('home'); 
 		}
 		
 		if($request->new_category != null)
@@ -70,30 +72,19 @@ class AdminController extends Controller
 					'category_name' => $new_category, 
 					'restaurant_id' => $logged_in_restaurant->restaurant_id
 				]);
-				// return $create_category->category_id; 
-			//category to store on the products page will be an id 
 			$category = $create_category; 
 		}
 		else {
-		// {
-		// 	$request->validate([
-		// 		'product_name' => 'required|unique:menu',
-		// 		'product_description' => 'required',
-		// 		'product_price' => 'required',
-		// 		'category' => 'required',
-		// 		'product_image' => 'required',
-		//    ]);
-		   
 			$category = $request->category; 
 		}
-		
-	
 
+		//REMOVE ALL SPACE FROM THE PROUDCT NAME TO FORM THE IMAGE NAME
 		$image_name = str_replace(' ', '', $request->input('product_name')).'.'.$request->product_image->getClientOriginalExtension(); 
 
-		// return $category->category_id; 
+		//STORING THE IMAGE ON THE SERVER
+		$file = $request->file('product_image')->storeAs('images',$image_name);
 
-		//FIRSTLY, WE CREATE THE PRODUCT AND STORE IT IN THE MENU TABLE 
+		//CREATE THE NEW PRODUCT WITHT THE PASSED INPUTS
 		$menu = menu::create([
 			'product_name'=> $request->input('product_name'), 
 			'product_description' => $request->input('product_description'), 
@@ -104,26 +95,9 @@ class AdminController extends Controller
 
 		]);
 
-		//STORING THE IMAGE 
-		$file = $request->file('product_image')->storeAs('images',$image_name);
-		// Storage::disk('public')->put($file, 'Contents');
-				
-
 		return redirect()->route('admin.addProduct', ['menu' => $menu ])
-			->with('success', $request->input('product_name').  ' Added Successfully');
-																																																
-		}	
-
-
-		// //get the user id and the product id
-		// $user_id = $user->id; 
-		// $product_id = $menu->product_id; 
-
-		// //NEXT STEP IS TO CREATE THE RESTAURANT PRODUCT TABLE ROW 
-		// $restaurant_product = DB::insert("insert into restaurants_products (restaurant_id, product_id) values (?, ?)", [$user_id,$product_id]);
-
-
-	
+			->with('success', $request->input('product_name').  ' Added Successfully');																																													
+	}	
 
 	public function viewProducts(Request $request)
 	{
@@ -265,31 +239,43 @@ class AdminController extends Controller
 	{
 		$menu = menu::where('product_id', $id)->find($id);
 		
+		//VALIDATE THE REQEUST FROM THE FORM 
 		$Request->validate([
 			'product_name' => 'required',
 			'product_price' => 'required',
 			'category' => 'required',
-			'product_image' => 'required',
+			// 'product_image' => 'required',
 			'product_description' => 'required|max:255',
 		]);
+		
+		//IF USER CHANGED THE IMAGE
+		if($Request->product_image != null){
+			//CONTANTONATE THE PRODUCT NAME WITH THE CLIENT EXTENSION		
+			$image_name = str_replace(' ', '', $Request->input('product_name')).'.'.$Request->product_image->getClientOriginalExtension(); 
 
-		$image_name = str_replace(' ', '', $Request->input('product_name')).'.'.$Request->product_image->getClientOriginalExtension(); 
 
-		DB::table('menu')
-		->where('product_id', $id)	
-		->update(['product_name' => $Request->product_name , 
-				'product_price' => $Request->product_price , 
-				'category' => $Request->category, 
-				'product_image' => $image_name,
-				'product_description' => $Request->product_description
-				]);
+			//STORE NEW VALUE OF IMAGE TO REPLACE THE OLD ONE
+			$file = $Request->file('product_image')->storeAs('images',$image_name);
 
+			//STORE THE NEW MENU IMAGE
+			$menu->product_image = $image_name; 
+
+		}
+
+		
+		//CHANGE THE MENU DETAILS TO THE NEW VALUES PASASED
+		$menu->product_name = $Request->product_name; 
+		$menu->product_price = $Request->product_price; 
+		$menu->category_id = $Request->category; 
+		$menu->product_description = $Request->product_description; 
+
+		
+		//SAVE THE UPDATED VALUES 
+		$menu->save(); 
+
+		//PASS SUCCESSFUL MESSAGE TO THE VIEW PRODUCTS PAGE
 		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
 		
-		$file = $Request->file('product_image')->storeAs('images',$image_name);
-		// Storage::disk('public')->put($imageName, 'Contents');
-
-		return $menu;
 		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
 		
 		return redirect('admin/viewProducts')->with('success', 'menu updated successfully!');
