@@ -86,6 +86,13 @@
 /*END Form Wizard*/
 
 
+@media(max-width: 700px){
+    .header-text{
+        font-size: 18px; 
+        padding: 10px;
+    }
+
+}
 @media(max-width: 500px)
 {
     .bs-wizard > .bs-wizard-step .bs-wizard-stepnum {
@@ -104,7 +111,7 @@
 
 <div class="container" style= "margin-top: 100px;">
 		
-        <h2 class = "text-center" style= "margin-bottom: 30px; ">
+        <h2 class = "text-center header-text" style= "margin-bottom: 30px; ">
             We appreciate your order & really hope to see you again. 
         </h2>
         <div class="row bs-wizard" style="border-bottom:0;">

@@ -3,6 +3,7 @@
 @section('content')
 
 <style>
+
 .bs-wizard {
     margin-top: 40px;
 }
@@ -83,6 +84,15 @@
      pointer-events: none; 
 }
 /*END Form Wizard*/
+
+
+@media(max-width: 700px){
+    .header-text{
+        font-size: 18px; 
+        padding: 10px;
+    }
+
+}
 
 
 @media(max-width: 500px)
