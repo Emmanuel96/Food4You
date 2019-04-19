@@ -176,8 +176,8 @@ class CheckoutController extends Controller
         $orders = order::where('order_slug','=', session::get('order_slug'))->first();
 
         //text message to I, Emmanuel, the admin
-        // Notification::route('nexmo', '+2347037699184')
-        //   ->notify(new newOrderReceived($orders->buyer_phone_number, $orders->buyer_user_name));
+        Notification::route('nexmo', '+2347037699184')
+          ->notify(new newOrderReceived($orders->buyer_phone_number, $orders->buyer_user_name));
 
         //text message to our beloved Restaurant
         $restaurant = Restaurants::find($orders->restaurant_id); 
@@ -189,11 +189,11 @@ class CheckoutController extends Controller
         $buyer_phone_number = $orders->buyer_phone_number;
         $buyer_phone_number = "+234".substr($buyer_phone_number,1, 10); 
 
-        // Notification::route('nexmo', $buyer_phone_number) 
-        //     ->notify(new OrderConfirmed($orders->payment_ref, $orders->order_id)); 
+        Notification::route('nexmo', $buyer_phone_number) 
+            ->notify(new OrderConfirmed($orders->payment_ref, $orders->order_id)); 
         
         //send text message to user confirming order 
-        // $orders->notify(new OrderConfirmed($orders->payment_ref));
+        $orders->notify(new OrderConfirmed($orders->payment_ref));
         //if payment was successful then order status = 1
         if($paymentDetails['status'] ==1)
         {
