@@ -11,6 +11,7 @@
 
             gtag('config', 'UA-138253927-1');
         </script>
+        <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
 
 
         <meta charset="utf-8">

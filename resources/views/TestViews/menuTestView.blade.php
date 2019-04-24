@@ -16,7 +16,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-
+        <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
 
         <title>Naija Bites</title>
 
@@ -47,7 +47,6 @@
    <!--   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
         <![endif]--> 
@@ -59,6 +58,9 @@
             header{
                 background-image: url('/storage/images/{{ $restaurant->header_image }}')
             }
+            /* body{
+                background-image: url('/storage/images/menu-background.png');
+            } */
             .flat-table {
                 display: block;
                 font-family: Montserrat, Helvetica, sans-serif;
@@ -235,19 +237,18 @@
                     padding: 15px 5px !important; 
                  }
             }
-
            
-               @media screen and (min-width: 991px) {
-             /* start of large tablet styles */
-                 .categoryNav
-                 {
-                     padding-right: 10px !important; 
+            @media screen and (min-width: 991px) {
+            /* start of large tablet styles */
+                .categoryNav
+                {
+                    padding-right: 10px !important; 
                     padding-left: 10px !important;
-                 }
-                 #basket_div.basket
-                 {
+                }
+                #basket_div.basket
+                {
 
-                 }
+                }
 
               .basket.pull-right
               {

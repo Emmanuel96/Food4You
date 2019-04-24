@@ -12,24 +12,27 @@
       gtag('config', 'UA-138253927-1');
   </script>
 
+  <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
+
+
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
-    <!-- Bootstrap -->
-    <link href="{{URL::asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{{URL::asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="{{URL::asset('vendors/nprogress/nprogress.css')}}" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="{{URL::asset('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
-    <!-- Datatables -->
-    <link href="{{URL::asset('vendors/datatables.net-bs/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Custom Theme Style -->
-    <link href="{{URL::asset('css/custom.min.css')}}" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="{{URL::asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="{{URL::asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="{{URL::asset('vendors/nprogress/nprogress.css')}}" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="{{URL::asset('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
+  <!-- Datatables -->
+  <link href="{{URL::asset('vendors/datatables.net-bs/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{URL::asset('vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{URL::asset('vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{URL::asset('vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{URL::asset('vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
+  <!-- Custom Theme Style -->
+  <link href="{{URL::asset('css/custom.min.css')}}" rel="stylesheet">
 
   </head>
   <style>
