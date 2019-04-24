@@ -52,15 +52,34 @@
         <![endif]--> 
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+        <script>
+            function formatCur(thatPrice, value){
+                const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'NGN',
+                currencyDisplay: 'symbol',
+                minimumFractionDigits: 2
+                })
+                // alert(thatPrice);
+                thatPrice.value = formatter.format(value); 
+            }
+          
+
+            // return formatter.format(value) // "$123,233,000.00"   
+        </script>
 
         <style>
 
+           .ellipse{
+            font-size: 15px; display: block; width: 12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
+           }
             header{
                 background-image: url('/storage/images/{{ $restaurant->header_image }}')
             }
-            /* body{
-                background-image: url('/storage/images/menu-background.png');
-            } */
+            body{
+                /* background-image: url('/storage/images/menu-background.png'); */
+                font-family: 'Roboto';
+            }
             .flat-table {
                 display: block;
                 font-family: Montserrat, Helvetica, sans-serif;
@@ -132,6 +151,12 @@
 
             @media screen and (max-width: 450px)
             {
+                .navbar-header{
+                    background-color: black; 
+                }
+                .ellipse{
+                    width: 20em;    
+                }
 
                 #restaurant_info
                 {
@@ -266,9 +291,18 @@
               }
             }
 
-          @media screen and (max-width: px)
+          @media screen and (min-width: 760px) and (max-width: 800px)
           {
-                
+                .ellipse{
+                    width: 7em;
+                }
+          }
+
+          @media screen and (min-width: 1000px) and (max-width: 1080px)
+          {
+                .ellipse{
+                    width: 10em;
+                }
           }
 
 
@@ -515,14 +549,14 @@
 
                                     <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
                                         <div class="w3-container w3-center">
-                                            <h4>{{$m->product_name}}</h4>
+                                            <h4 class = "ellipse">{{$m->product_name}}</h4>
                                             <img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
 
                                             <div class="w3-section">
                                                 <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
                                             </div>
                                             <div class="w3-section">
-                                                <h3>₦{{$m->product_price}}</h3>
+                                                <h3 style = "font-size: 14px;" id = "product_price">₦<script>formatCur(this,"{{$m->product_price}}"); </script></h3>
                                             </div>
                                         </div>
                                     </div>
@@ -870,6 +904,7 @@
      window.onload = CheckOutBtnStatus; 
   
 </script>
+
 
 
 
