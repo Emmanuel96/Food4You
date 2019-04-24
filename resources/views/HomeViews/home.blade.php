@@ -18,6 +18,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
+        <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
 
         <title>Naija Bites</title>
 
