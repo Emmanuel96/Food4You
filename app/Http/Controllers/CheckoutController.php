@@ -193,7 +193,7 @@ class CheckoutController extends Controller
             ->notify(new OrderConfirmed($orders->payment_ref, $orders->order_id)); 
         
         //send text message to user confirming order 
-        $orders->notify(new OrderConfirmed($orders->payment_ref));
+        // $orders->notify(new OrderConfirmed($orders->payment_ref));
         //if payment was successful then order status = 1
         if($paymentDetails['status'] ==1)
         {
