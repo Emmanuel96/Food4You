@@ -39,8 +39,6 @@ class AdminController extends Controller
 	{
 		// //FIRSTLY WE GET THE LOGGED IN USER
 		// $user = Auth::user(); 		
-
-		
 		$messages = [     
             'product.name.unique' => 'Product name already exists', 
 		];
@@ -71,7 +69,7 @@ class AdminController extends Controller
 			$create_category = Category::create([
 					'category_name' => $new_category, 
 					'restaurant_id' => $logged_in_restaurant->restaurant_id
-				]);
+			]);
 			$category = $create_category; 
 		}
 		else {

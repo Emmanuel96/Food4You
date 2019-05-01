@@ -20,7 +20,7 @@
 
         <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
 
-        <title>Naija Bites</title>
+        <title>Naija Bites - A satisfying meal.</title>
 
 
 

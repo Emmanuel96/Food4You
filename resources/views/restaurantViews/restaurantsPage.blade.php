@@ -21,7 +21,7 @@
         <meta name="author" content="">
 
 
-        <title>Naija Bites</title>
+        <title>Naija Bites - A satisfying meal.</title>
 
 
 

@@ -18,7 +18,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
 
-        <title>Naija Bites</title>
+        <title>Naija Bites - A satisfying meal.</title>
 
 
 
@@ -53,15 +53,17 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <script>
-            function formatCur(thatPrice, value){
+            function formatCur(id, value){
                 const formatter = new Intl.NumberFormat('en-US', {
                 style: 'currency',
                 currency: 'NGN',
                 currencyDisplay: 'symbol',
                 minimumFractionDigits: 2
                 })
-                // alert(thatPrice);
-                thatPrice.value = formatter.format(value); 
+                alert(document.getElementById(id)); 
+                console.log(id);
+                // thatPrice.value = formatter.format(value); 
+                // alert(thatPrice); 
             }
           
 
@@ -329,30 +331,30 @@
                         Menu  <i class="fa fa-bars"></i>
                     @else
                         <li class="nav-item dropdown">
-                                    <a style = "color:black;"  class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        {{ Auth::user()->user_name }} <span class="caret"></span>
+                            <a style = "color:black;"  class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->user_name }} <span class="caret"></span>
+                            </a>
+
+                            <ul style="color:black;" class="dropdown-menu" role="menu">
+                                <li class="nav-item">
+                                    <a style = "color:black;" class="nav-link" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                        Logout
                                     </a>
 
-                                    <ul style="color:black;" class="dropdown-menu" role="menu">
-                                        <li class="nav-item">
-                                            <a style = "color:black;" class="nav-link" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                                Logout
-                                            </a>
-
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                {{ csrf_field() }}
-                                            </form>
-                                        </li>
-                                        @if(Auth::user()->user_role == 1 || Auth::user()->user_role == 3)
-                                            <li class = "nav-item">
-                                                <a style = "color:black;" class="nav-link" href="{{route('admin.viewProducts')}}">
-                                                    Dashboard
-                                                </a>
-                                            </li>
-                                        @endif
-                                    </ul>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                                @if(Auth::user()->user_role == 1 || Auth::user()->user_role == 3)
+                                    <li class = "nav-item">
+                                        <a style = "color:black;" class="nav-link" href="{{route('admin.viewProducts')}}">
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                @endif
+                            </ul>
                         </li>
                     @endif
                 </button>
@@ -537,7 +539,7 @@
                     <!-- For each statment to display products We need i to count 3 for items in each row , later versions should use the chunk method -->
 
                     <?php $i = 0; ?>
-                 @foreach($category2 as $key => $menu)     
+                      @foreach($category2 as $key => $menu)     
                       <h2 id = "{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}">{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}</h2>   
 
                         @foreach ($menu as $m)
@@ -556,7 +558,8 @@
                                                 <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
                                             </div>
                                             <div class="w3-section">
-                                                <h3 style = "font-size: 14px;" id = "product_price">₦<script>formatCur(this,"{{$m->product_price}}"); </script></h3>
+                                                <h3 style = "font-size: 14px;" id = "product_price_{{$m->product_id}}">₦ {{number_format($m->product_price)}} </h3>
+                                                <!-- <script>formatCur(this,"{{$m->product_price}}"); </script> -->
                                             </div>
                                         </div>
                                     </div>

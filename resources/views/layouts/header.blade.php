@@ -19,9 +19,9 @@
         <meta name= "csrf-token" content = "{{ csrf_token() }}"/>
 
 
-        <title>Naija Bites</title>
+        <title>Naija Bites - A satisfying meal.</title>
         
-        <link rel="shortcut icon" href="/storage/images/food4you.ico" />
+        <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
 
 
 

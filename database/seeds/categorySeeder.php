@@ -34,6 +34,11 @@ class categorySeeder extends Seeder
             'restaurant_id' => 0,
         ]);
 
+        DB::table('categories')->insert([
+            'category_name' => 'Others',
+            'restaurant_id' => 50,
+        ]);
+
        
     }
 }

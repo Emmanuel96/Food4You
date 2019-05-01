@@ -1265,5 +1265,21 @@ class productseeders extends Seeder
                   'restaurant_id' => 0, 
                   'category_id' => 2
                 ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Deluxe (2 Weeks)',
+                  'product_description' => 'Szechuan Beef Stir Fry . Egg Fried Rice . Poulet DG . Special Fried Rice . Chicken Stir Fry . BBQ Ribs . Caramel Vanilla Oreo Cheesecake (Triple Layered Delight) . lasts for 1 week ',
+                  'product_price' => 5000,
+                  'product_has_extra' => 0,
+                  'product_image' => 'deluxe.jpeg',
+                  'restaurant_id' => 50, 
+                  'category_id' => 4
+                ]);
+
+
+
+
+                //PRODUCTS FOR SLIPPERY RESTAURANT: 
+                
               
           }}   
