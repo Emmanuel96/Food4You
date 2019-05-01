@@ -522,7 +522,7 @@ class AdminController extends Controller
 			$restaurants = Restaurants::all();
 			//return $restaurants;
 
-			return view('adminViews.editRestaurantProfile', compact('restaurant', 'restaurants'));	
+			return view('AdminViews.editRestaurantProfile', compact('restaurant', 'restaurants'));	
 
 
 			} 
