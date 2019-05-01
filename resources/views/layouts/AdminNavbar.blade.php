@@ -50,7 +50,7 @@
                     </ul>
                   </div>
                 </div>
-    
+
                 <!-- /menu footer buttons -->
                 <div class="sidebar-footer hidden-small" >
 <!-- 
@@ -120,13 +120,18 @@
                         <span class=" fa fa-angle-down"></span>
                       </a>
                       
-                        <ul class="dropdown-menu dropdown-usermenu pull-right">
-                          
-                          <li class = "dropdown-menu dropdown-usermenu"><a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                              {{ csrf_field() }}
-                          </form>
-                      
+                      <ul class="dropdown-menu dropdown-usermenu pull-right">
+                        
+                        <li class = "dropdown-menu dropdown-usermenu">
+                          <a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> 
+                            <i class="fa fa-sign-out pull-right"></i> Log Out
+                          </a>
+                        </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                        <li class = "dropdown-menu dropdown-usermenu"> <a href="/admin/editRestaurantProfile/{Session::get('logged_in_restaurant')}" > <i class = "glyphicon glyphicon-edit"></i> Profile </a> </li>
+                        
                       </ul>
                       
                     </li>

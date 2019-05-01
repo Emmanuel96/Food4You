@@ -559,7 +559,6 @@
                                             </div>
                                             <div class="w3-section">
                                                 <h3 style = "font-size: 14px;" id = "product_price_{{$m->product_id}}">₦ {{number_format($m->product_price)}} </h3>
-                                                <!-- <script>formatCur(this,"{{$m->product_price}}"); </script> -->
                                             </div>
                                         </div>
                                     </div>
