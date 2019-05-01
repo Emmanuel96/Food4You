@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Hungry Rout3s Admin</title>
+  <title>Naija Bites   - Restaurants </title>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138253927-1"></script>
   <script>
@@ -413,7 +413,7 @@
       var url = ""; 
 
       var toggleValue = mytoggle.checked; 
-      alert(toggleValue);
+      // alert(toggleValue);
       if(toggleValue == true)
       {
         url = "{{route('admin.open_restaurant')}}"; 
@@ -431,7 +431,7 @@
           dataType: 'json',
           success: function(output)
           {
-            alert('successful'); 
+            // alert('successful'); 
           }
       });   
     }
