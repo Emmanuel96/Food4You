@@ -68,13 +68,15 @@ class AdminController extends Controller
 			//then add the category to the category database
 			$create_category = Category::create([
 					'category_name' => $new_category, 
-					'restaurant_id' => $logged_in_restaurant->restaurant_id
+					'restaurant_id' => $logged_in_restaurant->restaurant_id 
 			]);
 			$category = $create_category; 
 		}
 		else {
 			$category = $request->category; 
 		}
+
+		return $logged_in_restaurant;
 
 		//REMOVE ALL SPACE FROM THE PROUDCT NAME TO FORM THE IMAGE NAME
 		$image_name = str_replace(' ', '', $request->input('product_name')).'.'.$request->product_image->getClientOriginalExtension(); 
