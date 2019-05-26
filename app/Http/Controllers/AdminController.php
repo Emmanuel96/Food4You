@@ -68,7 +68,7 @@ class AdminController extends Controller
 			//then add the category to the category database
 			$create_category = Category::create([
 					'category_name' => $new_category, 
-					'restaurant_id' => $logged_in_restaurant->restaurant_id 
+					'restaurant_id' => $logged_in_restaurant->user_name 
 			]);
 			$category = $create_category; 
 		}
