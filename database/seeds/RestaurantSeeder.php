@@ -91,6 +91,7 @@ class RestaurantSeeder extends Seeder
             ]);
 
             DB::table('restaurants')->insert([
+                'user_id' => 24,
                 'restaurant_name' => 'KTM',
                 'restaurant_id' => 6, 
                 'restaurant_status' => 0,
@@ -317,5 +318,17 @@ class RestaurantSeeder extends Seeder
      	// 	'restaurant_delivery_fee' => 'FREE'
      	// ]);
 
+         DB::table('restaurants')->insert([
+            'user_id' => 1, 
+            'restaurant_name' => 'Admin Restaurant',
+            'restaurant_id' => 100, 
+            'restaurant_status' => 0,
+            'restaurant_image' => 'eat_is_greek_logo.jpg', 
+            'header_image' => 'eat_is_greek_logo.jpg', 
+            'restaurant_opening_times' => '9:40', 
+            'restaurant_minimum_order' => 500, 
+            'restaurant_delivery_fee' => 'DELIVERY ONLY',
+             'restaurant_phone_number' => '+447903065903'
+        ]);
     }
 }

@@ -59,6 +59,8 @@ class AdminController extends Controller
 			//IF NO CURRENT LOGGED IN RESTAURANT REDIRECT BACK
 			return redirect::route('home'); 
 		}
+
+		// return $logged_in_restaurant;
 		
 		if($request->new_category != null)
 		{
@@ -68,7 +70,7 @@ class AdminController extends Controller
 			//then add the category to the category database
 			$create_category = Category::create([
 					'category_name' => $new_category, 
-					'restaurant_id' => $logged_in_restaurant->user_name 
+					'restaurant_id' => $logged_in_restaurant->restaurant_id
 			]);
 			$category = $create_category; 
 		}
@@ -89,7 +91,7 @@ class AdminController extends Controller
 			'product_price' => $request->product_price,
 			'category_id' => $category,
 			'product_image'=> $image_name,
-			'restaurant_id' => $logged_in_restaurant->user_name
+			'restaurant_id' => $logged_in_restaurant->restaurant_id
 
 		]);
 
