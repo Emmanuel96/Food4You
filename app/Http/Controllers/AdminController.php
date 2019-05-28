@@ -76,8 +76,6 @@ class AdminController extends Controller
 			$category = $request->category; 
 		}
 
-		return $logged_in_restaurant;
-
 		//REMOVE ALL SPACE FROM THE PROUDCT NAME TO FORM THE IMAGE NAME
 		$image_name = str_replace(' ', '', $request->input('product_name')).'.'.$request->product_image->getClientOriginalExtension(); 
 
