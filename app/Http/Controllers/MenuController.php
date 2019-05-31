@@ -116,6 +116,8 @@ class MenuController extends Controller
 
     //    return $category2[0]; 
 
+        $cart->totalPrice = 0;
+
         return view('TestViews.menuTestView',
         [
             'menu'=> $menu, 'products' => $cart->items, 

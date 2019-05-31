@@ -65,6 +65,7 @@ Route::get('/admin/editProduct/{id}', 'AdminController@editProduct')->name('admi
 Route::post('/admin/updateProduct/{id}', 'AdminController@updateProduct')->name('admin.updateProduct');
 //Route::match(['get','post'],'/admin/add-category','categoryController@addCategory');
 
+Route::get('/admin/dashboard','AdminController@viewDashboard')->name('admin.dashboard');
 Route::get('/admin/restaurants', 'AdminController@restaurants')->name('admin.restuarants')->middleware('admin_restaurant_middleware'); 
 Route::get('/admin/restaurants/new','AdminController@newRestaurant')->name('admin.newRestaurant')->middleware('admin_restaurant_middleware'); 
 Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('admin.new_restaurant')->middleware('admin_restaurant_middleware'); 

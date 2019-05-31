@@ -649,4 +649,24 @@ class AdminController extends Controller
 		
 		return $category;
 	}
+	
+	public function viewDashboard(){
+
+		if(session()->has('logged_in_restaurant')){
+			$restaurant = session()->get('logged_in_restaurant'); 
+		}
+		
+		$total_orders_count = order::where('order_status', '=','1')->where('restaurant_id', '=', $restaurant->restaurant_id)->count(); 
+		$total_orders_count_today = 0; 
+		$total_revenue = 0; 
+		$total_revenue_today = 0; 
+
+		return view('AdminViews.dashboard')
+			->with([
+				'total_orders'=>$total_orders_count, 
+				'total_orders_today' => $total_orders_today, 
+				'total_revenue' => $total_revenue, 
+				'total_revenue_today' => $total_revenue_today
+				]); 
+	}
 }
