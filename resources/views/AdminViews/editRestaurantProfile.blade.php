@@ -85,7 +85,7 @@
             <div class="form-group">
                     <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Opening Time: </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class='input-group date' id='datetimepicker3'>
+                        <div class='input-group date' id='datetimepicker1'>
                             <input type='text' class="form-control" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-time"></span>
@@ -97,7 +97,7 @@
             <div class="form-group">
                     <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Closing Time: </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class='input-group date' id='datetimepicker3'>
+                        <div class='input-group date' id='datetimepicker2'>
                             <input type='text' class="form-control" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-time"></span>
@@ -160,6 +160,23 @@
   <script src="{{URL::asset('vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
   <!-- starrr -->
   <script src="{{URL::asset('vendors/starrr/dist/starrr.js')}}"></script>
+
+  <script src="{{URL::asset('vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')}}"></script>
+
   <!-- Custom Theme Scripts -->
   <script src="{{URL::asset('js/custom.min.js')}}"></script>
+
+  <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            format: 'LT'
+        });
+    });
+
+    $(function () {
+        $('#datetimepicker2').datetimepicker({
+            format: 'LT'
+        });
+    });
+</script>
 @endsection

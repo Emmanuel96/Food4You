@@ -63,7 +63,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-12">
                     <img name = "current_image" class = "img-responsive" alt = " No image"  id = "restaurant-image" src =  "/storage/images/{{$restaurant->restaurant_image}}"   >
                     <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
-                    <input value = "{{$restaurant->restaurant_image}}" type = "file " id = "restaurant-image" name = "product_image"/>
+                    <input value = "" type = "file " id = "restaurant-image" name = "restaurant_image"/>
                     </div>
                   </div>
 
@@ -83,7 +83,7 @@
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Closing Time: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class='input-group date' id='datetimepicker4'>
-                            <input type='text' class="form-control" value= "{{$restaurant->restaurant_closing_times}}" name = "restaurant_closing_time"/>
+                            <input type='text' class="form-control" value= "{{$restaurant->restaurant_closing_times}}" name = "restaurant_closing_times"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-time"></span>
                             </span>
@@ -104,7 +104,7 @@
                 <div class="form-group">
                     <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Delivery Fee: </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="price" class="form-control col-md-7 col-xs-12" name="restaurant_opening_times" type="text" value="{{ $restaurant->restaurant_delivery_fee }}">
+                    <input id="price" class="form-control col-md-7 col-xs-12" name="restaurant_delivery_fee" type="text" value="{{ $restaurant->restaurant_delivery_fee }}">
                 </div>
                 </div> 
 

@@ -66,9 +66,8 @@ class CheckoutController extends Controller
         // $restaurant_id = session::get(current_restaurant_id); 
 
         //get the actual day from the db
-        $day =  DB::table('days_of_delivery')->where('id', $request->day)->pluck('days');;
+        $day =  DB::table('days_of_delivery')->where('id', $request->day)->pluck('days');
         
-
         //Create order
         $orders = order::create(                                                                                                
             [
@@ -83,11 +82,12 @@ class CheckoutController extends Controller
                 'order_status' => '-1',
                 'restaurant_id' => $restaurant_id,
                 'batch' => $request->batch, 
-                'day'=> $day[0],
+                'day' => $day,
                 'image' => 'ass.jpg'
                  
             ]);
 
+        // return $orders;
             $order_slug = $orders->order_slug;
             Session::put('order_slug', $order_slug);
 
@@ -97,6 +97,8 @@ class CheckoutController extends Controller
             //once we create the order, we update the amount in the current number of order
             $current_no_of_delivery =  DB::table('days_of_delivery')->where('id', $request->day)->pluck('current_no_of_delivery');;
             $c_no_of_del = $current_no_of_delivery[0] + 1;  
+
+            // return $c_no_of_del;
 
             $update = DB::update('update days_of_delivery set current_no_of_delivery ='. $c_no_of_del.' where id = ?', [''.$request->day.'']);
             //return $update; 
@@ -151,7 +153,7 @@ class CheckoutController extends Controller
         //return 'screw';
         // echo $paymentDetails['status']; 
 
-        // dd($paymentDetails); return;
+        // dd($paymentDetails); 
 
 
         // Now you have the payment details,
@@ -173,7 +175,9 @@ class CheckoutController extends Controller
         // echo session::get('order_slug'); 
         //get 
         //get order with this order slug 
+
         $orders = order::where('order_slug','=', session::get('order_slug'))->first();
+
 
         //text message to I, Emmanuel, the admin
         Notification::route('nexmo', '+2347037699184')

@@ -40,7 +40,8 @@ class LoginController extends Controller
         switch($role) {
             case 1:
             //get the restaurant from the user 
-                session(['logged_in_restaurant'=> Auth::user()]);
+                $restaurant = Restaurants::where('user_id', '=', Auth::user()->id)->first(); 
+                session(['logged_in_restaurant'=> $restaurant]);
                 return 'admin/restaurants';
             break;
 

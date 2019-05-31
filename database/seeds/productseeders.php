@@ -1276,8 +1276,155 @@ class productseeders extends Seeder
                   'category_id' => 4
                 ]);
 
+                DB::table('menu')->insert([
+                  'product_name' => 'Pancakes',
+                  'product_description' => 'With Egg, Sausages & Baked Beans',
+                  'product_price' => 1700,
+                  'product_has_extra' => 0,
+                  'product_image' => 'pancakesBreakfast.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 5
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Brioche French Toast',
+                  'product_description' => 'With extra bacon',
+                  'product_price' => 1700,
+                  'product_has_extra' => 0,
+                  'product_image' => 'briocheFrench.jpg',
+                  'restaurant_id' => 2, 
+                  'category_id' => 5
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Waffles & Breaded Chicken',
+                  'product_description' => 'Waffles & Breaded Chicken',
+                  'product_price' => 1700,
+                  'product_has_extra' => 0,
+                  'product_image' => 'waffleBreakfast.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 5
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Waffles',
+                  'product_description' => 'With Eggs, Sausage & Fruits',
+                  'product_price' => 1700,
+                  'product_has_extra' => 0,
+                  'product_image' => 'waffleBreakfast.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 5
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Buffalo Wings & French Fries',
+                  'product_description' => 'Buffalo Wings & French Fries',
+                  'product_price' => 1700,
+                  'product_has_extra' => 0,
+                  'product_image' => 'buffalloWings.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 6
+                ]);
+
+                
+                DB::table('menu')->insert([
+                  'product_name' => 'Chinese Rice',
+                  'product_description' => 'Chinese Rice only',
+                  'product_price' => 1200,
+                  'product_has_extra' => 0,
+                  'product_image' => 'chineseRice.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 6
+                ]);
+
+                
+                DB::table('menu')->insert([
+                  'product_name' => 'Chinese Rice with Buffalo Wings',
+                  'product_description' => 'With Buffalo Wings',
+                  'product_price' => 2200,
+                  'product_has_extra' => 0,
+                  'product_image' => 'chineseRice.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 6
+                ]);
+
+                
+                DB::table('menu')->insert([
+                  'product_name' => 'Seafood Pasta',
+                  'product_description' => 'Seafood pasta only',
+                  'product_price' => 1200,
+                  'product_has_extra' => 0,
+                  'product_image' => 'seafoodPasta.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 6
+                ]);
+
+                
+                DB::table('menu')->insert([
+                  'product_name' => 'Seafood Pasta with Buffalo Wings',
+                  'product_description' => 'With Buffalo Wings',
+                  'product_price' => 2200,
+                  'product_has_extra' => 0,
+                  'product_image' => 'seafoodPasta.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 6
+                ]);
+
+                
+                DB::table('menu')->insert([
+                  'product_name' => 'Chicken Club Sandwich',
+                  'product_description' => 'With French Fries',
+                  'product_price' => 1700,
+                  'product_has_extra' => 0,
+                  'product_image' => 'chickenClub.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 6
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Pana Burger',
+                  'product_description' => 'Pana Burger only',
+                  'product_price' => 1700,
+                  'product_has_extra' => 0,
+                  'product_image' => 'panaBurger.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 6
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Shawarma',
+                  'product_description' => 'With Chicken & Sausage',
+                  'product_price' => 900,
+                  'product_has_extra' => 0,
+                  'product_image' => 'derinShawarma.jpg',
+                  'restaurant_id' => 2, 
+                  'category_id' => 6
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Shawarma (Extra Chicken, Double Sausage)',
+                  'product_description' => 'With Extra Chicken & Double Sausage',
+                  'product_price' => 1200,
+                  'product_has_extra' => 0,
+                  'product_image' => 'derinShawarma.jpg',
+                  'restaurant_id' => 2, 
+                  'category_id' => 6
+                ]);
+
+                DB::table('menu')->insert([
+                  'product_name' => 'Salad',
+                  'product_description' => 'Chicken Salad',
+                  'product_price' => 1700,
+                  'product_has_extra' => 0,
+                  'product_image' => 'chickenSalad.JPG',
+                  'restaurant_id' => 2, 
+                  'category_id' => 6
+                ]);
 
 
+
+
+                
 
                 //PRODUCTS FOR SLIPPERY RESTAURANT: 
                 

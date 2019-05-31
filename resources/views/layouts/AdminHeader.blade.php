@@ -34,12 +34,16 @@
   <!-- Custom Theme Style -->
   <link href="{{URL::asset('css/custom.min.css')}}" rel="stylesheet">
 
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
   </head>
   <style>
 
 * { 
   box-sizing: border-box; 
-  font-family: helvetica,arial,sans-serif;
+  /* font-family: helvetica,arial,sans-serif; */
+  font-family: 'Roboto';
+  font-size: 14px;
 }
 
 
@@ -115,7 +119,7 @@
 
 
       select{
-          font-family: sans-serif; 
+          font-family: 'Roboto';font-size: 4px; 
       }
 
       #product-description-add-product
@@ -123,7 +127,8 @@
           width: 100%;
       }
       table{
-          font-family: Helvetica Neue,Roboto,Arial,Droid Sans,sans-serif;
+          /* font-family: Helvetica Neue,Roboto,Arial,Droid Sans,sans-serif; */
+          font-family: 'Roboto';
           font-size: 23px;
           font-weight: 400; 
           color: #73879C;
@@ -190,7 +195,7 @@
 
         * { 
   box-sizing: border-box; 
-  font-family: helvetica,arial,sans-serif;
+  /* font-family: helvetica,arial,sans-serif; */
 }
 
       @media screen and (max-width: 435px)

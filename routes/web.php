@@ -78,6 +78,12 @@ Route::get('/admin/restaurants/delete/{id}', [
 	'uses' => 'AdminController@deleteRestaurant'
 ]);
 
+Route::get('/admin/restaurant/category', 'AdminController@category')->name('admin.category');
+Route::get('/admin/restaurant/category/new', 'AdminController@newCategory')->name('admin.newCategory');
+Route::post('/admin/restaurant/category/store', 'AdminController@storeCategory')->name('admin.storeCategory');
+Route::get('/admin/restaurant/category/edit/{id}', 'AdminController@editCategory')->name('admin.editCategory');
+Route::get('/admin/restaurant/category/show/{id}', 'AdminController@showCategory')->name('admin.showCategory');
+
 Route::get('/admin/notification/test', function (){
 	event(new App\Events\orderNotification(Auth::user()->user_name));
 	return [

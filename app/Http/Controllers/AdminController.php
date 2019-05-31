@@ -38,7 +38,7 @@ class AdminController extends Controller
 	public function createProduct(Request $request)
 	{
 		// //FIRSTLY WE GET THE LOGGED IN USER
-		// $user = Auth::user(); 		
+		// $user = Auth::user(); 
 		$messages = [     
             'product.name.unique' => 'Product name already exists', 
 		];
@@ -59,6 +59,8 @@ class AdminController extends Controller
 			//IF NO CURRENT LOGGED IN RESTAURANT REDIRECT BACK
 			return redirect::route('home'); 
 		}
+
+		// return $logged_in_restaurant;
 		
 		if($request->new_category != null)
 		{
@@ -70,10 +72,11 @@ class AdminController extends Controller
 					'category_name' => $new_category, 
 					'restaurant_id' => $logged_in_restaurant->restaurant_id
 			]);
-			$category = $create_category; 
+
+			$category = $create_category->category_id; 
 		}
 		else {
-			$category = $request->category; 
+			$category = $request->category;
 		}
 
 		//REMOVE ALL SPACE FROM THE PROUDCT NAME TO FORM THE IMAGE NAME
@@ -83,16 +86,17 @@ class AdminController extends Controller
 		$file = $request->file('product_image')->storeAs('images',$image_name);
 
 		//CREATE THE NEW PRODUCT WITHT THE PASSED INPUTS
+
 		$menu = menu::create([
 			'product_name'=> $request->input('product_name'), 
 			'product_description' => $request->input('product_description'), 
 			'product_price' => $request->product_price,
-			'category_id' => $category->category_id,
+			'category_id' => $category,
 			'product_image'=> $image_name,
 			'restaurant_id' => $logged_in_restaurant->restaurant_id
 
 		]);
-
+		
 		return redirect()->route('admin.addProduct', ['menu' => $menu ])
 			->with('success', $request->input('product_name').  ' Added Successfully');																																													
 	}	
@@ -364,7 +368,6 @@ class AdminController extends Controller
 		$restaurant = Restaurants::where('restaurant_id', $id)->first();
 
 		$request->validate([
-			//'restaurant_id' => 'required|unique:Restaurants',
 			'restaurant_name' => 'required|unique:Restaurants',
 			'restaurant_opening_times' => 'required|date_format:H:i',
 			'restaurant_closing_times' => 'date_format:H:i',
@@ -374,27 +377,29 @@ class AdminController extends Controller
 			'restaurant_minimum_order' => 'required|int',
 		]);
 
+		// dd($request->all());
+		
 		DB::table('restaurants')->where('restaurant_id', $id)->update([
-				'restaurant_id' => $restaurant_id, 
 				'restaurant_name'=> $request->restaurant_name, 
 				'restaurant_opening_times'=> $request->restaurant_opening_times, 
 				'restaurant_closing_times'=> $request->restaurant_closing_times, 
 				'restaurant_address' => $request->restaurant_address, 
-				'restaurant_phone_number' => $request->restaurant_phone_no, 
+				'restaurant_phone_number' => $request->restaurant_phone_number, 
 				'restaurant_image' => $request->restaurant_image,
 				'restaurant_minimum_order' => $request->restaurant_minimum_order
 		]);
 
 		return $restaurant;
-
+		
 		$restaurant->save();
 
-		Session::flash('RestaurantUpdated', 'Restaurant ['.$Request->restaurant_name.'] Updated Successfully');
+		Session::flash('RestaurantUpdated', 'Restaurant ['.$request->restaurant_name.'] Updated Successfully');
 		
-		$imageName = $Request->restaurant_image->getClientOriginalName();
+		$imageName = $request->restaurant_image->getClientOriginalName();
 
-		$file = $Request->file('restaurant_image')->storeAs('images',$imageName);
-		// Storage::disk('public')->put($imageName, 'Contents');
+
+		$file = $request->file('restaurant_image')->storeAs('images',$imageName);
+		Storage::disk('public')->put($imageName, 'Contents');
 
 
 		return 'updated successfully';
@@ -607,5 +612,41 @@ class AdminController extends Controller
 		$order_count = order::where('order_status', '=', '1')->count(); 
 
 		return view('AdminViews.viewProduct_test', ['products'=> $products]); 	
+	}
+
+	public function category()
+	{
+		$categories = Category::all();
+
+		return view('AdminViews.category', ['categories' => $categories]);
+	}
+
+	public function newCategory()
+	{
+		return view('AdminViews.newCategory');
+	}
+
+	public function storeCategory(Request $request)
+	{
+
+		Category::create([
+			'category_name' => $request->category_name
+		]);
+
+		return 'category created successfully';
+	}
+
+	public function showCategory($id, Request $request)
+	{
+		$category = Category::where('category_id', $id)->first();
+
+		return $category;
+	}
+
+	public function editCategory($id, Request $request)
+	{
+		$category = Category::where('category_id', $id)->first();
+		
+		return $category;
 	}
 }

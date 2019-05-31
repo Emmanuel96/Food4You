@@ -315,7 +315,7 @@
             $productName = "---- "; 
             $productPrice = "--- "; 
             $productDescription = "---- "; 
-             ?>
+            ?>
     </head>
    <body  id="page-top" class="index">
 
