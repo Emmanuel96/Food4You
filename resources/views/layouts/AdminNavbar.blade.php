@@ -29,6 +29,7 @@
                           </ul>
                         </li>  
                       @endif  
+
                       <li><a><i class="fa fa-folder-o"></i>Products<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                          <li><a href="/admin/viewProducts">View Products</a></li>
@@ -46,7 +47,15 @@
                          <li><a href="/admin/restaurant/batch">View Batch</a></li>
                           <li><a href="/admin/restaurant/batch/new">New Batch</a></li>
                         </ul>
-                      </li>     
+                      </li>   
+                      
+                      <li><a><i class="fa fa-tag"></i>Category<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                         <li><a href="/admin/restaurant/category">View Category</a></li>
+                          <li><a href="/admin/restaurant/category/new">New Category</a></li>
+                        </ul>
+                      </li> 
+
                     </ul>
                   </div>
                 </div>

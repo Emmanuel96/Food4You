@@ -39,6 +39,16 @@ class categorySeeder extends Seeder
             'restaurant_id' => 50,
         ]);
 
+        DB::table('categories')->insert([
+            'category_name' => 'Breakfast Sets',
+            'restaurant_id' => 2,
+        ]);
+
+        DB::table('categories')->insert([
+            'category_name' => 'Meal Sets',
+            'restaurant_id' => 2,
+        ]);
+
        
     }
 }

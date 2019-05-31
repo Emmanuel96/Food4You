@@ -330,5 +330,28 @@ class RestaurantSeeder extends Seeder
             'restaurant_delivery_fee' => 'DELIVERY ONLY',
              'restaurant_phone_number' => '+447903065903'
         ]);
+
+        DB::table('user')->insert([
+            'id'=> 5,
+            'user_name' => 'purpleBistro',
+            'email' => 'purplebistrolagos@gmail.com',
+            'password' => app('hash')->make('bistro'), 
+            'user_role' => 3, 
+            'user_address' => 'Lagos', 
+            'user_phone_number' => '+2348143246116' 
+           ]);
+
+           DB::table('restaurants')->insert([
+            'restaurant_name' => "Purple Bistro",
+            'user_id' => 5,
+            'restaurant_status' => 0,
+            'restaurant_id' => 2, 
+            'restaurant_image' => 'chickenClub.JPG', 
+            'header_image' => 'waffleBreakfast.JPG', 
+            'restaurant_opening_times' => '8:00', 
+            'restaurant_minimum_order' => 900,     
+            'restaurant_delivery_fee' => 'DELIVERY ONLY',
+            'restaurant_phone_number' => '+2348038128425'  
+       ]);
     }
 }

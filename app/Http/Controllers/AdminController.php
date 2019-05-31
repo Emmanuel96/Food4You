@@ -38,7 +38,7 @@ class AdminController extends Controller
 	public function createProduct(Request $request)
 	{
 		// //FIRSTLY WE GET THE LOGGED IN USER
-		// $user = Auth::user(); 		
+		// $user = Auth::user(); 
 		$messages = [     
             'product.name.unique' => 'Product name already exists', 
 		];
@@ -72,10 +72,11 @@ class AdminController extends Controller
 					'category_name' => $new_category, 
 					'restaurant_id' => $logged_in_restaurant->restaurant_id
 			]);
-			$category = $create_category; 
+
+			$category = $create_category->category_id; 
 		}
 		else {
-			$category = $request->category; 
+			$category = $request->category;
 		}
 
 		//REMOVE ALL SPACE FROM THE PROUDCT NAME TO FORM THE IMAGE NAME
@@ -85,6 +86,7 @@ class AdminController extends Controller
 		$file = $request->file('product_image')->storeAs('images',$image_name);
 
 		//CREATE THE NEW PRODUCT WITHT THE PASSED INPUTS
+
 		$menu = menu::create([
 			'product_name'=> $request->input('product_name'), 
 			'product_description' => $request->input('product_description'), 
@@ -94,9 +96,7 @@ class AdminController extends Controller
 			'restaurant_id' => $logged_in_restaurant->restaurant_id
 
 		]);
-
-		$menu->save();
-
+		
 		return redirect()->route('admin.addProduct', ['menu' => $menu ])
 			->with('success', $request->input('product_name').  ' Added Successfully');																																													
 	}	
@@ -376,6 +376,8 @@ class AdminController extends Controller
 			'restaurant_image' => 'required',
 			'restaurant_minimum_order' => 'required|int',
 		]);
+
+		// dd($request->all());
 		
 		DB::table('restaurants')->where('restaurant_id', $id)->update([
 				'restaurant_name'=> $request->restaurant_name, 
@@ -387,14 +389,17 @@ class AdminController extends Controller
 				'restaurant_minimum_order' => $request->restaurant_minimum_order
 		]);
 
+		return $restaurant;
+		
 		$restaurant->save();
 
-		// Session::flash('RestaurantUpdated', 'Restaurant ['.$request->restaurant_name.'] Updated Successfully');
+		Session::flash('RestaurantUpdated', 'Restaurant ['.$request->restaurant_name.'] Updated Successfully');
 		
-		// $imageName = $request->restaurant_image->getClientOriginalName();
+		$imageName = $request->restaurant_image->getClientOriginalName();
 
-		// $file = $request->file('restaurant_image')->storeAs('images',$imageName);
-		// // Storage::disk('public')->put($imageName, 'Contents');
+
+		$file = $request->file('restaurant_image')->storeAs('images',$imageName);
+		Storage::disk('public')->put($imageName, 'Contents');
 
 
 		return 'updated successfully';
@@ -607,5 +612,41 @@ class AdminController extends Controller
 		$order_count = order::where('order_status', '=', '1')->count(); 
 
 		return view('AdminViews.viewProduct_test', ['products'=> $products]); 	
+	}
+
+	public function category()
+	{
+		$categories = Category::all();
+
+		return view('AdminViews.category', ['categories' => $categories]);
+	}
+
+	public function newCategory()
+	{
+		return view('AdminViews.newCategory');
+	}
+
+	public function storeCategory(Request $request)
+	{
+
+		Category::create([
+			'category_name' => $request->category_name
+		]);
+
+		return 'category created successfully';
+	}
+
+	public function showCategory($id, Request $request)
+	{
+		$category = Category::where('category_id', $id)->first();
+
+		return $category;
+	}
+
+	public function editCategory($id, Request $request)
+	{
+		$category = Category::where('category_id', $id)->first();
+		
+		return $category;
 	}
 }

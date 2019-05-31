@@ -32,7 +32,7 @@ class MenuController extends Controller
 
         
 
-        return view('menuViews.menu',['menu'=> $menu, 'restaurant_status' => $restaurant_status]);
+        return view('menuViews.menu',['menu' => $menu, 'restaurant_status' => $restaurant_status]);
 
        // return('this is the Menu view');
         // return view('menuViews.menu')->with('menu',$menu);
@@ -86,7 +86,6 @@ class MenuController extends Controller
         // var_dump($category2); 
         // return; 
 
-            
         // foreach($category2 as $category => $menu)
         // {
         //     echo $category; 
@@ -118,13 +117,13 @@ class MenuController extends Controller
     //    return $category2[0]; 
 
         return view('TestViews.menuTestView',
-            [
-                'menu'=> $menu, 'products' => $cart->items, 
-                'totalPrice' => $cart->totalPrice,
-                'restaurant_status' => $restaurant_status,
-                'restaurant'=> $restaurants,
-                'categories' => $categories,
-                'category2' => $category2
-            ]);
+        [
+            'menu'=> $menu, 'products' => $cart->items, 
+            'totalPrice' => $cart->totalPrice,
+            'restaurant_status' => $restaurant_status,
+            'restaurant'=> $restaurants,
+            'categories' => $categories,
+            'category2' => $category2
+        ]);
     }
 }
