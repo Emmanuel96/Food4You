@@ -36,6 +36,7 @@ class CheckoutController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 
+
         //we need the days for delivery for that particular customer
         //$days_of_delivery = daysofdelivery::all();
         $days_of_delivery = DB::select('select * from days_of_delivery where restaurant_id = 0');

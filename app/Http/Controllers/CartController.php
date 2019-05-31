@@ -10,17 +10,17 @@ use Session;
 
 class CartController extends Controller
 {
-    //
     Public function displayCart(){
-        if(!Session::has('cart'))
-        {
-            // return view('cartViews.cart');
-        }
+        // if(!Session::has('cart'))
+        // {
+        //     // return view('cartViews.cart');
+        // }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         // return $cart->items; 
 
         $cart->items; 
+
         return view('cartViews.cart',['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
@@ -152,6 +152,8 @@ class CartController extends Controller
     Public function deleteFromCart(Request $request){
       //first check if theres an old cart
        $oldCart = Session::has('cart') ? Session::get('cart') : null; 
+
+       
        $cart = new Cart($oldCart);
 
        $productQty = $cart->items[$request->id]['qty'];  
