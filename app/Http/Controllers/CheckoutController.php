@@ -87,6 +87,7 @@ class CheckoutController extends Controller
                  
             ]);
 
+        // return $orders;
             $order_slug = $orders->order_slug;
             Session::put('order_slug', $order_slug);
 
@@ -176,6 +177,7 @@ class CheckoutController extends Controller
         //get order with this order slug 
 
         $orders = order::where('order_slug','=', session::get('order_slug'))->first();
+
 
         //text message to I, Emmanuel, the admin
         Notification::route('nexmo', '+2347037699184')
