@@ -15,7 +15,7 @@
                   <div class="menu_section">
                     <ul class="nav side-menu">
                      
-                       <li><a href = "#"><i class="fa fa-home"></i>Dashboard</a>
+                       <li><a href = "/admin/dashboard"><i class="fa fa-home"></i>Dashboard</a>
                           <ul class = "nav child_menu"> 
                             <li><a href= "#">asfds</a></li>
                           </ul>
@@ -116,7 +116,7 @@
                   <ul class="nav navbar-nav navbar-right">
                     
                    
-
+    
                     <!-- <label class="label-switch">
                       <input type="checkbox" />
                       <div>No</div>
