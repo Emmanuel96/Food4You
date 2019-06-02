@@ -34,7 +34,7 @@
                             <td id = "product_name">{{$product->product_name}}</td>
                             <td id = "product_description">{{$product->product_description}}</td>
                             <td id = "product_price">₦{{$product->product_price}}</td>
-                            <td id = "product_category">{{$product->category}}</td>
+                            <td id = "product_category">{{$product->category_name}}</td>
                             <td id = "edit_product"><a href="{{ url('admin/editProduct')}}/{{ $product->product_id }}" class ="btn btn-primary">Edit</a></td>
                             <td id = "product_stock"><a id = "inOutStockLink{{$product->product_id}}" onclick = "inOutOfStock( {{$product->product_id}})"  @if($product->inStock != 0) class = "btn btn-primary">In Stock</a> @else class = "btn btn-danger"> Out Of Stock </a> @endif </td>
                           </tr>

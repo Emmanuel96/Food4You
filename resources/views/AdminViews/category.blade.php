@@ -16,6 +16,9 @@
                         <tr>
                             <th id = "category_id">ID</th>
                           <th id = "category">Category Name</th>
+                          @if(Auth::user()->user_role == 1)
+                          <th id="restaurant_name">Restaurant Name</th>
+                          @endif
                           <th id = "editBtn"><a>Edit</a></th>
                         </tr>
                       </thead>
@@ -24,11 +27,14 @@
                             <tr>
                             <td id="category_id">{{$category->category_id}}</td>
                               <td id="category">{{$category->category_name}}</td>
+                              @if(Auth::user()->user_role == 1)
+                              <td id="restaurant_name">{{$category->restaurants->restaurant_name}}</th>
+                              @endif
                               <td id="editBtn">
                                   <div class="btn-group">
                                       <a href="{!! route('admin.showCategory', [$category->category_id]) !!}" class="btn btn-primary btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                       <a href="{!! route('admin.editCategory', [$category->category_id]) !!}" class="btn btn-success btn-xs"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                      <a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                      <a href="{!! route('admin.deleteCategory', [$category->category_id]) !!}" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </div>
                               </td>
                             </tr>

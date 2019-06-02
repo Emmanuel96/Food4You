@@ -381,12 +381,10 @@
                   }
 
                   .btn {
-                    background-color: #2A3F54;
                     opacity: 0.8;
                     border: none;
-                    color: white;
                     padding: 5px 8px;
-                    font-size: 25px;
+                    font-size:  12px;
                     cursor: pointer;
                     }
                     table{
