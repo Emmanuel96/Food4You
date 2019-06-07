@@ -14,7 +14,6 @@
                     <table id="datatable" class="display table table-bordered table-hover" width="100%">
                       <thead>
                         <tr>
-                            <th id = "category_id">ID</th>
                           <th id = "category">Category Name</th>
                           @if(Auth::user()->user_role == 1)
                           <th id="restaurant_name">Restaurant Name</th>
@@ -25,7 +24,6 @@
                       <tbody>
                           @foreach($categories as $category)
                             <tr>
-                            <td id="category_id">{{$category->category_id}}</td>
                               <td id="category">{{$category->category_name}}</td>
                               @if(Auth::user()->user_role == 1)
                               <td id="restaurant_name">{{$category->restaurants->restaurant_name}}</th>

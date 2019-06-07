@@ -20,7 +20,7 @@
 
         <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
 
-        <title>Naija Bites - A satisfying meal.</title>
+        <title>Wailodile - A satisfying meal.</title>
 
 
 
@@ -308,7 +308,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> LOGIN <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Naija Bites</a>
+                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Wailodile</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -355,8 +355,8 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Naija Bites</div>
-                <div class="intro-heading">We Want To Feed You</div>
+                <div class="intro-lead-in">Welcome To Wailodile</div>
+                <div class="intro-heading">Home Of The Best Meals</div>
                 <a href="/restaurants" class="btn btn-xl" style="margin-bottom: 30px; ">VIEW RESTAURANTS</a>
             </div>
         </div>
@@ -378,7 +378,7 @@
                         <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Online Order</h4>
-                    <p class="text-muted">Find your favorite restaurant on Naija Bites and place an order with our automated ordering platform.</p>
+                    <p class="text-muted">Find your favorite restaurant on Wailodile and place an order with our automated ordering platform.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -449,7 +449,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Naija Bites 2017</span>
+                    <span class="copyright">Copyright &copy; Wailodile <?php echo date('Y') ?></span>
                 </div>
                 <div class="col-md-3">
                     <ul class="list-inline social-buttons">

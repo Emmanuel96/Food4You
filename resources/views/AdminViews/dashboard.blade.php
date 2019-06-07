@@ -1,13 +1,45 @@
 @extends('layouts.AdminHeader')
 
 @section('content')
-        
-
-    
+<div class="right_col" role="main">
+          <div class="">
+            <div class="row top_tiles">
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-revenue"></i></div>
+                  <div class="count">₦ {{number_format($total_revenue_today)}}</div>
+                  <h3>Today's Revenue</h3>
+                  <p>Total Revenue made today</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-revenue"></i></div>
+                  <div class="count">₦ {{number_format($total_revenue)}}</div>
+                  <h3>Total revenue</h3>
+                  <p>Total Revenue made using platform</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-shopping-cart"></i></div>
+                  <div class="count">{{$total_orders_today}}</div>
+                  <h3> Today's Orders</h3>
+                  <p>Number of orders today.</p>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-shopping-cart"></i></div>
+                  <div class="count">{{$total_orders}}</div>
+                  <h3>Total Orders</h3>
+                  <p>Total number of orders made on system</p>
+                </div>
+              </div>
+            </div>
     <script>
       function sendNotification(orderID)
       {
-        alert(orderID);
           //this function sends an ajax request to the users 
           $.ajax({
               type: 'POST',

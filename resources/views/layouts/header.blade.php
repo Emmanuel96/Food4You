@@ -19,7 +19,7 @@
         <meta name= "csrf-token" content = "{{ csrf_token() }}"/>
 
 
-        <title>Naija Bites - A satisfying meal.</title>
+        <title>Wailodile - A satisfying meal.</title>
         
         <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
 

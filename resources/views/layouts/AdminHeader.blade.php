@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Naija Bites   - Restaurants </title>
+  <title>Wailodile - Restaurants </title>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138253927-1"></script>
   <script>
@@ -437,7 +437,7 @@
             // alert('successful'); 
           }
       });   
-    }
+    }   
     
   </script> 
 
@@ -464,8 +464,6 @@
           //increment order counter 
           $('#order-counter').text(orderCounter); 
       });
-      
-
   </script>        
   
   <script src = "{{ URL::asset('js/app.js') }}" />

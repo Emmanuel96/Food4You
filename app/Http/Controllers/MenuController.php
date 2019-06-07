@@ -70,6 +70,15 @@ class MenuController extends Controller
         $restaurants = Restaurants::where('restaurant_name' , '=', $name)->first();
         $restaurant_status = $restaurants->restaurant_status;
 
+        if(session()->has('cart') && session()->get('cart') != null){
+            if(session()->has('current_restaurant_id')){
+                if(session()->get('current_restaurant_id') != $restaurants->restaurant_id)
+                {
+                    session()->put('cart', null); 
+                }
+            }
+        }
+        
         //store the current restaurant in the session 
         Session::put('current_restaurant_id', $restaurants->restaurant_id);
 

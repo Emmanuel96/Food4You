@@ -148,12 +148,19 @@ class AdminController extends Controller
 		}
 		else
 		{
-			 $restaurants = Restaurants::where('restaurant_id', '=', 0)->first(); 
-			 $orders = DB::select('select * from orders where order_status != -1 AND restaurant_id = 0');
+			if(session()->has('logged_in_restaurant')){
+				$restaurant = session()->get('logged_in_restaurant'); 
+				$restaurant_id = $restaurant->restaurant_id;
+			}else{
+				redirect()->route('home'); 
+			}
+			 $orders = order::where('order_status', '!=', -1)
+						 ->where('restaurant_id', '=', $restaurant_id)->get(); 
 		}
 
 		//return $orders; 	
 		return view('AdminViews.viewOrders')->with('orders', $orders);
+
 	}
 
 	public function viewOrderProducts($slug, Request $request)
@@ -589,6 +596,8 @@ class AdminController extends Controller
 		//we need to get the products for that particular restaurant or everything for the admin 
 		$user = Auth::user(); 
 
+
+
 		//next time we should find the matching restaurant
 
 		//if it's an admin user
@@ -601,25 +610,37 @@ class AdminController extends Controller
 			//else select the products only for that particular user
 			// $products = DB::select('select * from restaurants_products, menu where restaurants_products.restaurant_id = :id && menu.item_id = restaurants_products.product_id', ['id' => $user->id] );
 			//else get the id of the restaurant 
-			$restaurant_id = DB::select("select restaurant_id from restaurants where user_id = :user_id", ['user_id'=> $user->id]);
-			$restaurant_id = $restaurant_id[0]->restaurant_id;
+			$restaurant = DB::select("select restaurant_id from restaurants where user_id = :user_id", ['user_id'=> $user->id]);
+			$restaurant_id = $restaurant[0]->restaurant_id;
 
-			$products = Menu::where('restaurant_id', '=', $restaurant_id)->get();
+			$products = Menu::where('restaurant_id', '=', $restaurant_id)->get()->sortBy('category_id');
+			$products->toArray(); 
 		}
+		
+		$restaurant = restaurants::find($restaurant_id);
+		//get all the categories for the current restaurants 
+		$categories = $restaurant->categories()->get(); 
+		
+		$category2 =  $products->groupBy('category_id'); 
+        $category2->toArray(); 
 
 		$orders = order::where('order_status', '=','1')->get(); 
 		//get the number of orders with a status of 1
 		$order_count = order::where('order_status', '=', '1')->count(); 
 
-		return view('AdminViews.viewProduct_test', ['products'=> $products]); 	
+		return view('AdminViews.viewProduct_test', ['products'=> $products, 'category2' => $category2, 'categories' => $categories]); 	
 	}
 
 	public function category()
 	{
-		$categories = Category::get();
-		$category = Category::where('restaurant_id', '=', 'category_id')->first();
+		if(session()->has('logged_in_restaurant')){
+			$restaurant= session()->get('logged_in_restaurant');
+			$categories = Category::where('restaurant_id', '=', $restaurant->restaurant_id)->get(); 
+		}else{
+			return redirect('/home'); 
+		}
 		
-		return view('AdminViews.category', ['categories' => $categories, 'category', $category ]);
+		return view('AdminViews.category', ['categories' => $categories]);
 	}
 
 	public function newCategory()
@@ -629,10 +650,14 @@ class AdminController extends Controller
 
 	public function storeCategory(Request $request)
 	{
-
-		Category::create([
-			'category_name' => $request->category_name
-		]);
+		if(session()->has('logged_in_restaurant')){
+			Category::create([
+				'category_name' => $request->category_name, 
+				'restaurant_id'=> session()->get('logged_in_restaurant')->restaurant_id
+			]); 
+		}else{
+			return redirect('/home'); 
+		}
 
 		return redirect('/admin/restaurant/category')->with('success', 'category created successfully!');
 		
@@ -673,22 +698,31 @@ class AdminController extends Controller
 
 		return redirect()->route('admin.category');
 	}
+
+	public function calculateRevenue($revenues){
+
+		$total = 0; 
+		foreach($revenues as $revenue){
+			$total += $revenue->order_price; 
+		}
+
+		return $total; 
+	}
 	
 	public function viewDashboard(){
 
 		if(session()->has('logged_in_restaurant')){
 			$restaurant = session()->get('logged_in_restaurant'); 
 		}
-		
 		$total_orders_count = order::where('order_status', '=','1')->where('restaurant_id', '=', $restaurant->restaurant_id)->count(); 
-		$total_orders_count_today = 0; 
-		$total_revenue = 0; 
-		$total_revenue_today = 0; 
+		$total_orders_count_today = order::where('order_status','=', '1')->where('restaurant_id', '=', $restaurant->restaurant_id)->where('created_at', '>=', time() - (24*60*60))->count(); 
+		$total_revenue = $this->calculateRevenue(order::where('order_status','=', '1')->where('restaurant_id', '=', $restaurant->restaurant_id)->get()); 
+		$total_revenue_today = $this->calculateRevenue(order::where('order_status','=', '1')->where('restaurant_id', '=', $restaurant->restaurant_id) ->where('created_at', '>=', time() - (24*60*60))->get()); 
 
 		return view('AdminViews.dashboard')
 			->with([
 				'total_orders'=>$total_orders_count, 
-				'total_orders_today' => $total_orders_today, 
+				'total_orders_today' => $total_orders_count_today, 
 				'total_revenue' => $total_revenue, 
 				'total_revenue_today' => $total_revenue_today
 				]); 
