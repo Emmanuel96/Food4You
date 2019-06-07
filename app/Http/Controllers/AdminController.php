@@ -113,7 +113,9 @@ class AdminController extends Controller
 		//if it's an admin user
 		if($user->user_role == 1)
 		{
-			$products = menu::all(); 
+			$products = menu::get(); 
+		    $product = Category::where('restaurant_id', '=', 'category_id')->first();
+
 		}
 		else 
 		{
@@ -390,7 +392,7 @@ class AdminController extends Controller
 		]);
 
 		return $restaurant;
-		
+
 		$restaurant->save();
 
 		Session::flash('RestaurantUpdated', 'Restaurant ['.$request->restaurant_name.'] Updated Successfully');
@@ -616,9 +618,10 @@ class AdminController extends Controller
 
 	public function category()
 	{
-		$categories = Category::all();
-
-		return view('AdminViews.category', ['categories' => $categories]);
+		$categories = Category::get();
+		$category = Category::where('restaurant_id', '=', 'category_id')->first();
+		
+		return view('AdminViews.category', ['categories' => $categories, 'category', $category ]);
 	}
 
 	public function newCategory()
@@ -633,21 +636,44 @@ class AdminController extends Controller
 			'category_name' => $request->category_name
 		]);
 
-		return 'category created successfully';
+		return redirect('/admin/restaurant/category')->with('success', 'category created successfully!');
+		
 	}
 
 	public function showCategory($id, Request $request)
 	{
 		$category = Category::where('category_id', $id)->first();
 
-		return $category;
+		return view('AdminViews.showCategory', ['category' => $category ]);
 	}
 
 	public function editCategory($id, Request $request)
 	{
 		$category = Category::where('category_id', $id)->first();
 		
-		return $category;
+		return view('AdminViews.editCategory', ['category' => $category ]);
+	}
+
+	public function updateCategory($id, Request $request)
+	{
+		$category = Category::where('category_id', $id)->first();
+
+		DB::table('categories')
+		->where('category_id', $id)
+		->update([
+			'category_name' => $request->category_name
+		]);
+
+		return 'category updated successfully!';
+	}
+
+	public function deleteCategory($id)
+	{
+		$category = Category::where('category_id', $id)->first();
+
+		$category->delete();
+
+		return redirect()->route('admin.category');
 	}
 	
 	public function viewDashboard(){

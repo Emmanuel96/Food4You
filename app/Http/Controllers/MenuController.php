@@ -23,7 +23,7 @@ class MenuController extends Controller
        $menu = menu::paginate(20); 
 
         // $restaurants = Restaurants::where('restaurant_name' , '=', $name)->first();
-        $restaurant_status =1;
+        $restaurant_status = 1;
 
         // $menu = $restaurants->menu()->paginate(20); 
 
@@ -32,7 +32,7 @@ class MenuController extends Controller
 
         
 
-        return view('menuViews.menu',['menu' => $menu, 'restaurant_status' => $restaurant_status]);
+        return view('menuViews.menu',[ 'menu' => $menu, 'restaurant_status' => $restaurant_status ]);
 
        // return('this is the Menu view');
         // return view('menuViews.menu')->with('menu',$menu);
