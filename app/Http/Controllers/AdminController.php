@@ -114,8 +114,6 @@ class AdminController extends Controller
 		if($user->user_role == 1)
 		{
 			$products = menu::get(); 
-		    $product = Category::where('restaurant_id', '=', 'category_id')->first();
-
 		}
 		else 
 		{
