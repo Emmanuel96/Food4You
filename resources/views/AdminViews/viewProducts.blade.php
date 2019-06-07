@@ -47,7 +47,7 @@
                               </a>
                               <!-- <td></td>-->
                               <!-- <td id = "product_description">{{$product->product_description}}</td> -->
-                              <td id = "product_price"  style=" padding-top: 20px; "> ₦{{$product->product_price}} </td>
+                              <td id = "product_price"  style=" padding-top: 20px; ">₦ {{number_format($product->product_price)}}</td>
                               <td id = "product_category"  style=" padding-top: 20px; ">{{$product->category}}</td>
                               <td style = "padding-top: 15px;"> 
                                   <a href="{!! route('admin.showProduct', [$product->product_id]) !!}" class='btn btn-primary btn-xs'><i class="fa fa-eye"></i></a>

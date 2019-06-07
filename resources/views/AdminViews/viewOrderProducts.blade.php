@@ -26,7 +26,7 @@
                         <tr>
                           <td>{{$product->product_name}} with {{$product->order_extras}}</td>
                           <td>{{$product->qty_ordered}}</td>
-                          <td>₦ {{$product->product_price * $product->qty_ordered}}</td>
+                          <td>₦ {{number_format($product->product_price * $product->qty_ordered)}}</td>
                         </tr>
                       @endforeach
                       </tbody>

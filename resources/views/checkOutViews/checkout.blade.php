@@ -20,7 +20,7 @@
         <meta name="author" content="">
 
 
-        <title>Naija Bites</title>
+        <title>Wailodile</title>
 
 
 
@@ -511,7 +511,7 @@
                            
                         </td>
                         <td>  {{$product['item']['product_name']}}  </td>
-                        <td align="right" id="price{{$product['item']['product_id']}}" style = "vertical-align:middle;">₦{{$product['price']}}</td>
+                        <td align="right" id="price{{$product['item']['product_id']}}" style = "vertical-align:middle;">₦{{number_format($product['price'])}}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -528,7 +528,7 @@
                         <td colspan="2">
                             Subtotal
                         </td>
-                        <td  style = "" id = "subTotal" align="right">@if( $subTotal ==null || ($subTotal == 0)) ₦0 @else {{$subTotal}} @endif</td>
+                        <td  style = "" id = "subTotal" align="right">@if( $subTotal ==null || ($subTotal == 0)) ₦0 @else ₦ {{number_format($subTotal)}} @endif</td>
                     </tr>
                 </tbody>
          </table>
@@ -552,7 +552,7 @@
                         Total
                     </td>
                     <td> </td>
-                    <td align="right" id="total" style = "vertical-align:middle;">₦ {{$total}}</td>
+                    <td align="right" id="total" style = "vertical-align:middle;">₦ {{number_format($total}})</td>
                 </tr>
             </tbody>
         </table>
@@ -574,14 +574,14 @@
 
 <footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; "> 
     <a id = "footerPrice" href = "/cart" class = "btn btn-primary" style = "width: 70%; border-radius: 0; color: black; ">
-    @if($products == null) Basket is Empty @else ₦{{$totalPrice}}@endif  <i class="fa fa-shopping-cart fa-1x"></i></a>
+    @if($products == null) Basket is Empty @else ₦{{number_format($totalPrice)}}@endif  <i class="fa fa-shopping-cart fa-1x"></i></a>
 </footer>
 
 <footer class = "container-fluid" style = "margin-top:80px;  width: 100%; margin-left: -20; ">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <i class="copyright">Copyright &copy; Naija Bites 2017</i>
+                    <i class="copyright">Copyright &copy; Wailodile <?php echo date("Y") ?> </i>
                 </div>
                 <div class="col-md-3">
                     <ul class="list-inline social-buttons">

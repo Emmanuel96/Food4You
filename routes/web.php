@@ -84,6 +84,7 @@ Route::get('/admin/restaurant/category/new', 'AdminController@newCategory')->nam
 Route::post('/admin/restaurant/category/store', 'AdminController@storeCategory')->name('admin.storeCategory');
 Route::get('/admin/restaurant/category/edit/{id}', 'AdminController@editCategory')->name('admin.editCategory');
 Route::get('/admin/restaurant/category/show/{id}', 'AdminController@showCategory')->name('admin.showCategory');
+Route::get('/admin/restaurant/category/delete/{id}', 'AdminController@deleteCategory')->name('admin.deleteCategory'); 
 
 Route::get('/admin/notification/test', function (){
 	event(new App\Events\orderNotification(Auth::user()->user_name));

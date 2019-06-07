@@ -18,6 +18,7 @@ class Order extends Migration
             $table->string('buyer_name');
             $table->string('buyer_email')->default('opeoluborode@yahoo.com');
             $table->string('buyer_address'); 
+            $table->integer('order_price'); 
             $table->string('buyer_phone_number');
             $table->integer('order_status')->default('-1');
             $table->boolean('delivery_status')->default('0');

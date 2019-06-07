@@ -370,7 +370,7 @@
                                 </span></a>
                         </td>
                         <td>  {{$product['item']['product_name']}}  </td>
-                        <td align="right" id="price{{$product['item']['product_id']}}" style = "vertical-align:middle;">₦{{$product['price']}}</td>
+                        <td align="right" id="price{{$product['item']['product_id']}}" style = "vertical-align:middle;">₦{{number_format($product['price'])}}</td>
                     </tr>
 	                    @endforeach
 	                </tbody>
@@ -397,7 +397,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Naija Bites 2017</span>
+                    <span class="copyright">Copyright &copy; Wailodile <?php echo date('Y'); ?></span>
                 </div>
                 <div class="col-md-3">
                     <ul class="list-inline social-buttons">

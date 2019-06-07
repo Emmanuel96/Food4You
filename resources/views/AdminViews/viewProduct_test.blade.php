@@ -280,7 +280,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3> Media Gallery <small> gallery design</small> </h3>
+                <h3> Derin's Categories</h3>
               </div>
 
               <div class="title_right">
@@ -299,11 +299,11 @@
 
             <div class="row">
 
-            @foreach($products as $product)
+            @foreach($category2 as $key => $menu)
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Meals<small> gallery design </small></h2>
+                    <h2 id = "{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}">{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}</h2>   
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -325,45 +325,27 @@
 
                     <div class="row">
 
-                      <p>Media gallery design emelents</p>
-
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('images/hungry-house.png')}}" alt="image" />
-                            <div class="mask">
-                              <p>Your Text</p>
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
+                      @foreach($menu as $m)
+                        <div class="col-md-55">
+                          <div class="thumbnail">
+                            <div class="image view view-first">
+                              <img style="width: 100%; display: block;" src="/storage/images/{{$m->product_image}}" alt="image" />
+                              <div class="mask">
+                                <p>Your Text</p>
+                                <div class="tools tools-bottom">
+                                  <a href="#"><i class="fa fa-link"></i></a>
+                                  <a href="#"><i class="fa fa-pencil"></i></a>
+                                  <a href="#"><i class="fa fa-times"></i></a>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="caption">
-                            <p>Snow and Ice Incoming for the South</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-55">
-                        <div class="thumbnail">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="{{URL::asset('img/$product->product_image')}}" alt="image" />
-                            <div class="mask">
-                              <p>Your Text</p>
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
+                            <div class="caption">
+                              <p>Snow and Ice Incoming for the South</p>
                             </div>
                           </div>
-                          <div class="caption">
-                            <p>Snow and Ice Incoming for the South</p>
-                          </div>
                         </div>
-                      </div>
+                      @endforeach
+
                      
                     </div>
                   </div>
