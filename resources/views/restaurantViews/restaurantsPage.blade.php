@@ -426,7 +426,7 @@
                                 <i @if($r->restaurant_status == 0)class="fa fa-lock fa-2x" @elseif($r->restaurant_status == 1) class="fa fa-cutlery fa-2x"@endif></i>
                             </div>
                         </div>
-                        <img src="/storage/images/{{$r->header_image}}" class="img-responsive img-rounded" style="width: 1000px; height:auto; " alt="">
+                        <img src="/storage/images/{{$r->restaurant_name}}/{{$r->header_image}}" class="img-responsive img-rounded" style="width: 1000px; height:auto; " alt="">
                     </a>
                     <div class="portfolio-caption" style = "padding-top: 10px; ">
                         <h3 style = "margin-bottom: 10px; ">{{$r->restaurant_name}}</h3>

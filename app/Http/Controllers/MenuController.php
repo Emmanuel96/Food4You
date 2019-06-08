@@ -68,6 +68,8 @@ class MenuController extends Controller
 
         //display menu for the particular restaurant 
         $restaurants = Restaurants::where('restaurant_name' , '=', $name)->first();
+
+        // dd($restaurants->restaurant_name);
         $restaurant_status = $restaurants->restaurant_status;
 
         if(session()->has('cart') && session()->get('cart') != null){
@@ -86,7 +88,11 @@ class MenuController extends Controller
         $categories = $restaurants->categories()->get(); 
 
         $menu = $restaurants->menu()->get()->sortBy('category_id'); 
-        $menu->toArray(); 
+        $menu->toArray();
+        
+
+        // dd($m->restaurant_name);
+
         //----------------- TEST FOR GROUP BY WITH DB BUILDER ----------------------------- 
         $category2 =  $menu->groupBy('category_id'); 
         $category2->toArray(); 

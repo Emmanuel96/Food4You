@@ -76,7 +76,7 @@
             font-size: 15px; display: block; width: 12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
            }
             header{
-                background-image: url('/storage/images/{{ $restaurant->header_image }}')
+                background-image: url('/storage/images/{{$restaurant->restaurant_name}}/{{ $restaurant->header_image }}')
             }
             body{
                 /* background-image: url('/storage/images/menu-background.png'); */
@@ -552,7 +552,7 @@
                                     <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
                                         <div class="w3-container w3-center">
                                             <h4 class = "ellipse">{{$m->product_name}}</h4>
-                                            <img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
+                                            <img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$m->restaurant_name}}/{{$m->product_image}}" alt="Avatar" >
 
                                             <div class="w3-section">
                                                 <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
