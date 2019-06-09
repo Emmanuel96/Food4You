@@ -89,7 +89,6 @@ class MenuController extends Controller
 
         $menu = $restaurants->menu()->get()->sortBy('category_id'); 
         $menu->toArray();
-        
 
         // dd($m->restaurant_name);
 
