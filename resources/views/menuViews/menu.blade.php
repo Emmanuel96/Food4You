@@ -29,7 +29,7 @@
 					<div class="w3-card-4">
 						<div class="w3-container w3-center">
 							<h3>{{$m->product_name}}</h3>
-							<img class="img-fluid" src="/storage/images/{{$m->product_image}}" alt="Avatar" >
+							<img class="img-fluid" src="/storage/images/{{$restaurants->restaurant_name}}/{{$m->product_image}}" alt="Avatar" >
 
 							<div class="w3-section">
 								@if($restaurant_status == 1)<a  class ="btn btn-primary" href="#" onclick = "openModalAndStoreId({{$m->product_id}})" >ADD TO CART <i class="fa fa-cart-plus"></i></a>@endif

@@ -22,12 +22,12 @@ class newOrderReceived extends Notification
 
     
     private $user_name; 
-    public $buyer_phone_number;
+    public $phone_number;
     
-    public function __construct($phone, $buyer_name)
+    public function __construct($phone_number, $user_name)
     {
         //get the name of the restaurant 
-       $this->buyer_phone_number = $phone; 
+       $this->phone_number = $buyer_phone_number; 
        $this->user_name = $buyer_name;
 
     }
