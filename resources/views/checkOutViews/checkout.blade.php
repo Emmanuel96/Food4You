@@ -259,7 +259,6 @@
                 {
                     margin-right: 30px; 
                 }
-
                 .navbar-brand
                 {
                     font-size: 25px; 
@@ -302,6 +301,17 @@
                   }
                  
             }
+
+            @media screen and (max-width: 450px)
+            {
+                .navbar-header{
+                    background-color: black; 
+                }
+                .nav .navbar-nav
+                {
+                    background-color:black !important;
+                }
+            }            
 
            
 

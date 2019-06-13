@@ -232,15 +232,17 @@ class AdminController extends Controller
 
 	{
 		$product = menu::where('product_id', $id)->find($id);
+		$restaurant = Session::get('logged_in_restaurant');
 		
-		return view ('AdminViews/editProduct', compact('product'));
+		return view ('AdminViews/editProduct', [ 'product' => $product, 'restaurant' => $restaurant ]);
 	}
 
 	public function showProduct($id) 
 	{
 		$product = menu::where('product_id', $id)->find($id);
+		$restaurant = Session::get('logged_in_restaurant');
 
-		return view ('AdminViews/showProduct', compact('product'));
+		return view ('AdminViews/showProduct', [ 'product' => $product, 'restaurant' => $restaurant ]);
 
 	}
 
