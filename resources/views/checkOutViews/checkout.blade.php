@@ -562,7 +562,7 @@
                         Total
                     </td>
                     <td> </td>
-                    <td align="right" id="total" style = "vertical-align:middle;">₦ {{number_format($total}})</td>
+                    <td align="right" id="total" style = "vertical-align:middle;">₦ {{number_format($total)}}</td>
                 </tr>
             </tbody>
         </table>
