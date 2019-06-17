@@ -17,7 +17,7 @@
                      
                        <li><a href = "/admin/dashboard"><i class="fa fa-home"></i>Dashboard</a>
                           <ul class = "nav child_menu"> 
-                            <li><a href= "#">asfds</a></li>
+                            <li><a href= "#">dashboard</a></li>
                           </ul>
                        </li>  
                 
