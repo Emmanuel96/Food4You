@@ -83,7 +83,7 @@ class AdminController extends Controller
 		$image_name = str_replace(' ', '', $request->input('product_name')).'.'.$request->product_image->getClientOriginalExtension(); 
 
 		//STORING THE IMAGE ON THE SERVER
-		$file = $request->file('product_image')->storeAs('images',$image_name);
+		$file = $request->file('product_image')->storeAs('images/'.$logged_in_restaurant->restaurant_name,$image_name);
 
 		//CREATE THE NEW PRODUCT WITHT THE PASSED INPUTS
 
@@ -258,6 +258,14 @@ class AdminController extends Controller
 			// 'product_image' => 'required',
 			'product_description' => 'required|max:255',
 		]);
+
+		if(session()->has('logged_in_restaurant'))
+		{
+			$logged_in_restaurant = session()->get('logged_in_restaurant'); 
+		}
+		else{
+			return redirect()->route('home'); 
+		}
 		
 		//IF USER CHANGED THE IMAGE
 		if($Request->product_image != null){
@@ -266,7 +274,7 @@ class AdminController extends Controller
 
 
 			//STORE NEW VALUE OF IMAGE TO REPLACE THE OLD ONE
-			$file = $Request->file('product_image')->storeAs('images',$image_name);
+			$file = $Request->file('product_image')->storeAs('images/'.$logged_in_restaurant->restaurant_name,$image_name);
 
 			//STORE THE NEW MENU IMAGE
 			$menu->product_image = $image_name; 
