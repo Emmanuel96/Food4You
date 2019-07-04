@@ -61,7 +61,7 @@
               <div class="form-group">
                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image: </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                    <img name = "current_image" class = "img-responsive" alt = " No image"  id = "restaurant-image" src =  "/storage/images/{{$restaurant->restaurant_name}}/{{$restaurant->restaurant_image}}"   >
+                    <img name = "current_image" class = "img-responsive" alt = " No image"  id = "restaurant-image" src =  "https://wailodile-storage.sfo2.digitaloceanspaces.com/wailodile-storage/restaurants/{{$restaurant->restaurant_image}}"   >
                     <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
                     <input value = "" type = "file " id = "restaurant-image" name = "restaurant_image"/>
                     </div>

@@ -57,11 +57,19 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_KEY'),
-            'secret' => env('AWS_SECRET'),
-            'region' => env('AWS_REGION'),
-            'bucket' => env('AWS_BUCKET'),
+            'key' => env('DGS_KEY'),
+            'secret' => env('DGS_SECRET'),
+            'region' => env('DGS_REGION'),
+            'bucket' => env('DGS_BUCKET'),
         ],
+        'spaces' => [
+            'driver' => 's3',
+            'bucket' => 'wailodile-storage/restaurants',
+            'key' => env('DGS_KEY'),
+            'secret' => env('DGS_SECRET'),
+            'endpoint' => env('DGS_END_POINT'),
+            'region' => env('DGS_REGION')
+        ]
 
     ],
 
