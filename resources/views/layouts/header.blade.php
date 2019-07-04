@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+      
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121124308-1"></script>
         <script>
@@ -294,7 +296,7 @@
 
         </style>
     </head>
-   <body id="page-top" class="index">
+   <body id="page-top" class="wrapper">
 
     <!-- Navigation -->
     <nav style="background-color:00000;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -362,5 +364,28 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+<script>
+  $('.wrapper').avnSkeleton({
+    // default configs
+    cssPrefix: 'avn-skeleton',
+    header: {
+    selector: '> header',
+    lines: 2,
+    icon: true,
+    loader: true
+    },
+    main: {
+    selector: '> main',
+    paragraphs: 3,
+    lines: 4
+    }
+
+    });
+
+    $('.wrapper').avnSkeleton('display');
+
+</script>
+  
 </body>
 </html>

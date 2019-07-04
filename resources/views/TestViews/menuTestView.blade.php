@@ -552,7 +552,7 @@
                                     <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
                                         <div class="w3-container w3-center">
                                             <h4 class = "ellipse">{{$m->product_name}}</h4>
-                                            <img class="img-fluid img-rounded" height="100px;" width="100px;" src="/storage/images/{{$restaurant->restaurant_name}}/{{$m->product_image}}" alt="Avatar" >
+                                            <img class="img-fluid img-rounded" height="100px;" width="100px;" src="https://wailodile-storage.sfo2.digitaloceanspaces.com/wailodile-storage/restaurants/{{$m->product_image}}" alt="Avatar" >
 
                                             <div class="w3-section">
                                                 <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
@@ -631,7 +631,7 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2 id = "modalProductName"></h2>
-                                <img id = "modalProductImage" class="img-responsive img-centered" src="/storage/images/productImage" alt="">
+                                <img id = "modalProductImage" class="img-responsive img-centered" src="/storage/images/{{$productImage}}" alt="">
                                 <p id = "modalProductDescription">{{$productDescription}}</p>
                                <!--  <p>
                                     <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
@@ -723,7 +723,7 @@
 
                    $('#product_name').text(output.productName);  
 
-                   $('#product_details_image').attr('src', '/storage/images/' + output.productImage);// + output.productImage); 
+                   $('#product_details_image').attr('src', 'https://wailodile-storage.sfo2.digitaloceanspaces.com/wailodile-storage/restaurants/' + output.productImage);// + output.productImage); 
 
                    $('#extra_menu_add_to_cart').attr('onclick', output.onclick); 
                    //href for the link 

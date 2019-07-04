@@ -83,16 +83,19 @@ class AdminController extends Controller
 		$image_name = str_replace(' ', '', $request->input('product_name')).'.'.$request->product_image->getClientOriginalExtension(); 
 
 		//STORING THE IMAGE ON THE SERVER
-		$file = $request->file('product_image')->storeAs('images/'.$logged_in_restaurant->restaurant_name,$image_name);
+		$file = $request->file('product_image')->storeAs('',$image_name);
+
+		$image = Storage::disk('spaces')->putFile($logged_in_restaurant->restaurant_name. '/menu',$request->file('product_image'), 'public');
+		// echo('Image hash name: '. $image); 
+		// return "\n end"; 
 
 		//CREATE THE NEW PRODUCT WITHT THE PASSED INPUTS
-
 		$menu = menu::create([
 			'product_name'=> $request->input('product_name'), 
 			'product_description' => $request->input('product_description'), 
 			'product_price' => $request->product_price,
 			'category_id' => $category,
-			'product_image'=> $image_name,
+			'product_image'=> $image,
 			'restaurant_id' => $logged_in_restaurant->restaurant_id
 
 		]);
@@ -100,6 +103,16 @@ class AdminController extends Controller
 		return redirect()->route('admin.addProduct', ['menu' => $menu ])
 			->with('success', $request->input('product_name').  ' Added Successfully');																																													
 	}	
+
+	// send get request to the CDN servers
+	public function storeProfileImage($profile_image){
+
+	}
+
+	// get request to ge the image from the CDN servers
+	public function getProfileImage($profile_image){
+		
+	}
 
 	public function viewProducts(Request $request)
 	{
@@ -415,7 +428,7 @@ class AdminController extends Controller
 		$imageName = $request->restaurant_image->getClientOriginalName();
 
 
-		$file = $request->file('restaurant_image')->storeAs('images',$imageName);
+		$file = $request->file('restaurant_image')->storeAs('images/'.$request->restaurant_name,$imageName);
 		Storage::disk('public')->put($imageName, 'Contents');
 
 
@@ -560,18 +573,43 @@ class AdminController extends Controller
 	{
 		$restaurant = Restaurants::where('restaurant_id', $id)->first();
 
-		DB::table('restaurants')->where('restaurant_id', $id)->update([
-			'restaurant_name' => $request->restaurant_name,
-			'restaurant_address' => $request->restaurant_address,
-			'restaurant_phone_number' => $request->restaurant_phone_number,
-			'restaurant_opening_times' => $request->restaurant_opening_times,
-			'restaurant_closing_times' => $request->restaurant_closing_times,
-			'restaurant_minimum_order' => $request->restaurant_minimum_order
+		$request->validate([
+			'restaurant_name' => 'required|unique:Restaurants',
+			'restaurant_opening_times' => 'required|date_format:H:i',
+			'restaurant_closing_times' => 'date_format:H:i',
+			'restaurant_address' => 'required|max:255',
+			'restaurant_phone_number' => 'int|min:11',
+			'restaurant_image' => 'required',
+			'restaurant_minimum_order' => 'required|int',
 		]);
+
+		
+
 
 		$restaurant->save();
 
-		return 'updated successfully!';
+		Session::flash('RestaurantUpdated', 'Restaurant ['.$request->restaurant_name.'] Updated Successfully');
+		
+		$imageName = $request->restaurant_image->getClientOriginalName();
+
+
+		$file = $request->file('restaurant_image')->storeAs('images/'.$request->restaurant_name,$imageName);
+		// Storage::disk('public')->put($imageName, 'Contents');
+		$image = Storage::disk('spaces')->putFile($request->restaurant_name. '/profile',$request->file('product_image'), 'public');
+
+		// dd($request->all());
+				
+		DB::table('restaurants')->where('restaurant_id', $id)->update([
+			'restaurant_name'=> $request->restaurant_name, 
+			'restaurant_opening_times'=> $request->restaurant_opening_times, 
+			'restaurant_closing_times'=> $request->restaurant_closing_times, 
+			'restaurant_address' => $request->restaurant_address, 
+			'restaurant_phone_number' => $request->restaurant_phone_number, 
+			'restaurant_image' => $image,
+			'restaurant_minimum_order' => $request->restaurant_minimum_order
+		]);
+		return 'updated successfully';
+	
 	}
 
 	public function openRestaurant()
