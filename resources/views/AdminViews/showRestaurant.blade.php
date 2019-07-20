@@ -40,7 +40,7 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product_image">Restaurant Image:</label>
   <br>
   <div class="col-md-6 col-sm-6 col-xs-12">
-    <img src="/storage/images/{{$restaurant->restaurant_name}}/{{$restaurant->restaurant_image}}" type= "file" width="250px"/>
+    <img src="{{env('DGS_TEST_IMAGE_PATH').$restaurant->restaurant_name.'/header/'.{{$restaurant->restaurant_image}}" type= "file" width="250px"/>
   </div>
 
 <div class="clearfix"></div>

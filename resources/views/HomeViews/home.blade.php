@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        @laravelPWA
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138253927-1"></script>
         <script>

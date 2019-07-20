@@ -64,7 +64,7 @@ return [
         ],
         'spaces' => [
             'driver' => 's3',
-            'bucket' => 'wailodile-storage/restaurants',
+            'bucket' => env('DGS_BUCKET'),
             'key' => env('DGS_KEY'),
             'secret' => env('DGS_SECRET'),
             'endpoint' => env('DGS_END_POINT'),

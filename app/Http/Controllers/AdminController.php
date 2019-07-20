@@ -85,9 +85,7 @@ class AdminController extends Controller
 		//STORING THE IMAGE ON THE SERVER
 		$file = $request->file('product_image')->storeAs('',$image_name);
 
-		$image = Storage::disk('spaces')->putFile($logged_in_restaurant->restaurant_name. '/menu',$request->file('product_image'), 'public');
-		// echo('Image hash name: '. $image); 
-		// return "\n end"; 
+		$image = Storage::disk('spaces')->putFile(str_replace(' ', '',$logged_in_restaurant->restaurant_name). '/menu',$request->file('product_image'), 'public');
 
 		//CREATE THE NEW PRODUCT WITHT THE PASSED INPUTS
 		$menu = menu::create([
@@ -245,8 +243,7 @@ class AdminController extends Controller
 
 	{
 		$product = menu::where('product_id', $id)->find($id);
-		$restaurant = Session::get('logged_in_restaurant');
-		
+		$restaurant	 = Session::get('logged_in_restaurant');
 		return view ('AdminViews/editProduct', [ 'product' => $product, 'restaurant' => $restaurant ]);
 	}
 
@@ -281,17 +278,17 @@ class AdminController extends Controller
 		}
 		
 		//IF USER CHANGED THE IMAGE
-		if($Request->product_image != null){
+		if($Request->product_prev_img != $Request->file('product_image')){
+			//firstly delete the current image 
+			// $image = Storage::disk('spaces')->delete($logged_in_restaurant->restaurant_name. '/menu',$menu->product_image, 'public');
+
 			//CONTANTONATE THE PRODUCT NAME WITH THE CLIENT EXTENSION		
-			$image_name = str_replace(' ', '', $Request->input('product_name')).'.'.$Request->product_image->getClientOriginalExtension(); 
+			$image_name = str_replace(' ', '', $Request->input('product_name')).'.'.$Request->product_image->getClientOriginalExtension();  
 
-
-			//STORE NEW VALUE OF IMAGE TO REPLACE THE OLD ONE
-			$file = $Request->file('product_image')->storeAs('images/'.$logged_in_restaurant->restaurant_name,$image_name);
+			$image = Storage::disk('spaces')->putFile($logged_in_restaurant->restaurant_name. '/menu',$Request->file('product_image'), 'public');
 
 			//STORE THE NEW MENU IMAGE
-			$menu->product_image = $image_name; 
-
+			$menu->product_image = $image;
 		}
 
 		
@@ -306,8 +303,6 @@ class AdminController extends Controller
 		$menu->save(); 
 
 		//PASS SUCCESSFUL MESSAGE TO THE VIEW PRODUCTS PAGE
-		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
-		
 		Session::flash('ProductUpdated', 'Product ['.$Request->product_name.'] Updated Successfully');
 		
 		return redirect('admin/viewProducts')->with('success', 'menu updated successfully!');
@@ -361,6 +356,16 @@ class AdminController extends Controller
 			'restaurant_image' => 'required',
 			'restaurant_minimum_order' => 'required|int',
 		]);
+
+		//REMOVE ALL SPACE FROM THE PROUDCT NAME TO FORM THE IMAGE NAME
+		$image_name = str_replace(' ', '', $request->input('restaurant_name')).'.'.$request->restaurant_image->getClientOriginalExtension(); 
+
+		//STORING THE IMAGE ON THE SERVER
+		$file = $request->file('restaurant_image')->storeAs('',$image_name);
+	
+
+		$image = Storage::disk('spaces')->putFile(env('DGS_TEST_IMAGE_PATH').$request->restaurant_name. '/profile',$request->file('restaurant_image'), 'public');
+
 
 		Restaurants::create(
 			[
