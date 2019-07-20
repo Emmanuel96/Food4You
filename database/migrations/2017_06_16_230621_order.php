@@ -22,6 +22,7 @@ class Order extends Migration
             $table->string('buyer_phone_number');
             $table->integer('order_status')->default('-1');
             $table->boolean('delivery_status')->default('0');
+            $table->integer('promo_code_id')->default(-1);
             $table->string('order_slug');
             $table->string('payment_ref');
             $table->string('batch')->default('0');

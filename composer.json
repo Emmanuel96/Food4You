@@ -19,6 +19,7 @@
     "nexmo/client": "^1.1",
     "nexmo/laravel": "^1.1",
     "pusher/pusher-php-server": "^3.3",
+    "silviolleite/laravelpwa": "^1.0",
     "stripe/stripe-php": "4.*",
     "unicodeveloper/laravel-paystack": "^1.0"
   },
