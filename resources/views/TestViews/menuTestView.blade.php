@@ -19,7 +19,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
 
-        <title>Naija Bites - A satisfying meal.</title>
+        <title>Wailodile - A satisfying meal.</title>
 
 
 
@@ -370,7 +370,7 @@
                         </li>
                     @endif
                 </button>
-                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Naija Bites</a>
+                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Wailodile</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -671,7 +671,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <i class="copyright">Copyright &copy; Naija Bites 2017</i>
+                    <i class="copyright">Copyright &copy; Wailodile 2017</i>
                 </div>
                 <div class="col-md-3">
                     <ul class="list-inline social-buttons">
