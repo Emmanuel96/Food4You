@@ -11,6 +11,7 @@
 
         gtag('config', 'UA-121124308-1');
         </script>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,6 +72,17 @@
         </script>
 
         <style>
+
+.blur-up {
+		-webkit-filter: blur(5px);
+		filter: blur(5px);
+		transition: filter 400ms, -webkit-filter 400ms;
+	}
+
+	.blur-up.lazyloaded {
+		-webkit-filter: blur(0);
+		filter: blur(0);
+	}
 
            .ellipse{
             font-size: 15px; display: block; width: 12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
@@ -552,7 +564,7 @@
                                     <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
                                         <div class="w3-container w3-center">
                                             <h4 class = "ellipse">{{$m->product_name}}</h4>
-                                            <img class="img-fluid img-rounded" height="100px;" width="100px;" src="{{env('DGS_TEST_IMAGE_PATH').$m->product_image}}" alt="Avatar" >
+                                            <img class="img-fluid img-rounded lazyload"  height="100px;" width="100px;" data-sizes = "auto" src="{{URL::asset('storage/images/title.ico')}}" data-src="{{env('DGS_TEST_IMAGE_PATH').$m->product_image}}" data-srcset="{{env('DGS_TEST_IMAGE_PATH').$m->product_image}} 300w, {{env('DGS_TEST_IMAGE_PATH').$m->product_image.' 640w'}}, {{env('DGS_TEST_IMAGE_PATH').$m->product_image}} 2x, {{env('DGS_TEST_IMAGE_PATH').$m->product_image}} 1x" >
 
                                             <div class="w3-section">
                                                 <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>
@@ -692,6 +704,7 @@
     <script src ="{{URL::asset('js/agency.js')}}" ></script>
     <script src ="{{URL::asset('js/contact_me.js')}}" ></script>
     <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
+    <script src="{{URL::asset('js/lazysizes.min.js')}}" async=""></script>
 
 <script type = "text/javascript"> 
 

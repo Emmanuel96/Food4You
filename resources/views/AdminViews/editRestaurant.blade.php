@@ -73,7 +73,6 @@
                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image: </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                     <img name = "current_image" class = "img-responsive" alt = " No image"  id = "restaurant-image" src = "{{ env('DGS_TEST_IMAGE_PATH').$restaurant->restaurant_image }}">
-                      <!-- <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                      -->
                       <input value = "" type ="file" id = "restaurant-image" name = "restaurant_image"/>
                     </div>
                   </div>
