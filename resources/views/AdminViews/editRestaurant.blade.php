@@ -1,6 +1,17 @@
 @extends('layouts.AdminHeader')
 
 @section('content')
+
+@if ($errors->any())
+  <div class="alert alert-danger" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <div class="right_col" role="main">
         <div class="">
           <div class="page-title">
@@ -61,9 +72,9 @@
               <div class="form-group">
                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image: </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                    <img name = "current_image" class = "img-responsive" alt = " No image"  id = "restaurant-image" src =  "https://wailodile-storage.sfo2.digitaloceanspaces.com/wailodile-storage/restaurants/{{$restaurant->restaurant_image}}"   >
-                    <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
-                    <input value = "" type = "file " id = "restaurant-image" name = "restaurant_image"/>
+                    <img name = "current_image" class = "img-responsive" alt = " No image"  id = "restaurant-image" src = "{{ env('DGS_TEST_IMAGE_PATH').$restaurant->restaurant_image }}">
+                      <!-- <input class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                      -->
+                      <input value = "" type ="file" id = "restaurant-image" name = "restaurant_image"/>
                     </div>
                   </div>
 

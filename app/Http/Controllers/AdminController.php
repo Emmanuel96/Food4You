@@ -82,8 +82,8 @@ class AdminController extends Controller
 		//REMOVE ALL SPACE FROM THE PROUDCT NAME TO FORM THE IMAGE NAME
 		$image_name = str_replace(' ', '', $request->input('product_name')).'.'.$request->product_image->getClientOriginalExtension(); 
 
-		//STORING THE IMAGE ON THE SERVER
-		$file = $request->file('product_image')->storeAs('',$image_name);
+		// //STORING THE IMAGE ON THE SERVER
+		// $file = $request->file('product_image')->storeAs('',$image_name);
 
 		$image = Storage::disk('spaces')->putFile(str_replace(' ', '',$logged_in_restaurant->restaurant_name). '/menu',$request->file('product_image'), 'public');
 
@@ -265,7 +265,7 @@ class AdminController extends Controller
 			'product_name' => 'required',
 			'product_price' => 'required',
 			'category' => 'required',
-			// 'product_image' => 'required',
+			'product_image' => 'required',
 			'product_description' => 'required|max:255',
 		]);
 
@@ -348,9 +348,9 @@ class AdminController extends Controller
 
 		$request->validate([
 			//'restaurant_id' => 'required|unique:Restaurants',
-			'restaurant_name' => 'required|unique:Restaurants',
-			'restaurant_opening_times' => 'required|date_format:H:i',
-			'restaurant_closing_times' => 'date_format:H:i',
+			// 'restaurant_name' => 'required|unique:Restaurants',
+			'restaurant_opening_times' => 'required',
+			'restaurant_closing_times' => 'required',
 			'restaurant_address' => 'required|max:255',
 			'restaurant_phone_number' => 'int|min:11',
 			'restaurant_image' => 'required',
@@ -358,14 +358,10 @@ class AdminController extends Controller
 		]);
 
 		//REMOVE ALL SPACE FROM THE PROUDCT NAME TO FORM THE IMAGE NAME
-		$image_name = str_replace(' ', '', $request->input('restaurant_name')).'.'.$request->restaurant_image->getClientOriginalExtension(); 
+		$image_name = str_replace(' ', '', $request->restaurant_name).'.'.$request->restaurant_image->getClientOriginalExtension(); 
+		$restaurant_name = str_replace(' ', '', $request->restaurant_name); 
 
-		//STORING THE IMAGE ON THE SERVER
-		$file = $request->file('restaurant_image')->storeAs('',$image_name);
-	
-
-		$image = Storage::disk('spaces')->putFile(env('DGS_TEST_IMAGE_PATH').$request->restaurant_name. '/profile',$request->file('restaurant_image'), 'public');
-
+		$image = Storage::disk('spaces')->putFile($restaurant_name. '/profile',$request->file('restaurant_image'), 'public');
 
 		Restaurants::create(
 			[
@@ -375,13 +371,13 @@ class AdminController extends Controller
 				'restaurant_closing_times'=> $request->restaurant_closing_times, 
 				'restaurant_address' => $request->restaurant_address, 
 				'restaurant_phone_number' => $request->restaurant_phone_no, 
-				'restaurant_image' => $request->restaurant_image,
+				'restaurant_image' => $image,
 				'restaurant_minimum_order' => $request->restaurant_minimum_order
 			]
 			);
-
-			return "successfully saved";
-
+		
+		Session::flash($request->restaurant_name.' Restaurant succesfully added'); 
+		return redirect('/admin/restaurants'); 
 	}
 
 	public function showRestaurant($id) {
@@ -394,50 +390,46 @@ class AdminController extends Controller
 	public function editRestaurant($id) {
 
 		$restaurant = Restaurants::where('restaurant_id', '=', $id)->first();
-		
+
 		return view ('AdminViews/editRestaurant', compact('restaurant'));
 	}
 
 	public function updateRestaurant(Request $request, $id) {
 
-		$restaurant = Restaurants::where('restaurant_id', $id)->first();
 
 		$request->validate([
-			'restaurant_name' => 'required|unique:Restaurants',
-			'restaurant_opening_times' => 'required|date_format:H:i',
-			'restaurant_closing_times' => 'date_format:H:i',
+			'restaurant_name' => 'required',
+			'restaurant_opening_times' => 'required',//|date_format:H:i',
+			'restaurant_closing_times' => 'required',//date_format:H:i',
 			'restaurant_address' => 'required|max:255',
-			'restaurant_phone_number' => 'int|min:11',
+			'restaurant_phone_number' => 'required|string',
 			'restaurant_image' => 'required',
 			'restaurant_minimum_order' => 'required|int',
 		]);
 
-		// dd($request->all());
+		$restaurant = Restaurants::where('restaurant_id', $id)->first();
+
+		$image = $request->file('restaurant_image'); 
+
+		if($restaurant->restaurant_image != $request->restaurant_image){
+			$imageName = $request->restaurant_image->getClientOriginalName();
+
+			$restaurant_name = str_replace(' ','',$request->restaurant_name);
+			$image = Storage::disk('spaces')->putFile($restaurant_name. '/profile',$request->file('restaurant_image'), 'public');		
+		}
 		
 		DB::table('restaurants')->where('restaurant_id', $id)->update([
-				'restaurant_name'=> $request->restaurant_name, 
-				'restaurant_opening_times'=> $request->restaurant_opening_times, 
-				'restaurant_closing_times'=> $request->restaurant_closing_times, 
-				'restaurant_address' => $request->restaurant_address, 
-				'restaurant_phone_number' => $request->restaurant_phone_number, 
-				'restaurant_image' => $request->restaurant_image,
-				'restaurant_minimum_order' => $request->restaurant_minimum_order
+			'restaurant_name'=> $request->restaurant_name, 
+			'restaurant_opening_times'=> $request->restaurant_opening_times, 
+			'restaurant_closing_times'=> $request->restaurant_closing_times, 
+			'restaurant_address' => $request->restaurant_address, 
+			'restaurant_phone_number' => $request->restaurant_phone_number, 
+			'restaurant_image' => $image,
+			'restaurant_minimum_order' => $request->restaurant_minimum_order
 		]);
 
-		return $restaurant;
-
-		$restaurant->save();
-
 		Session::flash('RestaurantUpdated', 'Restaurant ['.$request->restaurant_name.'] Updated Successfully');
-		
-		$imageName = $request->restaurant_image->getClientOriginalName();
-
-
-		$file = $request->file('restaurant_image')->storeAs('images/'.$request->restaurant_name,$imageName);
-		Storage::disk('public')->put($imageName, 'Contents');
-
-
-		return 'updated successfully';
+		return redirect('admin/restaurants');
 	}
 
 	public function deleteRestaurant($id) {

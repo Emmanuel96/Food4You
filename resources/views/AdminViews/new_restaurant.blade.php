@@ -92,22 +92,33 @@
                           <input id="restaurant-image" class="form-control col-md-7 col-xs-12" type="file" name="restaurant_image">
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="product-description-add-product">Opening times</label>
+                      
+                <div class="form-group">
+                        <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Opening Time: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text">
+                        <div class='input-group date' id='datetimepicker3'>
+                            <input name = "restaurant_opening_times" type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                            </span>
                         </div>
-                      </div>
+                        </div>
+                      </div> 
 
                       <div class="form-group">
-                        <label id = "restaurant-closing-times" class="control-label col-md-3 col-sm-3 col-xs-12"  for="restaurant_closing_times">Closing times</label>
+                        <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">ClosingTime: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="restaurant-opening-times" class="form-control col-md-7 col-xs-12" name="restaurant_opening_times" type="text">
+                        <div class='input-group date' id='datetimepicker4'>
+                            <input name = "restaurant_closing_times" type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                            </span>
                         </div>
-                      </div>
+                        </div>
+                      </div> 
 
                       <div class="form-group">
-                        <label id = "restaurant-minimum-order" class="control-label col-md-3 col-sm-3 col-xs-12"  for="restaurant_minimum_order">Minimum Order Price</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" id = "restaurant-minimum-order"  for="restaurant-minimum-order">Minimum Order Price</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input id="restaurant-minimum-order" class="form-control col-md-7 col-xs-12" name="restaurant_minimum_order" type="text">
                         </div>
@@ -167,6 +178,8 @@
     <!-- Custom Theme Scripts -->
     <script src="{{URL::asset('js/custom.min.js')}}"></script>
     <script src="{{ asset('/css/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{URL::asset('vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')}}"></script>
+
 
     <script>
       //this function automatically calls the function to mess with these 
@@ -194,6 +207,19 @@
         // alert(option);
       }
     </script>
+    <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
+            });
+
+            $(function () {
+                $('#datetimepicker4').datetimepicker({
+                    format: 'LT'
+                });
+            });
+      </script>
   </body>
 
   @endsection
