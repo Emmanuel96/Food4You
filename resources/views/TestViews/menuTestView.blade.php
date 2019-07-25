@@ -88,10 +88,10 @@
             font-size: 15px; display: block; width: 12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
            }
             header{
-                background-image: url('/storage/images/{{$restaurant->restaurant_name}}/{{ $restaurant->header_image }}')
+                background-image: url("{{env('DGS_TEST_IMAGE_PATH')}}{{ $restaurant->header_image }}") !important;
             }
             body{
-                /* background-image: url('/storage/images/menu-background.png'); */
+                background-image: '';
                 font-family: 'Roboto';
             }
             .flat-table {
@@ -425,7 +425,7 @@
     </nav>
 
     <!-- Header -->
-    <header style = "height: 500px;">
+    <header style = "height: 500px;" class = "img" src="{{URL::asset('storage/images/title.ico')}}" data-src ="{{URL::asset('storage/images/title.ico')}}">
         <div class="container">
         	<div id = "restaurant_info" style="background-color: #fff; padding: 20px; margin-top: 200px; margin-left: auto; margin-right: auto; color: black; width: 400px; border-radius: 5px; text-align:center;"> 
         		<h3 style = "font-weight:bold; font-size:3em;">{{$restaurant->restaurant_name}}</h2>

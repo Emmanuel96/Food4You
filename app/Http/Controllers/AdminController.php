@@ -403,19 +403,36 @@ class AdminController extends Controller
 			'restaurant_closing_times' => 'required',//date_format:H:i',
 			'restaurant_address' => 'required|max:255',
 			'restaurant_phone_number' => 'required|string',
-			'restaurant_image' => 'required',
+			// 'restaurant_image' => 'required',
+			// 'restaurant_header_image' => 'required',
 			'restaurant_minimum_order' => 'required|int',
 		]);
 
 		$restaurant = Restaurants::where('restaurant_id', $id)->first();
 
 		$image = $request->file('restaurant_image'); 
+		// return $request->current_image; 
 
-		if($restaurant->restaurant_image != $request->restaurant_image){
-			$imageName = $request->restaurant_image->getClientOriginalName();
+		//if restaurant profile image changed
+		if(env('DGS_TEST_IMAGE_PATH').$restaurant->restaurant_image != $request->current_image){
+			if($request->file('restaurant_image') != null){
+				$imageName = $request->file('restaurant_image')->getClientOriginalName();
+			
+				$restaurant_name = str_replace(' ','',$request->restaurant_name);
+				$image = Storage::disk('spaces')->putFile($restaurant_name. '/profile',$request->file('restaurant_image'), 'public');		
+			}else{
+				$image = $restaurant->restaurant_image; 
+			}
+		}
 
-			$restaurant_name = str_replace(' ','',$request->restaurant_name);
-			$image = Storage::disk('spaces')->putFile($restaurant_name. '/profile',$request->file('restaurant_image'), 'public');		
+		//if restaurant header image changed
+		if($restaurant->header_image != $request->restaurant_header_image){
+			if($request->file('restaurant_header_image') != null){
+				$imageName = $request->restaurant_header_image->getClientOriginalName(); 
+				$header_image = Storage::disk('spaces')->putFile(str_replace(' ','',$request->restaurant_name). '/header', $request->file('restaurant_header_image'), 'public');
+			}else{
+				$header_image = $restaurant->header_image; 
+			}
 		}
 		
 		DB::table('restaurants')->where('restaurant_id', $id)->update([
@@ -425,6 +442,7 @@ class AdminController extends Controller
 			'restaurant_address' => $request->restaurant_address, 
 			'restaurant_phone_number' => $request->restaurant_phone_number, 
 			'restaurant_image' => $image,
+			'header_image' => $header_image,
 			'restaurant_minimum_order' => $request->restaurant_minimum_order
 		]);
 

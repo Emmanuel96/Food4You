@@ -72,10 +72,18 @@
               <div class="form-group">
                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image: </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                    <img name = "current_image" class = "img-responsive" alt = " No image"  id = "restaurant-image" src = "{{ env('DGS_TEST_IMAGE_PATH').$restaurant->restaurant_image }}">
-                      <input value = "" type ="file" id = "restaurant-image" name = "restaurant_image"/>
+                      <img name = "current_image" class = "img-responsive" alt = " No image"  id = "restaurant-image" src = "{{ env('DGS_TEST_IMAGE_PATH').$restaurant->restaurant_image }}">
+                      <input value = "{{$restaurant->restaurant_image}}" type ="file" id = "restaurant-image" name = "restaurant_image"/>
                     </div>
+               </div>
+
+               <div class = "form-group">
+                  <label for="restaurant-header-image" class="control-label col-md-3 col-sm-3 col-xs-12">Header Image</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <img name="current_header_image" class="img-responsive" alt ="No Image" id ="restaurant-header-image" src="{{env('DGS_TEST_IMAGE_PATH').$restaurant->header_image}}"/>
+                    <input type="file" id="restaurant-header-image" name="restaurant_header_image"/>
                   </div>
+               </div>
 
                 <div class="form-group">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Restaurant Opening Time: </label>
