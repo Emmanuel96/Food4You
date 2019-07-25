@@ -319,6 +319,16 @@
                 }
           }
 
+          .modal-header, .close {
+            background-color: #fed136;
+            color: black !important;
+            text-align: center;
+            font-size: 30px;
+          }
+          
+          .modal-footer {
+            background-color: #f9f9f9;
+            }
 
         </style>
 
@@ -445,7 +455,7 @@
         </ul>
 
          <div id = "basket_div" class="basket pull-right" style="padding-top: 3px; background-color:#fff; border-color: black; height:auto; width:33%;">
-         <a id = "checkout-button" href="/checkout" class = "btn btn-primary btn-lg @if($products== null)disabled @endif" style="color:black; border-radius: 0px;  width: 100%;" >Go to Checkout</a>
+         <a id="checkout-button" href="#" data-toggle="modal" data-target="#checkoutmodal" class = "btn btn-primary btn-lg @if($products== null)disabled @endif" style="color:black; border-radius: 0px;  width: 100%;" >Go to Checkout</a>
 
          <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
            <div id = "basket_basket">
@@ -661,6 +671,31 @@
         </div>
     </div>
 
+    {{-- anonymous or not --}}
+    <div class="modal fade" role="dialog" id="checkoutmodal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+                    <h4 class="modal-title">Select an option</h4>
+                </div>
+                <div class="modal-body" style="text-align:center;">
+                    <select name="" id="">
+                        <option value="1">Anonymous Order</option>
+                        <option value="2">Personal Order</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <a href="/checkout" class="btn btn-success">
+                        <i class="fa fa-check"></i> Proceed
+                    </a>
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">
+                        <i class="fa fa-times"></i> Cancel
+                    </a>                    
+                </div>
+            </div>
+        </div>
+    </div>
 
 <footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; "> 
     <a id = "footerPrice" href = "/cart" class = "btn btn-primary" style = "width: 70%; border-radius: 0; color: black; ">
@@ -707,6 +742,14 @@
     <script src="{{URL::asset('js/lazysizes.min.js')}}" async=""></script>
 
 <script type = "text/javascript"> 
+
+    $(document).ready(function(){
+        $('#checkout-button').click(function(e){
+            e.preventDefault();
+            
+            // $('#checkoutmodal').modal('show');
+        });
+    });
 
     function openDetailsModal(pid)
     {
