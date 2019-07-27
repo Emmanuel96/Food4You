@@ -48,6 +48,22 @@ class CheckoutController extends Controller
         'restaurants' => $restaurants ]);
     }
 
+    public function anonymousForm(){
+
+        if(Session::get('cart') == "") {
+            return redirect(url()->previous());
+        }
+
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+
+        $days_of_delivery = DB::select('select * from days_of_delivery where restaurant_id = 0');
+
+        $restaurants = DB::table('restaurants')->where('restaurant_id', '$id')->first();
+
+        return view('checkOutViews.anonymous', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'days' => $days_of_delivery, 'restaurants' => $restaurants ]);
+    }
+
     public function createOrder(Request $request)
     {
 

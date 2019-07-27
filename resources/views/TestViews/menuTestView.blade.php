@@ -680,13 +680,13 @@
                     <h4 class="modal-title">Select an option</h4>
                 </div>
                 <div class="modal-body" style="text-align:center;">
-                    <select name="" id="">
+                    <select name="" id="selectOrder">
                         <option value="1">Anonymous Order</option>
                         <option value="2">Personal Order</option>
                     </select>
                 </div>
                 <div class="modal-footer">
-                    <a href="/checkout" class="btn btn-success">
+                    <a href="#" class="btn btn-success" onclick="loadCheckout()">
                         <i class="fa fa-check"></i> Proceed
                     </a>
                     <a href="#" class="btn btn-danger" data-dismiss="modal">
@@ -743,6 +743,7 @@
 
 <script type = "text/javascript"> 
 
+    //invoke checkout-modal
     $(document).ready(function(){
         $('#checkout-button').click(function(e){
             e.preventDefault();
@@ -750,6 +751,21 @@
             // $('#checkoutmodal').modal('show');
         });
     });
+
+    //function to load checkout page, depending on users option
+    function loadCheckout(){
+        var x = document.getElementById('selectOrder').value;
+
+        let personalOrder = "{{ route('checkout.show') }}",
+            anonymousOrder = "{{ route('checkout.anonymous') }}";
+
+        if(x == 2){
+            window.location.href = personalOrder;
+        } else {
+            window.location.href = anonymousOrder;
+        }
+
+    }
 
     function openDetailsModal(pid)
     {

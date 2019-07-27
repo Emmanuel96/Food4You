@@ -33,6 +33,7 @@ Route::get('/cart', 'CartController@displayCart')->name('cart.show');
 Route::delete('/deleteFromCart', 'CartController@deleteFromCart')->name('cart.delete');
 
 Route::get('/checkout', 'CheckoutController@displayCheckout')->middleware('restaurant_minimum_order')->name('checkout.show');
+Route::get('/anonymous', 'CheckoutController@anonymousForm')->middleware('restaurant_minimum_order')->name('checkout.anonymous');
 
 Route::post('/checkout', 'CheckoutController@createOrder')->middleware('restaurant_minimum_order')->name('checkout.create'); 
 
