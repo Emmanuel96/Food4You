@@ -124,6 +124,10 @@
                 padding: 0; 
                 margin-left: 20;
             }
+
+            header {
+                background-image: url("{{asset('/background-img1.jpg')}}");
+            }
             
             .container
             {

@@ -455,7 +455,7 @@
         </ul>
 
          <div id = "basket_div" class="basket pull-right" style="padding-top: 3px; background-color:#fff; border-color: black; height:auto; width:33%;">
-         <a id="checkout-button" href="#" data-toggle="modal" data-target="#checkoutmodal" class = "btn btn-primary btn-lg @if($products== null)disabled @endif" style="color:black; border-radius: 0px;  width: 100%;" >Go to Checkout</a>
+         <a id="checkout-button" href="#" data-toggle="modal" data-target="#checkoutmodal" class = "btn btn-primary btn-lg @if($products == null)disabled @endif" style="color:black; border-radius: 0px;  width: 100%;" >Go to Checkout</a>
 
          <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
            <div id = "basket_basket">

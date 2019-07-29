@@ -283,7 +283,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top"><i class = "fa fa-cutlery"></i>Naija Bites</a>
+                <a class="navbar-brand page-scroll" href="#page-top"><i class = "fa fa-cutlery"></i>Wailodile</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -382,11 +382,37 @@
              </div>
    	         <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
 
-	         <a  href="./checkout" class = "btn btn-primary btn-lg cartButtons" style="color:black; margin-left: 300px; margin-bottom: 30px;  border-radius: 0px; width: 50%;" href = "./checkout" >Go to Checkout</a>
+	         <a  href="#" data-toggle="modal" data-target="#checkoutmodal" class = "btn btn-primary btn-lg cartButtons" style="color:black; margin-left: 300px; margin-bottom: 30px;  border-radius: 0px; width: 50%;">Go to Checkout</a>
 
 	           <a  href="/menu/Plated Memoirs" class = "btn btn-success btn-lg cartButtons" style="color:white; margin-left: 300px; margin-bottom: 10px;   border-radius: 0px; width: 50%;" >Add More Items</a>
 
 	 </div>
+</div>
+
+    {{-- anonymous or not --}}
+<div class="modal fade" role="dialog" id="checkoutmodal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+                <h4 class="modal-title">Select an option</h4>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+                <select name="" id="selectOrder">
+                    <option value="1">Anonymous Order</option>
+                    <option value="2">Personal Order</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-success" onclick="loadCheckout()">
+                    <i class="fa fa-check"></i> Proceed
+                </a>
+                <a href="#" class="btn btn-danger" data-dismiss="modal">
+                    <i class="fa fa-times"></i> Cancel
+                </a>                    
+            </div>
+        </div>
+    </div>
 </div>
 
 <footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; "> 
@@ -427,7 +453,34 @@
     <script src ="{{URL::asset('js/agency.js')}}" ></script>
     <script src ="{{URL::asset('js/contact_me.js')}}" ></script>
     <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
-<script> 
+
+<script type="text/javascript"> 
+
+    //invoke checkout-modal
+    $(document).ready(function(){
+        $('#checkout-button').click(function(e){
+            e.preventDefault();
+            
+            // $('#checkoutmodal').modal('show');
+        });
+    });
+
+    //function to load checkout page, depending on users option
+    function loadCheckout(){
+        var x = document.getElementById('selectOrder').value;
+
+        let personalOrder = "{{ route('checkout.show') }}",
+            anonymousOrder = "{{ route('checkout.anonymous') }}";
+
+        //the page would be redirected automatically, depending on the option value.
+        if(x == 2){
+            window.location.href = personalOrder;
+        } else {
+            window.location.href = anonymousOrder;
+        }
+
+    }
+
     var id; 
     function openModalAndStoreId(idd)
     {
