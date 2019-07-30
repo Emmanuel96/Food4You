@@ -265,7 +265,7 @@ class AdminController extends Controller
 			'product_name' => 'required',
 			'product_price' => 'required',
 			'category' => 'required',
-			'product_image' => 'required',
+			// 'product_image' => 'required',
 			'product_description' => 'required|max:255',
 		]);
 
