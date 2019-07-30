@@ -8,7 +8,6 @@
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'UA-138253927-1');
         </script>
 
@@ -58,10 +57,12 @@
 
         <style>
 
+            header {
+                background-image: url("{{ asset('./background-img1.jpg') }}");
+            }
             .navbar-toggle{
                 margin-right: 30px;
             }
-
             .flat-table {
                 display: block;
                 font-family: Montserrat, Helvetica, sans-serif;
@@ -82,7 +83,6 @@
                 color: rgb(111, 111, 111);
                 padding: 20px 30px;
             }
-
            
             body
             {
@@ -118,7 +118,6 @@
                 width: 60%; 
                 margin-bottom: 40px;
             }
-
             .fullContainer 
             {
                 padding: 0; 
@@ -130,18 +129,15 @@
                 padding: 0;
                 /*margin: 0px; */
             }
-
             @media screen and (max-width: 414px)
             {
                 #header{
                     /* margin-top: 100px; */
                 }
-
                 #restaurant_info
                 {
                     width: 100% !important;
                 }
-
                 footer
                 {
                     display: none !important;     
@@ -152,24 +148,19 @@
                     height: auto !important;
                     padding: 2px !important; 
                 }
-
-
                 #basket_div
                 {
                     visibility: hidden !important; 
                     display:none !important;
-
                 }
                 .w3-card-4
                 {
                     margin-bottom: 30px; 
                 }
-
                 .mobile_resp
                 {
                     width: 100% !important;
                 }
-
                 .row
                 {
                     margin-bottom: 0;
@@ -182,7 +173,6 @@
                     width: 100%;
                     z-index: 1; 
                   }
-
                 .nav
                 {
                     padding-left: 13px; 
@@ -193,31 +183,25 @@
                 }
                 .navbar-nav li
                 {
-
                     display:inline !important;
                     list-style-type:none !important; 
                     float:left !important; 
-
                 }
-
                 .first_category_mobile
                 {
                     /*margin-lef*/
                 }
-
                 .nav-item .cat-link
                  {
                     font-size: 12px !important;
                     padding: 15px 5px !important; 
                  }
             }
-
             @media screen and (max-width: 768px)
             {
                 header .intro-text .intro-heading{
                     font-size: 28px;
                 }
-
                 header .intro-text{
                     padding-top:100px;
                     font-size: 1ems; 
@@ -230,7 +214,6 @@
                 {
                     /* margin-right: 0px;  */
                 }
-
                 .navbar-brand
                 {
                     font-size: 25px; 
@@ -241,7 +224,6 @@
                  {
                     padding-right: 10px !important; 
                     padding-left: 7px !important;
-
                  }
                  #basket_div.basket
                  {
@@ -253,7 +235,6 @@
                     padding: 15px 5px !important; 
                  }
             }
-
            
                @media screen and (min-width: 991px) {
              /* start of large tablet styles */
@@ -267,19 +248,13 @@
                  }
                  #basket_div.basket
                  {
-
                  }
-
                   .basket.pull-right
                   {
                     /*padding-right: 20px; */
                   }
             }
-
-
         
-
-
                         /* #####################################################################
                #
                #   Project       : Modal Login with jQuery Effects
@@ -291,11 +266,9 @@
                ##################################################################### */
                
 /*            @import url(http://fonts.googleapis.com/css?family=Roboto);
-
             * {
                 font-family: 'Roboto', sans-serif;
             }*/
-
         </style>
     </head>
    <body id="page-top" class="index">
@@ -322,7 +295,6 @@
                                 <a style = "color:black;" href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->user_name }} <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu" role="menu">
                                     <li style = "color:black;" class="nav-item">
                                         <a style = "color:black;" class="nav-link" href="{{ route('logout') }}"
@@ -330,7 +302,6 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
-
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
@@ -340,7 +311,6 @@
                                             <a style = "color:black;" class="nav-link" href="{{route('admin.viewProducts')}}">
                                                 Dashboard
                                             </a>
-
                                     @endif
                                 </ul>
                             </li>
@@ -361,7 +331,6 @@
             </div>
         </div>
     </header>
-
   
 	 <section id="services" style = "background-color: #fff">
         <div class="container">
@@ -444,7 +413,6 @@
             </div>
         </div>
     </section>
-
     <footer>
         <div class="container">
             <div class="row">
@@ -470,7 +438,6 @@
             </div>
         </div>
     </footer>
-
     <!-- Portfolio Modals -->
     <!-- Use the modals below to showcase details about your portfolio projects! -->
     <script src="{{URL::asset('js/jquery.js')}}"></script>
@@ -478,8 +445,6 @@
     <script src ="{{URL::asset('js/agency.js')}}" ></script>
     <script src ="{{URL::asset('js/contact_me.js')}}" ></script>
     <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
-
     
 </body>
-
 </html>
