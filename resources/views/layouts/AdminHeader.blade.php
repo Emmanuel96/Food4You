@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
   <title>Wailodile - Restaurants </title>
-  @laravelPWA
+  
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138253927-1"></script>
   <script>
@@ -40,6 +40,7 @@
   <link href="{{URL::asset('css/custom.min.css')}}" rel="stylesheet">
 
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  @laravelPWA
 
   </head>
   <style>
