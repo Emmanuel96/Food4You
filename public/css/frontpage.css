@@ -1,0 +1,228 @@
+header {
+    background-image: url("{{ asset('public/background-img1.jpg') }}");
+}
+
+#category_nav_restaurants{
+    margin-left:117px;
+    margin-top: 20px;
+}
+.navbar-toggle{
+            margin-right: 30px;
+        }
+
+        .flat-table {
+            display: block;
+            font-family: Montserrat, Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-size: 115%;
+            overflow: auto;
+            width: auto;
+        }
+        th {
+            background: black;
+            color: white;
+            font-weight: normal;
+            padding: 20px 30px;
+            text-align: center;
+        }
+        td {
+            background: rgb(238, 238, 238);
+            color: rgb(111, 111, 111);
+            padding: 20px 30px;
+        }
+
+       
+        body
+        {
+            background: #eee;
+            margin:0; 
+            padding: 0; 
+        }
+
+        .menu_row{
+            margin-bottom:50px;
+        }
+
+        .qty
+        {
+            width: 35px;
+        }
+        
+        .center{
+            margin: auto;
+        }
+        
+        .smallFont
+        {
+            font-size: 20px;
+        }
+        
+        img.center
+        {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .restaurantCards
+        {
+            width: 60%; 
+            margin-bottom: 40px;
+        }
+
+        .fullContainer 
+        {
+            padding: 0; 
+            margin-left: 20;
+        }
+        
+        .container
+        {
+            padding: 0;
+            /*margin: 0px; */
+        }
+
+        @media screen and (max-width: 414px)
+        {
+            #header{
+                /* margin-top: 100px; */
+            }
+
+            #restaurant_info
+            {
+                width: 100% !important;
+            }
+
+            footer
+            {
+                display: none !important;     
+            }
+               #mobile_footer{
+                display: block !important;
+                visibility: visible;
+                height: auto !important;
+                padding: 2px !important; 
+            }
+
+
+            #basket_div
+            {
+                visibility: hidden !important; 
+                display:none !important;
+
+            }
+            .w3-card-4
+            {
+                margin-bottom: 30px; 
+            }
+
+            .mobile_resp
+            {
+                width: 100% !important;
+            }
+
+            .row
+            {
+                margin-bottom: 0;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            #category_nav.affix
+              {
+                top: 51px;
+                width: 100%;
+                z-index: 1; 
+              }
+
+            .nav
+            {
+                padding-left: 13px; 
+            }
+            .nav .navbar-nav
+            {
+                background-color:black !important;
+            }
+            .navbar-nav li
+            {
+
+                display:inline !important;
+                list-style-type:none !important; 
+                float:left !important; 
+
+            }
+
+            .first_category_mobile
+            {
+                /*margin-lef*/
+            }
+
+            .nav-item .cat-link
+             {
+                font-size: 12px !important;
+                padding: 15px 5px !important; 
+             }
+        }
+
+        @media screen and (max-width: 768px)
+        {
+            header .intro-text .intro-heading{
+                font-size: 28px;
+            }
+
+            header .intro-text{
+                padding-top:100px;
+                font-size: 1ems; 
+                font-size: 15px;
+            }
+            header{
+                margin-top: 60px; 
+            }
+            .navbar-toggle
+            {
+                /* margin-right: 0px;  */
+            }
+
+            .navbar-brand
+            {
+                font-size: 25px; 
+                padding: 15px 15px; 
+                margin-left: 15px; 
+            }
+             .categoryNav
+             {
+                padding-right: 10px !important; 
+                padding-left: 7px !important;
+
+             }
+             #basket_div.basket
+             {
+                margin-left: 0px !important;
+                /*padding-right: 3px !important;*/  
+             }   
+             .nav-item .cat-link
+             {
+                padding: 15px 5px !important; 
+             }
+        }
+
+       
+           @media screen and (min-width: 991px) {
+         /* start of large tablet styles */
+            header{
+                margin-top: 60px; 
+            }
+             .categoryNav
+             {
+                 padding-right: 10px !important; 
+                padding-left: 10px !important;
+             }
+             #basket_div.basket
+             {
+
+             }
+
+              .basket.pull-right
+              {
+                /*padding-right: 20px; */
+              }
+        }
+    
