@@ -564,7 +564,7 @@
                                     <div class="w3-card-4" style = "background-color: white;  border-radius: 5px;">
                                         <div class="w3-container w3-center">
                                             <h4 class = "ellipse">{{$m->product_name}}</h4>
-                                            <img class="img-fluid img-rounded lazyload"  height="100px;" width="100px;" data-sizes = "auto" src="{{URL::asset('storage/images/title.ico')}}" data-src="{{env('DGS_TEST_IMAGE_PATH').$m->product_image}}" data-srcset="{{env('DGS_TEST_IMAGE_PATH').$m->product_image}} 300w, {{env('DGS_TEST_IMAGE_PATH').$m->product_image.' 640w'}}, {{env('DGS_TEST_IMAGE_PATH').$m->product_image}} 2x, {{env('DGS_TEST_IMAGE_PATH').$m->product_image}} 1x" >
+                                            <img class="img-fluid img-rounded lazyload"  height="100px;" width="100px;" data-sizes = "auto" src="{{URL::asset('storage/images/title.ico')}}" data-src="{{env('DGS_TEST_IMAGE_PATH').$m->product_image}}">
 
                                             <div class="w3-section">
                                                 <a  @if($m->inStock == 1)class ="btn btn-primary btn-sm text-center" data-toggle = "modal"  @else class ="btn btn-danger btn-sm text-center disabled" @endif  href="#"  onclick = "openDetailsModal({{$m->product_id}})">@if($m->inStock == 1) Add To Cart @else Out Of Stock @endif <i class="fa fa-cart-plus"></i></a>

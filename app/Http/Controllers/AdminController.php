@@ -278,12 +278,12 @@ class AdminController extends Controller
 		}
 		
 		//IF USER CHANGED THE IMAGE
-		if($Request->product_prev_img != $Request->file('product_image')){
+		if($Request->product_cur_image == "changed"){
 			//firstly delete the current image 
 			// $image = Storage::disk('spaces')->delete($logged_in_restaurant->restaurant_name. '/menu',$menu->product_image, 'public');
 
 			//CONTANTONATE THE PRODUCT NAME WITH THE CLIENT EXTENSION		
-			$image_name = str_replace(' ', '', $Request->input('product_name')).'.'.$Request->product_image->getClientOriginalExtension();  
+			$image_name = str_replace(' ', '', $Request->input('product_name')).'.'.$Request->file('product_image')->getClientOriginalExtension();  
 
 			$image = Storage::disk('spaces')->putFile($logged_in_restaurant->restaurant_name. '/menu',$Request->file('product_image'), 'public');
 

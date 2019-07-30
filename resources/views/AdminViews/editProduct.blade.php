@@ -87,9 +87,9 @@
                           <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
 
-                            <img  class = "img-responsive" style = "border-radius: 5px; width: 300px; height: 280px; margin-left: auto; margin-right: auto; margin-bottom: 10px; " id = "img-display" alt = " No image"  id = "product-image" src = "{{env('DGS_TEST_IMAGE_PATH').$product->product_image}}"   >
+                            <img class = "img-responsive" style = "border-radius: 5px; width: 300px; height: 280px; margin-left: auto; margin-right: auto; margin-bottom: 10px; " id = "img-display" alt = " No image"  id = "product-image" src = "{{env('DGS_TEST_IMAGE_PATH').$product->product_image}}"   >
                             <input onchange= "onChangeDisplayImage(this)" id = "product-image" name = "product_image" value = "{{$product->product_image}}" class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
-                            <input type = "hidden" name = "product_prev_img" value ="{{$product->product_image}}" />
+                            <input type = "hidden" id = "product-cur-image" name = "product_cur_image" value ="{{$product->product_image}}" />
 
                           </div>
                         </div>
@@ -155,12 +155,16 @@
       <script>
 
         function onChangeDisplayImage(input) {
-
+          alert('I am not sure hwy');
           if (input.files && input.files[0]) {
+            //firstly change the current image
+            document.getElementById('product-cur-image').value = 'changed';
+
             var reader = new FileReader();
 
             reader.onload = function(e) {
               $('#img-display').attr('src', e.target.result);
+              // $('#product-cur-img').attr('value', e.target.result )
             }
 
             reader.readAsDataURL(input.files[0]);
