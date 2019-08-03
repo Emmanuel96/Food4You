@@ -44,6 +44,9 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <style>
+            .sign-in-btn{
+                margin-right: 10px;
+            }
             img {
                 margin-top: -13px;
             }
@@ -88,13 +91,7 @@
                 display:inline;
             }
 
-            .nav li{
-                width: 100%;
-                margin-bottom: 10px; 
-                padding-right: 10px; 
-                padding-left: 10px; 
-            }
-
+            
              @media screen and (max-width: 768px)
                 {
                     header .btn-xl{
@@ -108,7 +105,7 @@
                         margin-top: -5px;
                     }
                     header .intro-text .intro-lead-in{
-                        padding-top
+                        /* padding-top */
                     }
                     header .intro-text{
                         padding-top:90px;
@@ -132,6 +129,14 @@
                         margin-top: -9px;
                         vertical-align: top;
                     }
+
+                    .nav li{
+                        width: 100%;
+                        margin-bottom: 10px; 
+                        padding-right: 10px; 
+                        padding-left: 10px; 
+                    }
+
                 }
         </style>
     </head>
@@ -155,7 +160,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style = "">
                <ul class="nav navbar-nav navbar-right" ">
                       @if (!Auth::user())
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login">Sign in</a></li>
+                            <li class = "nav-item sign-in-btn"> <a class="nav-link btn btn-primary" href="/login">Sign in</a></li>
                             <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent;">Register</a></li>
                         @else
                             <li style = "color:black;" class=" nav-item dropdown">
