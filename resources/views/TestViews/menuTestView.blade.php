@@ -73,11 +73,11 @@
 
         <style>
 
-        .nav li{
-             
-         }
+            .sign-in-btn{
+                margin-right: 10px;
+            }
         
-        .blur-up {
+            .blur-up {
                 -webkit-filter: blur(5px);
                 filter: blur(5px);
                 transition: filter 400ms, -webkit-filter 400ms;
@@ -164,26 +164,13 @@
             .container
             {
                 padding: 0;
-                /*margin: 0px; */
             }
 
             .navbar-brand img{
-                display: inline; 
-                margin-top: -10px;
+                display: inline;
+                margin-top: -9px;
                 vertical-align: top;
             }
-
-            .sign-in-btn{
-                margin-right: 10px;
-            }
-
-            /* .nav li{
-                width: 100%;
-                margin-bottom: 10px; 
-                padding-right: 10px; 
-                padding-left: 10px; 
-            } */
-
 
             @media screen and (max-width: 450px)
             {
@@ -203,7 +190,7 @@
                 {
                     display: none !important;     
                 }
-                #mobile_footer{
+                   #mobile_footer{
                     display: block !important;
                     visibility: visible;
                     height: auto !important;
@@ -234,11 +221,11 @@
                     margin-right: auto !important;
                 }
                 #category_nav.affix
-                {
+                  {
                     top: 51px;
                     width: 100%;
                     z-index: 1; 
-                }
+                  }
 
                 .nav
                 {
@@ -248,16 +235,38 @@
                 {
                     background-color:black !important;
                 }
+                .nav-black{
+                    background-color: black;
+                }
+                .navbar-nav{
+                    margin: 0px -15px !important;
+                }
+
                 .nav li
                 {
-                    display:inline !important;
-                    width: 100%; 
+                    display:inline-block !important;
+                    <!-- width: 100%;  -->
                     padding-right: 10px;
                     padding-left: 10px !important; 
                     margin-bottom: 10px; 
                     list-style-type:none !important; 
-
                 }
+                ul .sadfa{
+                    background-color:black;
+                }
+
+                .auth-btn{
+                    color: white;
+                    width: 90%;
+                    margin-left: 17px; 
+                    margin-right: 20px;
+                }
+
+                .sign-in-btn{
+                    width: 100%;
+                    margin-top: 10px;
+                }
+
                 .first_category_mobile
                 {
                     /*margin-lef*/
@@ -303,9 +312,9 @@
                     padding: 15px 5px !important; 
                  }
 
-                 nav li{
+                 <!-- nav li{
                      padding-left: 10px; 
-                 }
+                 } -->
             }
            
             @media screen and (min-width: 991px) {
@@ -364,7 +373,7 @@
 
 
     <!-- Navigation -->
-    <nav style="background-color:#fff;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <nav style="background-color:black;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -408,10 +417,10 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style = "">
-               <ul class="nav navbar-nav navbar-right">
+               <ul class="nav navbar-nav navbar-right nav-black">
                       @if (!Auth::user())
-                            <li class = "nav-item sign-in-btn"> <a class="nav-link btn btn-primary" href="/login" style="color: black; text-transform: none; ">Sign In </a></li>
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent; color: black;">Register</a></li>
+                            <li class = "nav-item auth-btn"> <a class="nav-link btn btn-primary sign-in-btn" href="/login" style="text-transform: none; ">SIGN IN</a></li>
+                            <li class = "nav-item auth-btn"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent;">Register</a></li>
                         @else
                             <li class=" nav-item dropdown">
                                 <a style = "color:black;" href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
