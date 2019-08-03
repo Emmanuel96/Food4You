@@ -73,16 +73,20 @@
 
         <style>
 
-.blur-up {
-		-webkit-filter: blur(5px);
-		filter: blur(5px);
-		transition: filter 400ms, -webkit-filter 400ms;
-	}
+        .nav li{
+             
+         }
+        
+        .blur-up {
+                -webkit-filter: blur(5px);
+                filter: blur(5px);
+                transition: filter 400ms, -webkit-filter 400ms;
+            }
 
-	.blur-up.lazyloaded {
-		-webkit-filter: blur(0);
-		filter: blur(0);
-	}
+            .blur-up.lazyloaded {
+                -webkit-filter: blur(0);
+                filter: blur(0);
+            }
 
            .ellipse{
             font-size: 15px; display: block; width: 12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
@@ -163,6 +167,24 @@
                 /*margin: 0px; */
             }
 
+            .navbar-brand img{
+                display: inline; 
+                margin-top: -10px;
+                vertical-align: top;
+            }
+
+            .sign-in-btn{
+                margin-right: 10px;
+            }
+
+            /* .nav li{
+                width: 100%;
+                margin-bottom: 10px; 
+                padding-right: 10px; 
+                padding-left: 10px; 
+            } */
+
+
             @media screen and (max-width: 450px)
             {
                 .navbar-header{
@@ -181,7 +203,7 @@
                 {
                     display: none !important;     
                 }
-                   #mobile_footer{
+                #mobile_footer{
                     display: block !important;
                     visibility: visible;
                     height: auto !important;
@@ -212,29 +234,30 @@
                     margin-right: auto !important;
                 }
                 #category_nav.affix
-                  {
+                {
                     top: 51px;
                     width: 100%;
                     z-index: 1; 
-                  }
+                }
 
                 .nav
                 {
-                    padding-left: 13px; 
+                    /* background-color: black; */
                 }
                 .nav .navbar-nav
                 {
                     background-color:black !important;
                 }
-                .navbar-nav li
+                .nav li
                 {
-
                     display:inline !important;
+                    width: 100%; 
+                    padding-right: 10px;
+                    padding-left: 10px !important; 
+                    margin-bottom: 10px; 
                     list-style-type:none !important; 
-                    float:left !important; 
 
                 }
-
                 .first_category_mobile
                 {
                     /*margin-lef*/
@@ -257,8 +280,12 @@
                 .navbar-brand
                 {
                     font-size: 25px; 
-                    padding: 15px 15px; 
-                    margin-left: 15px; 
+                    /* padding: 15px 15px;  */
+                    margin-left: 10px; 
+                }
+                .navbar-brand img{
+                    margin-top: -9px;
+                    vertical-align: top;
                 }
                  .categoryNav
                  {
@@ -274,6 +301,10 @@
                  .nav-item .cat-link
                  {
                     padding: 15px 5px !important; 
+                 }
+
+                 nav li{
+                     padding-left: 10px; 
                  }
             }
            
@@ -340,7 +371,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" @if(!Auth::user()) data-target="#bs-example-navbar-collapse-1"@else data-target ="#"@endif>
                     @if(!Auth::user()) 
                         <span class="sr-only">Toggle navigation</span> 
-                        Menu  <i class="fa fa-bars"></i>
+                        Sign Up  <i class="fa fa-bars"></i>
                     @else
                         <li class="nav-item dropdown">
                             <a style = "color:black;"  class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -370,15 +401,17 @@
                         </li>
                     @endif
                 </button>
-                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Wailodile</a>
+                <a class="navbar-brand page-scroll" href="/home" style = "display:inline;">
+                    <img height ="40px" src ="{{URL::asset('storage/images/title.ico')}}"/> Wailodile
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style = "">
                <ul class="nav navbar-nav navbar-right">
                       @if (!Auth::user())
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login" style="color: black; text-transform: none; ">Sign In </a></li>
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent; margin-left: 10px; color: black; text-transform: none; ">Register</a></li>
+                            <li class = "nav-item sign-in-btn"> <a class="nav-link btn btn-primary" href="/login" style="color: black; text-transform: none; ">Sign In </a></li>
+                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent; color: black;">Register</a></li>
                         @else
                             <li class=" nav-item dropdown">
                                 <a style = "color:black;" href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
