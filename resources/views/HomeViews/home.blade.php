@@ -88,6 +88,13 @@
                 display:inline;
             }
 
+            .nav li{
+                width: 100%;
+                margin-bottom: 10px; 
+                padding-right: 10px; 
+                padding-left: 10px; 
+            }
+
              @media screen and (max-width: 768px)
                 {
                     header .btn-xl{
@@ -122,7 +129,7 @@
                         margin-left: 1px; 
                     }
                     .navbar-brand img{
-                        margin-top: -11px;
+                        margin-top: -9px;
                         vertical-align: top;
                     }
                 }
@@ -149,7 +156,7 @@
                <ul class="nav navbar-nav navbar-right" ">
                       @if (!Auth::user())
                             <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login">Sign in</a></li>
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent; margin-left: 10px;">Register</a></li>
+                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent;">Register</a></li>
                         @else
                             <li style = "color:black;" class=" nav-item dropdown">
                                 <a style = "color:black;" href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
