@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @laravelPWA
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138253927-1"></script>
         <script>
@@ -22,11 +21,9 @@
 
         <title>Wailodile - A satisfying meal.</title>
 
-
-
         <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{URL::asset('css/Chendu.css')}}" rel="stylesheet">
-
+        <link href="{{URL::asset('css/footer.css')}}" rel="stylesheet">
         <!-- Custom Fonts -->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -38,285 +35,121 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         {{--Google Fonts--}}
-    <!-- Custom Fonts -->
-        {{--<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">--}}
+        <!-- Custom Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-
-   <!--   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-        <![endif]--> 
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-
         <style>
-
-            .navbar-toggle{
-                margin-right: 30px;
+            img {
+                margin-top: -13px;
             }
 
-            .flat-table {
-                display: block;
-                font-family: Montserrat, Helvetica, sans-serif;
-                -webkit-font-smoothing: antialiased;
-                font-size: 115%;
-                overflow: auto;
-                width: auto;
-            }
-            th {
+            .navbar-custom.affix{
                 background-color: black;
-                color: white;
-                font-weight: normal;
-                padding: 20px 30px;
-                text-align: center;
             }
-            td {
-                background-color: rgb(238, 238, 238);
-                color: rgb(111, 111, 111);
-                padding: 20px 30px;
-            }
-
-           
-            body
-            {
-                background-color: #eee;
-                margin:0; 
-                padding: 0; 
-            }
-            .menu_row{
-                margin-bottom:50px;
-            }
-            .qty
-            {
-                width: 35px;
+            h2.section-heading{
+                font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif' !important;
+                font-weight: 700; 
+                margin-bottom: 30px;
             }
             
-            .center{
-                margin: auto;
+            h3.section-subheading{
+                margin-bottom: 30px;
             }
-            
-            .smallFont
+
+            .fa-inverse{
+                color: black; 
+            }
+
+            header .intro-text .intro-heading{
+                font-family: "Droid Serif,Helvetica Neue, Helvetica, Arial, sans-serif";
+            }
+
+             #lead-in{
+                 display: inline; 
+            }
+
+            .typed-cursor
             {
-                font-size: 20px;
+                font-size: 40px;
+                color: #fed136; 
+                -moz-animation: blink 0.7s infinite;
+                animation: blink 0.7s infinite;
             }
-            
-            img.center
-            {
-              display: block;
-              margin-left: auto;
-              margin-right: auto;
-            }
-            .restaurantCards
-            {
-                width: 60%; 
-                margin-bottom: 40px;
+            #strong{
+                color: #fed136;
             }
 
-            .fullContainer 
-            {
-                padding: 0; 
-                margin-left: 20;
-            }
-            
-            .container
-            {
-                padding: 0;
-                /*margin: 0px; */
+            .navbar-brand img{
+                display:inline;
             }
 
-            @media screen and (max-width: 414px)
-            {
-                #header{
-                    /* margin-top: 100px; */
-                }
-
-                #restaurant_info
+             @media screen and (max-width: 768px)
                 {
-                    width: 100% !important;
+                    header .btn-xl{
+                        /* width: ; 
+                        height: ; */
+                        font-size: 13px; 
+                        padding: 20px, 20px; 
+                    }
+                    header .intro-text .intro-heading{
+                        font-size: 28px;
+                        margin-top: -5px;
+                    }
+                    header .intro-text .intro-lead-in{
+                        padding-top
+                    }
+                    header .intro-text{
+                        padding-top:90px;
+                        font-size: 1ems; 
+                        font-size: 15px;
+                    }
+                    header{
+                        margin-top: 50px; 
+                    }
+                    .navbar-toggle
+                    {
+                        /* margin-right: 0px;  */
+                    }
+                    .navbar-brand
+                    {
+                        font-size: 25px; 
+                        /* padding: 15px 15px;  */
+                        margin-left: 1px; 
+                    }
+                    .navbar-brand img{
+                        margin-top: -11px;
+                        vertical-align: top;
+                    }
                 }
-
-                footer
-                {
-                    display: none !important;     
-                }
-                   #mobile_footer{
-                    display: block !important;
-                    visibility: visible;
-                    height: auto !important;
-                    padding: 2px !important; 
-                }
-
-
-                #basket_div
-                {
-                    visibility: hidden !important; 
-                    display:none !important;
-
-                }
-                .w3-card-4
-                {
-                    margin-bottom: 30px; 
-                }
-
-                .mobile_resp
-                {
-                    width: 100% !important;
-                }
-
-                .row
-                {
-                    margin-bottom: 0;
-                    margin-left: auto !important;
-                    margin-right: auto !important;
-                }
-                #category_nav.affix
-                  {
-                    top: 51px;
-                    width: 100%;
-                    z-index: 1; 
-                  }
-
-                .nav
-                {
-                    padding-left: 13px; 
-                }
-                .nav .navbar-nav
-                {
-                    background-color:black !important;
-                }
-                .navbar-nav li
-                {
-
-                    display:inline !important;
-                    list-style-type:none !important; 
-                    float:left !important; 
-
-                }
-
-                .first_category_mobile
-                {
-                    /*margin-lef*/
-                }
-
-                .nav-item .cat-link
-                 {
-                    font-size: 12px !important;
-                    padding: 15px 5px !important; 
-                 }
-            }
-
-            @media screen and (max-width: 768px)
-            {
-                header .intro-text .intro-heading{
-                    font-size: 28px;
-                }
-
-                header .intro-text{
-                    padding-top:100px;
-                    font-size: 1ems; 
-                    font-size: 15px;
-                }
-                header{
-                    margin-top: 60px; 
-                }
-                .navbar-toggle
-                {
-                    /* margin-right: 0px;  */
-                }
-
-                .navbar-brand
-                {
-                    font-size: 25px; 
-                    padding: 15px 15px; 
-                    margin-left: 15px; 
-                }
-                 .categoryNav
-                 {
-                    padding-right: 10px !important; 
-                    padding-left: 7px !important;
-
-                 }
-                 #basket_div.basket
-                 {
-                    margin-left: 0px !important;
-                    /*padding-right: 3px !important;*/  
-                 }   
-                 .nav-item .cat-link
-                 {
-                    padding: 15px 5px !important; 
-                 }
-            }
-
-           
-               @media screen and (min-width: 991px) {
-             /* start of large tablet styles */
-                header{
-                    margin-top: 60px; 
-                }
-                 .categoryNav
-                 {
-                     padding-right: 10px !important; 
-                    padding-left: 10px !important;
-                 }
-                 #basket_div.basket
-                 {
-
-                 }
-
-                  .basket.pull-right
-                  {
-                    /*padding-right: 20px; */
-                  }
-            }
-
-
-        
-
-
-                        /* #####################################################################
-               #
-               #   Project       : Modal Login with jQuery Effects
-               #   Author        : Rodrigo Amarante (rodrigockamarante)
-               #   Version       : 1.0
-               #   Created       : 07/28/2015
-               #   Last Change   : 08/02/2015
-               #
-               ##################################################################### */
-               
-/*            @import url(http://fonts.googleapis.com/css?family=Roboto);
-
-            * {
-                font-family: 'Roboto', sans-serif;
-            }*/
-
         </style>
     </head>
+
    <body id="page-top" class="index">
 
     <!-- Navigation -->
-    <nav style="background-color:#fff;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> LOGIN <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Wailodile</a>
+                <a class="navbar-brand page-scroll" href="/home" style = "display:inline;">
+                    <img height ="40px" src ="{{URL::asset('storage/images/title.ico')}}"/> Wailodile
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style = "">
                <ul class="nav navbar-nav navbar-right" ">
                       @if (!Auth::user())
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login" style="color: black; text-transform: none; ">Sign in</a></li>
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent; margin-left: 10px; color: black; text-transform: none; ">Register</a></li>
+                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login">Sign in</a></li>
+                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent; margin-left: 10px;">Register</a></li>
                         @else
                             <li style = "color:black;" class=" nav-item dropdown">
                                 <a style = "color:black;" href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -355,9 +188,9 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Wailodile</div>
-                <div class="intro-heading">Home Of The Best Meals</div>
-                <a href="/restaurants" class="btn btn-xl" style="margin-bottom: 30px; ">VIEW RESTAURANTS</a>
+                <div class="intro-lead-in" id="lead-in">...</div>
+                <div class="intro-heading">We've got you.</div>
+                <a href="/restaurants" class="btn btn-xl" style="margin-bottom: 30px; ">PLACE AN ORDER</a>
             </div>
         </div>
     </header>
@@ -367,8 +200,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">WHAT WE DO</h2>
-                    <h3 class="section-subheading text-muted">We are here to provide the following services just for you</h3>
+                    <h2 class="section-heading text-uppercase">Services</h2>
+                    <h3 class="section-subheading text-muted">Our services for you</h3>
                 </div>
             </div>
             <div class="row text-center">
@@ -386,90 +219,74 @@
                         <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Secure Online Payment</h4>
-                    <p class="text-muted">No need to leave your house. Stay at home, <b>make payemnt via your credit card online securely.</b> And just sit back, you will be served in time.</p>
+                    <p class="text-muted">Don't leave the comfort of your office <b>make payemnt via your credit card online securely.</b> And just sit back, you will be served in time.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-truck fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-motorcycle fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Delivery</h4>
-                    <p class="text-muted">You don't have to worry about leaving your house or office. We will delivery it directly to you within a specified time space.</p>
+                    <p class="text-muted">Don't want to pick up? We will handle the <b>delivery</b> to your door step.</p>
                 </div>
             </div>
         </div>
     </section>
-	
-    <!-- Contact Section -->
-    <section id=contact>
-        <div class=container>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Send us an enquiry and we will get back to you</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name*" id="name" required data-validation-required-message="Please enter your name.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email*" id="email" required data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone*" id="phone" required data-validation-required-message="Please enter your phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message*" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">SEND</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+	<footer class="footer-distributed" style = "background-color: black;">
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Wailodile <?php echo date('Y') ?></span>
-                </div>
-                <div class="col-md-3">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-wechat"></i></a>
-                        </li>
-						<li><a href="https://login.yahoo.com/?.src=ym&.intl=us&.lang=en-US&.done=https%3a//mail.yahoo.com"><i class="fa fa-weibo"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+<div class="footer-left">
+
+  <h4 style = "color: white; "> Copyright &copy; Wailodile <?php echo date('Y') ?></h4>
+<!-- 
+  <p class="footer-links">
+    <a href="#">Home</a>
+    ·
+    <a href="#">Blog</a>
+    ·
+    <a href="#">Pricing</a>
+    ·
+    <a href="#">About</a>
+    ·
+    <a href="#">Faq</a>
+    ·
+    <a href="#">Contact</a>
+  </p> -->
+
+</div>
+
+<div class="footer-center container">
+
+  <div>
+    <i class="fa fa-map-marker"></i>
+    <p>Lekki Phase 2, Lagos</p>
+  </div>
+
+  <div>
+    <i class="fa fa-envelope"></i>
+    <p><a style = "color: #fed136;" href="mailto:support@company.com">support@wailodile.com</a></p>
+  </div>
+
+</div>
+
+<div class="footer-right">
+
+  <p class="footer-company-about">
+    <span>About Wailodile</span>
+    Order from your favorite restaurants from anywhere and we will get it to your door step.
+  </p>
+
+  <div class="footer-icons">
+
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <!-- <a href="#"><i class="fa fa-github"></i></a> -->
+
+  </div>
+
+</div>
+
+</footer>
 
     <!-- Portfolio Modals -->
     <!-- Use the modals below to showcase details about your portfolio projects! -->
@@ -479,6 +296,16 @@
     <script src ="{{URL::asset('js/contact_me.js')}}" ></script>
     <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
 
+    <script src = "{{URL::asset('js/typed.min.js')}}" type = "text/javascript"></script>    
+    <script>
+      var typed3 = new Typed('#lead-in', {
+					strings: ["Welcome To Wailodile", "Craving a <strong style = 'color: #fed136;'>Sandwich?<strong>","Maybe a <strong style = 'color: #fed136;'>Tray</strong>", "Or some <strong style = 'color: #fed136;'>Plantain</strong>", "Just Maybe,<strong style = 'color: #fed136;'>  Some Wings</strong>"],
+					typeSpeed: 100,
+					backSpeed: 10,
+					smartBackspace: true, // this is a default
+					loop: true
+				});
+    </script>
     
 </body>
 
