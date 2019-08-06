@@ -190,7 +190,7 @@
                 {
                     display: none !important;     
                 }
-                   #mobile_footer{
+                #mobile_footer{
                     display: block !important;
                     visibility: visible;
                     height: auto !important;
@@ -245,9 +245,9 @@
                 .nav li
                 {
                     display:inline-block !important;
-                    <!-- width: 100%;  -->
                     padding-right: 10px;
                     padding-left: 10px !important; 
+                    margin-left: 5px;
                     margin-bottom: 10px; 
                     list-style-type:none !important; 
                 }
