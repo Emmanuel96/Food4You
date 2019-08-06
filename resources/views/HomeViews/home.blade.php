@@ -202,7 +202,7 @@
             <div class="intro-text">
                 <div class="intro-lead-in" id="lead-in">...</div>
                 <div class="intro-heading">We've got you.</div>
-                <a href="/restaurants" class="btn btn-xl" style="margin-bottom: 30px; ">PLACE AN ORDER</a>
+                <a href="/menu/Plated Memoirs" class="btn btn-xl" style="margin-bottom: 30px; ">PLACE AN ORDER</a>
             </div>
         </div>
     </header>
