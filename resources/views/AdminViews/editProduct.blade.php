@@ -9,7 +9,7 @@
               <div class="title_left">
                 <h3>Edit Product</h3>
               </div>
-                
+
                 @if ($errors->any())
                   <div class="alert alert-danger">
                     <ul>
@@ -19,7 +19,7 @@
                     </ul>
                   </div>
                 @endif
-              
+
                 @if(Session::has('success'))
                 <div class="alert alert-success">
                   <ul>
@@ -34,7 +34,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title" style="border-bottom:0px;">
-                    
+
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="#"></i></a>
                       </li>
@@ -45,7 +45,7 @@
                           </li>
                           <li><a href="#">Settings 2</a>
                           </li>
-                        </ul> 
+                        </ul>
                       </li>
                     <!--  <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
@@ -62,16 +62,16 @@
                         <input type="text" id="first-name" name="product_name" class="form-control col-md-7 col-xs-12" value="{{ $product->product_name }}">
                         </div>
                       </div>
-                   
+
                       <div class="form-group">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price *</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text" value="{{ $product->product_price }}">
                         </div>
-                      </div>  
+                      </div>
                       <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">Category *</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12"> 
+                          <div class="col-md-6 col-sm-6 col-xs-12">
                             <select name="category" id="inlineFormCustomSelect" class="form-control col-md-7 col-xs-12" >
                                 @foreach($category_array as $data)
                                   @if($data->category_id == $product->category_id)
@@ -79,7 +79,7 @@
                                   @else
                                     <option value="{{$data->category_id}}">{{$data->category_name}}</option>
                                   @endif
-                                @endforeach                      
+                                @endforeach
                             </select>
                           </div>
                          </div>
@@ -88,7 +88,7 @@
                           <div class="col-md-6 col-sm-6 col-xs-12">
 
                             <img class = "img-responsive" style = "border-radius: 5px; width: 300px; height: 280px; margin-left: auto; margin-right: auto; margin-bottom: 10px; " id = "img-display" alt = " No image"  id = "product-image" src = "{{env('DGS_TEST_IMAGE_PATH').$product->product_image}}"   >
-                            <input onchange= "onChangeDisplayImage(this)" id = "product-image" name = "product_image" value = "{{$product->product_image}}" class="form-control col-md-7 col-xs-12" type="file">                                                                                                                                                                                                     
+                            <input onchange= "onChangeDisplayImage(this)" id = "product-image" name = "product_image" value = "{{$product->product_image}}" class="form-control col-md-7 col-xs-12" type="file">
                             <input type = "hidden" id = "product-cur-image" name = "product_cur_image" value ="{{$product->product_image}}" />
 
                           </div>
@@ -110,7 +110,7 @@
                             </button>
                           </div>
                         </div>
-  
+
                       </form>
                     </div>
                   </div>
@@ -155,7 +155,7 @@
       <script>
 
         function onChangeDisplayImage(input) {
-          alert('I am not sure hwy');
+        //   alert('I am not sure hwy');
           if (input.files && input.files[0]) {
             //firstly change the current image
             document.getElementById('product-cur-image').value = 'changed';
@@ -173,5 +173,5 @@
 
       </script>
 
-      
- @endsection     
+
+ @endsection
