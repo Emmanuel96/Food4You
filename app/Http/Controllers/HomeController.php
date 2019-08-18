@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\menu;  
 use App\order; 
-use App\States; 
+use App\states; 
 use App\area;
 use Illuminate\Support\Facades\Auth;
 
