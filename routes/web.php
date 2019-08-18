@@ -13,11 +13,13 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::group(['prefix' => 'menu' ], function(){
-    Route::get('/','MenuController@displayAll')->name('menu.show');
+// Route::group(['prefix' => 'menu' ], function(){
+//     Route::get('/','MenuController@displayAll')->name('menu.show');
 
-    Route::get('/{name?}', 'MenuController@displayMenu');
-});
+//     Route::get('/{name?}', 'MenuController@displayMenu');
+// });
+
+Route::get('menu/{name}', 'MenuController@displayMenu')->name('menu.show');
 
 Route::get('getProductDetails', 'MenuController@getProductDetails')->name('menu.getProductDetails'); 
 
@@ -132,7 +134,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Routes leading to the restaurant page 
 Route::get('/restaurants', 'RestaurantController@restaurantsPage')->name('restaurants.show');
-
+Route::post('/restaurants', 'RestaurantController@restaurantsPage')->name('postrestaurants.show');
 
 ///for sake of debugging 
 Route::get('/clearCart', 'HomeController@clearCart');

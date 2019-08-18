@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\menu;
 use App\Cart; 
 use DB; 
+use URL;
 use App\order; 
+use App\User;
 use App\Restaurants; 
 use App\Category;
 use Session;
@@ -284,11 +286,26 @@ class AdminController extends Controller
 
 			//CONTANTONATE THE PRODUCT NAME WITH THE CLIENT EXTENSION		
 			$image_name = str_replace(' ', '', $Request->input('product_name')).'.'.$Request->file('product_image')->getClientOriginalExtension();  
-
-			$image = Storage::disk('spaces')->putFile($logged_in_restaurant->restaurant_name. '/menu',$Request->file('product_image'), 'public');
-
+			//create a tmp image
+			$img = imagecreatefromjpeg($Request->file('product_image')); 
+			//reduce size of tmp image and save
+			$img_save = imagejpeg($img,"haha.jpeg", 5); 
+			//get content of tmp image & save
+			// echo "<img src = '/haha.jpeg' />";
+			// return md5(file_get_contents('haha.jpeg'));
+			// return md5(file_get_contents('haha.jpeg'));
+			// imagejpeg($img, 'haha.jpeg', 5); return 'd';
+			$img_final = file_get_contents('haha.jpeg'); 
+			
+			$image = Storage::disk('spaces')->putFile($logged_in_restaurant->restaurant_name. '/menu', $img_final, 'public');
+			
 			//STORE THE NEW MENU IMAGE
 			$menu->product_image = $image;
+
+			//a bit dirty but it's my fastest route for now, please clean it later Emmanuel: 05/08/2019
+			$file_path = app_path().'/haha.jpeg';
+			unlink($file_path);
+			imagedestroy(img_save);
 		}
 
 		
@@ -375,6 +392,16 @@ class AdminController extends Controller
 				'restaurant_minimum_order' => $request->restaurant_minimum_order
 			]
 			);
+
+			//create user for the restaurant 
+			User::create([
+				'user_name' => $request->restaurant_name, 
+				'email' => str_replace(' ', '', $request->restaurant_name). '@gmail.com', 
+				'password' => app('hash')->make('admin'), 
+				'user_role' => 3, 
+				'user_address' => $request->restaurant_address, 
+				'user_phone_number' => $request->restaurant_phone_no
+			]); 
 		
 		Session::flash($request->restaurant_name.' Restaurant succesfully added'); 
 		return redirect('/admin/restaurants'); 

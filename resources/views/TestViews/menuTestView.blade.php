@@ -550,7 +550,7 @@
                     <td colspan="2">
                         <i class= "fa fa-bicycle"></i> Delivery fee
                     </td>
-                    <td align="right"   style = "color:red; font-style:italic; ">₦ 500</td>
+                    <td align="right"   style = "color:red; ">₦ {{number_format($delivery_price)}}</td>
                 </tr>
             </tbody>
         </table>
@@ -564,7 +564,7 @@
                         Total
                     </td>
                     <td> </td>
-                    <td align="right" id="total" style = "vertical-align:middle;">₦ {{$total}}</td>
+                    <td align="right" id="total" style = "vertical-align:middle;">₦ {{number_format($total + $delivery_price)}}</td>
                 </tr>
             </tbody>
         </table>

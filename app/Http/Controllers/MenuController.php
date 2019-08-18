@@ -61,6 +61,11 @@ class MenuController extends Controller
 
     public function displayMenu($name){
 
+        //get the delivery price 
+        if(Session::has('delivery_price')){
+            $delivery_price = Session::get('delivery_price'); 
+        }
+
         // $user = User::first(); 
         // // return $user;
         
@@ -130,7 +135,7 @@ class MenuController extends Controller
 
     //    return $category2[0]; 
 
-        $cart->totalPrice = 0;
+        // $cart->totalPrice = 0;
 
         return view('TestViews.menuTestView',
         [
@@ -139,7 +144,8 @@ class MenuController extends Controller
             'restaurant_status' => $restaurant_status,
             'restaurant'=> $restaurants,
             'categories' => $categories,
-            'category2' => $category2
+            'category2' => $category2,
+            'delivery_price' => $delivery_price
         ]);
     }
 }
