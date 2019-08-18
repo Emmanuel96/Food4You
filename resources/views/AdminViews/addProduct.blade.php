@@ -1,7 +1,7 @@
 @extends('layouts.AdminHeader')
 
 @section('content')
- 
+
         <!-- page content -->
         <!-- <div  role="main">
           <div class=""> -->
@@ -18,31 +18,31 @@
                   </ul>
                 </div>
               @endif
-            
-            
+
+
              @if(Session::has('success'))
                   <div id = "success-div" class="alert alert-success" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
                       <div class = "text-center" >{{Session::get('success')}}
 
                         <button style = "" type="button" class="close" onclick = "document.getElementById('success-div').style.display = 'none';" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
-                        </button> 
-                      </div>              
-                
+                        </button>
+                      </div>
+
                   </div>
               @endif
 
               <script>
-                
+
               </script>
-              
+
             </div>
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title" style="border-bottom:0px;">
-                    
+
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="#"></i></a>
                       </li>
@@ -59,12 +59,12 @@
                       </li>
                     </ul> -->
                     <div class="clearfix"></div>
-                  </div> 
+                  </div>
                   <div class="x_content">
                     <br />
                     <form enctype="multipart/form-data" name="add_product" id="demo-form2" method = "POST" action="{!! route('admin.createProduct') !!}" class="form-horizontal form-label-left">
-                     
-                   
+
+
                       <!-- <div class="form-group">
                           <div class="avatar-upload" style = "margin-top: -20px; margin-bottom: 18px;">
                             <div class="avatar-edit">
@@ -90,29 +90,29 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                          <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text" required>
                         </div>
-                      </div>  
+                      </div>
 
-                          
+
                       <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">Category *</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12"> 
+                          <div class="col-md-6 col-sm-6 col-xs-12">
                             <select name="category" id = "category-select" onchange = "create_new_category()" id="inlineFormCustomSelect" class="form-control col-md-7 col-xs-12">
                                 <option selected>Select Category</option>
                                 <option id = "new-category"> New Category </option>
-                                                               
+
                                 @foreach($category_array as $data)
                                   <option value="{{$data->category_id}}">{{$data->category_name}}</option>
                                 @endforeach
-                               
+
                             </select>
-                            
+
                           </div>
                       </div>
 
                       <div class="form-group"  id = "hidden-category-div" style = "display: none; ">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">New Category *</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12"> 
-                              <input type = "text" name = "new_category" placeholder = "Enter New Category" class="form-control col-md-7 col-xs-12" />                            
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type = "text" name = "new_category" placeholder = "Enter New Category" class="form-control col-md-7 col-xs-12" />
                           </div>
                       </div>
 
@@ -150,7 +150,7 @@
                             <textarea name="product_description" id="product-description-add-product"  cols="100" rows="5"></textarea>
                         </div>
                       </div>
-                      
+
                       <div class="form-group">
                       </div>
                       <div class="ln_solid"></div>
@@ -166,10 +166,10 @@
                             </div>
                           </div>
                         </div>
-                      </div>  
+                      </div>
 
-    
-     
+
+
     <!-- jQuery -->
     <script src="{{URL::asset('vendors/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
@@ -208,13 +208,13 @@
     <script src="{{ asset('/css/bootstrap/js/bootstrap.min.js') }}"></script>
 
     <script>
-      //this function automatically calls the function to mess with these 
+      //this function automatically calls the function to mess with these
       function hasExtra()
       {
         //
 
       }
-      //this function adds a new row to the form for the extra item and it's price 
+      //this function adds a new row to the form for the extra item and it's price
       function addExtraRow()
       {
         //
@@ -222,8 +222,8 @@
 
       function create_new_category()
       {
-        //make the new category text box to be visible 
-        var option = document.getElementById("new-category").selected;; 
+        //make the new category text box to be visible
+        var option = document.getElementById("new-category").selected;;
 
         if(option == true)
         {
