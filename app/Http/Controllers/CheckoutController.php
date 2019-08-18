@@ -25,7 +25,10 @@ use Illuminate\Support\Facades\Log;
 class CheckoutController extends Controller
 {
     public function displayCheckout(){
-
+        $delivery_price = 500; 
+        if(Session::has('delivery_price')){
+            $delivery_price = Session::get('delivery_price'); 
+        }
         Log::info('I got here');
         // return Session::get('cart');
         if(Session::get('cart') == "")
@@ -44,13 +47,17 @@ class CheckoutController extends Controller
         $restaurants = DB::table('restaurants')->where('restaurant_id', '$id')->first();
        // return $restaurants;
 
-        return view('checkOutViews.checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'days'=> $days_of_delivery, 
+        return view('checkOutViews.checkout', ['delivery_price'=> $delivery_price,'products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'days'=> $days_of_delivery, 
         'restaurants' => $restaurants ]);
     }
 
     public function createOrder(Request $request)
     {
+        $delivery_price = 500; 
 
+        if(Session::has('delivery_price')){
+            $delivery_price = Session::get('delivery_price'); 
+        }
         if(!Session::has('cart'))
         {
         	return redirect()->route('cart.show');
@@ -123,7 +130,6 @@ class CheckoutController extends Controller
         // if a cart exists 
         if($cart)
         {
-
             $products = $cart->items; 
             if($products)
             {

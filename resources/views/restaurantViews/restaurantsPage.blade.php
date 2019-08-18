@@ -13,7 +13,6 @@
         </script>
         <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
 
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,6 +57,27 @@
 
 
         <style>
+
+            .sign-in-btn{
+                margin-right: 10px;
+            }
+
+            .navbar-brand img{
+                display: inline;
+                margin-top: -9px;
+                vertical-align: top;
+            }
+
+            .blur-up {
+                -webkit-filter: blur(5px);
+                filter: blur(5px);
+                transition: filter 400ms, -webkit-filter 400ms;
+            }
+
+            .blur-up.lazyloaded {
+                -webkit-filter: blur(0);
+                filter: blur(0);
+            }
 
             #category_nav_restaurants{
                 margin-left:117px;
@@ -217,10 +237,48 @@
                     font-size: 12px !important;
                     padding: 15px 5px !important; 
                  }
+
+                 .nav li
+                {
+                    display:inline-block !important;
+                    padding-right: 10px;
+                    padding-left: 10px !important; 
+                    margin-left: 5px;
+                    margin-bottom: 10px; 
+                    list-style-type:none !important; 
+                }
+
+                 .auth-btn{
+                    color: white;
+                    width: 90%;
+                    margin-left: 17px; 
+                    margin-right: 20px;
+                }
+                 
+                .sign-in-btn{
+                    width: 100%;
+                    margin-top: 10px;
+                }
             }
 
             @media screen and (max-width: 768px)
             {
+                .navbar-toggle
+                {
+                    margin-right: 30px; 
+                }
+
+                .navbar-brand
+                {
+                    font-size: 25px; 
+                    /* padding: 15px 15px;  */
+                    margin-left: 10px; 
+                }
+                .navbar-brand img{
+                    margin-top: -9px;
+                    vertical-align: top;
+                }
+
                 #category_nav_restaurants{
                     margin-left:-15px;
                     padding-left:-38px;
@@ -234,7 +292,7 @@
 				.nav > li> a {
 					position: relative;
 					display: block;
-					padding-left: 90px;
+					/* padding-left: 90px; */
 				}
                 .navbar-toggle
                 {
@@ -247,21 +305,22 @@
                     padding: 15px 15px; 
                     margin-left: 15px; 
                 }
-                 .categoryNav
-                 {
+
+                .categoryNav
+                {
                     padding-right: 10px !important; 
                     padding-left: 7px !important;
 
-                 }
-                 #basket_div.basket
-                 {
+                }
+                #basket_div.basket
+                {
                     margin-left: 0px !important;
                     /*padding-right: 3px !important;*/  
-                 }   
-                 .nav-item .cat-link
-                 {
+                }   
+                .nav-item .cat-link
+                {
                     padding: 15px 5px !important; 
-                 }
+                }
             }
 
            
@@ -307,62 +366,63 @@
     </head>
    <body id="page-top" class="index">
 
-    <!-- Navigation -->
-    <nav style="background-color:#fff;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+   <nav style="background-color:black;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll" style = "margin-bottom: 20px; border-bottom: 10px; border-color: black;">
+            <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" @if(!Auth::user()) data-target="#bs-example-navbar-collapse-1"@else data-target ="#"@endif>
                     @if(!Auth::user()) 
                         <span class="sr-only">Toggle navigation</span> 
-                        Menu  <i class="fa fa-bars"></i>
+                        Sign Up  <i class="fa fa-bars"></i>
                     @else
                         <li class="nav-item dropdown">
-                                    <a style = "color:black;"  class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        {{ Auth::user()->user_name }} <span class="caret"></span>
+                            <a style = "color:black;"  class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->user_name }} <span class="caret"></span>
+                            </a>
+
+                            <ul style="color:black;" class="dropdown-menu" role="menu">
+                                <li class="nav-item">
+                                    <a style = "color:black;" class="nav-link" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                        Logout
                                     </a>
 
-                                    <ul style="color:black;" class="dropdown-menu" role="menu">
-                                        <li class="nav-item">
-                                            <a style = "color:black;" class="nav-link" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                                Logout
-                                            </a>
-
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                {{ csrf_field() }}
-                                            </form>
-                                        </li>
-                                        @if(Auth::user()->user_role == 1 || Auth::user()->user_role == 3)
-                                            <li class = "nav-item">
-                                                <a style = "color:black;" class="nav-link" href="{{route('admin.viewProducts')}}">
-                                                    Dashboard
-                                                </a>
-                                            </li>
-                                        @endif
-                                    </ul>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                                @if(Auth::user()->user_role == 1 || Auth::user()->user_role == 3)
+                                    <li class = "nav-item">
+                                        <a style = "color:black;" class="nav-link" href="{{route('admin.viewProducts')}}">
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                @endif
+                            </ul>
                         </li>
                     @endif
                 </button>
-                <a class="navbar-brand page-scroll" href="/home"><i class = "fa fa-cutlery"></i>Wailodile</a>
+                <a class="navbar-brand page-scroll" href="/home" style = "display:inline;">
+                    <img height ="40px" src ="{{URL::asset('storage/images/title.ico')}}"/> Wailodile
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-               <ul class="nav navbar-nav navbar-right" ">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style = "">
+               <ul class="nav navbar-nav navbar-right nav-black">
                       @if (!Auth::user())
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login" style="color: black; text-transform: none; ">Sign In </a></li>
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent; margin-left: 10px; color: black; text-transform: none; ">Register</a></li>
-                            @else
-                            <li class=" nav-item dropdown" style = "color:black;">
+                            <li class = "nav-item auth-btn"> <a class="nav-link btn btn-primary sign-in-btn" href="/login" style="text-transform: none; ">SIGN IN</a></li>
+                            <li class = "nav-item auth-btn"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent;">Register</a></li>
+                        @else
+                            <li class=" nav-item dropdown">
                                 <a style = "color:black;" href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->user_name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
+                                <ul style="color:black;" class="dropdown-menu" role="menu">
                                     <li class="nav-item">
-                                        <a style="color:black;" class="nav-link" href="{{ route('logout') }}"
+                                        <a style = "color:black;" class="nav-link" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
@@ -386,7 +446,7 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->							
+        <!-- /.container-fluid -->
     </nav>
 
   <div id = "category_nav_restaurants" class="categoryNav center" style = "z-index: 12; position:fixed; width: 100%; font-family: Montserrat, Helvetica, sans-serif; background-color: #fff;  height: 65px; margin-top: 63px; border-bottom: 20px; border-top:10px;  margin-bottom: 0px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
@@ -407,7 +467,6 @@
 		        {{Session::get('success')}}
 		    </div>
 		</div>
-
    	@endif
 
     <div class="container" style="padding-top:170px;">
@@ -426,7 +485,7 @@
                                 <i @if($r->restaurant_status == 0)class="fa fa-lock fa-2x" @elseif($r->restaurant_status == 1) class="fa fa-cutlery fa-2x"@endif></i>
                             </div>
                         </div>
-                        <img src="{{env('DGS_TEST_IMAGE_PATH').$r->restaurant_image}}"" class="img-responsive img-rounded" style="width: 1000px; height:auto; " alt="">
+                        <img src="{{env('DGS_TEST_IMAGE_PATH').$r->restaurant_image}}"" class="img-responsive img-rounded lazyload" style="width: 1000px; height:auto; " alt="">
                     </a>
                     <div class="portfolio-caption" style = "padding-top: 10px; ">
                         <h3 style = "margin-bottom: 10px; ">{{$r->restaurant_name}}</h3>
@@ -483,6 +542,7 @@
     <script src ="{{URL::asset('js/agency.js')}}" ></script>
     <script src ="{{URL::asset('js/contact_me.js')}}" ></script>
     <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
+    <script src="{{URL::asset('js/lazysizes.min.js')}}" async=""></script>
 
 
 

@@ -44,6 +44,47 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <style>
+
+            #arealist{
+                width: 100%; 
+            }
+            #orderbtn{
+                margin-left: auto; 
+                margin-right: auto;  
+                display: block; 
+                width: 20%; 
+                margin-bottom: 30px;
+            }
+            .dropdown{
+                display: inline-block; 
+                margin-bottom: 30px; 
+                margin-bottom: 30px; 
+            }
+            .dropdown-btn{
+                margin-left: 20px;
+                padding-left: 16px; 
+                text-align: left; 
+                font-family: "Drop Serif", "Helvetica Neue"; 
+                height: 50px; 
+                width: 280px;
+                font-size: 20px; 
+            }
+
+            .location-select{
+                /* height: 50px; 
+                width: 100px;  */
+                border-color: yellow; 
+            }
+
+
+            
+            select option {
+                margin: 40px;
+                background: rgba(0, 0, 0, 0.3);
+                color: #fff;
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+            }
+
             .sign-in-btn{
                 margin-right: 10px;
             }
@@ -94,6 +135,19 @@
             
              @media screen and (max-width: 768px)
                 {
+                    #orderbtn{
+                        width: 50%; 
+                    }
+
+                    .dropdown{
+                        margin-bottom: 15px; 
+                        margin-bottom: 15px; 
+                    }
+
+                    .dropdown-btn{
+                        margin-left: 0; 
+                    }
+
                     header .btn-xl{
                         /* width: ; 
                         height: ; */
@@ -202,7 +256,34 @@
             <div class="intro-text">
                 <div class="intro-lead-in" id="lead-in">...</div>
                 <div class="intro-heading">We've got you.</div>
-                <a href="/menu/Plated Memoirs" class="btn btn-xl" style="margin-bottom: 30px; ">PLACE AN ORDER</a>
+                <form method="GET" action="{{route('restaurants.show')}}" class = "location-form" id ="locationform" style = "display: block; margin-bottom: 10px;">
+                   <input type="hidden" value="testvalue"/>
+                    <div class="dropdown">
+                        <button disabled class="btn btn-default dropdown-toggle dropdown-btn" type="button" data-toggle="dropdown">Lagos State
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            @foreach($states as $state)
+                                <li id="{{$state->state_id}}"><a href="#">{{$state->state_name}} State</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" data-toggle="dropdown" id ="areabtn">Select an area
+                        <span class="caret"></span></button>
+                        <ul id ="arealist" class="dropdown-menu">
+                          @foreach($areas as $area)
+                            <li id= "{{$area->area_id}}"><a href="#">{{$area->area_name}}</a></li>
+                          @endforeach
+                        </ul>
+                    </div>
+
+                    <input type = "hidden" id="area" name="area"/>
+                    <input type="hidden" id="state" name="state" value="1"/>
+
+                    <a class="btn btn-xl" onclick="locationform.submit()" id="orderbtn" disabled>ORDER NOW</a>
+
+                </form>
+
             </div>
         </div>
     </header>
@@ -317,6 +398,13 @@
 					smartBackspace: true, // this is a default
 					loop: true
 				});
+    </script>
+
+    <script>
+        $('#arealist li').on('click', function(){
+            $('#orderbtn').attr("disabled", false);
+            $('#area').val(this.id);
+        });
     </script>
     
 </body>

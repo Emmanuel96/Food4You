@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\menu;  
 use App\order; 
+use App\States; 
+use App\area;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -26,7 +28,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('HomeViews.home');
+        $states = states::all(); 
+        $areas = area::where('state_id', '=', 1)->get(); 
+        return view('HomeViews.home',['states'=> $states, 'areas' => $areas]);
     }
 
     public function clearCart(Request $request)
