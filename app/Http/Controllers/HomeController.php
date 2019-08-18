@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//please make these to all be small cases 
 use App\menu;  
 use App\order; 
 use App\states; 
