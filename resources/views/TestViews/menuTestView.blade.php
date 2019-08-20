@@ -299,6 +299,7 @@
                 }
                  .categoryNav
                  {
+                    overflow: scroll;
                     padding-right: 10px !important;
                     padding-left: 7px !important;
 
