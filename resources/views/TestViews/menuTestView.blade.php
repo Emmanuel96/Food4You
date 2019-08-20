@@ -50,7 +50,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-        <![endif]--> 
+        <![endif]-->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <script>
@@ -61,14 +61,14 @@
                 currencyDisplay: 'symbol',
                 minimumFractionDigits: 2
                 })
-                alert(document.getElementById(id)); 
+                alert(document.getElementById(id));
                 console.log(id);
-                // thatPrice.value = formatter.format(value); 
-                // alert(thatPrice); 
+                // thatPrice.value = formatter.format(value);
+                // alert(thatPrice);
             }
-          
 
-            // return formatter.format(value) // "$123,233,000.00"   
+
+            // return formatter.format(value) // "$123,233,000.00"
         </script>
 
         <style>
@@ -76,7 +76,7 @@
             .sign-in-btn{
                 margin-right: 10px;
             }
-        
+
             .blur-up {
                 -webkit-filter: blur(5px);
                 filter: blur(5px);
@@ -89,7 +89,7 @@
             }
 
            .ellipse{
-            font-size: 15px; display: block; width: 12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
+            font-size: 15px; display: block; width: 12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
            }
             header{
                 background-image: url("{{env('DGS_TEST_IMAGE_PATH')}}{{ $restaurant->header_image }}") !important;
@@ -119,12 +119,12 @@
                 padding: 20px 30px;
             }
 
-           
+
             body
             {
                 background-color: #eee;
-                margin:0; 
-                padding: 0; 
+                margin:0;
+                padding: 0;
             }
             .menu_row{
                 margin-bottom:50px;
@@ -133,16 +133,16 @@
             {
                 width: 35px;
             }
-            
+
             .center{
                 margin: auto;
             }
-            
+
             .smallFont
             {
                 font-size: 20px;
             }
-            
+
             img.center
             {
               display: block;
@@ -151,16 +151,16 @@
             }
             .restaurantCards
             {
-                width: 60%; 
+                width: 60%;
                 margin-bottom: 40px;
             }
 
-            .fullContainer 
+            .fullContainer
             {
-                padding: 0; 
+                padding: 0;
                 margin-left: 20;
             }
-            
+
             .container
             {
                 padding: 0;
@@ -175,10 +175,10 @@
             @media screen and (max-width: 450px)
             {
                 .navbar-header{
-                    background-color: black; 
+                    background-color: black;
                 }
                 .ellipse{
-                    width: 20em;    
+                    width: 20em;
                 }
 
                 #restaurant_info
@@ -188,25 +188,25 @@
 
                 footer
                 {
-                    display: none !important;     
+                    display: none !important;
                 }
                 #mobile_footer{
                     display: block !important;
                     visibility: visible;
                     height: auto !important;
-                    padding: 2px !important; 
+                    padding: 2px !important;
                 }
 
 
                 #basket_div
                 {
-                    visibility: hidden !important; 
+                    visibility: hidden !important;
                     display:none !important;
 
                 }
                 .w3-card-4
                 {
-                    margin-bottom: 30px; 
+                    margin-bottom: 30px;
                 }
 
                 .mobile_resp
@@ -224,7 +224,8 @@
                   {
                     top: 51px;
                     width: 100%;
-                    z-index: 1; 
+                    z-index: 1;
+                    overflow: scroll;
                   }
 
                 .nav
@@ -246,10 +247,10 @@
                 {
                     display:inline-block !important;
                     padding-right: 10px;
-                    padding-left: 10px !important; 
+                    padding-left: 10px !important;
                     margin-left: 5px;
-                    margin-bottom: 10px; 
-                    list-style-type:none !important; 
+                    margin-bottom: 10px;
+                    list-style-type:none !important;
                 }
                 ul .sadfa{
                     background-color:black;
@@ -258,7 +259,7 @@
                 .auth-btn{
                     color: white;
                     width: 90%;
-                    margin-left: 17px; 
+                    margin-left: 17px;
                     margin-right: 20px;
                 }
 
@@ -275,7 +276,7 @@
                 .nav-item .cat-link
                  {
                     font-size: 12px !important;
-                    padding: 15px 5px !important; 
+                    padding: 15px 5px !important;
                  }
             }
 
@@ -283,14 +284,14 @@
             {
                 .navbar-toggle
                 {
-                    margin-right: 30px; 
+                    margin-right: 30px;
                 }
 
                 .navbar-brand
                 {
-                    font-size: 25px; 
+                    font-size: 25px;
                     /* padding: 15px 15px;  */
-                    margin-left: 10px; 
+                    margin-left: 10px;
                 }
                 .navbar-brand img{
                     margin-top: -9px;
@@ -298,30 +299,30 @@
                 }
                  .categoryNav
                  {
-                    padding-right: 10px !important; 
+                    padding-right: 10px !important;
                     padding-left: 7px !important;
 
                  }
                  #basket_div.basket
                  {
                     margin-left: 0px !important;
-                    /*padding-right: 3px !important;*/  
-                 }   
+                    /*padding-right: 3px !important;*/
+                 }
                  .nav-item .cat-link
                  {
-                    padding: 15px 5px !important; 
+                    padding: 15px 5px !important;
                  }
 
                  <!-- nav li{
-                     padding-left: 10px; 
+                     padding-left: 10px;
                  } -->
             }
-           
+
             @media screen and (min-width: 991px) {
             /* start of large tablet styles */
                 .categoryNav
                 {
-                    padding-right: 10px !important; 
+                    padding-right: 10px !important;
                     padding-left: 10px !important;
                 }
                 #basket_div.basket
@@ -340,8 +341,8 @@
               }
               .product-name-td
               {
-                margin-left: -100px !important; 
-                width: 100% !important; 
+                margin-left: -100px !important;
+                width: 100% !important;
               }
             }
 
@@ -363,10 +364,10 @@
         </style>
 
            <?php
-            $productImage = "----"; 
-            $productName = "---- "; 
-            $productPrice = "--- "; 
-            $productDescription = "---- "; 
+            $productImage = "----";
+            $productName = "---- ";
+            $productPrice = "--- ";
+            $productDescription = "---- ";
             ?>
     </head>
    <body  id="page-top" class="index">
@@ -378,8 +379,8 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" @if(!Auth::user()) data-target="#bs-example-navbar-collapse-1"@else data-target ="#"@endif>
-                    @if(!Auth::user()) 
-                        <span class="sr-only">Toggle navigation</span> 
+                    @if(!Auth::user())
+                        <span class="sr-only">Toggle navigation</span>
                         Sign Up  <i class="fa fa-bars"></i>
                     @else
                         <li class="nav-item dropdown">
@@ -459,7 +460,7 @@
     <!-- Header -->
     <header style = "height: 500px;" class = "img" src="{{URL::asset('storage/images/title.ico')}}" data-src ="{{URL::asset('storage/images/title.ico')}}">
         <div class="container">
-        	<div id = "restaurant_info" style="background-color: #fff; padding: 20px; margin-top: 200px; margin-left: auto; margin-right: auto; color: black; width: 400px; border-radius: 5px; text-align:center;"> 
+        	<div id = "restaurant_info" style="background-color: #fff; padding: 20px; margin-top: 200px; margin-left: auto; margin-right: auto; color: black; width: 400px; border-radius: 5px; text-align:center;">
         		<h3 style = "font-weight:bold; font-size:3em;">{{$restaurant->restaurant_name}}</h2>
         		<h6 class="label label-warning"><i class="fa fa-map-marker"></i> {{$restaurant->restaurant_address }}</h6>
                 <h6 class="label label-success"></i> Opens for: {{ $restaurant->restaurant_opening_times }}</h6>
@@ -474,12 +475,12 @@
     </header>
 
 
-    <div id = "category_nav" class="categoryNav center" style = "font-family: Montserrat, Helvetica, sans-serif; background-color: #fff; padding-left: 72px; padding-right:100px; height: 55px; margin-bottom: 20px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
+    <div id = "category_nav" class="categoryNav center" style = " font-family: Montserrat, Helvetica, sans-serif; background-color: #fff; padding-left: 72px; padding-right:100px; height: 55px; margin-bottom: 20px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
     	<ul class="nav navbar-nav nav-left " style = "margin-top: auto; margin-bottom: auto;    font-family: ClanPro-News, Helvetica, sans-serif;">
             @if($categories != null)
                @foreach($categories as $category)
                     <li class="nav-item"><a href = "#{{$category->category_name}}" class="nav-link cat-link page-scroll">{{$category->category_name}}</a></li>
-               @endforeach 
+               @endforeach
             @endif
     		<!-- <li class="nav-item"><a href = "#sandwich" class="nav-link cat-link page-scroll">Sandwich</a></li>
     		<li class="nav-item"><a href = "#platter" class="page-scroll cat-link" >Christmas Specials</a></li>
@@ -492,21 +493,21 @@
          <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
            <div id = "basket_basket">
            <?php
-                $subTotal = 0; 
-                $total = 0;  
+                $subTotal = 0;
+                $total = 0;
            ?>
           @if($products!= null)
           <?php
                 $subTotal += $totalPrice;
-                $total += $subTotal; 
+                $total += $subTotal;
            ?>
 
         <!-- So after the Hr, i need to list the items in the cart -->
-          
+
              <table class="table table-hover" id= "cartTable" style = "height: 70px; ">
                 <tbody style = "height: 100%; overflow-y:scroll; overflow-x: hidden; display: block;  ">
                     @foreach($products as $product)
-                        <tr id = "{{$product['item']['product_id']}}">                          
+                        <tr id = "{{$product['item']['product_id']}}">
                             <td class= "qty-edit-td" style = "width: 45.5%;">
                                 <a style = "border-radius: 9px; height: 5px; padding: 0;" href="" onclick = "deleteCartItem('{{$product['item']['product_id']}}')" >
                                     <span class="fa-stack fa-sm">
@@ -536,7 +537,7 @@
         <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
          <table style="margin-left:0px; padding-right:0px solid #fff;" class="table table-hover" id= "cartRowSubTotal">
                 <tbody>
-                    <tr>                            
+                    <tr>
                         <td colspan="2">
                             Subtotal
                         </td>
@@ -546,7 +547,7 @@
          </table>
          <table style="margin-left:0px; border-top:0px;" class="table table-hover" id= "cartRowDeliveryFee">
             <tbody>
-                <tr>                            
+                <tr>
                     <td colspan="2">
                         <i class= "fa fa-bicycle"></i> Delivery fee
                     </td>
@@ -559,7 +560,7 @@
 
         <table style="margin-left:0px; border-top:0px; font-weight: bolder; color: black;" class="table table-hover" id= "cartRowTotal">
             <tbody>
-                <tr>                            
+                <tr>
                     <td>
                         Total
                     </td>
@@ -570,7 +571,7 @@
         </table>
 
       </div>
- 
+
     </div>
 	</div>
     </div>
@@ -589,12 +590,12 @@
 			    <div class = "container" style = "width: 100%">
 
                     <!-- Information for about the restaurant -->
-                
+
                     <!-- For each statment to display products We need i to count 3 for items in each row , later versions should use the chunk method -->
 
                     <?php $i = 0; ?>
-                      @foreach($category2 as $key => $menu)     
-                      <h2 id = "{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}">{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}</h2>   
+                      @foreach($category2 as $key => $menu)
+                      <h2 id = "{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}">{{ $categories->where('category_id', $key)->pluck('category_name')[0] }}</h2>
 
                         @foreach ($menu as $m)
 
@@ -620,20 +621,20 @@
 
                                 <!-- ending the row if last item or items on the row are 3 already -->
                                 @if($i == 2 || $loop->last)
-                                    
+
                                     </div>
-                                
-                                    <?php 
-                                        $i = 0; 
+
+                                    <?php
+                                        $i = 0;
                                     ?>
                                 @else
                                     <?php $i++ ?>
                                 @endif
                         @endforeach
-                   @endforeach 
+                   @endforeach
                 </div>
-            </div> 
-        </div>	
+            </div>
+        </div>
 
 
 <!-- Begin of my modal  -->
@@ -655,7 +656,7 @@
         <h5 style = "width: 100%; text-align:center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;"><span style = "background: #fff; padding: 0 10px; font-weight: bold;">Comments </span></h5>
 
 
-        <textarea placeholder = "Please Tell us if there's any way we can make this better for you. " name="" id= " " class= "form-control" style = "width: 100%; height: 100%;" ></textarea>                                                                 
+        <textarea placeholder = "Please Tell us if there's any way we can make this better for you. " name="" id= " " class= "form-control" style = "width: 100%; height: 100%;" ></textarea>
       </form>
       <div class="modal-footer">
 
@@ -704,7 +705,7 @@
     </div>
 
 
-<footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; "> 
+<footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; ">
     <a id = "footerPrice" href = "/cart" class = "btn btn-primary" style = "width: 70%; border-radius: 0; color: black; ">
     @if($products == null) Basket is Empty @else ₦{{$totalPrice}}@endif  <i class="fa fa-shopping-cart fa-1x"></i></a>
 </footer>
@@ -748,64 +749,64 @@
     <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
     <script src="{{URL::asset('js/lazysizes.min.js')}}" async=""></script>
 
-<script type = "text/javascript"> 
+<script type = "text/javascript">
 
     function openDetailsModal(pid)
     {
-        event.preventDefault(); 
+        event.preventDefault();
 
 
 
-        //so first thing is to pass the ajax request 
+        //so first thing is to pass the ajax request
           $.ajax({
               type: 'GET',
               url: "{{route('menu.getProductDetails')}}",
               data: {id: pid, _token: '{{ csrf_token() }}'},
               dataType: 'json',
               success: function(output){
-                   //on success 
-                   //get the name attribute for the modal product 
+                   //on success
+                   //get the name attribute for the modal product
 
-                   // $('#modalProductName').text(output.productName); 
-                   // $('#modalProductDescription').text(output.productDescription); 
-                   // $('#modalProductImage').attr("src", "/storage/images/"+output.productImage); 
-                   // $('#portfolioModal1').modal('show'); 
+                   // $('#modalProductName').text(output.productName);
+                   // $('#modalProductDescription').text(output.productDescription);
+                   // $('#modalProductImage').attr("src", "/storage/images/"+output.productImage);
+                   // $('#portfolioModal1').modal('show');
 
-                   
 
-                   //after opening the modal, next step is updating the values of the product name and the values of the product description 
+
+                   //after opening the modal, next step is updating the values of the product name and the values of the product description
                    $('#product_description').text(output.productDescription);
 
-                   $('#product_name').text(output.productName);  
+                   $('#product_name').text(output.productName);
 
-                   $('#product_details_image').attr('src', 'https://wailodile-storage.sfo2.digitaloceanspaces.com/wailodile-storage/restaurants/' + output.productImage);// + output.productImage); 
+                   $('#product_details_image').attr('src', 'https://wailodile-storage.sfo2.digitaloceanspaces.com/wailodile-storage/restaurants/' + output.productImage);// + output.productImage);
 
-                   $('#extra_menu_add_to_cart').attr('onclick', output.onclick); 
-                   //href for the link 
+                   $('#extra_menu_add_to_cart').attr('onclick', output.onclick);
+                   //href for the link
                    // $('#modal-add-to-cart-link').attr('onclick', output.onclick);
 
                    //open the modal to view the extras menu
                    $('#extras_menu').modal('show');
               }
-        });   
+        });
     }
 
 
-    var id; 
+    var id;
     function openModalAndStoreId(idd)
     {
-        event.preventDefault() 
-        id = idd;  
+        event.preventDefault()
+        id = idd;
         // $('#extras_menu').modal('show');
     }
-    
+
     //FUNCTOIN PASSES A SELECTED PRODUCT TO CART CONTROLLER
     //TO BE ADDED TO THE CART
 
     function incrementQty(idd)
     {
-         event.preventDefault() 
-         id = idd;  
+         event.preventDefault()
+         id = idd;
 
         //AJAX with jquery to pass the selected item to the cart controller
         $.ajax({
@@ -817,36 +818,36 @@
                     //after the item is added to the cart, then i want to change the cart quantity at the top of the page
                     $('#totalQty').text(output.productQty);
 
-                    // document.getElementById('quantity'+id).html= " "; 
+                    // document.getElementById('quantity'+id).html= " ";
                     $('#extras_menu').modal('hide');
-                    //on success change the number 
+                    //on success change the number
 
-                    //yh we are  hiding the modal, but we also need to get the list of products 
+                    //yh we are  hiding the modal, but we also need to get the list of products
 
 
-                    document.getElementById('basket_basket').innerHTML = output.listOfItems; 
-                    document.getElementById('quantity'+id).textContent =  output.productQty; 
+                    document.getElementById('basket_basket').innerHTML = output.listOfItems;
+                    document.getElementById('quantity'+id).textContent =  output.productQty;
 
                     $('#total').text("₦"+output.total);
 
                     $('#subTotal').text("₦"+output.subTotal);
               }
-        });   
+        });
     }
 
-    //function to enable and disable the add to cart button for the extras menu 
+    //function to enable and disable the add to cart button for the extras menu
     function ExtrasMenuBtnActiveInactive()
     {
-        //firstly i get the from and serialize it into an array 
+        //firstly i get the from and serialize it into an array
          var extras = ($("form").serializeArray());
-         var extraSelected = false; 
+         var extraSelected = false;
 
-         //next thing is that i check if any selected 
+         //next thing is that i check if any selected
            jQuery.each( extras, function( i, field ) {
             // $( "#results" ).append( field.value + " " );
             if(field.value == "on")
             {
-                extraSelected = true; 
+                extraSelected = true;
             }
         });
 
@@ -854,40 +855,40 @@
         // {
         //     if($('#extra_menu_add_to_cart').hasClass('disabled'))
         //     {
-        //          $('#extra_menu_add_to_cart').removeClass('disabled'); 
-        //     }     
+        //          $('#extra_menu_add_to_cart').removeClass('disabled');
+        //     }
         // }
         // else
         // {
-        //      $('#extra_menu_add_to_cart').addClass('disabled'); 
+        //      $('#extra_menu_add_to_cart').addClass('disabled');
         // }
 
     }
 
    function addItemToCart(id)
-    {   
-        event.preventDefault() 
-        //get all the inputs (checkboxes and radio boxes) 
+    {
+        event.preventDefault()
+        //get all the inputs (checkboxes and radio boxes)
         var extras = ($("form").serializeArray());
 
-        // //extra string is meant to hold the extras array by contatonating them into itself 
+        // //extra string is meant to hold the extras array by contatonating them into itself
         // //get the value of the fillingsOption as it's a radio box
         // var extraString = $('input[name="fillingsOption"]:checked').val();
 
-        var extraString = " "; 
-        //get values of other extras options 
+        var extraString = " ";
+        //get values of other extras options
         jQuery.each( extras, function( i, field ) {
             // $( "#results" ).append( field.value + " " );
             if(field.value == "on")
             {
                 //contantonate value of extra string with name of input
-                extraString +=  field.name + ","; 
+                extraString +=  field.name + ",";
             }
         });
 
 
-        //remove last , in exta string 
-        extraString = extraString.slice(0,-1); 
+        //remove last , in exta string
+        extraString = extraString.slice(0,-1);
 
         //AJAX with jquery to pass the selected item to the cart controller
         $.ajax({
@@ -899,13 +900,13 @@
                     //after the item is added to the cart, then i want to change the cart quantity at the top of the page
                     // $('#totalQty').text(output.productQty);
 
-                    // document.getElementById('quantity'+id).html= " "; 
+                    // document.getElementById('quantity'+id).html= " ";
                     // $('#extras_menu').modal('hide');
-                    //on success change the number 
+                    //on success change the number
 
-                    document.getElementById('basket_basket').innerHTML = output.listOfItems; 
+                    document.getElementById('basket_basket').innerHTML = output.listOfItems;
 
-                    document.getElementById('quantity'+id).textContent = output.productQty; 
+                    document.getElementById('quantity'+id).textContent = output.productQty;
 
                     if(document.getElementById('footerPrice') != null)
                     {
@@ -919,26 +920,26 @@
                         $('#checkout-button').removeClass("disabled");
                     }
 
-                     //yh we are  hiding the modal, but we also need to get the list of products 
+                     //yh we are  hiding the modal, but we also need to get the list of products
                     $('#subTotal').text("₦"+output.subTotal);
                     // alert($('#subTotal').text);
 
                     $('#total').text("₦ "+output.total);
 
 
-                    //once this is done, then close the modal 
+                    //once this is done, then close the modal
                     $('#extras_menu').modal('hide');
 
-                    // document.getElementById("myTBody").style.overflow-x = "hidden"; 
+                    // document.getElementById("myTBody").style.overflow-x = "hidden";
 
-                    //if it's still below the minimum order, then disable the basket checkout 
+                    //if it's still below the minimum order, then disable the basket checkout
                     if(output.min_order_price > output.total)
                     {
-                        $('#checkout-button').addClass('disabled'); 
+                        $('#checkout-button').addClass('disabled');
                     }
-                    
+
               }
-        });   
+        });
 
     }
 
@@ -952,14 +953,14 @@
               success: function(output){
                     if(output != 1)
                     {
-                        $('#checkout-button').addClass('disabled'); 
+                        $('#checkout-button').addClass('disabled');
                     }
               }
-        }); 
+        });
      }
 
-     window.onload = CheckOutBtnStatus; 
-  
+     window.onload = CheckOutBtnStatus;
+
 </script>
 
 

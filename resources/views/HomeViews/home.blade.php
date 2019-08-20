@@ -46,38 +46,38 @@
         <style>
 
             #arealist{
-                width: 100%; 
+                width: 100%;
             }
             #orderbtn{
-                margin-left: auto; 
-                margin-right: auto;  
-                display: block; 
-                width: 20%; 
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                width: 20%;
                 margin-bottom: 30px;
             }
             .dropdown{
-                display: inline-block; 
-                margin-bottom: 30px; 
-                margin-bottom: 30px; 
+                display: inline-block;
+                margin-bottom: 30px;
+                margin-bottom: 30px;
             }
             .dropdown-btn{
                 margin-left: 20px;
-                padding-left: 16px; 
-                text-align: left; 
-                font-family: "Drop Serif", "Helvetica Neue"; 
-                height: 50px; 
+                padding-left: 16px;
+                text-align: left;
+                font-family: "Drop Serif", "Helvetica Neue";
+                height: 50px;
                 width: 280px;
-                font-size: 20px; 
+                font-size: 20px;
             }
 
             .location-select{
-                /* height: 50px; 
+                /* height: 50px;
                 width: 100px;  */
-                border-color: yellow; 
+                border-color: yellow;
             }
 
 
-            
+
             select option {
                 margin: 40px;
                 background: rgba(0, 0, 0, 0.3);
@@ -97,16 +97,16 @@
             }
             h2.section-heading{
                 font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif' !important;
-                font-weight: 700; 
+                font-weight: 700;
                 margin-bottom: 30px;
             }
-            
+
             h3.section-subheading{
                 margin-bottom: 30px;
             }
 
             .fa-inverse{
-                color: black; 
+                color: black;
             }
 
             header .intro-text .intro-heading{
@@ -114,13 +114,13 @@
             }
 
              #lead-in{
-                 display: inline; 
+                 display: inline;
             }
 
             .typed-cursor
             {
                 font-size: 40px;
-                color: #fed136; 
+                color: #fed136;
                 -moz-animation: blink 0.7s infinite;
                 animation: blink 0.7s infinite;
             }
@@ -132,27 +132,27 @@
                 display:inline;
             }
 
-            
+
              @media screen and (max-width: 768px)
                 {
                     #orderbtn{
-                        width: 50%; 
+                        width: 50%;
                     }
 
                     .dropdown{
-                        margin-bottom: 15px; 
-                        margin-bottom: 15px; 
+                        margin-bottom: 15px;
+                        margin-bottom: 15px;
                     }
 
                     .dropdown-btn{
-                        margin-left: 0; 
+                        margin-left: 0;
                     }
 
                     header .btn-xl{
-                        /* width: ; 
+                        /* width: ;
                         height: ; */
-                        font-size: 13px; 
-                        padding: 20px, 20px; 
+                        font-size: 13px;
+                        padding: 20px, 20px;
                     }
                     header .intro-text .intro-heading{
                         font-size: 28px;
@@ -163,11 +163,11 @@
                     }
                     header .intro-text{
                         padding-top:90px;
-                        font-size: 1ems; 
+                        font-size: 1ems;
                         font-size: 15px;
                     }
                     header{
-                        margin-top: 50px; 
+                        margin-top: 50px;
                     }
                     .navbar-toggle
                     {
@@ -175,9 +175,9 @@
                     }
                     .navbar-brand
                     {
-                        font-size: 25px; 
+                        font-size: 25px;
                         /* padding: 15px 15px;  */
-                        margin-left: 1px; 
+                        margin-left: 1px;
                     }
                     .navbar-brand img{
                         margin-top: -9px;
@@ -186,9 +186,9 @@
 
                     .nav li{
                         width: 100%;
-                        margin-bottom: 10px; 
-                        padding-right: 10px; 
-                        padding-left: 10px; 
+                        margin-bottom: 10px;
+                        padding-right: 10px;
+                        padding-left: 10px;
                     }
 
                 }
@@ -239,7 +239,7 @@
                                             <a style = "color:black;" class="nav-link" href="{{route('admin.viewProducts')}}">
                                                 Dashboard
                                             </a>
-
+                                        </li>
                                     @endif
                                 </ul>
                             </li>
@@ -288,7 +288,7 @@
         </div>
     </header>
 
-  
+
 	 <section id="services" style = "background-color: #fff">
         <div class="container">
             <div class="row">
@@ -330,7 +330,7 @@
 <div class="footer-left">
 
   <h4 style = "color: white; "> Copyright &copy; Wailodile <?php echo date('Y') ?></h4>
-<!-- 
+<!--
   <p class="footer-links">
     <a href="#">Home</a>
     ·
@@ -389,7 +389,7 @@
     <script src ="{{URL::asset('js/contact_me.js')}}" ></script>
     <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
 
-    <script src = "{{URL::asset('js/typed.min.js')}}" type = "text/javascript"></script>    
+    <script src = "{{URL::asset('js/typed.min.js')}}" type = "text/javascript"></script>
     <script>
       var typed3 = new Typed('#lead-in', {
 					strings: ["Welcome To Wailodile", "Craving a <strong style = 'color: #fed136;'>Sandwich?<strong>","Maybe a <strong style = 'color: #fed136;'>Tray</strong>", "Or some <strong style = 'color: #fed136;'>Plantain</strong>", "Just Maybe,<strong style = 'color: #fed136;'>  Some Wings</strong>"],
@@ -406,7 +406,7 @@
             $('#area').val(this.id);
         });
     </script>
-    
+
 </body>
 
 </html>
