@@ -824,12 +824,11 @@ class AdminController extends Controller
 		$total_revenue = $this->calculateRevenue(order::where('order_status','=', '1')->where('restaurant_id', '=', $restaurant->restaurant_id)->get());
 		$total_revenue_today = $this->calculateRevenue(order::where('order_status','=', '1')->where('restaurant_id', '=', $restaurant->restaurant_id) ->where('created_at', '>=', time() - (24*60*60))->get());
 
-		return view('AdminViews.dashboard')
-			->with([
-				'total_orders'=>$total_orders_count,
-				'total_orders_today' => $total_orders_count_today,
-				'total_revenue' => $total_revenue,
-				'total_revenue_today' => $total_revenue_today
-				]);
+		return view('AdminViews.dashboard')->with([
+            'total_orders'=>$total_orders_count,
+            'total_orders_today' => $total_orders_count_today,
+            'total_revenue' => $total_revenue,
+            'total_revenue_today' => $total_revenue_today
+            ]);
 	}
 }

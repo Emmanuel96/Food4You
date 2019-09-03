@@ -12,9 +12,9 @@ class areaSeeder extends Seeder
     public function run()
     {
         DB::table('state_area')->insert([
-            'area_name' => 'Ajah', 
+            'area_name' => 'Ajah',
             'state_id' => 1
-        ]); 
+        ]);
 
         DB::table('state_area')->insert([
             'area_id' => 2,
@@ -27,7 +27,7 @@ class areaSeeder extends Seeder
             'area_name' => 'Victoria Island',
             'state_id' => 1
         ]);
-    
+
         DB::table('state_area')->insert([
             'area_id' => 4,
             'area_name' => 'Sangotedo',
@@ -47,43 +47,43 @@ class areaSeeder extends Seeder
         ]);
 
         DB::table('state_area')->insert([
-            'area_id' => 7, 
+            'area_id' => 7,
             'state_id' => 1,
             'area_name' => 'Magodo Phase I'
         ]);
 
         DB::table('state_area')->insert([
-            'area_id' => 8, 
+            'area_id' => 8,
             'state_id' => 1,
             'area_name' => 'Magodo Phase II'
         ]);
 
         DB::table('state_area')->insert([
-            'area_id' => 9, 
+            'area_id' => 9,
             'state_id' => 1,
             'area_name' => 'Ikorodu'
         ]);
 
         DB::table('state_area')->insert([
-            'area_id' => 10, 
+            'area_id' => 10,
             'state_id' => 1,
             'area_name' => 'Ikorodu'
         ]);
 
         DB::table('state_area')->insert([
-            'area_id' => 11, 
+            'area_id' => 11,
             'state_id' => 1,
             'area_name' => 'Mile II'
         ]);
 
         DB::table('state_area')->insert([
-            'area_id' => 12, 
+            'area_id' => 12,
             'state_id' => 1,
             'area_name' => 'Festac'
         ]);
 
         DB::table('state_area')->insert([
-            'area_id' => 13, 
+            'area_id' => 13,
             'state_id' => 1,
             'area_name' => 'Badore'
         ]);

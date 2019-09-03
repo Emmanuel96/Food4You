@@ -272,7 +272,7 @@
                         <span class="caret"></span></button>
                         <ul id ="arealist" class="dropdown-menu">
                           @foreach($areas as $area)
-                            <li id= "{{$area->area_id}}"><a href="#">{{$area->area_name}}</a></li>
+                            <li ><a id= "{{$area->area_id}}" href="#">{{$area->area_name}}</a></li>
                           @endforeach
                         </ul>
                     </div>
@@ -401,9 +401,14 @@
     </script>
 
     <script>
-        $('#arealist li').on('click', function(){
+        // On click funtion for the area list
+        $('#arealist li a').on('click', function(){
+            // Enable the order button after an area is selected
             $('#orderbtn').attr("disabled", false);
             $('#area').val(this.id);
+
+            //Change the area btn text to the selected option
+            $('#areabtn').html($(this).text());
         });
     </script>
 
