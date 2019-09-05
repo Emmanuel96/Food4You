@@ -1,13 +1,13 @@
 @extends('layouts.AdminHeader')
 
 @section('content')
- 
+
         <!-- page content -->
         <div  role="main">
           <div class="">
             <div class="page-title">
               <div class="">
-                <h3 style = "color:white; font-size: 18px; margin-left: 10px; " >Add New Product</h3>
+                <h3 style = "color:white; font-size: 18px; margin-left: 10px; " >Add New Restaurant</h3>
 
                 @if ($errors->any())
                 <div class="alert alert-danger" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
@@ -18,31 +18,31 @@
                   </ul>
                 </div>
               @endif
-            
-                 
+
+
              @if(Session::has('success'))
                   <div id = "success-div" class="alert alert-success" style = "padding: 50px; width:30%; display:block; padding: 0; margin-right:auto; margin-left:auto;">
                       <div class = "text-center" >{{Session::get('success')}}
 
                         <button style = "" type="button" class="close" onclick = "document.getElementById('success-div').style.display = 'none';" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
-                        </button> 
-                      </div>              
-                
+                        </button>
+                      </div>
+
                   </div>
               @endif
 
               <script>
-                
+
               </script>
-              
+
             </div>
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title" style="border-bottom:0px;">
-                    
+
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="#"></i></a>
                       </li>
@@ -59,7 +59,7 @@
                       </li>
                     </ul> -->
                     <div class="clearfix"></div>
-                  </div> 
+                  </div>
                   <div class="x_content">
                     <br />
                     <form enctype="multipart/form-data" name="new_restaurant" id="demo-form2" method = "POST" action="{{url('admin/restaurants/new')}}" class="form-horizontal form-label-left">
@@ -70,13 +70,13 @@
                           <input type="text" id="restaurant-name" name="restaurant_name" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
-                   
+
                       <div class="form-group">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Address</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="address" class="form-control col-md-7 col-xs-12" name="restaurant_address" type="text">
                         </div>
-                      </div>  
+                      </div>
                       <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">Phone No *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
@@ -87,11 +87,11 @@
                       <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inlineFormCustomSelect">Email*</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="restaurant-email" class="form-control col-md-7 col-xs-12" name="restaurant_email" type="text">
+                            <input id="restaurant-email" class="form-control col-md-7 col-xs-12" name="email" type="text">
                           </div>
                       </div>
 
-                      
+
 
                       <div class="form-group">
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image *</label>
@@ -99,7 +99,7 @@
                           <input id="restaurant-image" class="form-control col-md-7 col-xs-12" type="file" name="restaurant_image">
                         </div>
                       </div>
-                      
+
                 <div class="form-group">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Opening Time: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -110,7 +110,7 @@
                             </span>
                         </div>
                         </div>
-                      </div> 
+                      </div>
 
                       <div class="form-group">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">ClosingTime: </label>
@@ -122,7 +122,7 @@
                             </span>
                         </div>
                         </div>
-                      </div> 
+                      </div>
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" id = "restaurant-minimum-order"  for="restaurant-minimum-order">Minimum Order Price</label>
@@ -130,7 +130,7 @@
                             <input id="restaurant-minimum-order" class="form-control col-md-7 col-xs-12" name="restaurant_minimum_order" type="text">
                         </div>
                       </div>
-                      
+
 					  <div class="form-group">
                       </div>
                       <div class="ln_solid"></div>
@@ -148,7 +148,7 @@
               </div>
             </div>
 
-    
+
     <!-- jQuery -->
     <script src="{{URL::asset('vendors/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{URL::asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
@@ -189,13 +189,13 @@
 
 
     <script>
-      //this function automatically calls the function to mess with these 
+      //this function automatically calls the function to mess with these
       function hasExtra()
       {
         //
 
       }
-      //this function adds a new row to the form for the extra item and it's price 
+      //this function adds a new row to the form for the extra item and it's price
       function addExtraRow()
       {
         //
@@ -203,8 +203,8 @@
 
       function create_new_category()
       {
-        //make the new category text box to be visible 
-        var option = document.getElementById("new-category").selected;; 
+        //make the new category text box to be visible
+        var option = document.getElementById("new-category").selected;;
 
         if(option == true)
         {
