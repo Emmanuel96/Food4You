@@ -147,7 +147,8 @@ class AdminController extends Controller
 			// $products = DB::select('select * from restaurants_products, menu where restaurants_products.restaurant_id = :id && menu.item_id = restaurants_products.product_id', ['id' => $user->id] );
 			//else get the id of the restaurant
 			$restaurant_id = DB::select("select restaurant_id from restaurants where user_id = :user_id", ['user_id'=> $user->id]);
-			$restaurant_id = $restaurant_id[0]->restaurant_id;
+
+            $restaurant_id = $restaurant_id[0]->restaurant_id;
 
 			$products = Menu::where('restaurant_id', '=', $restaurant_id)->get();
 		}
@@ -376,8 +377,6 @@ class AdminController extends Controller
 
 	public function new_restaurant(Request $request, Response $response)
 	{
-		$restaurant_id = rand(50,1000);
-
 		$request->validate([
 			//'restaurant_id' => 'required|unique:Restaurants',
 			// 'restaurant_name' => 'required|unique:Restaurants',
@@ -386,8 +385,11 @@ class AdminController extends Controller
 			'restaurant_address' => 'required|max:255',
 			'restaurant_phone_number' => 'int|min:11',
 			'restaurant_image' => 'required',
-			'restaurant_minimum_order' => 'required|int',
-		]);
+            'restaurant_minimum_order' => 'required|int',
+            'email' => 'required|email|unique:user'
+        ]);
+
+		$restaurant_id = rand(50,1000);
 
 		//REMOVE ALL SPACE FROM THE PROUDCT NAME TO FORM THE IMAGE NAME
 		$image_name = str_replace(' ', '', $request->restaurant_name).'.'.$request->restaurant_image->getClientOriginalExtension();
@@ -395,28 +397,33 @@ class AdminController extends Controller
 
 		$image = Storage::disk('spaces')->putFile($restaurant_name. '/profile',$request->file('restaurant_image'), 'public');
 
-		Restaurants::create(
-			[
-				'restaurant_id' => $restaurant_id,
-				'restaurant_name'=> $request->restaurant_name,
-				'restaurant_opening_times'=> $request->restaurant_opening_times,
-				'restaurant_closing_times'=> $request->restaurant_closing_times,
-				'restaurant_address' => $request->restaurant_address,
-				'restaurant_phone_number' => $request->restaurant_phone_no,
-				'restaurant_image' => $image,
-				'restaurant_minimum_order' => $request->restaurant_minimum_order
-			]
-			);
+		//create user for the restaurant
+		$user = User::create([
+            'user_name' => $request->restaurant_name,
+            'email' => $request->email,
+			// 'email' => str_replace(' ', '', $request->restaurant_name). '@wailodile.com',
+			'password' => app('hash')->make('admin'),
+			'user_role' => 3,
+			'user_address' => $request->restaurant_address,
+			'user_phone_number' => $request->restaurant_phone_no
+        ]);
 
-			//create user for the restaurant
-			User::create([
-				'user_name' => $request->restaurant_name,
-				'email' => str_replace(' ', '', $request->restaurant_name). '@gmail.com',
-				'password' => app('hash')->make('admin'),
-				'user_role' => 3,
-				'user_address' => $request->restaurant_address,
-				'user_phone_number' => $request->restaurant_phone_no
-			]);
+        // return $user->id;
+
+		Restaurants::create(
+		[
+			'user_id' => $user->id,
+			'restaurant_id' => $restaurant_id,
+			'restaurant_name'=> $request->restaurant_name,
+			'restaurant_opening_times'=> $request->restaurant_opening_times,
+			'restaurant_closing_times'=> $request->restaurant_closing_times,
+			'restaurant_address' => $request->restaurant_address,
+			'restaurant_phone_number' => $request->restaurant_phone_no,
+			'restaurant_image' => $image,
+			'restaurant_minimum_order' => $request->restaurant_minimum_order
+		]);
+
+
 
 		Session::flash($request->restaurant_name.' Restaurant succesfully added');
 		return redirect('/admin/restaurants');
