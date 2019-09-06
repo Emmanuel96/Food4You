@@ -50,28 +50,28 @@
 
         <style>
 
-            .payment-link:active 
+            .payment-link:active
             {
-                text-decoration: none; 
-                color: black; 
+                text-decoration: none;
+                color: black;
 
             }
 
             .payment-link:visited
             {
-                text-decoration: none; 
+                text-decoration: none;
                 color: black;
             }
 
-            .payment-link:link 
+            .payment-link:link
             {
-                color: black; 
-                text-decoration: none;   
+                color: black;
+                text-decoration: none;
             }
 
-            .payment-link:hover 
+            .payment-link:hover
             {
-                text-decoration: none; 
+                text-decoration: none;
                 color: black;
             }
 
@@ -102,12 +102,12 @@
                 padding: 20px 30px;
             }
 
-           
+
             body
             {
                 background-color: #eee;
-                margin:0; 
-                padding: 0; 
+                margin:0;
+                padding: 0;
             }
             .menu_row{
                 margin-bottom:50px;
@@ -116,16 +116,16 @@
             {
                 width: 35px;
             }
-            
+
             .center{
                 margin: auto;
             }
-            
+
             .smallFont
             {
                 font-size: 20px;
             }
-            
+
             img.center
             {
               display: block;
@@ -134,16 +134,16 @@
             }
             .restaurantCards
             {
-                width: 60%; 
+                width: 60%;
                 margin-bottom: 40px;
             }
 
-            .fullContainer 
+            .fullContainer
             {
-                padding: 0; 
+                padding: 0;
                 margin-left: 20;
             }
-            
+
             .container
             {
                 padding: 0;
@@ -154,18 +154,18 @@
             {
                 .col-xs-12
                 {
-                  padding-left: 0; 
-                  padding-right: 0; 
+                  padding-left: 0;
+                  padding-right: 0;
                 }
 
                 .dropDownDiv
                 {
-                    padding-left: 5% !important; 
+                    padding-left: 5% !important;
                     padding-right: 6% !important;
                 }
                 .panel-body
                 {
-                    height: 100%; 
+                    height: 100%;
                 }
 
                 #restaurant_info
@@ -175,26 +175,26 @@
 
                 footer
                 {
-                    display: none !important;   
+                    display: none !important;
 
                 }
                #mobile_footer{
                     display: block !important;
                     visibility: visible;
                     height: auto !important;
-                    padding: 2px !important; 
+                    padding: 2px !important;
                 }
 
 
                 #basket_div
                 {
-                    visibility: hidden !important; 
+                    visibility: hidden !important;
                     display:none !important;
 
                 }
                 .w3-card-4
                 {
-                    margin-bottom: 30px; 
+                    margin-bottom: 30px;
                 }
 
                 .mobile_resp
@@ -212,12 +212,12 @@
               {
                 top: 51px;
                 width: 100%;
-                z-index: 1; 
+                z-index: 1;
               }
 
                 .nav
                 {
-                    padding-left: 13px; 
+                    padding-left: 13px;
                 }
                 .nav .navbar-nav
                 {
@@ -227,8 +227,8 @@
                 {
 
                     display:inline !important;
-                    list-style-type:none !important; 
-                    float:left !important; 
+                    list-style-type:none !important;
+                    float:left !important;
 
                 }
 
@@ -240,7 +240,7 @@
                 .nav-item .cat-link
                  {
                     font-size: 12px !important;
-                    padding: 15px 5px !important; 
+                    padding: 15px 5px !important;
                  }
             }
 
@@ -248,37 +248,37 @@
             {
                 .navbar-toggle
                 {
-                    margin-right: 30px; 
+                    margin-right: 30px;
                 }
                 .navbar-brand
                 {
-                    font-size: 25px; 
-                    padding: 15px 15px; 
-                    margin-left: 15px; 
+                    font-size: 25px;
+                    padding: 15px 15px;
+                    margin-left: 15px;
                 }
                  .categoryNav
                  {
-                    padding-right: 10px !important; 
+                    padding-right: 10px !important;
                     padding-left: 7px !important;
 
                  }
                  #basket_div.basket
                  {
                     margin-left: 0px !important;
-                    /*padding-right: 3px !important;*/  
-                 }   
+                    /*padding-right: 3px !important;*/
+                 }
                  .nav-item .cat-link
                  {
-                    padding: 15px 5px !important; 
+                    padding: 15px 5px !important;
                  }
             }
 
-           
+
                @media screen and (min-width: 991px) {
              /* start of large tablet styles */
                  .categoryNav
                  {
-                     padding-right: 10px !important; 
+                     padding-right: 10px !important;
                     padding-left: 10px !important;
                  }
                  #basket_div.basket
@@ -290,24 +290,24 @@
                   {
                     /*padding-right: 20px; */
                   }
-                 
+
             }
 
             @media screen and (max-width: 450px)
             {
                 .navbar-header{
-                    background-color: black; 
+                    background-color: black;
                 }
                 .nav .navbar-nav
                 {
                     background-color:black !important;
                 }
-            }            
-
-           
+            }
 
 
-        
+
+
+
 
 
                         /* #####################################################################
@@ -319,7 +319,7 @@
                #   Last Change   : 08/02/2015
                #
                ##################################################################### */
-               
+
 /*            @import url(http://fonts.googleapis.com/css?family=Roboto);
 
             * {
@@ -400,7 +400,7 @@
       <div class="panel-group">
           <div class="panel panel-default">
                 <div class="panel-heading"  style = "background-color: #fed136;"   >
-                  <a class = "payment-link" style="width:100%; height: 100%; " > 
+                  <a class = "payment-link" style="width:100%; height: 100%; " >
                     <h4 class="panel-title bold">
                         Delivery Details
                         <i  class = "fa fa-caret-down pull-right"></i>
@@ -410,7 +410,7 @@
                 <div id="collapse1" >
                     <div class= "panel-body">
                          <form style = "background-color:#fff; height: auto;   padding: 40px; padding-top: 20px;"  action=" {{route('pay')}}" method="post">
-                         
+
                             {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="name" class="form-label">Name</label>
@@ -419,7 +419,7 @@
 
                                 <div class="form-group">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="adu@gmail.com" required="true">         
+                                <input type="email" class="form-control" id="email" name="email" placeholder="adu@gmail.com" required="true">
                                 </div>
 
                                 <div class="form-group">
@@ -429,7 +429,7 @@
 
                                 <div class="form-group">
                                 <label for="day" class="form-label">Day</label>
-                                
+
                                 <select name="day" id="inlineFormCustomSelect" class="form-control" required>
                                     <option selected>Day of Delivery</option>
 
@@ -443,38 +443,38 @@
 
                                 <div class="form-group">
                                     <label for="batch" class="form-label">Delivery Batch</label>
-                                    
+
                                     <select name="batch" id="inlineFormCustomSelect" class="form-control" required>
                                         <option selected>Delivery Batch</option>
                                         <option>10 AM - 12 PM</option>
                                         <option>12:30 PM - 02:30 PM</option>
                                         <option>03:00 PM - 06:00 PM</option>
                                     </select>
-    
+
                                 </div>
 
                                 <div class="form-group">
                                 <label for="address" class="form-label">Address #1</label>
                                 <input type = "Address Line #1" class="form-control" id="address" required="true" rows="5" name="address"></textarea>
-                                </div>   
+                                </div>
                                 <div class="form-group text-center">
                                 <button type = "submit" class = "btn btn-primary" >
                                     PAYMENT  <i class = "fa fa-lock"> </i>
                                 </button>
-                                </div>   
+                                </div>
                                 <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
                                 <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}"> {{-- required --}}
-                                    {{ csrf_field() }} 
+                                    {{ csrf_field() }}
 
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> {{-- employ this in place of csrf_field only in laravel 5.0 --}}
-                                <input type = "hidden" name = "amount" value = "{{$totalPrice * 100}}">
+                                <input type = "hidden" name = "amount" value = "{{($delivery_price + $totalPrice) * 100}}">
                         </form>
                     </div>
                 </div>
           </div>
       </div>
 
-     
+
 
     </div>
 
@@ -484,32 +484,32 @@
         <h3 class = "text-center" style = "margin-top: 0; "> Your Order</h3>
         <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
 
-        
+
             <h5 class = "text-center">Pls call<span style= "color: red; "></span> if you encouter any issues. Thank you for your order. </h5>
-        
+
 
         <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
            <div id = "basket_basket">
            <?php
-            $subTotal = 0; 
-            $total = 0;  
+            $subTotal = 0;
+            $total = 0;
            ?>
           @if($products!= null)
           <?php
                 $subTotal += $totalPrice;
-                $total += $subTotal; 
+                $total += $subTotal;
            ?>
 
         <!-- So after the Hr, i need to list the items in the cart -->
-          
+
              <table style="margin-left:0px; width: 100%; border-top:0px;" class="table table-hover" id= "cartTable">
                 <tbody >
                     @foreach($products as $product)
-                    <tr id = "{{$product['item']['product_id']}}">                          
+                    <tr id = "{{$product['item']['product_id']}}">
                         <td>
-                        
+
                             <span style = "font-size: 13px; font-weight: 13px;" id = "quantity{{$product['item']['product_id']}}">{{$product['qty']}}</span>x
-                           
+
                         </td>
                         <td>  {{$product['item']['product_name']}}  </td>
                         <td align="right" id="price{{$product['item']['product_id']}}" style = "vertical-align:middle;">₦{{number_format($product['price'])}}</td>
@@ -525,7 +525,7 @@
         <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
          <table style="margin-left:0px; padding-right:0px solid #fff;" class="table table-hover" id= "cartTable">
                 <tbody>
-                    <tr>                            
+                    <tr>
                         <td colspan="2">
                             Subtotal
                         </td>
@@ -535,7 +535,7 @@
          </table>
          <table style="margin-left:0px; border-top:0px;" class="table table-hover" id= "cartTable">
             <tbody>
-                <tr>                            
+                <tr>
                     <td colspan="2">
                         <i class= "fa fa-bicycle"></i> Delivery Price
                     </td>
@@ -548,7 +548,7 @@
 
         <table style="margin-left:0px; border-top:0px; font-weight: bolder; color: black;" class="table table-hover" id= "cartTable">
             <tbody>
-                <tr>                            
+                <tr>
                     <td>
                         Total
                     </td>
@@ -573,9 +573,9 @@
 </div>
 
 
-<footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; "> 
+<footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; ">
     <a id = "footerPrice" href = "/cart" class = "btn btn-primary" style = "width: 70%; border-radius: 0; color: black; ">
-    @if($products == null) Basket is Empty @else ₦{{number_format($totalPrice)}}@endif  <i class="fa fa-shopping-cart fa-1x"></i></a>
+    @if($products == null) Basket is Empty @else ₦{{number_format($totalPrice + $delivery_price)}}@endif  <i class="fa fa-shopping-cart fa-1x"></i></a>
 </footer>
 
 <footer class = "container-fluid" style = "margin-top:80px;  width: 100%; margin-left: -20; ">
@@ -615,23 +615,23 @@
     <script src = "{{URL::asset('js/checkout.js')}}"></script>
 
 
-<script> 
-    var id; 
+<script>
+    var id;
     function openModalAndStoreId(idd)
     {
-        event.preventDefault() 
-        id = idd;  
-        addItemToCart(id); 
+        event.preventDefault()
+        id = idd;
+        addItemToCart(id);
         // $('#extras_menu').modal('show');
     }
-    
+
     //FUNCTOIN PASSES A SELECTED PRODUCT TO CART CONTROLLER
     //TO BE ADDED TO THE CART
 
     function incrementQty(idd)
     {
-         event.preventDefault() 
-         id = idd;  
+         event.preventDefault()
+         id = idd;
 
         //AJAX with jquery to pass the selected item to the cart controller
         $.ajax({
@@ -643,41 +643,41 @@
                     //after the item is added to the cart, then i want to change the cart quantity at the top of the page
                     $('#totalQty').text(output.productQty);
 
-                    // document.getElementById('quantity'+id).html= " "; 
+                    // document.getElementById('quantity'+id).html= " ";
                     $('#extras_menu').modal('hide');
-                    //on success change the number 
+                    //on success change the number
 
-                    //yh we are  hiding the modal, but we also need to get the list of products 
+                    //yh we are  hiding the modal, but we also need to get the list of products
 
 
-                    document.getElementById('basket_basket').innerHTML = output.listOfItems; 
-                    document.getElementById('quantity'+id).textContent =  output.productQty; 
+                    document.getElementById('basket_basket').innerHTML = output.listOfItems;
+                    document.getElementById('quantity'+id).textContent =  output.productQty;
 
                     $('#total').text("₦"+output.total);
 
                     $('#subTotal').text("₦"+output.subTotal);
               }
-        });   
+        });
     }
 
    function addItemToCart(id)
-    {   
+    {
 
-        event.preventDefault() 
-        //get all the inputs (checkboxes and radio boxes) 
+        event.preventDefault()
+        //get all the inputs (checkboxes and radio boxes)
         // var extras = ($("form").serializeArray());
 
-        // //extra string is meant to hold the extras array by contatonating them into itself 
+        // //extra string is meant to hold the extras array by contatonating them into itself
         // //get the value of the fillingsOption as it's a radio box
         // var extraString = $('input[name="fillingsOption"]:checked').val();
 
-        // //get values of other extras options 
+        // //get values of other extras options
         // jQuery.each( extras, function( i, field ) {
         //     // $( "#results" ).append( field.value + " " );
         //     if(field.value == "on")
         //     {
         //         //contantonate value of extra string with name of input
-        //         extraString += ", " + field.name; 
+        //         extraString += ", " + field.name;
         //     }
         // });
 
@@ -691,15 +691,15 @@
                     //after the item is added to the cart, then i want to change the cart quantity at the top of the page
                     $('#totalQty').text(output.productQty);
 
-                    // document.getElementById('quantity'+id).html= " "; 
+                    // document.getElementById('quantity'+id).html= " ";
                     // $('#extras_menu').modal('hide');
-                    //on success change the number 
+                    //on success change the number
 
-                    //yh we are  hiding the modal, but we also need to get the list of products 
+                    //yh we are  hiding the modal, but we also need to get the list of products
 
 
-                    document.getElementById('basket_basket').innerHTML = output.listOfItems; 
-                    document.getElementById('quantity'+id).textContent =  output.productQty; 
+                    document.getElementById('basket_basket').innerHTML = output.listOfItems;
+                    document.getElementById('quantity'+id).textContent =  output.productQty;
 
                     $('#total').text("₦"+output.total);
 
@@ -710,13 +710,13 @@
 
                     $('#subTotal').text("₦"+output.subTotal +"<i class = 'fa fa-shopping-cart'></i>");
               }
-        });   
+        });
 
     }
 
     function deleteCartItem(id)
     {
-        event.preventDefault() 
+        event.preventDefault()
           //AJAX with jquery to pass the selected item to the cart controller
         var qty = 1;
         $.ajax({
@@ -729,16 +729,16 @@
                   //after the item is added to the cart, then i want to change the cart quantity at the top of the page
                     $('#totalQty').text(output.productQty);
 
-                    // document.getElementById('quantity'+id).html= " "; 
+                    // document.getElementById('quantity'+id).html= " ";
                     $('#extras_menu').modal('hide');
 
                     $('#total').text("₦"+output.total);
 
                     $('#subTotal').text("₦"+output.subTotal);
 
-                    document.getElementById('basket_basket').innerHTML = output.listOfItems;  
+                    document.getElementById('basket_basket').innerHTML = output.listOfItems;
               }
-        });   
+        });
     }
 </script>
 
