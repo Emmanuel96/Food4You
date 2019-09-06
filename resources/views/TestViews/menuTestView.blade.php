@@ -708,7 +708,7 @@
 
 <footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; ">
     <a id = "footerPrice" href = "/cart" class = "btn btn-primary" style = "width: 70%; border-radius: 0; color: black; ">
-    @if($products == null) Basket is Empty @else ₦{{$totalPrice}}@endif  <i class="fa fa-shopping-cart fa-1x"></i></a>
+    @if($products == null) Basket is Empty @else ₦ {{number_format($totalPrice)}}@endif  <i class="fa fa-shopping-cart fa-1x"></i></a>
 </footer>
 
 <footer class = "container-fluid" style = "width: 100%; margin-top:50px;  margin-left: -20; ">
