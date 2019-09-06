@@ -18,7 +18,9 @@
         <meta name="author" content="">
 
 
-        <title>Wailodile</title>
+        <link rel="shortcut icon" href="{{URL::asset('storage/images/title.ico')}}" />
+
+        <title>Wailodile - A satisfying meal.</title>
 
 
 
@@ -43,14 +45,6 @@
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-
-   <!--   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-        <![endif]-->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
@@ -252,73 +246,288 @@
             }
 
         </style>
+
+<style>
+
+    .sign-in-btn{
+        margin-right: 10px;
+    }
+
+
+    .flat-table {
+        display: block;
+        font-family: Montserrat, Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 115%;
+        overflow: auto;
+        width: auto;
+    }
+    th {
+        background-color: black;
+        color: white;
+        font-weight: normal;
+        padding: 20px 30px;
+        text-align: center;
+    }
+    td {
+        background-color: rgb(238, 238, 238);
+        color: rgb(111, 111, 111);
+        padding: 20px 30px;
+    }
+
+    .center{
+        margin: auto;
+    }
+
+    .smallFont
+    {
+        font-size: 20px;
+    }
+
+    .navbar-brand img{
+        display: inline;
+        margin-top: -9px;
+        vertical-align: top;
+    }
+
+    @media screen and (max-width: 450px)
+    {
+        .navbar-header{
+            background-color: black;
+        }
+        .ellipse{
+            width: 20em;
+        }
+
+        #restaurant_info
+        {
+            width: 100% !important;
+        }
+        .nav
+        {
+            /* background-color: black; */
+        }
+        .nav .navbar-nav
+        {
+            background-color:black !important;
+        }
+        .nav-black{
+            background-color: black;
+        }
+        .navbar-nav{
+            margin: 0px -15px !important;
+        }
+
+        .nav li
+        {
+            display:inline-block !important;
+            padding-right: 10px;
+            padding-left: 10px !important;
+            margin-left: 5px;
+            margin-bottom: 10px;
+            list-style-type:none !important;
+        }
+        ul .sadfa{
+            background-color:black;
+        }
+
+        .auth-btn{
+            color: white;
+            width: 90%;
+            margin-left: 17px;
+            margin-right: 20px;
+        }
+
+        .sign-in-btn{
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .first_category_mobile
+        {
+            /*margin-lef*/
+        }
+
+        .nav-item .cat-link
+         {
+            font-size: 12px !important;
+            padding: 15px 5px !important;
+         }
+    }
+
+    @media screen and (max-width: 768px)
+    {
+        .navbar-toggle
+        {
+            margin-right: 30px;
+        }
+
+        .navbar-brand
+        {
+            font-size: 25px;
+            /* padding: 15px 15px;  */
+            margin-left: 10px;
+        }
+        .navbar-brand img{
+            margin-top: -9px;
+            vertical-align: top;
+        }
+         .categoryNav
+         {
+            overflow: scroll;
+            padding-right: 10px !important;
+            padding-left: 7px !important;
+
+         }
+         #basket_div.basket
+         {
+            margin-left: 0px !important;
+            /*padding-right: 3px !important;*/
+         }
+         .nav-item .cat-link
+         {
+            padding: 15px 5px !important;
+         }
+
+         <!-- nav li{
+             padding-left: 10px;
+         } -->
+    }
+
+    @media screen and (min-width: 991px) {
+    /* start of large tablet styles */
+        .categoryNav
+        {
+            padding-right: 10px !important;
+            padding-left: 10px !important;
+        }
+        #basket_div.basket
+        {
+
+        }
+
+      .basket.pull-right
+      {
+        /*padding-right: 20px; */
+      }
+
+      .qty-edit-td
+      {
+        width: 40% !important;
+      }
+      .product-name-td
+      {
+        margin-left: -100px !important;
+        width: 100% !important;
+      }
+    }
+
+  @media screen and (min-width: 760px) and (max-width: 800px)
+  {
+        .ellipse{
+            width: 7em;
+        }
+  }
+
+  @media screen and (min-width: 1000px) and (max-width: 1080px)
+  {
+        .ellipse{
+            width: 10em;
+        }
+  }
+
+
+</style>
     </head>
    <body id="page-top" class="index">
 
     <!-- Navigation -->
-    <nav style="background-color:#fff;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top"><i class = "fa fa-cutlery"></i> Wailodile</a>
-            </div>
+  <!-- Navigation -->
+  <nav style="background-color:black;" id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" @if(!Auth::user()) data-target="#bs-example-navbar-collapse-1"@else data-target ="#"@endif>
+                @if(!Auth::user())
+                    <span class="sr-only">Toggle navigation</span>
+                    Sign Up  <i class="fa fa-bars"></i>
+                @else
+                    <li class="nav-item dropdown">
+                        <a style = "color:black;"  class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->user_name }} <span class="caret"></span>
+                        </a>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style = "">
-               <ul class="nav navbar-nav navbar-right" ">
-                      @if (!Auth::user())
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/login" style="color: black; text-transform: none; ">Sign in</a></li>
-                            <li class = "nav-item"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent; margin-left: 10px; color: black; text-transform: none; ">Register</a></li>
-                        @else
-                            <li class=" nav-item dropdown">
-                                <a href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->user_name }} <span class="caret"></span>
+                        <ul style="color:black;" class="dropdown-menu" role="menu">
+                            <li class="nav-item">
+                                <a style = "color:black;" class="nav-link" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                    Logout
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                            @if(Auth::user()->user_role == 1 || Auth::user()->user_role == 3)
+                                <li class = "nav-item">
+                                    <a style = "color:black;" class="nav-link" href="{{route('admin.viewProducts')}}">
+                                        Dashboard
+                                    </a>
+                                </li>
+                            @endif
+                        </ul>
+                    </li>
+                @endif
+            </button>
+            <a class="navbar-brand page-scroll" href="/home" style = "display:inline;">
+                <img height ="40px" src ="{{URL::asset('storage/images/title.ico')}}"/> Wailodile
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  style = "">
+           <ul class="nav navbar-nav navbar-right nav-black">
+                  @if (!Auth::user())
+                        <li class = "nav-item auth-btn"> <a class="nav-link btn btn-primary sign-in-btn" href="/login" style="text-transform: none; ">SIGN IN</a></li>
+                        <li class = "nav-item auth-btn"> <a class="nav-link btn btn-primary" href="/register" style="border-color:#fed136; background-color: transparent;">Register</a></li>
+                    @else
+                        <li class=" nav-item dropdown">
+                            <a style = "color:black;" href="#" class=" nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->user_name }} <span class="caret"></span>
+                            </a>
+
+                            <ul style="color:black;" class="dropdown-menu" role="menu">
+                                <li class="nav-item">
+                                    <a style = "color:black;" class="nav-link" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                                @if(Auth::user()->user_role == 1 || Auth::user()->user_role == 3)
+                                    <li class = "nav-item">
+                                        <a style = "color:black;" class="nav-link" href="{{route('admin.viewProducts')}}">
+                                            Dashboard
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                    @if(Auth::user()->user_role == 1 || Auth::user()->user_role == 3)
-                                        <li class = "nav-item">
-                                            <a class="nav-link" href="{{route('admin.viewProducts')}}">
-                                                Dashboard
-                                            </a>
-
-                                    @endif
-                                </ul>
-                            </li>
-                        @endif
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
+            </ul>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-
-
-
-    <div id = "category_nav" class="categoryNav center" style = "font-family: Montserrat, Helvetica, sans-serif; background-color: #fff; padding-left: 72px; padding-right:100px; height: 55px; margin-bottom: 20px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
-    	<ul class="nav navbar-nav nav-left " style = "margin-top: auto; margin-bottom: auto;    font-family: ClanPro-News, Helvetica, sans-serif;
- ">
-    		<li class="nav-item"><a href = "#most_popular" class="nav-link cat-link page-scroll">Most Popular</a></li>
-    		<li class="nav-item"><a href = "#ice_tea" class="page-scroll cat-link" > Organic Milk</a></li>
-    		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Green Tea</a></li>
-<!--     		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Iced tea</a></li>
- -->    </ul>
+        <!-- /.navbar-collapse -->
     </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+
 
     </div>
 
@@ -333,7 +542,7 @@
     ?>
     @endif
 
-<div class = "container">
+<div class = "container" style = "margin-top: 40px; ">
 	<div id = "basket_div" class="basket" style="padding-top: 3px; background-color:#fff; border-color: black; height:100%; width:100%;">
 
              <div id = "basket_basket">
