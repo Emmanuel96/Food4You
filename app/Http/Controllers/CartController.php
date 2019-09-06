@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\menu;
-use App\Cart; 
-use App\Restaurants; 
-use Session; 
+use App\Cart;
+use App\Restaurants;
+use Session;
 
 class CartController extends Controller
 {
@@ -17,34 +17,43 @@ class CartController extends Controller
         // }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        // return $cart->items; 
+        // return $cart->items;
 
-        $cart->items; 
 
-        return view('cartViews.cart',['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+        //get the delivery price
+        if(Session::has('delivery_price')){
+            $delivery_price = Session::get('delivery_price');
+        }
+        else{
+            $delivery_price = 1000;
+        }
+
+        $cart->items;
+
+        return view('cartViews.cart',['products' => $cart->items,'delivery_price' => $delivery_price,'totalPrice' => $cart->totalPrice]);
     }
 
-   //FUNCTION TO ADD ITEMS TO A CART 
+   //FUNCTION TO ADD ITEMS TO A CART
    Public function addToCart(Request $request){
        // return ( $amt.' of item '.$id.' has been added to the cart');
        //firstly we get this item from our db
         $id = $request->id;
-        //we need to get the qty from the request as well 
-        $qty = $request->qty; 
+        //we need to get the qty from the request as well
+        $qty = $request->qty;
 
-        //then get item from the menu table with laravel eloquent model 
+        //then get item from the menu table with laravel eloquent model
         $item = menu::find($id);
 
-        //CHECK IF THERE'S A CART ALREADY IN THE SESSION 
-        //If yes, get the cart else return null 
-        $oldCart = Session::has('cart')? Session::get('cart'):null; 
-        $cart = new Cart($oldCart); 
+        //CHECK IF THERE'S A CART ALREADY IN THE SESSION
+        //If yes, get the cart else return null
+        $oldCart = Session::has('cart')? Session::get('cart'):null;
+        $cart = new Cart($oldCart);
 
         //add item to the cart with the id and it's extras
         $cart->add($item, $item->product_id,$request->extras);
 
-        //get item qty 
-        $productQty = $cart->items[$request->id.''.$request->extras]['qty'];  
+        //get item qty
+        $productQty = $cart->items[$request->id.''.$request->extras]['qty'];
 
 
         //add the cart back into the session to previous the previous one without current item
@@ -58,21 +67,21 @@ class CartController extends Controller
                              <tbody id = 'myTBody' style = 'height: 100%; overflow-y: scroll; overflow-x: hidden; display:block; ' >";
 
         $checkout_button_state = " ";
-        //to confirm if the orders if the checkout button is active or in active 
+        //to confirm if the orders if the checkout button is active or in active
         $current_restaurant = Restaurants::find(Session::get('current_restaurant_id'));
-    
+
 
         if($cart->totalPrice < $current_restaurant->restaurant_minimum_order)
         {
             $checkout_button_state = "disabled";
         }
 
-        //next thing is the list of items 
-        //we need to iterate through the cart and make it into an html text contatonated in a string 
+        //next thing is the list of items
+        //we need to iterate through the cart and make it into an html text contatonated in a string
           foreach($cart->items as $product)
           {
-              //add a new table row 
-              $listOfItems .= 
+              //add a new table row
+              $listOfItems .=
                       "<tr id = '".$product['item']['product_id']."'>".
                         "<td class= 'qty-edit-td' style = 'width: 45.5%;'>".
                           "<a ".$checkout_button_state."style = 'border-radius: 9px; height: 5px; padding: 0;' href='' onclick = 'deleteCartItem(".$product['item']['product_id'].")' >".
@@ -97,38 +106,38 @@ class CartController extends Controller
                               </table>
                            </div>";
 
-        $subTotal = $cart->totalPrice; 
-        $total = $cart->totalPrice; 
+        $subTotal = $cart->totalPrice;
+        $total = $cart->totalPrice;
 
-        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id')); 
+        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id'));
 
         $info = array(
           'productQty' => $productQty,
           'listOfItems' => $listOfItems,
           'subTotal' => $subTotal,
-          'total' => $total, 
+          'total' => $total,
           'min_order_price' => $current_restaurant->restaurant_minimum_order
         );
 
         $result_info = json_encode($info);
-        //return the total quantity for the 
-        return $result_info  ; 
+        //return the total quantity for the
+        return $result_info  ;
 
    }
 
    public function editItemQty(Request $request)
    {
-        //just to check if a cart actually exists and create one if not 
-        $oldCart = Session::has('cart') ? Session::get('cart') : null; 
+        //just to check if a cart actually exists and create one if not
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
 
         //so i also have to find the item from the DB
         $item = menu::find($request->id);
 
-        //then call the edit item quantity method witht he qty passed from the ajax request 
-        $cart->editQty( $item, $request->id, $request->qty); 
+        //then call the edit item quantity method witht he qty passed from the ajax request
+        $cart->editQty( $item, $request->id, $request->qty);
 
-        //then add the cart back to the session 
+        //then add the cart back to the session
         Session::put('cart', $cart);
 
         //And now pass the new total price and the new total qty to the cart page
@@ -151,18 +160,18 @@ class CartController extends Controller
 
     Public function deleteFromCart(Request $request){
       //first check if theres an old cart
-       $oldCart = Session::has('cart') ? Session::get('cart') : null; 
+       $oldCart = Session::has('cart') ? Session::get('cart') : null;
 
-       
+
        $cart = new Cart($oldCart);
 
-       $productQty = $cart->items[$request->id]['qty'];  
+       $productQty = $cart->items[$request->id]['qty'];
 
 
        //if there is then remove this item from that cart
        $cart->removeItem($request->id);
 
-       //then add the cart back to the session 
+       //then add the cart back to the session
        Session::put('cart', $cart);
 
         //list of items in cart
@@ -171,22 +180,22 @@ class CartController extends Controller
                           <table style='margin-left:0px; height: 70px; border-top:0px;' class='table table-hover' id= 'cartTable'>
                              <tbody id = 'myTBody' style = 'height: 100%; overflow-y: scroll; overflow-x: hidden; display:block; ' >";
 
-                             
+
         $checkout_button_state = " ";
 
-        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id')); 
-        //to confirm if the orders if the checkout button is active or in active 
+        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id'));
+        //to confirm if the orders if the checkout button is active or in active
         if($cart->totalPrice < $current_restaurant->restaurant_minimum_order)
         {
             $checkout_button_state = "disabled";
         }
 
-        //next thing is the list of items 
-        //we need to iterate through the cart and make it into an html text contatonated in a string 
+        //next thing is the list of items
+        //we need to iterate through the cart and make it into an html text contatonated in a string
           foreach($cart->items as $product)
           {
-              //add a new table row 
-              $listOfItems .= 
+              //add a new table row
+              $listOfItems .=
                       "<tr id = '".$product['item']['product_id']."'>".
                         "<td class= 'qty-edit-td' style = 'width: 45.5%;'>".
                           "<a ".$checkout_button_state. "style = 'border-radius: 9px; height: 5px; padding: 0;' href='' onclick = 'deleteCartItem(".$product['item']['product_id'].")' >".
@@ -210,17 +219,17 @@ class CartController extends Controller
           $listOfItems .= "     </tbody>
                               </table>
                            </div>";
-          
 
-        $subTotal = $cart->totalPrice; 
-        $total = $cart->totalPrice; 
 
-        //to confirm if the orders if the checkout button is active or in active 
+        $subTotal = $cart->totalPrice;
+        $total = $cart->totalPrice;
+
+        //to confirm if the orders if the checkout button is active or in active
         $current_restaurant = Restaurants::find(Session::get('current_restaurant_id'));
 
 
-        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id')); 
-        var_dump($current_restaurant); 
+        $current_restaurant = Restaurants::find(Session::get('current_restaurant_id'));
+        var_dump($current_restaurant);
         return;
 
         $info = array(
@@ -228,13 +237,13 @@ class CartController extends Controller
           'listOfItems' => $listOfItems,
           'subTotal' => $subTotal,
           'total' => $total,
-          'totalQtyInCart' => $cart->totalQty, 
+          'totalQtyInCart' => $cart->totalQty,
           'min_order_price' => $current_restaurant->restaurant_minimum_order,
         );
 
         $result_info = json_encode($info);
-        //return the total quantity for the 
-        return $result_info  ; 
+        //return the total quantity for the
+        return $result_info  ;
     }
 
     Public function calculateTax(){

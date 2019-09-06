@@ -18,7 +18,7 @@
         <meta name="author" content="">
 
 
-        <title>Naija Bites</title>
+        <title>Wailodile</title>
 
 
 
@@ -50,7 +50,7 @@
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-        <![endif]--> 
+        <![endif]-->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
@@ -77,12 +77,12 @@
                 padding: 20px 30px;
             }
 
-           
+
             body
             {
                 background-color: #eee;
-                margin:0; 
-                padding: 0; 
+                margin:0;
+                padding: 0;
             }
             .menu_row{
                 margin-bottom:50px;
@@ -91,16 +91,16 @@
             {
                 width: 35px;
             }
-            
+
             .center{
                 margin: auto;
             }
-            
+
             .smallFont
             {
                 font-size: 20px;
             }
-            
+
             img.center
             {
               display: block;
@@ -109,13 +109,13 @@
             }
             .restaurantCards
             {
-                width: 60%; 
+                width: 60%;
                 margin-bottom: 40px;
             }
 
-            .fullContainer 
+            .fullContainer
             {
-                padding: 0; 
+                padding: 0;
                 margin-left: 20;
             }
             .container
@@ -124,7 +124,7 @@
                 /*margin: 0px; */
             }
 
-          
+
 
             @media screen and (max-width: 414px)
             {
@@ -133,27 +133,27 @@
                 {
                     width: 30%;
                 }
-            	.cartButtons 
+            	.cartButtons
             	{
-            		margin-left: 70px !important; 
-            		width: 60% !important; 	
+            		margin-left: 70px !important;
+            		width: 60% !important;
             	}
 
                 footer
                 {
-                    display: none !important;     
+                    display: none !important;
                 }
-                 
+
 				.categoryNav
 				{
-					padding-right: 10px !important; 
+					padding-right: 10px !important;
 					padding-left: 7px !important;
 
 				}
 
                 .w3-card-4
                 {
-                    margin-bottom: 30px; 
+                    margin-bottom: 30px;
                 }
 
                 .mobile_resp
@@ -171,12 +171,12 @@
               {
                 top: 51px;
                 width: 100%;
-                z-index: 1; 
+                z-index: 1;
               }
 
                 .nav
                 {
-                    padding-left: 13px; 
+                    padding-left: 13px;
                 }
                 .nav .navbar-nav
                 {
@@ -186,8 +186,8 @@
                 {
 
                     display:inline !important;
-                    list-style-type:none !important; 
-                    float:left !important; 
+                    list-style-type:none !important;
+                    float:left !important;
 
                 }
 
@@ -199,45 +199,45 @@
                 .nav-item .cat-link
                  {
                     font-size: 12px !important;
-                    padding: 15px 5px !important; 
+                    padding: 15px 5px !important;
                  }
             }
 
             @media screen and (min-width: 768px)
             {
-            	.cartButtons 
+            	.cartButtons
             	{
-            		margin-left: 200px !important; 
+            		margin-left: 200px !important;
             	}
 
                  .categoryNav
                  {
-                    padding-right: 10px !important; 
+                    padding-right: 10px !important;
                     padding-left: 7px !important;
 
                  }
                  #basket_div.basket
                  {
                     margin-left: 0px !important;
-                    /*padding-right: 3px !important;*/  
-                 }   
+                    /*padding-right: 3px !important;*/
+                 }
                  .nav-item .cat-link
                  {
-                    padding: 15px 5px !important; 
+                    padding: 15px 5px !important;
                  }
             }
 
-           
+
                @media screen and (min-width: 991px) {
              /* start of large tablet styles */
 
-             .cartButtons 
+             .cartButtons
             	{
-            		margin-left: 250px !important; 
+            		margin-left: 250px !important;
             	}
                  .categoryNav
                  {
-                     padding-right: 10px !important; 
+                     padding-right: 10px !important;
                     padding-left: 10px !important;
                  }
                  #basket_div.basket
@@ -251,26 +251,6 @@
                   }
             }
 
-
-        
-
-
-                        /* #####################################################################
-               #
-               #   Project       : Modal Login with jQuery Effects
-               #   Author        : Rodrigo Amarante (rodrigockamarante)
-               #   Version       : 1.0
-               #   Created       : 07/28/2015
-               #   Last Change   : 08/02/2015
-               #
-               ##################################################################### */
-               
-/*            @import url(http://fonts.googleapis.com/css?family=Roboto);
-
-            * {
-                font-family: 'Roboto', sans-serif;
-            }*/
-
         </style>
     </head>
    <body id="page-top" class="index">
@@ -283,7 +263,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top"><i class = "fa fa-cutlery"></i>Naija Bites</a>
+                <a class="navbar-brand page-scroll" href="#page-top"><i class = "fa fa-cutlery"></i> Wailodile</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -327,7 +307,7 @@
         <!-- /.container-fluid -->
     </nav>
 
-    
+
 
 
     <div id = "category_nav" class="categoryNav center" style = "font-family: Montserrat, Helvetica, sans-serif; background-color: #fff; padding-left: 72px; padding-right:100px; height: 55px; margin-bottom: 20px; border-bottom: 1px solid #e8ebeb; border-top: 3px solid #e8ebeb;">
@@ -337,16 +317,25 @@
     		<li class="nav-item"><a href = "#ice_tea" class="page-scroll cat-link" > Organic Milk</a></li>
     		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Green Tea</a></li>
 <!--     		<li class="nav-item"><a href = "" class= "page-scroll cat-link" >Iced tea</a></li>
- -->    </ul> 
+ -->    </ul>
     </div>
 
     </div>
 
-
+    <?php
+        $subTotal = 0;
+        $total = 0;
+    ?>
+    @if($products!= null)
+    <?php
+        $subTotal += $totalPrice;
+        $total += $subTotal;
+    ?>
+    @endif
 
 <div class = "container">
 	<div id = "basket_div" class="basket" style="padding-top: 3px; background-color:#fff; border-color: black; height:100%; width:100%;">
-	        
+
              <div id = "basket_basket">
 	        <!-- So after the Hr, i need to list the items in the cart -->
 	          @if($products != null)
@@ -354,29 +343,57 @@
 	             <table style="border-top:0px;" class="table table-hover" id= "cartTable">
 	                <tbody >
 	                    @foreach($products as $product)
-	                     <tr id = "{{$product['item']['product_id']}}">                          
-                        <td style = "width:30%; ">
-                            <a style = "border-radius: 9px; height: 5px; padding: 0;" href="" onclick = "deleteCartItem('{{$product['item']['product_id']}}')" >
-                                <span class="fa-stack fa-sm">
-                                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                    <i class="fa fa-minus  fa-stack-1x" style="color: white; padding-top:1px;"></i>
-                                </span>
-                            </a>
-                            <span style = "font-size: 13px; font-weight: 13px;" id = "quantity{{$product['item']['product_id']}}">{{$product['qty']}}</span>
-                            <a href="#" style = "border-radius: 20px;" onclick = "openModalAndStoreId({{$product['item']['product_id']}})">
-                                <span class="fa-stack">
-                                    <i  class="fa fa-circle fa-stack-2x text-primary"></i>
-                                    <i style="padding-top:1px; color:white;" class="fa fa-plus fa-stack-1x"   ></i>
-                                </span></a>
-                        </td>
-                        <td>  {{$product['item']['product_name']}}  </td>
-                        <td align="right" id="price{{$product['item']['product_id']}}" style = "vertical-align:middle;">₦{{number_format($product['price'])}}</td>
-                    </tr>
-	                    @endforeach
+	                    <tr id = "{{$product['item']['product_id']}}">
+                            <td style = "width:30%; ">
+                                <a style = "border-radius: 9px; height: 5px; padding: 0;" href="" onclick = "deleteCartItem('{{$product['item']['product_id']}}')" >
+                                    <span class="fa-stack fa-sm">
+                                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fa fa-minus  fa-stack-1x" style="color: white; padding-top:1px;"></i>
+                                    </span>
+                                </a>
+                                <span style = "font-size: 13px; font-weight: 13px;" id = "quantity{{$product['item']['product_id']}}">{{$product['qty']}}</span>
+                                <a href="#" style = "border-radius: 20px;" onclick = "openModalAndStoreId({{$product['item']['product_id']}})">
+                                    <span class="fa-stack">
+                                        <i  class="fa fa-circle fa-stack-2x text-primary"></i>
+                                        <i style="padding-top:1px; color:white;" class="fa fa-plus fa-stack-1x"   ></i>
+                                    </span>
+                                </a>
+                            </td>
+                            <td>  {{$product['item']['product_name']}}  </td>
+                            <td align="right" id="price{{$product['item']['product_id']}}" style = "vertical-align:middle;">₦{{number_format($product['price'])}}</td>
+                        </tr>
+                        @endforeach
+                        <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
+
+                        <table style="margin-left:0px; border-top:0px;" class="table table-hover" id= "cartRowDeliveryFee">
+                           <tbody>
+                               <tr>
+                                   <td colspan="2">
+                                       <i class= "fa fa-bicycle"></i> Delivery fee
+                                   </td>
+                                   <td align="right"   style = "color:red; ">₦ {{number_format($delivery_price)}}</td>
+                               </tr>
+                           </tbody>
+                       </table>
+
+                         <hr style="width:88%; margin-left:17px; border-top:1px solid #e8ebeb" >
+
+                       <table style="margin-left:0px; border-top:0px; font-weight: bolder; color: black;" class="table table-hover" id= "cartRowTotal">
+                           <tbody>
+                               <tr>
+                                   <td>
+                                       Total
+                                   </td>
+                                   <td> </td>
+                                   <td align="right" id="total" style = "vertical-align:middle;">₦ {{number_format($total + $delivery_price)}}</td>
+                               </tr>
+                           </tbody>
+                       </table>
+
 	                </tbody>
 	            </table>
 	          </div>
-	          @else 
+	          @else
 	            <p style="margin-left:20px; margin-top: 10px;"> There's nothing in the cart </p>
 	         @endif
              </div>
@@ -389,7 +406,7 @@
 	 </div>
 </div>
 
-<footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; "> 
+<footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; ">
     <a href="www.google.com" class = "btn btn-primary" style = "width: 70%; border-radius: 0; color: black; "> Basket is Empty  <i class="fa fa-shopping-cart fa-1x"></i></a>
 </footer>
 
@@ -427,23 +444,23 @@
     <script src ="{{URL::asset('js/agency.js')}}" ></script>
     <script src ="{{URL::asset('js/contact_me.js')}}" ></script>
     <script src ="{{URL::asset('js/jqBootstrapValidation.js')}}" ></script>
-<script> 
-    var id; 
+<script>
+    var id;
     function openModalAndStoreId(idd)
     {
-        event.preventDefault() 
-        id = idd;  
-        addItemToCart(id); 
+        event.preventDefault()
+        id = idd;
+        addItemToCart(id);
         // $('#extras_menu').modal('show');
     }
-    
+
     //FUNCTOIN PASSES A SELECTED PRODUCT TO CART CONTROLLER
     //TO BE ADDED TO THE CART
 
     function incrementQty(idd)
     {
-         event.preventDefault() 
-         id = idd;  
+         event.preventDefault()
+         id = idd;
 
         //AJAX with jquery to pass the selected item to the cart controller
         $.ajax({
@@ -455,41 +472,41 @@
                     //after the item is added to the cart, then i want to change the cart quantity at the top of the page
                     $('#totalQty').text(output.productQty);
 
-                    // document.getElementById('quantity'+id).html= " "; 
+                    // document.getElementById('quantity'+id).html= " ";
                     $('#extras_menu').modal('hide');
-                    //on success change the number 
+                    //on success change the number
 
-                    //yh we are  hiding the modal, but we also need to get the list of products 
+                    //yh we are  hiding the modal, but we also need to get the list of products
 
 
-                    document.getElementById('basket_basket').innerHTML = output.listOfItems; 
-                    document.getElementById('quantity'+id).textContent =  output.productQty; 
+                    document.getElementById('basket_basket').innerHTML = output.listOfItems;
+                    document.getElementById('quantity'+id).textContent =  output.productQty;
 
                     $('#total').text("₦"+output.total);
 
                     $('#subTotal').text("₦"+output.subTotal);
               }
-        });   
+        });
     }
 
    function addItemToCart(id)
-    {   
+    {
 
 
-        //get all the inputs (checkboxes and radio boxes) 
+        //get all the inputs (checkboxes and radio boxes)
         // var extras = ($("form").serializeArray());
 
-        // //extra string is meant to hold the extras array by contatonating them into itself 
+        // //extra string is meant to hold the extras array by contatonating them into itself
         // //get the value of the fillingsOption as it's a radio box
         // var extraString = $('input[name="fillingsOption"]:checked').val();
 
-        // //get values of other extras options 
+        // //get values of other extras options
         // jQuery.each( extras, function( i, field ) {
         //     // $( "#results" ).append( field.value + " " );
         //     if(field.value == "on")
         //     {
         //         //contantonate value of extra string with name of input
-        //         extraString += ", " + field.name; 
+        //         extraString += ", " + field.name;
         //     }
         // });
 
@@ -503,27 +520,27 @@
                     //after the item is added to the cart, then i want to change the cart quantity at the top of the page
                     $('#totalQty').text(output.productQty);
 
-                    // document.getElementById('quantity'+id).html= " "; 
+                    // document.getElementById('quantity'+id).html= " ";
                     // $('#extras_menu').modal('hide');
-                    //on success change the number 
+                    //on success change the number
 
-                    //yh we are  hiding the modal, but we also need to get the list of products 
+                    //yh we are  hiding the modal, but we also need to get the list of products
 
 
-                    document.getElementById('basket_basket').innerHTML = output.listOfItems; 
-                    document.getElementById('quantity'+id).textContent =  output.productQty; 
+                    document.getElementById('basket_basket').innerHTML = output.listOfItems;
+                    document.getElementById('quantity'+id).textContent =  output.productQty;
 
                     $('#total').text("₦"+output.total);
 
                     $('#subTotal').text("₦"+output.subTotal);
               }
-        });   
+        });
 
     }
 
     function deleteCartItem(id)
     {
-        event.preventDefault() 
+        event.preventDefault()
           //AJAX with jquery to pass the selected item to the cart controller
         var qty = 1;
         $.ajax({
@@ -536,16 +553,16 @@
                   //after the item is added to the cart, then i want to change the cart quantity at the top of the page
                     $('#totalQty').text(output.productQty);
 
-                    // document.getElementById('quantity'+id).html= " "; 
+                    // document.getElementById('quantity'+id).html= " ";
                     $('#extras_menu').modal('hide');
 
                     $('#total').text("₦"+output.total);
 
                     $('#subTotal').text("₦"+output.subTotal);
 
-                    document.getElementById('basket_basket').innerHTML = output.listOfItems;  
+                    document.getElementById('basket_basket').innerHTML = output.listOfItems;
               }
-        });   
+        });
     }
 </script>
 
