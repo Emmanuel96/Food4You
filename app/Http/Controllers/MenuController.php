@@ -66,7 +66,7 @@ class MenuController extends Controller
             $delivery_price = Session::get('delivery_price');
         }
         else{
-            $delivery_price = 1000;
+            $delivery_price = 0;
         }
         // $user = User::first();
         // // return $user;
