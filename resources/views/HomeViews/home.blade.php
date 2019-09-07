@@ -312,7 +312,7 @@
                         <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Secure Online Payment</h4>
-                    <p class="text-muted">Don't leave the comfort of your office <b>make payemnt via your credit card online securely.</b> And just sit back, you will be served in time.</p>
+                    <p class="text-muted">Don't leave the comfort of your office <b>make payment via your credit card online securely.</b> And just sit back, you will be served in time.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
