@@ -80,7 +80,7 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Product Name *</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="product-name" name="product_name" class="form-control col-md-7 col-xs-12" required>
+                          <input type="text" id="product-name" name="product_name" class="form-control col-md-7 col-xs-12" value="{{ old('product_name') }}" required>
                         </div>
                       </div>
 
@@ -88,7 +88,7 @@
                         <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
                         <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price *</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                         <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text" required>
+                        <input id="price" class="form-control col-md-7 col-xs-12" name="product_price" type="text" value = "{{old('product_price')}}" required>
                         </div>
                       </div>
 
@@ -147,7 +147,9 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="product-description-add-product">Product Description *</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <textarea name="product_description" id="product-description-add-product"  cols="100" rows="5"></textarea>
+                            <textarea name="product_description" id="product-description-add-product"  cols="100" rows="5">
+                                {{ old('product_description') }}
+                            </textarea>
                         </div>
                       </div>
 
