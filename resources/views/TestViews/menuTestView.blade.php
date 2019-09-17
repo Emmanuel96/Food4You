@@ -486,16 +486,16 @@
         </ul>
 
          <div id = "basket_div" class="basket pull-right" style="padding-top: 3px; background-color:#fff; border-color: black; height:auto; width:33%;">
-         <a id = "checkout-button" 
-            @if($delivery_price == 0) 
-                href="#" class = "btn btn-primary btn-lg" data-toggle="modal" data-target = "select-location-modal"
+         <a id = "checkout-button"
+            @if(!isset($delivery_price) || $delivery_price == null || $delivery_price == 0)
+                href="#" class = "btn btn-primary btn-lg" data-toggle="modal" data-target = "#select-location-modal"
             @elseif($delivery_price > 0)
-                href="/checkout" class= "btn btn-primary btn-lg" 
-            @endif 
-            @if($products== null)
-                disabled 
+                href="/checkout" class= "btn btn-primary btn-lg"
             @endif
-            
+            @if($products == null)
+                disabled
+            @endif
+
             style="color:black; border-radius: 0px;  width: 100%;" >Go to Checkout
         </a>
 
@@ -645,6 +645,54 @@
             </div>
         </div>
 
+<!-- Location select  -->
+<div class="modal fade" id = "select-location-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" id = "extra_menu_header">
+        <h5 class="modal-title" id = "product_name">location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{route('set.location')}}" class = "location-form" id ="locationform" style = "display: block; margin-bottom: 10px;">
+            <input type="hidden" value="testvalue"/>
+            <div class="dropdown">
+                <button disabled class="btn btn-default dropdown-toggle dropdown-btn" type="button" data-toggle="dropdown">Lagos State
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    @foreach($states as $state)
+                        <li id="{{$state->state_id}}"><a href="#">{{$state->state_name}} State</a></li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" data-toggle="dropdown" id ="areabtn">Select an area
+                <span class="caret"></span></button>
+                <ul id ="arealist" class="dropdown-menu">
+                    @foreach($areas as $area)
+                        <li ><a id= "{{$area->area_id}}" href="#">{{$area->area_name}}</a></li>
+                    @endforeach
+                </ul>
+            </div>
+
+            <input type = "hidden" id="area" name="area"/>
+            <input type="hidden" id="state" name="state" value="1"/>
+
+            <a class="btn btn-xl" id="orderbtn" disabled>ORDER NOW</a>
+
+        </form>
+
+      <div class="modal-footer">
+
+
+      </div>
+    </div>
+   </div>
+</div>
+
+</div>
 
 <!-- Begin of my modal  -->
 <div class="modal fade" id = "extras_menu">
@@ -971,6 +1019,19 @@
      window.onload = CheckOutBtnStatus;
 
 </script>
+
+<script>
+        // On click funtion for the area list
+        $('#arealist li a').on('click', function(){
+            // Enable the order button after an area is selected
+            $('#orderbtn').attr("disabled", false);
+            $('#orderbtn').attr("onClick", "locationform.submit()")
+            $('#area').val(this.id);
+
+            //Change the area btn text to the selected option
+            $('#areabtn').html($(this).text());
+        });
+    </script>
 
 
 

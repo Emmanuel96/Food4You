@@ -280,7 +280,7 @@
                     <input type = "hidden" id="area" name="area"/>
                     <input type="hidden" id="state" name="state" value="1"/>
 
-                    <a class="btn btn-xl" onclick="locationform.submit()" id="orderbtn" disabled>ORDER NOW</a>
+                    <a class="btn btn-xl" id="orderbtn" disabled>ORDER NOW</a>
 
                 </form>
 
@@ -405,6 +405,7 @@
         $('#arealist li a').on('click', function(){
             // Enable the order button after an area is selected
             $('#orderbtn').attr("disabled", false);
+            $('#orderbtn').attr("onClick", "locationform.submit()")
             $('#area').val(this.id);
 
             //Change the area btn text to the selected option

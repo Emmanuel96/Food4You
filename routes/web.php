@@ -21,7 +21,7 @@ Route::get('/', 'HomeController@index');
 
 Route::get('menu/{name}', 'MenuController@displayMenu')->name('menu.show');
 
-Route::get('getProductDetails', 'MenuController@getProductDetails')->name('menu.getProductDetails'); 
+Route::get('getProductDetails', 'MenuController@getProductDetails')->name('menu.getProductDetails');
 
 Route::get('/add-to-cart',[
 	'uses' => 'CartController@addToCart',
@@ -36,7 +36,7 @@ Route::delete('/deleteFromCart', 'CartController@deleteFromCart')->name('cart.de
 
 Route::get('/checkout', 'CheckoutController@displayCheckout')->middleware('restaurant_minimum_order')->name('checkout.show');
 
-Route::post('/checkout', 'CheckoutController@createOrder')->middleware('restaurant_minimum_order')->name('checkout.create'); 
+Route::post('/checkout', 'CheckoutController@createOrder')->middleware('restaurant_minimum_order')->name('checkout.create');
 
 //ADMIN PAGE ROUTES
 Route::get('/admin/addProduct','AdminController@addProductPage')->name('admin.addProduct');
@@ -45,9 +45,9 @@ Route::post('/admin/createProduct', 'AdminController@createProduct')->name('admi
 Route::get('/admin/viewOrders', 'AdminController@viewOrders')->name('admin.viewOrders');
 Route::get('/admin/viewOrders/{slug?}', 'AdminController@viewOrderProducts')->name('admin.viewOrdersDetails');
 Route::post('/admin/InOutOfStock', 'AdminController@InOutOfStock')->name('admin.inOutOfStock');
-Route::post('/admin/notifyCustomerOfOrder', 'AdminController@notifyCustomers')->name('admin.notifyCustomerOfOrder');  
+Route::post('/admin/notifyCustomerOfOrder', 'AdminController@notifyCustomers')->name('admin.notifyCustomerOfOrder');
 //--- test routes --//
-Route::get('/admin/products/view', 'AdminController@viewProduct_test'); 
+Route::get('/admin/products/view', 'AdminController@viewProduct_test');
 
 Route::get('/admin/showProduct/{id}', 'AdminController@showProduct')->name('admin.showProduct');
 
@@ -68,9 +68,9 @@ Route::post('/admin/updateProduct/{id}', 'AdminController@updateProduct')->name(
 //Route::match(['get','post'],'/admin/add-category','categoryController@addCategory');
 
 Route::get('/admin/dashboard','AdminController@viewDashboard')->name('admin.dashboard');
-Route::get('/admin/restaurants', 'AdminController@restaurants')->name('admin.restuarants')->middleware('admin_restaurant_middleware'); 
-Route::get('/admin/restaurants/new','AdminController@newRestaurant')->name('admin.newRestaurant')->middleware('admin_restaurant_middleware'); 
-Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('admin.new_restaurant')->middleware('admin_restaurant_middleware'); 
+Route::get('/admin/restaurants', 'AdminController@restaurants')->name('admin.restuarants')->middleware('admin_restaurant_middleware');
+Route::get('/admin/restaurants/new','AdminController@newRestaurant')->name('admin.newRestaurant')->middleware('admin_restaurant_middleware');
+Route::post('/admin/restaurants/new', 'AdminController@new_restaurant')->name('admin.new_restaurant')->middleware('admin_restaurant_middleware');
 Route::get('/admin/restaurants/showRestaurants/{id}', 'AdminController@showRestaurant')->name('admin.showRestaurant')->middleware('admin_restaurant_middleware');
 
 Route::get('/admin/restaurants/editRestaurants/{id}', 'AdminController@editRestaurant')->name('admin.editRestaurant');
@@ -87,14 +87,14 @@ Route::post('/admin/restaurant/category/store', 'AdminController@storeCategory')
 Route::get('/admin/restaurant/category/edit/{id}', 'AdminController@editCategory')->name('admin.editCategory');
 Route::post('/admin/restaurant/category/update/{id}', 'AdminController@updateCategory')->name('admin.updateCategory');
 Route::get('/admin/restaurant/category/show/{id}', 'AdminController@showCategory')->name('admin.showCategory');
-Route::get('/admin/restaurant/category/delete/{id}', 'AdminController@deleteCategory')->name('admin.deleteCategory'); 
+Route::get('/admin/restaurant/category/delete/{id}', 'AdminController@deleteCategory')->name('admin.deleteCategory');
 
 Route::get('/admin/restaurant/category/delete/{id}', 'AdminController@deleteCategory')->name('admin.deleteCategory');
 
 Route::get('/admin/notification/test', function (){
 	event(new App\Events\orderNotification(Auth::user()->user_name));
 	return [
-		'user_id' => '1', 
+		'user_id' => '1',
 		'order_id' => '2'
 	];
 });
@@ -110,8 +110,8 @@ Route::get('/admin/notification/listen', function(){
 	return view('AdminViews.listen');
 });
 
-Route::post('/admin/close/restaurant', 'AdminController@closeRestaurant')->name('admin.close_restaurant'); 
-Route::post('/admin/open/restaurant', 'AdminController@openRestaurant')->name('admin.open_restaurant'); 
+Route::post('/admin/close/restaurant', 'AdminController@closeRestaurant')->name('admin.close_restaurant');
+Route::post('/admin/open/restaurant', 'AdminController@openRestaurant')->name('admin.open_restaurant');
 
 //ROUTES FOR THE BATCH FUNCTIONALITY
 Route::get('/admin/restaurant/batch', 'AdminController@view_restaurant_batch')->name('admin.restaurant_batch');
@@ -132,37 +132,40 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Routes leading to the restaurant page 
+//Routes leading to the restaurant page
 Route::get('/restaurants', 'RestaurantController@restaurantsPage')->name('restaurants.show');
 Route::post('/restaurants', 'RestaurantController@restaurantsPage')->name('postrestaurants.show');
 
-///for sake of debugging 
+///for sake of debugging
 Route::get('/clearCart', 'HomeController@clearCart');
 
 //Route to send text messages
-Route::get('/sendTextMessages', 'TextMessagingController@sendMessages'); 
+Route::get('/sendTextMessages', 'TextMessagingController@sendMessages');
 
-//Routes for all the API calls 
+//Routes for all the API calls
 Route::get('/api/restaurants', 'apiController@fetchRestaurants');
 
-Route::get('/api/restaurants/menu/{id}', 'apiController@fetchRestMenu'); 
+Route::get('/api/restaurants/menu/{id}', 'apiController@fetchRestMenu');
 
 //FOR PAYMENT
-Route::post('/pay', 'CheckoutController@createOrder')->name('pay'); 
+Route::post('/pay', 'CheckoutController@createOrder')->name('pay');
 
 Route::get('/payment_complete', 'CheckoutController@handleGatewayCallback');
 
-Route::get('/order/tracking/{id}', 'CheckoutController@orderTracking')->name('order.tracking'); 
+Route::get('/order/tracking/{id}', 'CheckoutController@orderTracking')->name('order.tracking');
 
 Route::get('/order/tracking2/{id}', 'CheckoutController@orderTracking2');
 
-//MAIL TESTING 
+//MAIL TESTING
 Route::get('/testMail', 'CheckoutController@mailTest');
 
-//TESTING FOR THE ADMIN PAGES 
+//TESTING FOR THE ADMIN PAGES
 Route::get('/admin/testViewOrders', 'AdminController@testViewOrder');
 
 //TEST ROUTE FOR THE ADMINATOR THEME WITH LARAVEL INTEGRATION
 Route::get('admin/adminator/test', 'AdminController@adminator');
 
-Route::get('/minimumOrder/check', 'CheckoutController@min_order_check')->name('order.min_order'); 
+Route::get('/minimumOrder/check', 'CheckoutController@min_order_check')->name('order.min_order');
+
+
+Route::post('location', 'MenuController@displayMenu')->name('set.location');

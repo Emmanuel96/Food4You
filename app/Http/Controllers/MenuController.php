@@ -13,6 +13,8 @@ use App\Category;
 use App\Notifications\OrderConfirmed;
 use Illuminate\Notifications\Notification;
 use Auth;
+use App\area;
+use App\states;
 
 class MenuController extends Controller
 {
@@ -29,7 +31,6 @@ class MenuController extends Controller
 
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-
 
 
         return view('menuViews.menu',[ 'menu' => $menu, 'restaurant_status' => $restaurant_status ]);
@@ -59,14 +60,28 @@ class MenuController extends Controller
         return $output;
     }
 
+    public function setLocation(Request $request){
+
+        return 'I got here';
+        if($request->area != null && $request->state != null){
+            session::put('area', $request->area);
+            session::put('state', $request->state);
+        }else{
+            return redirect(url()->previous());
+        }
+        //once both area and state are set, please go to checkout page
+        return redirect()->route('set.location');
+    }
+
     public function displayMenu($name){
 
         //get the delivery price
         if(Session::has('delivery_price')){
             $delivery_price = Session::get('delivery_price');
+            return $delivery_price;
         }
         else{
-            $delivery_price = 0;
+            $delivery_price = null;
         }
         // $user = User::first();
         // // return $user;
@@ -133,12 +148,20 @@ class MenuController extends Controller
         //make restaurant_status = 1;
         $restaurant_status = 1;
 
-       // return $cart->items;
+        //return $cart->items;
 
-    //    return $category2[0];
+        //return $category2[0];
 
         // $cart->totalPrice = 0;
 
+        // Pass the states and the areas as well
+        // For the situation where the user doesn't
+        // go through the home page first
+        $areas = area::all();
+        $states = states::all();
+
+        //FOR TESTS PURPOSE
+        $delivery_price = 0;
         return view('TestViews.menuTestView',
         [
             'menu'=> $menu, 'products' => $cart->items,
@@ -147,7 +170,9 @@ class MenuController extends Controller
             'restaurant'=> $restaurants,
             'categories' => $categories,
             'category2' => $category2,
-            'delivery_price' => $delivery_price
+            'delivery_price' => $delivery_price,
+            'areas' =>$areas,
+            'states' => $states
         ]);
     }
 }
