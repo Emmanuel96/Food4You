@@ -645,6 +645,7 @@
             </div>
         </div>
 
+
 <!-- Location select  -->
 <div class="modal fade" id = "select-location-modal">
   <div class="modal-dialog" role="document">
