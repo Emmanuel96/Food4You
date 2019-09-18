@@ -168,4 +168,4 @@ Route::get('admin/adminator/test', 'AdminController@adminator');
 Route::get('/minimumOrder/check', 'CheckoutController@min_order_check')->name('order.min_order');
 
 
-Route::post('location', 'MenuController@displayMenu')->name('set.location');
+Route::post('location', 'MenuController@setLocation')->name('set.location');

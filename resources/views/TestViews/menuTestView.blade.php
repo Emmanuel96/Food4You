@@ -658,6 +658,8 @@
       </div>
       <div class="modal-body">
         <form method="POST" action="{{route('set.location')}}" class = "location-form" id ="locationform" style = "display: block; margin-bottom: 10px;">
+            {{ csrf_field() }}
+
             <input type="hidden" value="testvalue"/>
             <div class="dropdown">
                 <button disabled class="btn btn-default dropdown-toggle dropdown-btn" type="button" data-toggle="dropdown">Lagos State

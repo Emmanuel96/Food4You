@@ -62,7 +62,6 @@ class MenuController extends Controller
 
     public function setLocation(Request $request){
 
-        return 'I got here';
         if($request->area != null && $request->state != null){
             session::put('area', $request->area);
             session::put('state', $request->state);
@@ -70,7 +69,7 @@ class MenuController extends Controller
             return redirect(url()->previous());
         }
         //once both area and state are set, please go to checkout page
-        return redirect()->route('set.location');
+        return redirect()->route('checkout.show');
     }
 
     public function displayMenu($name){
@@ -78,7 +77,6 @@ class MenuController extends Controller
         //get the delivery price
         if(Session::has('delivery_price')){
             $delivery_price = Session::get('delivery_price');
-            return $delivery_price;
         }
         else{
             $delivery_price = null;
