@@ -766,7 +766,15 @@
 
 
 <footer id= "mobile_footer" style = "display:none; background-color:#fff; height: 30px; position: fixed; bottom: 0%; width: 100%; ">
-    <a id = "footerPrice" href = "/cart" class = "btn btn-primary" style = "width: 70%; border-radius: 0; color: black; ">
+    <a id = "footerPrice"
+        @if(!isset($delivery_price) || $delivery_price == null || $delivery_price == 0)
+            href="#" class = "btn btn-primary btn-lg" data-toggle="modal" data-target = "#select-location-modal"
+            style = "width: 70%; border-radius: 0; color: black; ">
+        @else if($delivery_price > 0)
+            href = "/cart" class = "btn btn-primary"
+            style = "width: 70%; border-radius: 0; color: black; ">
+        @endif
+
     @if($products == null) Basket is Empty @else ₦{{$totalPrice}}@endif  <i class="fa fa-shopping-cart fa-1x"></i></a>
 </footer>
 
